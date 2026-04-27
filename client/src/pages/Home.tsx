@@ -203,19 +203,15 @@ export default function Home() {
     >
       {/* ── NAV ── */}
       <nav
+        className={navScrolled ? "nav-scrolled" : "nav-top"}
         style={{
           position: "fixed",
           top: 0,
           left: 0,
           right: 0,
           zIndex: 100,
-          background: navScrolled
-            ? "rgba(255,255,255,0.97)"
-            : "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.0) 100%)",
-          backdropFilter: navScrolled ? "blur(12px)" : "none",
-          boxShadow: navScrolled ? "0 2px 16px rgba(0,0,0,0.08)" : "none",
           transition: "all 0.3s ease",
-          padding: "0.85rem 0 1.8rem",
+          padding: "0.85rem 0",
         }}
       >
         <div
@@ -231,8 +227,8 @@ export default function Home() {
               fontFamily: "'DM Serif Display', serif",
               fontWeight: 700,
               fontSize: "1.2rem",
-              color: navScrolled ? "var(--teal)" : "white",
-              textShadow: navScrolled ? "none" : "0 1px 4px rgba(0,0,0,0.3)",
+              color: navScrolled ? "var(--teal)" : "var(--nav-logo-color, var(--teal))",
+              textShadow: navScrolled ? "none" : "var(--nav-logo-shadow, none)",
               transition: "color 0.3s ease",
             }}
           >
@@ -1139,6 +1135,24 @@ export default function Home() {
         /* ── BASE (Mobile-First) ── */
         .hero-section { padding-top: 0; }
 
+        /* Nav: Mobile = Verlauf von dunkel nach transparent */
+        .nav-top {
+          background: linear-gradient(to bottom, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.0) 100%);
+          backdrop-filter: none;
+          box-shadow: none;
+          padding-bottom: 1.8rem;
+          --nav-logo-color: white;
+          --nav-logo-shadow: 0 1px 4px rgba(0,0,0,0.3);
+        }
+        .nav-scrolled {
+          background: rgba(255,255,255,0.97);
+          backdrop-filter: blur(12px);
+          box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+          padding-bottom: 0.85rem;
+          --nav-logo-color: var(--teal);
+          --nav-logo-shadow: none;
+        }
+
         /* Mobile Hero: Vollbild */
         .hero-mobile {
           display: block;
@@ -1250,6 +1264,15 @@ export default function Home() {
 
         /* ── DESKTOP (≥ 768px) ── */
         @media (min-width: 768px) {
+          /* Auf Desktop: kein Verlauf, da heller Cream-Hintergrund */
+          .nav-top {
+            background: transparent;
+            backdrop-filter: none;
+            box-shadow: none;
+            padding-bottom: 0.85rem;
+            --nav-logo-color: var(--teal);
+            --nav-logo-shadow: none;
+          }
           .hero-mobile { display: none; }
           .hero-desktop {
             display: flex;
