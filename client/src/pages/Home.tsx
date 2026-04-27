@@ -479,28 +479,30 @@ export default function Home() {
                     height: "100%",
                   }}
                 >
-                  <div style={{ fontSize: "2.2rem", marginBottom: "0.8rem" }}>
+                  <div className="promise-icon" style={{ fontSize: "2.2rem", marginBottom: "0.8rem" }}>
                     {p.icon}
                   </div>
-                  <h3
-                    style={{
-                      fontFamily: "'DM Serif Display', serif",
-                      fontSize: "1.1rem",
-                      marginBottom: "0.6rem",
-                    }}
-                  >
-                    {p.title}
-                  </h3>
-                  <p
-                    style={{
-                      color: "var(--muted-foreground)",
-                      fontSize: "0.9rem",
-                      lineHeight: 1.65,
-                      margin: 0,
-                    }}
-                  >
-                    {p.text}
-                  </p>
+                  <div className="promise-body">
+                    <h3
+                      style={{
+                        fontFamily: "'DM Serif Display', serif",
+                        fontSize: "1.1rem",
+                        marginBottom: "0.6rem",
+                      }}
+                    >
+                      {p.title}
+                    </h3>
+                    <p
+                      style={{
+                        color: "var(--muted-foreground)",
+                        fontSize: "0.9rem",
+                        lineHeight: 1.65,
+                        margin: 0,
+                      }}
+                    >
+                      {p.text}
+                    </p>
+                  </div>
                 </div>
               </FadeUp>
             ))}
@@ -664,6 +666,7 @@ export default function Home() {
               {modules.map((m, i) => (
                 <div
                   key={m.num}
+                  className="module-row"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -676,6 +679,7 @@ export default function Home() {
                   }}
                 >
                   <span
+                    className="module-num"
                     style={{
                       background: "var(--teal)",
                       color: "white",
@@ -693,6 +697,7 @@ export default function Home() {
                     {m.num}
                   </span>
                   <span
+                    className="module-title"
                     style={{
                       flex: 1,
                       fontWeight: 600,
@@ -703,6 +708,7 @@ export default function Home() {
                     {m.title}
                   </span>
                   <span
+                    className="module-time"
                     style={{
                       background: "var(--sand)",
                       borderRadius: 50,
@@ -837,7 +843,7 @@ export default function Home() {
           {/* Formular-Karte */}
           <FadeUp delay={100}>
             {!waitlistDone ? (
-              <div style={{
+              <div className="waitlist-card" style={{
                 background: "white",
                 borderRadius: 24,
                 padding: "2.5rem 2rem",
@@ -847,7 +853,7 @@ export default function Home() {
                 margin: "0 auto",
               }}>
                 {/* Mini-Trust-Zeile */}
-                <div style={{
+                <div className="waitlist-trust" style={{
                   display: "flex",
                   justifyContent: "center",
                   gap: "1.5rem",
@@ -886,6 +892,7 @@ export default function Home() {
                         required
                         value={name}
                         onChange={(e) => setName(e.target.value)}
+                        className="waitlist-input"
                         style={{
                           width: "100%",
                           padding: "0.9rem 1rem 0.9rem 2.6rem",
@@ -915,6 +922,7 @@ export default function Home() {
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        className="waitlist-input"
                         style={{
                           width: "100%",
                           padding: "0.9rem 1rem 0.9rem 2.6rem",
@@ -934,6 +942,7 @@ export default function Home() {
                     </div>
                     <button
                       type="submit"
+                      className="waitlist-btn"
                       style={{
                         width: "100%",
                         background: "var(--coral)",
@@ -1014,6 +1023,7 @@ export default function Home() {
           </FadeUp>
           <FadeUp delay={60}>
             <div
+              className="faq-card"
               style={{
                 background: "white",
                 borderRadius: 20,
@@ -1124,72 +1134,126 @@ export default function Home() {
 
       {/* ── RESPONSIVE STYLES ── */}
       <style>{`
-        /* Hero: Mobile = Vollbild-Bild mit Overlay; Desktop = 2-Spalten */
-        .hero-section {
-          padding-top: 0;
-        }
-        /* Mobile: Vollbild-Hero sichtbar, Desktop-Hero versteckt */
+        /* ── BASE (Mobile-First) ── */
+        .hero-section { padding-top: 0; }
+
+        /* Mobile Hero: Vollbild */
         .hero-mobile {
           display: block;
           position: relative;
           width: 100%;
           height: 100svh;
-          min-height: 560px;
-          max-height: 820px;
+          min-height: 580px;
+          max-height: 780px;
           overflow: hidden;
         }
-        .hero-desktop {
-          display: none;
-        }
+        .hero-desktop { display: none; }
 
-        /* Versprechen: Mobile = 1 Spalte, Tablet = 3 Spalten */
+        /* Versprechen: 1 Spalte auf Mobile */
         .promise-grid {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 1rem;
+          gap: 0.85rem;
         }
+        .promise-card {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          gap: 1rem;
+          text-align: left !important;
+          padding: 1.1rem 1.2rem !important;
+        }
+        .promise-card .promise-icon {
+          font-size: 1.6rem;
+          flex-shrink: 0;
+          margin-bottom: 0;
+        }
+        .promise-card .promise-body { flex: 1; }
+        .promise-card h3 { font-size: 0.97rem; margin-bottom: 0.25rem; }
+        .promise-card p { font-size: 0.85rem; line-height: 1.55; margin: 0; }
 
-        /* Über Darleen: Mobile = gestapelt, Desktop = nebeneinander */
+        /* Über Darleen: gestapelt auf Mobile */
         .about-layout {
           display: flex;
           flex-direction: column;
-          gap: 2rem;
+          gap: 1.8rem;
           align-items: center;
         }
         .about-image-wrap {
           width: 100%;
-          max-width: 280px;
+          max-width: 220px;
         }
-        .about-text {
-          width: 100%;
+        .about-text { width: 100%; }
+
+        /* Kursmodule: kompakter auf Mobile */
+        .module-row {
+          padding: 0.7rem 0.9rem !important;
+          gap: 0.65rem !important;
+        }
+        .module-num {
+          width: 28px !important;
+          height: 28px !important;
+          font-size: 0.7rem !important;
+          border-radius: 6px !important;
+        }
+        .module-title { font-size: 0.84rem !important; }
+        .module-time {
+          font-size: 0.7rem !important;
+          padding: 0.12rem 0.45rem !important;
         }
 
-        /* Wartelisten-Formular: Mobile = gestapelt, Desktop = Reihe */
-        .waitlist-form {
-          display: flex;
-          flex-direction: column;
-          gap: 0.75rem;
-          max-width: 480px;
-          margin: 0 auto;
+        /* Wartelisten-Karte: volle Breite, weniger Padding auf Mobile */
+        .waitlist-card {
+          padding: 1.6rem 1.2rem !important;
+          border-radius: 18px !important;
+        }
+        .waitlist-trust {
+          gap: 0.8rem !important;
+          font-size: 0.75rem !important;
+          margin-bottom: 1.2rem !important;
+          padding-bottom: 1rem !important;
+        }
+        .waitlist-input {
+          padding: 0.8rem 0.9rem 0.8rem 2.4rem !important;
+          font-size: 0.9rem !important;
+          border-radius: 10px !important;
+        }
+        .waitlist-btn {
+          padding: 0.85rem !important;
+          font-size: 0.92rem !important;
+          border-radius: 10px !important;
         }
 
-        @media (min-width: 480px) {
+        /* FAQ: kompakter auf Mobile */
+        .faq-card {
+          padding: 0.8rem 1rem !important;
+          border-radius: 16px !important;
+        }
+
+        /* ── TABLET (≥ 640px) ── */
+        @media (min-width: 640px) {
           .promise-grid {
             grid-template-columns: repeat(3, 1fr);
           }
+          .promise-card {
+            flex-direction: column;
+            align-items: center;
+            text-align: center !important;
+            padding: 1.6rem !important;
+          }
+          .promise-card .promise-icon { font-size: 2.2rem; }
+          .promise-card h3 { font-size: 1.1rem; margin-bottom: 0.6rem; }
+          .promise-card p { font-size: 0.9rem; line-height: 1.65; }
         }
 
+        /* ── DESKTOP (≥ 768px) ── */
         @media (min-width: 768px) {
-          /* Desktop: Vollbild-Hero versteckt, 2-Spalten-Hero sichtbar */
-          .hero-mobile {
-            display: none;
-          }
+          .hero-mobile { display: none; }
           .hero-desktop {
-            display: block;
-            padding-top: 5rem;
-            min-height: 100svh;
             display: flex;
             align-items: center;
+            padding-top: 5rem;
+            min-height: 100svh;
           }
           .about-layout {
             flex-direction: row;
@@ -1200,21 +1264,16 @@ export default function Home() {
             flex: 0 0 260px;
             max-width: 260px;
           }
-          .about-text {
-            flex: 1;
-          }
-          .waitlist-form {
-            flex-direction: row;
-            max-width: 600px;
-          }
-          .waitlist-form input {
-            flex: 1;
-            width: auto !important;
-          }
-          .waitlist-form button {
-            width: auto !important;
-            white-space: nowrap;
-          }
+          .about-text { flex: 1; }
+          .module-row { padding: 0.85rem 1.2rem !important; gap: 0.9rem !important; }
+          .module-num { width: 32px !important; height: 32px !important; font-size: 0.75rem !important; }
+          .module-title { font-size: 0.92rem !important; }
+          .module-time { font-size: 0.75rem !important; }
+          .waitlist-card { padding: 2.5rem 2rem !important; border-radius: 24px !important; }
+          .waitlist-trust { gap: 1.5rem !important; font-size: 0.82rem !important; }
+          .waitlist-input { padding: 0.9rem 1rem 0.9rem 2.6rem !important; font-size: 0.97rem !important; border-radius: 12px !important; }
+          .waitlist-btn { padding: 1rem !important; font-size: 1rem !important; border-radius: 12px !important; }
+          .faq-card { padding: 1.2rem 1.5rem !important; border-radius: 20px !important; }
         }
       `}</style>
     </div>
