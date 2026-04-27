@@ -768,136 +768,233 @@ export default function Home() {
       <section
         id="warteliste"
         style={{
-          background: "var(--teal)",
-          padding: "4rem 0",
-          textAlign: "center",
+          position: "relative",
+          background: "var(--cream)",
+          padding: "5rem 0 0",
+          overflow: "hidden",
         }}
       >
-        <div className="container" style={{ maxWidth: 640 }}>
+        {/* Dekorativer Hintergrund-Kreis */}
+        <div style={{
+          position: "absolute", top: "-120px", right: "-120px",
+          width: 420, height: 420,
+          borderRadius: "50%",
+          background: "var(--teal)",
+          opacity: 0.06,
+          pointerEvents: "none",
+        }} />
+        <div style={{
+          position: "absolute", bottom: "60px", left: "-80px",
+          width: 280, height: 280,
+          borderRadius: "50%",
+          background: "var(--coral)",
+          opacity: 0.05,
+          pointerEvents: "none",
+        }} />
+
+        <div className="container" style={{ maxWidth: 720 }}>
+          {/* Headline-Block */}
           <FadeUp>
-            <h2
-              style={{
-                fontFamily: "'DM Serif Display', serif",
+            <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+              <span style={{
+                display: "inline-block",
+                background: "var(--teal)",
                 color: "white",
-                fontSize: "clamp(1.7rem, 5vw, 2.5rem)",
-                lineHeight: 1.25,
-                marginBottom: "0.9rem",
-              }}
-            >
-              Werde der sichere Hafen
-              <br />
-              für dein Kind.
-            </h2>
-            <p
-              style={{
-                color: "rgba(255,255,255,0.82)",
-                fontSize: "0.97rem",
+                fontSize: "0.75rem",
+                fontWeight: 700,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                padding: "0.35rem 1rem",
+                borderRadius: 50,
+                marginBottom: "1.2rem",
+              }}>
+                ⚓ Kostenlos & unverbindlich
+              </span>
+              <h2 style={{
+                fontFamily: "'DM Serif Display', serif",
+                fontSize: "clamp(1.9rem, 5vw, 2.8rem)",
+                lineHeight: 1.2,
+                color: "var(--foreground)",
+                marginBottom: "1rem",
+              }}>
+                Werde der sichere Hafen
+                <br />
+                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>für dein Kind.</em>
+              </h2>
+              <p style={{
+                color: "var(--muted-foreground)",
+                fontSize: "1rem",
                 lineHeight: 1.75,
-                marginBottom: "2rem",
-              }}
-            >
-              Trag dich jetzt auf die Warteliste ein – du erfährst als Erste,
-              wenn der Kurs verfügbar ist.
-            </p>
+                maxWidth: 480,
+                margin: "0 auto",
+              }}>
+                Trag dich jetzt auf die Warteliste ein – du erfährst als Erste,
+                wenn der Kurs verfügbar ist.
+              </p>
+            </div>
           </FadeUp>
+
+          {/* Formular-Karte */}
           <FadeUp delay={100}>
             {!waitlistDone ? (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setWaitlistDone(true);
-                }}
-              >
-                {/* Stacked on mobile, row on desktop */}
-                <div className="waitlist-form">
-                  <input
-                    type="text"
-                    placeholder="Dein Vorname"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    style={{
-                      width: "100%",
-                      padding: "0.9rem 1.2rem",
-                      border: "none",
-                      borderRadius: 50,
-                      fontSize: "0.95rem",
-                      fontFamily: "'DM Sans', sans-serif",
-                      outline: "none",
-                      boxSizing: "border-box",
-                    }}
-                  />
-                  <input
-                    type="email"
-                    placeholder="Deine E-Mail-Adresse"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    style={{
-                      width: "100%",
-                      padding: "0.9rem 1.2rem",
-                      border: "none",
-                      borderRadius: 50,
-                      fontSize: "0.95rem",
-                      fontFamily: "'DM Sans', sans-serif",
-                      outline: "none",
-                      boxSizing: "border-box",
-                    }}
-                  />
-                  <button
-                    type="submit"
-                    className="btn-coral"
-                    style={{ width: "100%", justifyContent: "center" }}
-                  >
-                    Auf die Warteliste ⚓
-                  </button>
+              <div style={{
+                background: "white",
+                borderRadius: 24,
+                padding: "2.5rem 2rem",
+                boxShadow: "0 8px 40px rgba(0,0,0,0.09)",
+                border: "1px solid var(--border)",
+                maxWidth: 560,
+                margin: "0 auto",
+              }}>
+                {/* Mini-Trust-Zeile */}
+                <div style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: "1.5rem",
+                  flexWrap: "wrap",
+                  marginBottom: "1.8rem",
+                  paddingBottom: "1.5rem",
+                  borderBottom: "1px solid var(--border)",
+                }}>
+                  {[
+                    { icon: "🔒", label: "Kein Spam" },
+                    { icon: "⚡", label: "Sofort-Zugang" },
+                    { icon: "❌", label: "Jederzeit abmeldbar" },
+                  ].map(t => (
+                    <div key={t.label} style={{
+                      display: "flex", alignItems: "center", gap: "0.4rem",
+                      fontSize: "0.82rem", fontWeight: 600,
+                      color: "var(--muted-foreground)",
+                    }}>
+                      <span style={{ fontSize: "0.95rem" }}>{t.icon}</span>
+                      {t.label}
+                    </div>
+                  ))}
                 </div>
-                <p
-                  style={{
-                    color: "rgba(255,255,255,0.6)",
-                    fontSize: "0.8rem",
-                    marginTop: "0.8rem",
-                  }}
-                >
-                  Kein Spam. Jederzeit abmeldbar.
-                </p>
-              </form>
+
+                <form onSubmit={(e) => { e.preventDefault(); setWaitlistDone(true); }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
+                    <div style={{ position: "relative" }}>
+                      <span style={{
+                        position: "absolute", left: "1rem", top: "50%",
+                        transform: "translateY(-50%)",
+                        fontSize: "1rem", pointerEvents: "none",
+                      }}>👤</span>
+                      <input
+                        type="text"
+                        placeholder="Dein Vorname"
+                        required
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        style={{
+                          width: "100%",
+                          padding: "0.9rem 1rem 0.9rem 2.6rem",
+                          border: "1.5px solid var(--border)",
+                          borderRadius: 12,
+                          fontSize: "0.97rem",
+                          fontFamily: "'DM Sans', sans-serif",
+                          outline: "none",
+                          background: "var(--cream)",
+                          color: "var(--foreground)",
+                          boxSizing: "border-box",
+                          transition: "border-color 0.2s",
+                        }}
+                        onFocus={e => (e.target.style.borderColor = "var(--teal)")}
+                        onBlur={e => (e.target.style.borderColor = "var(--border)")}
+                      />
+                    </div>
+                    <div style={{ position: "relative" }}>
+                      <span style={{
+                        position: "absolute", left: "1rem", top: "50%",
+                        transform: "translateY(-50%)",
+                        fontSize: "1rem", pointerEvents: "none",
+                      }}>📧</span>
+                      <input
+                        type="email"
+                        placeholder="Deine E-Mail-Adresse"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        style={{
+                          width: "100%",
+                          padding: "0.9rem 1rem 0.9rem 2.6rem",
+                          border: "1.5px solid var(--border)",
+                          borderRadius: 12,
+                          fontSize: "0.97rem",
+                          fontFamily: "'DM Sans', sans-serif",
+                          outline: "none",
+                          background: "var(--cream)",
+                          color: "var(--foreground)",
+                          boxSizing: "border-box",
+                          transition: "border-color 0.2s",
+                        }}
+                        onFocus={e => (e.target.style.borderColor = "var(--teal)")}
+                        onBlur={e => (e.target.style.borderColor = "var(--border)")}
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      style={{
+                        width: "100%",
+                        background: "var(--coral)",
+                        color: "white",
+                        border: "none",
+                        borderRadius: 12,
+                        padding: "1rem",
+                        fontFamily: "'DM Sans', sans-serif",
+                        fontWeight: 800,
+                        fontSize: "1rem",
+                        cursor: "pointer",
+                        letterSpacing: "0.02em",
+                        transition: "background 0.2s, transform 0.15s",
+                      }}
+                      onMouseEnter={e => {
+                        (e.currentTarget as HTMLButtonElement).style.background = "#c0392b";
+                        (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-1px)";
+                      }}
+                      onMouseLeave={e => {
+                        (e.currentTarget as HTMLButtonElement).style.background = "var(--coral)";
+                        (e.currentTarget as HTMLButtonElement).style.transform = "";
+                      }}
+                    >
+                      Jetzt auf die Warteliste ⚓
+                    </button>
+                  </div>
+                </form>
+              </div>
             ) : (
-              <div
-                style={{
-                  background: "rgba(255,255,255,0.12)",
-                  borderRadius: 18,
-                  padding: "2rem 1.5rem",
-                  maxWidth: 420,
-                  margin: "0 auto",
-                }}
-              >
-                <div style={{ fontSize: "2rem", marginBottom: "0.6rem" }}>
-                  🎉
-                </div>
-                <p
-                  style={{
-                    color: "white",
-                    fontWeight: 800,
-                    fontSize: "1.05rem",
-                    marginBottom: "0.4rem",
-                  }}
-                >
-                  Super, {name}! Du stehst auf der Liste.
-                </p>
-                <p
-                  style={{
-                    color: "rgba(255,255,255,0.8)",
-                    fontSize: "0.9rem",
-                  }}
-                >
-                  Wir melden uns an <strong>{email}</strong>.
+              <div style={{
+                background: "white",
+                borderRadius: 24,
+                padding: "3rem 2rem",
+                boxShadow: "0 8px 40px rgba(0,0,0,0.09)",
+                border: "1px solid var(--border)",
+                maxWidth: 480,
+                margin: "0 auto",
+                textAlign: "center",
+              }}>
+                <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>🎉</div>
+                <h3 style={{
+                  fontFamily: "'DM Serif Display', serif",
+                  fontSize: "1.4rem",
+                  marginBottom: "0.5rem",
+                  color: "var(--foreground)",
+                }}>
+                  Super, {name}!
+                </h3>
+                <p style={{ color: "var(--muted-foreground)", lineHeight: 1.7, fontSize: "0.95rem" }}>
+                  Du stehst auf der Liste. Wir melden uns an{" "}
+                  <strong style={{ color: "var(--teal)" }}>{email}</strong>.
                 </p>
               </div>
             )}
           </FadeUp>
         </div>
-        <Wave fill="var(--sand)" bg="var(--teal)" />
+
+        {/* Wellen-Übergang nach unten */}
+        <div style={{ marginTop: "4rem" }}>
+          <Wave fill="var(--sand)" bg="var(--cream)" />
+        </div>
       </section>
 
       {/* ── FAQ ── */}
