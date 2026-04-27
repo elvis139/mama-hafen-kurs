@@ -647,7 +647,7 @@ export default function Home() {
                 borderRadius: 20,
                 overflow: "hidden",
                 boxShadow: "0 4px 20px rgba(0,0,0,0.07)",
-                maxWidth: 760,
+                maxWidth: 480,
                 margin: "0 auto 2rem",
               }}
             >
@@ -691,6 +691,9 @@ export default function Home() {
                       fontWeight: 600,
                       fontSize: "0.92rem",
                       lineHeight: 1.4,
+                      whiteSpace: "nowrap",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
                     }}
                   >
                     {m.title}
@@ -708,7 +711,7 @@ export default function Home() {
                 background: "linear-gradient(135deg, var(--teal), var(--teal-dark))",
                 borderRadius: 18,
                 padding: "1.6rem 1.8rem",
-                maxWidth: 760,
+                maxWidth: 480,
                 margin: "0 auto",
                 color: "white",
                 display: "flex",
