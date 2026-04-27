@@ -802,7 +802,7 @@ export default function Home() {
                 borderRadius: 50,
                 marginBottom: "1.2rem",
               }}>
-                ⚓ Kostenlos & unverbindlich
+                🔥 Nur noch wenige Plätze verfügbar
               </span>
               <h2 style={{
                 fontFamily: "'DM Serif Display', serif",
@@ -811,9 +811,9 @@ export default function Home() {
                 color: "var(--foreground)",
                 marginBottom: "1rem",
               }}>
-                Werde der sichere Hafen
+                Jetzt Platz sichern &
                 <br />
-                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>für dein Kind.</em>
+                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>als Erste starten.</em>
               </h2>
               <p style={{
                 color: "var(--muted-foreground)",
@@ -822,8 +822,8 @@ export default function Home() {
                 maxWidth: 480,
                 margin: "0 auto",
               }}>
-                Trag dich jetzt auf die Warteliste ein – du erfährst als Erste,
-                wenn der Kurs verfügbar ist.
+                Sichere dir jetzt deinen Platz – Wartelisten-Mitglieder erhalten
+                <strong> Frühbucher-Rabatt</strong> und starten als Erste, wenn der Kurs öffnet.
               </p>
             </div>
           </FadeUp>
@@ -851,9 +851,9 @@ export default function Home() {
                   borderBottom: "1px solid var(--border)",
                 }}>
                   {[
-                    { icon: "🔒", label: "Kein Spam" },
-                    { icon: "⏱", label: "Flexibles Lerntempo" },
-                    { icon: "❌", label: "Jederzeit abmeldbar" },
+                    { icon: "🎁", label: "Frühbucher-Bonus sichern" },
+                    { icon: "🔔", label: "Als Erste informiert" },
+                    { icon: "⚡", label: "Sofort startklar" },
                   ].map((t, i) => (
                     <div key={t.label} style={{
                       flex: 1,
@@ -964,7 +964,7 @@ export default function Home() {
                         (e.currentTarget as HTMLButtonElement).style.transform = "";
                       }}
                     >
-                      Jetzt auf die Warteliste ⚓
+                      🎁 Frühbucher-Platz sichern
                     </button>
                   </div>
                 </form>
