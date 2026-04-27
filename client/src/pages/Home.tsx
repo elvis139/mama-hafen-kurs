@@ -304,19 +304,41 @@ export default function Home() {
               </p>
             </FadeUp>
             <FadeUp delay={180}>
-              <div style={{ display: "flex", gap: "0.7rem", flexWrap: "wrap" }}>
-                <button className="btn-coral" onClick={() => scrollTo("kurs")} style={{ flex: 1, justifyContent: "center", textAlign: "center" }}>
+              <div style={{ display: "flex", gap: "0.6rem", alignItems: "center" }}>
+                <button
+                  onClick={() => scrollTo("kurs")}
+                  style={{
+                    background: "var(--coral)",
+                    color: "white",
+                    border: "none",
+                    borderRadius: 50,
+                    padding: "0.6rem 1.3rem",
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontWeight: 700,
+                    fontSize: "0.85rem",
+                    cursor: "pointer",
+                    whiteSpace: "nowrap",
+                  }}
+                >
                   Mehr erfahren ↓
                 </button>
-                <button onClick={() => scrollTo("warteliste")} style={{
-                  flex: 1, background: "rgba(255,255,255,0.15)",
-                  backdropFilter: "blur(8px)", color: "white",
-                  border: "1.5px solid rgba(255,255,255,0.5)",
-                  borderRadius: 50, padding: "0.85rem 1.2rem",
-                  fontFamily: "'DM Sans', sans-serif", fontWeight: 700,
-                  fontSize: "0.95rem", cursor: "pointer", textAlign: "center",
-                }}>
-                  Auf die Warteliste
+                <button
+                  onClick={() => scrollTo("warteliste")}
+                  style={{
+                    background: "rgba(255,255,255,0.15)",
+                    backdropFilter: "blur(8px)",
+                    color: "white",
+                    border: "1.5px solid rgba(255,255,255,0.45)",
+                    borderRadius: 50,
+                    padding: "0.6rem 1.3rem",
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontWeight: 700,
+                    fontSize: "0.85rem",
+                    cursor: "pointer",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  Warteliste ⚓
                 </button>
               </div>
             </FadeUp>
