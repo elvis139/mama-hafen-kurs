@@ -245,141 +245,165 @@ export default function Home() {
       </nav>
 
       {/* ── HERO ── */}
-      <section
-        style={{
-          paddingTop: "4.5rem",
-          minHeight: "100svh",
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <div className="container" style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>
-          {/* Mobile: Bild oben, Text unten. Desktop: nebeneinander */}
-          <div className="hero-layout">
-            {/* Bild */}
-            <FadeUp className="hero-image-wrap">
-              <div style={{ position: "relative" }}>
-                <div
-                  style={{
+      {/* Desktop: 2-Spalten-Layout. Mobile: Vollbild-Hintergrund mit Overlay */}
+      <section className="hero-section">
+
+        {/* Mobile Hero: Vollbild-Bild mit Overlay und Text darüber */}
+        <div className="hero-mobile">
+          <img
+            src={IMG_HERO}
+            alt="Mama begleitet Kind liebevoll"
+            style={{
+              position: "absolute", inset: 0,
+              width: "100%", height: "100%",
+              objectFit: "cover", objectPosition: "center top",
+            }}
+          />
+          {/* Gradient-Overlay von unten */}
+          <div style={{
+            position: "absolute", inset: 0,
+            background: "linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.82) 100%)",
+          }} />
+          {/* Text über dem Bild */}
+          <div style={{
+            position: "relative", zIndex: 2,
+            display: "flex", flexDirection: "column", justifyContent: "flex-end",
+            height: "100%", padding: "1.5rem 1.5rem 2.5rem",
+          }}>
+            <FadeUp>
+              <span style={{
+                display: "inline-block", background: "rgba(255,255,255,0.18)",
+                backdropFilter: "blur(8px)", color: "white",
+                fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.08em",
+                textTransform: "uppercase", padding: "0.3rem 0.9rem",
+                borderRadius: 50, marginBottom: "1rem", border: "1px solid rgba(255,255,255,0.3)",
+              }}>
+                ⚓ Online-Kurs für Mamas
+              </span>
+            </FadeUp>
+            <FadeUp delay={60}>
+              <h1 style={{
+                fontFamily: "'DM Serif Display', serif",
+                fontSize: "clamp(1.9rem, 8vw, 2.8rem)",
+                lineHeight: 1.15, color: "white",
+                marginBottom: "0.9rem", textShadow: "0 2px 12px rgba(0,0,0,0.3)",
+              }}>
+                Ist dein Kind plötzlich ein kleiner{" "}
+                <em style={{ color: "#a8e6cf", fontStyle: "italic" }}>Tyrann?</em>
+              </h1>
+            </FadeUp>
+            <FadeUp delay={120}>
+              <p style={{
+                fontSize: "0.95rem", lineHeight: 1.7,
+                color: "rgba(255,255,255,0.88)",
+                marginBottom: "1.5rem",
+              }}>
+                Lerne, die Autonomiephase zu verstehen und endlich wieder{" "}
+                <strong style={{ color: "white" }}>Ruhe in euren Familienalltag</strong>{" "}
+                zu bringen.
+              </p>
+            </FadeUp>
+            <FadeUp delay={180}>
+              <div style={{ display: "flex", gap: "0.7rem", flexWrap: "wrap" }}>
+                <button className="btn-coral" onClick={() => scrollTo("kurs")} style={{ flex: 1, justifyContent: "center", textAlign: "center" }}>
+                  Mehr erfahren ↓
+                </button>
+                <button onClick={() => scrollTo("warteliste")} style={{
+                  flex: 1, background: "rgba(255,255,255,0.15)",
+                  backdropFilter: "blur(8px)", color: "white",
+                  border: "1.5px solid rgba(255,255,255,0.5)",
+                  borderRadius: 50, padding: "0.85rem 1.2rem",
+                  fontFamily: "'DM Sans', sans-serif", fontWeight: 700,
+                  fontSize: "0.95rem", cursor: "pointer", textAlign: "center",
+                }}>
+                  Auf die Warteliste
+                </button>
+              </div>
+            </FadeUp>
+            {/* Badge */}
+            <FadeUp delay={240}>
+              <div style={{
+                display: "inline-flex", alignItems: "center", gap: "0.5rem",
+                background: "rgba(255,255,255,0.12)", backdropFilter: "blur(8px)",
+                border: "1px solid rgba(255,255,255,0.25)",
+                borderRadius: 50, padding: "0.45rem 1rem",
+                marginTop: "1.2rem", width: "fit-content",
+              }}>
+                <span style={{ fontSize: "1rem" }}>🎬</span>
+                <span style={{ color: "white", fontSize: "0.8rem", fontWeight: 700 }}>11 Lektionen + 5 Bonus-Module</span>
+              </div>
+            </FadeUp>
+          </div>
+        </div>
+
+        {/* Desktop Hero: 2-Spalten-Layout */}
+        <div className="hero-desktop">
+          <div className="container" style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3.5rem", alignItems: "center" }}>
+              {/* Text */}
+              <div>
+                <FadeUp>
+                  <span style={{
+                    display: "inline-block", background: "var(--teal)", color: "white",
+                    fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.08em",
+                    textTransform: "uppercase", padding: "0.3rem 0.9rem",
+                    borderRadius: 50, marginBottom: "1.2rem",
+                  }}>
+                    ⚓ Online-Kurs für Mamas
+                  </span>
+                </FadeUp>
+                <FadeUp delay={80}>
+                  <h1 style={{
+                    fontFamily: "'DM Serif Display', serif",
+                    fontSize: "clamp(2.2rem, 4vw, 3.3rem)",
+                    lineHeight: 1.15, marginBottom: "1.2rem",
+                  }}>
+                    Ist dein Kind plötzlich ein kleiner{" "}
+                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>Tyrann?</em>
+                  </h1>
+                </FadeUp>
+                <FadeUp delay={160}>
+                  <p style={{
+                    fontSize: "1rem", lineHeight: 1.8,
+                    color: "var(--muted-foreground)", marginBottom: "1.8rem",
+                  }}>
+                    Lerne, die Autonomiephase zu verstehen, Wutanfälle liebevoll
+                    zu begleiten und endlich wieder{" "}
+                    <strong style={{ color: "var(--foreground)" }}>Ruhe in euren Familienalltag</strong>{" "}
+                    zu bringen.
+                  </p>
+                </FadeUp>
+                <FadeUp delay={240}>
+                  <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap" }}>
+                    <button className="btn-coral" onClick={() => scrollTo("kurs")}>Mehr erfahren ↓</button>
+                    <button className="btn-teal-outline" onClick={() => scrollTo("warteliste")}>Auf die Warteliste</button>
+                  </div>
+                </FadeUp>
+              </div>
+              {/* Bild */}
+              <FadeUp delay={180}>
+                <div style={{ position: "relative" }}>
+                  <div style={{
                     borderRadius: "55% 45% 50% 50% / 48% 52% 48% 52%",
                     overflow: "hidden",
                     boxShadow: "0 20px 55px rgba(0,0,0,0.13)",
                     aspectRatio: "4/5",
-                    maxHeight: "55svh",
-                    margin: "0 auto",
-                  }}
-                >
-                  <img
-                    src={IMG_HERO}
-                    alt="Mama begleitet Kind liebevoll"
-                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                  />
-                </div>
-                {/* Badge */}
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: "1rem",
-                    right: "0.5rem",
-                    background: "white",
-                    borderRadius: 12,
-                    padding: "0.7rem 1rem",
+                  }}>
+                    <img src={IMG_HERO} alt="Mama begleitet Kind liebevoll"
+                      style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  </div>
+                  <div style={{
+                    position: "absolute", bottom: "1.5rem", left: "-1rem",
+                    background: "white", borderRadius: 12, padding: "0.7rem 1rem",
                     boxShadow: "0 6px 24px rgba(0,0,0,0.1)",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.6rem",
-                  }}
-                >
-                  <span style={{ fontSize: "1.3rem" }}>🎬</span>
-                  <div>
-                    <div style={{ fontWeight: 800, fontSize: "0.82rem" }}>
-                      11 Video-Lektionen
-                    </div>
-                    <div
-                      style={{
-                        fontSize: "0.7rem",
-                        color: "var(--muted-foreground)",
-                      }}
-                    >
-                      + 5 Bonus-Module
+                    display: "flex", alignItems: "center", gap: "0.6rem",
+                  }}>
+                    <span style={{ fontSize: "1.3rem" }}>🎬</span>
+                    <div>
+                      <div style={{ fontWeight: 800, fontSize: "0.82rem" }}>11 Video-Lektionen</div>
+                      <div style={{ fontSize: "0.7rem", color: "var(--muted-foreground)" }}>+ 5 Bonus-Module</div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </FadeUp>
-
-            {/* Text */}
-            <div className="hero-text">
-              <FadeUp>
-                <span
-                  style={{
-                    display: "inline-block",
-                    background: "var(--teal)",
-                    color: "white",
-                    fontSize: "0.75rem",
-                    fontWeight: 700,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    padding: "0.3rem 0.9rem",
-                    borderRadius: 50,
-                    marginBottom: "1.2rem",
-                  }}
-                >
-                  ⚓ Online-Kurs für Mamas
-                </span>
-              </FadeUp>
-              <FadeUp delay={80}>
-                <h1
-                  style={{
-                    fontFamily: "'DM Serif Display', serif",
-                    fontSize: "clamp(2rem, 6vw, 3.3rem)",
-                    lineHeight: 1.15,
-                    marginBottom: "1.2rem",
-                  }}
-                >
-                  Ist dein Kind plötzlich ein kleiner{" "}
-                  <em style={{ color: "var(--teal)", fontStyle: "italic" }}>
-                    Tyrann?
-                  </em>
-                </h1>
-              </FadeUp>
-              <FadeUp delay={160}>
-                <p
-                  style={{
-                    fontSize: "1rem",
-                    lineHeight: 1.8,
-                    color: "var(--muted-foreground)",
-                    marginBottom: "1.8rem",
-                  }}
-                >
-                  Lerne, die Autonomiephase zu verstehen, Wutanfälle liebevoll
-                  zu begleiten und endlich wieder{" "}
-                  <strong style={{ color: "var(--foreground)" }}>
-                    Ruhe in euren Familienalltag
-                  </strong>{" "}
-                  zu bringen.
-                </p>
-              </FadeUp>
-              <FadeUp delay={240}>
-                <div
-                  style={{
-                    display: "flex",
-                    gap: "0.8rem",
-                    flexWrap: "wrap",
-                  }}
-                >
-                  <button
-                    className="btn-coral"
-                    onClick={() => scrollTo("kurs")}
-                  >
-                    Mehr erfahren ↓
-                  </button>
-                  <button
-                    className="btn-teal-outline"
-                    onClick={() => scrollTo("warteliste")}
-                  >
-                    Auf die Warteliste
-                  </button>
                 </div>
               </FadeUp>
             </div>
@@ -981,19 +1005,22 @@ export default function Home() {
 
       {/* ── RESPONSIVE STYLES ── */}
       <style>{`
-        /* Hero: Mobile = Bild oben, Text unten; Desktop = nebeneinander */
-        .hero-layout {
-          display: flex;
-          flex-direction: column;
-          gap: 2rem;
+        /* Hero: Mobile = Vollbild-Bild mit Overlay; Desktop = 2-Spalten */
+        .hero-section {
+          padding-top: 0;
         }
-        .hero-image-wrap {
+        /* Mobile: Vollbild-Hero sichtbar, Desktop-Hero versteckt */
+        .hero-mobile {
+          display: block;
+          position: relative;
           width: 100%;
-          max-width: 340px;
-          margin: 0 auto;
+          height: 100svh;
+          min-height: 560px;
+          max-height: 820px;
+          overflow: hidden;
         }
-        .hero-text {
-          width: 100%;
+        .hero-desktop {
+          display: none;
         }
 
         /* Versprechen: Mobile = 1 Spalte, Tablet = 3 Spalten */
@@ -1034,19 +1061,16 @@ export default function Home() {
         }
 
         @media (min-width: 768px) {
-          .hero-layout {
-            flex-direction: row;
+          /* Desktop: Vollbild-Hero versteckt, 2-Spalten-Hero sichtbar */
+          .hero-mobile {
+            display: none;
+          }
+          .hero-desktop {
+            display: block;
+            padding-top: 5rem;
+            min-height: 100svh;
+            display: flex;
             align-items: center;
-            gap: 3.5rem;
-          }
-          .hero-image-wrap {
-            flex: 1;
-            max-width: none;
-            margin: 0;
-          }
-          .hero-text {
-            flex: 1;
-            order: -1;
           }
           .about-layout {
             flex-direction: row;
