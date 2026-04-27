@@ -342,19 +342,7 @@ export default function Home() {
                 </button>
               </div>
             </FadeUp>
-            {/* Badge */}
-            <FadeUp delay={240}>
-              <div style={{
-                display: "inline-flex", alignItems: "center", gap: "0.5rem",
-                background: "rgba(255,255,255,0.12)", backdropFilter: "blur(8px)",
-                border: "1px solid rgba(255,255,255,0.25)",
-                borderRadius: 50, padding: "0.45rem 1rem",
-                marginTop: "1.2rem", width: "fit-content",
-              }}>
-                <span style={{ fontSize: "1rem" }}>🎬</span>
-                <span style={{ color: "white", fontSize: "0.8rem", fontWeight: 700 }}>11 Lektionen + 5 Bonus-Module</span>
-              </div>
-            </FadeUp>
+
           </div>
         </div>
 
@@ -856,24 +844,34 @@ export default function Home() {
                 <div className="waitlist-trust" style={{
                   display: "flex",
                   justifyContent: "center",
-                  gap: "1.5rem",
-                  flexWrap: "wrap",
-                  marginBottom: "1.8rem",
+                  gap: "0",
+                  flexWrap: "nowrap",
+                  marginBottom: "1.5rem",
                   paddingBottom: "1.5rem",
                   borderBottom: "1px solid var(--border)",
                 }}>
                   {[
                     { icon: "🔒", label: "Kein Spam" },
-                    { icon: "⚡", label: "Sofort-Zugang" },
+                    { icon: "⏱", label: "Flexibles Lerntempo" },
                     { icon: "❌", label: "Jederzeit abmeldbar" },
-                  ].map(t => (
+                  ].map((t, i) => (
                     <div key={t.label} style={{
-                      display: "flex", alignItems: "center", gap: "0.4rem",
-                      fontSize: "0.82rem", fontWeight: 600,
-                      color: "var(--muted-foreground)",
+                      flex: 1,
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: "0.3rem",
+                      padding: "0.5rem 0.4rem",
+                      borderRight: i < 2 ? "1px solid var(--border)" : "none",
+                      textAlign: "center",
                     }}>
-                      <span style={{ fontSize: "0.95rem" }}>{t.icon}</span>
-                      {t.label}
+                      <span style={{ fontSize: "1.2rem" }}>{t.icon}</span>
+                      <span style={{
+                        fontSize: "0.72rem",
+                        fontWeight: 700,
+                        color: "var(--muted-foreground)",
+                        lineHeight: 1.3,
+                      }}>{t.label}</span>
                     </div>
                   ))}
                 </div>
