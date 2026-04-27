@@ -209,9 +209,9 @@ export default function Home() {
           left: 0,
           right: 0,
           zIndex: 100,
-          background: navScrolled ? "rgba(255,255,255,0.96)" : "transparent",
-          backdropFilter: navScrolled ? "blur(12px)" : "none",
-          boxShadow: navScrolled ? "0 2px 16px rgba(0,0,0,0.07)" : "none",
+          background: navScrolled ? "rgba(255,255,255,0.97)" : "rgba(0,0,0,0.25)",
+          backdropFilter: "blur(12px)",
+          boxShadow: navScrolled ? "0 2px 16px rgba(0,0,0,0.08)" : "none",
           transition: "all 0.3s ease",
           padding: "0.85rem 0",
         }}
@@ -229,7 +229,9 @@ export default function Home() {
               fontFamily: "'DM Serif Display', serif",
               fontWeight: 700,
               fontSize: "1.2rem",
-              color: "var(--teal)",
+              color: navScrolled ? "var(--teal)" : "white",
+              textShadow: navScrolled ? "none" : "0 1px 4px rgba(0,0,0,0.3)",
+              transition: "color 0.3s ease",
             }}
           >
             ⚓ Mama-Hafen
