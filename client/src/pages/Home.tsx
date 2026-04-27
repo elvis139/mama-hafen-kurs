@@ -695,21 +695,7 @@ export default function Home() {
                   >
                     {m.title}
                   </span>
-                  <span
-                    className="module-time"
-                    style={{
-                      background: "var(--sand)",
-                      borderRadius: 50,
-                      padding: "0.18rem 0.6rem",
-                      fontSize: "0.75rem",
-                      color: "var(--teal)",
-                      fontWeight: 700,
-                      flexShrink: 0,
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    ⏱ {m.min} Min.
-                  </span>
+
                 </div>
               ))}
             </div>
