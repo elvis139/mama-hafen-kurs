@@ -75,10 +75,13 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.75;
   }
   h1, h2, h3, h4 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'DM Serif Display', serif;
+    line-height: 1.2;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -117,7 +120,7 @@
   .btn-coral {
     background-color: var(--coral);
     color: white;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 800;
     border-radius: 50px;
     padding: 0.9rem 2.2rem;
@@ -139,7 +142,7 @@
   .btn-teal-outline {
     background: transparent;
     color: var(--teal);
-    font-family: 'Nunito', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 700;
     border-radius: 50px;
     padding: 0.85rem 2rem;

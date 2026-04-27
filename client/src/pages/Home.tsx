@@ -50,7 +50,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
       <button onClick={() => setOpen(!open)} style={{
         width: "100%", textAlign: "left", background: "none", border: "none",
         display: "flex", justifyContent: "space-between", alignItems: "center",
-        gap: "1rem", cursor: "pointer", fontFamily: "'Nunito', sans-serif",
+        gap: "1rem", cursor: "pointer", fontFamily: "'DM Sans', sans-serif",
         fontWeight: 700, fontSize: "1rem", color: "var(--foreground)", padding: 0,
       }}>
         <span>{q}</span>
@@ -106,7 +106,7 @@ export default function Home() {
   const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <div style={{ fontFamily: "'Nunito', sans-serif", background: "var(--cream)", color: "var(--foreground)" }}>
+    <div style={{ fontFamily: "'DM Sans', sans-serif", background: "var(--cream)", color: "var(--foreground)" }}>
 
       {/* ── NAV ── */}
       <nav style={{
@@ -117,7 +117,7 @@ export default function Home() {
         transition: "all 0.3s ease", padding: "1rem 0",
       }}>
         <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <span style={{ fontFamily: "'Playfair Display', serif", fontWeight: 800, fontSize: "1.35rem", color: "var(--teal)" }}>
+          <span style={{ fontFamily: "'DM Serif Display', serif", fontWeight: 800, fontSize: "1.35rem", color: "var(--teal)" }}>
             ⚓ Mama-Hafen
           </span>
           <button className="btn-coral" onClick={() => scrollTo("warteliste")} style={{ padding: "0.55rem 1.4rem", fontSize: "0.88rem" }}>
@@ -144,7 +144,7 @@ export default function Home() {
               </FadeUp>
               <FadeUp delay={80}>
                 <h1 style={{
-                  fontFamily: "'Playfair Display', serif", fontWeight: 800,
+                  fontFamily: "'DM Serif Display', serif", fontWeight: 800,
                   fontSize: "clamp(2.2rem, 5vw, 3.3rem)", lineHeight: 1.15,
                   marginBottom: "1.4rem",
                 }}>
@@ -205,7 +205,7 @@ export default function Home() {
         <div className="container">
           <FadeUp>
             <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.7rem, 3.5vw, 2.3rem)", fontWeight: 800 }}>
+              <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(1.7rem, 3.5vw, 2.3rem)", fontWeight: 800 }}>
                 Was du nach dem Kurs anders machst
               </h2>
             </div>
@@ -226,7 +226,7 @@ export default function Home() {
                   onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.transform = ""; (e.currentTarget as HTMLDivElement).style.boxShadow = "0 4px 20px rgba(0,0,0,0.05)"; }}
                 >
                   <div style={{ fontSize: "2.4rem", marginBottom: "1rem" }}>{p.icon}</div>
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.15rem", fontWeight: 700, marginBottom: "0.7rem" }}>{p.title}</h3>
+                  <h3 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "1.15rem", fontWeight: 700, marginBottom: "0.7rem" }}>{p.title}</h3>
                   <p style={{ color: "var(--muted-foreground)", fontSize: "0.93rem", lineHeight: 1.7 }}>{p.text}</p>
                 </div>
               </FadeUp>
@@ -253,7 +253,7 @@ export default function Home() {
             <div>
               <FadeUp>
                 <span style={{ color: "var(--coral)", fontWeight: 800, fontSize: "0.8rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>Deine Kursleiterin</span>
-                <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.7rem, 3.5vw, 2.3rem)", fontWeight: 800, marginTop: "0.5rem", marginBottom: "1.2rem" }}>
+                <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(1.7rem, 3.5vw, 2.3rem)", fontWeight: 800, marginTop: "0.5rem", marginBottom: "1.2rem" }}>
                   Hallo, ich bin Darleen.
                 </h2>
               </FadeUp>
@@ -266,7 +266,7 @@ export default function Home() {
                 <blockquote style={{
                   borderLeft: "4px solid var(--teal)", paddingLeft: "1.4rem",
                   margin: "0 0 1.5rem",
-                  fontFamily: "'Playfair Display', serif", fontStyle: "italic",
+                  fontFamily: "'DM Serif Display', serif", fontStyle: "italic",
                   fontSize: "1.05rem", color: "var(--teal-dark)", lineHeight: 1.65,
                 }}>
                   „Mit den richtigen Werkzeugen konnte ich nicht nur meinen Kindern helfen – sondern auch selbst wieder Gelassenheit finden."
@@ -289,7 +289,7 @@ export default function Home() {
           <FadeUp>
             <div style={{ textAlign: "center", marginBottom: "3rem" }}>
               <span style={{ color: "var(--coral)", fontWeight: 800, fontSize: "0.8rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>Der Kurs</span>
-              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.7rem, 3.5vw, 2.3rem)", fontWeight: 800, marginTop: "0.5rem" }}>
+              <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(1.7rem, 3.5vw, 2.3rem)", fontWeight: 800, marginTop: "0.5rem" }}>
                 11 Lektionen. Schritt für Schritt.
               </h2>
               <p style={{ color: "var(--muted-foreground)", maxWidth: 500, margin: "0.8rem auto 0", lineHeight: 1.7 }}>
@@ -357,7 +357,7 @@ export default function Home() {
         <div className="container" style={{ maxWidth: 680 }}>
           <FadeUp>
             <h2 style={{
-              fontFamily: "'Playfair Display', serif", color: "white",
+              fontFamily: "'DM Serif Display', serif", color: "white",
               fontSize: "clamp(1.8rem, 4vw, 2.6rem)", fontWeight: 800,
               lineHeight: 1.25, marginBottom: "1rem",
             }}>
@@ -372,9 +372,9 @@ export default function Home() {
               <form onSubmit={e => { e.preventDefault(); setWaitlistDone(true); }}>
                 <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center", flexWrap: "wrap", marginBottom: "1rem" }}>
                   <input type="text" placeholder="Dein Vorname" required value={name} onChange={e => setName(e.target.value)}
-                    style={{ flex: 1, minWidth: 160, padding: "0.9rem 1.2rem", border: "none", borderRadius: 50, fontSize: "0.97rem", fontFamily: "'Nunito', sans-serif", outline: "none" }} />
+                    style={{ flex: 1, minWidth: 160, padding: "0.9rem 1.2rem", border: "none", borderRadius: 50, fontSize: "0.97rem", fontFamily: "'DM Sans', sans-serif", outline: "none" }} />
                   <input type="email" placeholder="Deine E-Mail-Adresse" required value={email} onChange={e => setEmail(e.target.value)}
-                    style={{ flex: 1.5, minWidth: 200, padding: "0.9rem 1.2rem", border: "none", borderRadius: 50, fontSize: "0.97rem", fontFamily: "'Nunito', sans-serif", outline: "none" }} />
+                    style={{ flex: 1.5, minWidth: 200, padding: "0.9rem 1.2rem", border: "none", borderRadius: 50, fontSize: "0.97rem", fontFamily: "'DM Sans', sans-serif", outline: "none" }} />
                   <button type="submit" className="btn-coral" style={{ whiteSpace: "nowrap" }}>
                     Auf die Warteliste ⚓
                   </button>
@@ -398,7 +398,7 @@ export default function Home() {
         <div className="container" style={{ maxWidth: 720 }}>
           <FadeUp>
             <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>
-              <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(1.6rem, 3vw, 2.1rem)", fontWeight: 800 }}>
+              <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(1.6rem, 3vw, 2.1rem)", fontWeight: 800 }}>
                 Häufige Fragen
               </h2>
             </div>
@@ -416,7 +416,7 @@ export default function Home() {
       <section style={{ background: "var(--teal)", padding: "4rem 0", textAlign: "center" }}>
         <div className="container">
           <FadeUp>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", color: "white", fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", fontWeight: 800, marginBottom: "1.5rem" }}>
+            <h2 style={{ fontFamily: "'DM Serif Display', serif", color: "white", fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)", fontWeight: 800, marginBottom: "1.5rem" }}>
               Dein Kind wartet auf seinen sicheren Hafen.
             </h2>
             <button className="btn-coral" onClick={() => scrollTo("warteliste")} style={{ fontSize: "1rem", padding: "1rem 2.5rem" }}>
@@ -429,7 +429,7 @@ export default function Home() {
       {/* ── FOOTER ── */}
       <footer style={{ background: "var(--teal-dark)", padding: "2rem 0", textAlign: "center" }}>
         <div className="container">
-          <div style={{ fontFamily: "'Playfair Display', serif", fontWeight: 800, fontSize: "1.1rem", color: "rgba(255,255,255,0.85)", marginBottom: "0.8rem" }}>
+          <div style={{ fontFamily: "'DM Serif Display', serif", fontWeight: 800, fontSize: "1.1rem", color: "rgba(255,255,255,0.85)", marginBottom: "0.8rem" }}>
             ⚓ Mama-Hafen
           </div>
           <div style={{ display: "flex", justifyContent: "center", gap: "2rem", flexWrap: "wrap", marginBottom: "0.8rem" }}>
