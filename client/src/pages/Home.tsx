@@ -209,11 +209,13 @@ export default function Home() {
           left: 0,
           right: 0,
           zIndex: 100,
-          background: navScrolled ? "rgba(255,255,255,0.97)" : "rgba(0,0,0,0.25)",
-          backdropFilter: "blur(12px)",
+          background: navScrolled
+            ? "rgba(255,255,255,0.97)"
+            : "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.0) 100%)",
+          backdropFilter: navScrolled ? "blur(12px)" : "none",
           boxShadow: navScrolled ? "0 2px 16px rgba(0,0,0,0.08)" : "none",
           transition: "all 0.3s ease",
-          padding: "0.85rem 0",
+          padding: "0.85rem 0 1.8rem",
         }}
       >
         <div
