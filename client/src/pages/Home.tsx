@@ -1089,14 +1089,16 @@ export default function Home() {
             }}
           >
             {[
-              ["darvismedia.de", "https://darvismedia.de"],
-              ["Impressum", "#"],
-              ["Datenschutz", "#"],
-              ["Kontakt", "#"],
+              ["darvismedia.de", "https://www.darvismedia.de"],
+              ["Impressum", "https://www.darvismedia.de/impressum"],
+              ["Datenschutz", "https://www.darvismedia.de/datenschutz"],
+              ["Kontakt", "https://www.darvismedia.de/kontakt"],
             ].map(([label, href]) => (
               <a
                 key={label}
                 href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   color: "rgba(255,255,255,0.55)",
                   fontSize: "0.83rem",
