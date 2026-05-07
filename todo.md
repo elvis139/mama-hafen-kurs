@@ -19,3 +19,11 @@
 - [x] Vollbild-Modus aktivieren (allowfullscreen korrekt setzen)
 - [x] YouTube-Controls ausblenden (controls=0 gesetzt)
 - [x] Share-Button: nicht entfernbar (YouTube-Policy seit 2023 – modestbranding deprecated)
+
+## Workbook & Video-Hosting
+- [x] Workbook-Download reparieren (neue URL: Mama-Hafen-Workbook_3f11ba7d.pdf)
+- [x] Video-Hosting: bunny.net Stream eingebunden (Library 655693)
+- [x] BunnyPlayer-Komponente gebaut (iframe, kein Share-Button, Vollbild, adaptive Qualität)
+- [x] Video-IDs direkt in modules-Array (bunnyId-Feld) – Modul 11 aktiv
+- [x] Kurs.tsx: YouTube-Player durch BunnyPlayer ersetzt
+- [ ] Admin-Upload-Seite für Videos bauen (passwortgeschützt) – optional

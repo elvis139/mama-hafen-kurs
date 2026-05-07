@@ -3,83 +3,158 @@
  * Design: Coastal Calm – DM Serif Display + DM Sans, Teal + Sand + Coral
  *
  * Zugang: Session-Token aus localStorage
- * Enthält: 11 Kursmodule mit YouTube-Platzhaltern + Workbook-Download
+ * Video-Hosting: bunny.net Stream (Library ID: 655693)
+ * Enthält: 11 Kursmodule mit bunny.net-Player + Modul-PDFs + Workbook-Download
  */
 
 import { trpc } from "@/lib/trpc";
 import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "wouter";
 
-const WORKBOOK_URL = "/manus-storage/Mama-Hafen-Workbook_a35e7e4f.pdf";
+const WORKBOOK_URL = "/manus-storage/Mama-Hafen-Workbook_3f11ba7d.pdf";
+const BUNNY_LIBRARY_ID = "655693";
 
 const modules = [
   {
     num: "01",
     title: "Begrüßung & Überblick",
     desc: "Willkommen im Mama-Hafen! Darleen stellt den Kurs vor und erklärt, was dich erwartet.",
-    youtubeId: "POKQarEGw6Y",
+    bunnyId: null as string | null,
+    pdfUrl: "/manus-storage/1._Begruungsvideo_(fertig)_edb1c6a2.pdf",
   },
   {
     num: "02",
     title: "Ist mein Kind ein kleiner Tyrann?",
     desc: "Warum dein Kind sich so verhält – und warum es kein schlechtes Zeichen ist.",
-    youtubeId: "FMFdMw1bOTo",
+    bunnyId: null as string | null,
+    pdfUrl: "/manus-storage/2._Ist_mein_Kind_ein_Tyrann_(fertig)_07b9e47d.pdf",
   },
   {
     num: "03",
     title: "Die Autonomiephase verstehen",
     desc: "Was im Gehirn deines Kindes passiert und warum diese Phase so wichtig ist.",
-    youtubeId: "lS5-qW3MyOA",
+    bunnyId: null as string | null,
+    pdfUrl: "/manus-storage/3._Die_Autonomiephase_(fertig)_b707ec61.pdf",
   },
   {
     num: "04",
     title: "Die Illusion der Wahl",
     desc: "Wie du deinem Kind das Gefühl von Kontrolle gibst – ohne die Führung zu verlieren.",
-    youtubeId: "ZaYS81EhKUM",
+    bunnyId: null as string | null,
+    pdfUrl: "/manus-storage/4._Die_Illusion_der_Wahl_(fertig)_9f509a89.pdf",
   },
   {
     num: "05",
     title: "Das Führungsparadox",
     desc: "Warum liebevolle Führung keine Schwäche ist – sondern die stärkste Form der Erziehung.",
-    youtubeId: "roQoWTt54qI",
+    bunnyId: null as string | null,
+    pdfUrl: "/manus-storage/5._Das_Fuhrungsparadox_(fertig)_1eafc149.pdf",
   },
   {
     num: "06",
     title: "Erste Hilfe bei Wutanfällen",
     desc: "Konkrete Strategien für den Moment, wenn der Sturm losbricht.",
-    youtubeId: "nxAo-IiGDn0",
+    bunnyId: null as string | null,
+    pdfUrl: "/manus-storage/6._Erste_Hilfe_bei_Wutanfallen_(fertig)_1d990ea9.pdf",
   },
   {
     num: "07",
     title: "Zen-Mama: Empathie & Gelassenheit",
     desc: "Wie du selbst ruhig bleibst – auch wenn dein Kind es nicht ist.",
-    youtubeId: "m0LCn3ltRRE",
+    bunnyId: null as string | null,
+    pdfUrl: "/manus-storage/7._Empathie_und_Gelassenheit_(fertig)_b34eba6e.pdf",
   },
   {
     num: "08",
     title: "Frustrationstoleranz stärken",
     desc: "Übungen, die deinem Kind helfen, mit Frust umzugehen – langfristig.",
-    youtubeId: "F4AdiCGgGx0",
+    bunnyId: null as string | null,
+    pdfUrl: "/manus-storage/8._Ubungen_zur_Starkung_der_Frustrationstoleranz_(fertig)__4b406dc0.pdf",
   },
   {
     num: "09",
     title: "Wutanfälle in der Öffentlichkeit",
     desc: "Was tun, wenn der Wutanfall im Supermarkt oder auf dem Spielplatz passiert?",
-    youtubeId: "VuLdUThZvho",
+    bunnyId: null as string | null,
+    pdfUrl: "/manus-storage/9._Wutanfalle_in_der_Offentlichkeit_df4b0416.pdf",
   },
   {
     num: "10",
     title: "Bindungsorientiert erziehen",
     desc: "Wie eine starke Bindung Trotzanfälle reduziert und das Familienleben entspannt.",
-    youtubeId: "tCswKzt7QWQ",
+    bunnyId: null as string | null,
+    pdfUrl: "/manus-storage/10._Bindungsorientiert_(fertig)_42ac071e.pdf",
   },
   {
     num: "11",
     title: "Abschluss & Ausblick",
     desc: "Zusammenfassung, nächste Schritte und Darlens persönliche Botschaft an dich.",
-    youtubeId: "MpsSUo_kEqc",
+    bunnyId: "605051f1-86ed-44ef-a66c-4f002b95c810",
+    pdfUrl: "/manus-storage/11._Mama-Hafen_(fertig)_844234c9.pdf",
   },
 ];
+
+function BunnyPlayer({ videoId, libraryId, title }: { videoId: string; libraryId: string; title: string }) {
+  return (
+    <div
+      style={{
+        position: "relative",
+        paddingBottom: "56.25%",
+        height: 0,
+        // overflow:visible ist wichtig – overflow:hidden blockiert Vollbild
+        overflow: "visible",
+      }}
+    >
+      <iframe
+        src={`https://iframe.mediadelivery.net/embed/${libraryId}/${videoId}?autoplay=false&loop=false&muted=false&preload=true&responsive=true`}
+        title={title}
+        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen"
+        allowFullScreen
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          border: "none",
+        }}
+      />
+    </div>
+  );
+}
+
+function VideoPlaceholder() {
+  return (
+    <div
+      style={{
+        aspectRatio: "16/9",
+        background: "linear-gradient(135deg, #1a3a3a 0%, var(--teal) 100%)",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "2rem",
+        textAlign: "center",
+        borderRadius: "20px 20px 0 0",
+      }}
+    >
+      <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>🎬</div>
+      <p
+        style={{
+          color: "white",
+          fontFamily: "'DM Serif Display', serif",
+          fontSize: "1.1rem",
+          marginBottom: "0.5rem",
+        }}
+      >
+        Video wird bald verfügbar
+      </p>
+      <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.85rem" }}>
+        Darleen lädt die Videos gerade hoch. Schau bald wieder vorbei!
+      </p>
+    </div>
+  );
+}
 
 export default function Kurs() {
   const [, navigate] = useLocation();
@@ -240,66 +315,26 @@ export default function Kurs() {
           }}
           className="kurs-grid"
         >
-          {/* Video-Player */}
+          {/* Video-Player + Infos */}
           <div>
             {/* Video-Bereich */}
             <div
               style={{
                 background: "white",
                 borderRadius: 20,
-                // overflow:hidden entfernt – blockiert sonst den Vollbild-Modus des iframes
+                // overflow:hidden bewusst weggelassen – blockiert sonst Vollbild
                 boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
                 marginBottom: "1.2rem",
               }}
             >
-              {currentModule?.youtubeId ? (
-                // overflow: visible ist wichtig – overflow:hidden blockiert den Vollbild-Modus
-                <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "visible" }}>
-                  <iframe
-                    src={`https://www.youtube.com/embed/${currentModule.youtubeId}?rel=0&controls=0&fs=1&modestbranding=1`}
-                    title={currentModule.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
-                    allowFullScreen
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      width: "100%",
-                      height: "100%",
-                      border: "none",
-                      borderRadius: "0",
-                    }}
-                  />
-                </div>
+              {currentModule?.bunnyId ? (
+                <BunnyPlayer
+                  videoId={currentModule.bunnyId}
+                  libraryId={BUNNY_LIBRARY_ID}
+                  title={currentModule.title}
+                />
               ) : (
-                /* Platzhalter wenn kein YouTube-Video vorhanden */
-                <div
-                  style={{
-                    aspectRatio: "16/9",
-                    background: "linear-gradient(135deg, #1a3a3a 0%, var(--teal) 100%)",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    padding: "2rem",
-                    textAlign: "center",
-                  }}
-                >
-                  <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>🎬</div>
-                  <p
-                    style={{
-                      color: "white",
-                      fontFamily: "'DM Serif Display', serif",
-                      fontSize: "1.1rem",
-                      marginBottom: "0.5rem",
-                    }}
-                  >
-                    Video wird bald verfügbar
-                  </p>
-                  <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.85rem" }}>
-                    Darleen lädt die Videos gerade hoch. Schau bald wieder vorbei!
-                  </p>
-                </div>
+                <VideoPlaceholder />
               )}
 
               {/* Modul-Info unter dem Video */}
@@ -339,16 +374,50 @@ export default function Kurs() {
                     {currentModule?.title}
                   </h2>
                 </div>
-                <p style={{ color: "var(--muted-foreground)", fontSize: "0.9rem", lineHeight: 1.65, margin: 0 }}>
+                <p style={{ color: "var(--muted-foreground)", fontSize: "0.9rem", lineHeight: 1.65, margin: "0 0 1rem" }}>
                   {currentModule?.desc}
                 </p>
+
+                {/* Modul-PDF Download */}
+                {currentModule?.pdfUrl && (
+                  <a
+                    href={currentModule.pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                      background: "var(--sand)",
+                      color: "var(--teal)",
+                      borderRadius: 10,
+                      padding: "0.5rem 1rem",
+                      fontSize: "0.83rem",
+                      fontWeight: 700,
+                      textDecoration: "none",
+                      border: "1.5px solid var(--teal)",
+                      transition: "background 0.15s",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLAnchorElement).style.background = "var(--teal)";
+                      (e.currentTarget as HTMLAnchorElement).style.color = "white";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLAnchorElement).style.background = "var(--sand)";
+                      (e.currentTarget as HTMLAnchorElement).style.color = "var(--teal)";
+                    }}
+                  >
+                    📄 Arbeitsblatt zu Lektion {currentModule.num} öffnen
+                  </a>
+                )}
               </div>
             </div>
 
             {/* Workbook-Download */}
             <a
               href={WORKBOOK_URL}
-              download="Mama-Hafen-Workbook.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -376,7 +445,7 @@ export default function Kurs() {
                   Kurs-Workbook herunterladen
                 </div>
                 <div style={{ opacity: 0.85, fontSize: "0.82rem" }}>
-                  41 Seiten · Reflexionsfragen · Übungen · Notizen · PDF
+                  Reflexionsfragen · Übungen · Notizen · PDF
                 </div>
               </div>
             </a>
@@ -458,7 +527,7 @@ export default function Kurs() {
                       {m.title}
                     </div>
                   </div>
-                  {m.youtubeId ? (
+                  {m.bunnyId ? (
                     <span style={{ fontSize: "0.75rem", color: "var(--teal)", flexShrink: 0 }}>▶</span>
                   ) : (
                     <span style={{ fontSize: "0.7rem", color: "var(--muted-foreground)", flexShrink: 0 }}>⏳</span>
