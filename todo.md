@@ -14,3 +14,8 @@
 - [x] Darleen-Foto hochladen und in Home.tsx ersetzen
 - [x] Vitest-Tests für course-Router schreiben
 - [x] Checkpoint speichern
+
+## YouTube-Player Fixes
+- [x] Vollbild-Modus aktivieren (allowfullscreen korrekt setzen)
+- [x] YouTube-Controls ausblenden (controls=0 gesetzt)
+- [x] Share-Button: nicht entfernbar (YouTube-Policy seit 2023 – modestbranding deprecated)

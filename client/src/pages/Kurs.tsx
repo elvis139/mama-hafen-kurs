@@ -247,17 +247,18 @@ export default function Kurs() {
               style={{
                 background: "white",
                 borderRadius: 20,
-                overflow: "hidden",
+                // overflow:hidden entfernt – blockiert sonst den Vollbild-Modus des iframes
                 boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
                 marginBottom: "1.2rem",
               }}
             >
               {currentModule?.youtubeId ? (
-                <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
+                // overflow: visible ist wichtig – overflow:hidden blockiert den Vollbild-Modus
+                <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "visible" }}>
                   <iframe
-                    src={`https://www.youtube.com/embed/${currentModule.youtubeId}?rel=0&modestbranding=1`}
+                    src={`https://www.youtube.com/embed/${currentModule.youtubeId}?rel=0&controls=0&fs=1&modestbranding=1`}
                     title={currentModule.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
                     allowFullScreen
                     style={{
                       position: "absolute",
@@ -266,6 +267,7 @@ export default function Kurs() {
                       width: "100%",
                       height: "100%",
                       border: "none",
+                      borderRadius: "0",
                     }}
                   />
                 </div>
