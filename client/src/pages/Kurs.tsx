@@ -21,6 +21,7 @@ const modules = [
     desc: "Willkommen im Mama-Hafen! Darleen stellt den Kurs vor und erklärt, was dich erwartet.",
     bunnyId: null as string | null,
     pdfUrl: "/manus-storage/1._Begruungsvideo_(fertig)_edb1c6a2.pdf",
+    workbookPages: "S. 3–5",
   },
   {
     num: "02",
@@ -28,6 +29,7 @@ const modules = [
     desc: "Warum dein Kind sich so verhält – und warum es kein schlechtes Zeichen ist.",
     bunnyId: null as string | null,
     pdfUrl: "/manus-storage/2._Ist_mein_Kind_ein_Tyrann_(fertig)_07b9e47d.pdf",
+    workbookPages: "S. 6–8",
   },
   {
     num: "03",
@@ -35,6 +37,7 @@ const modules = [
     desc: "Was im Gehirn deines Kindes passiert und warum diese Phase so wichtig ist.",
     bunnyId: null as string | null,
     pdfUrl: "/manus-storage/3._Die_Autonomiephase_(fertig)_b707ec61.pdf",
+    workbookPages: "S. 9–10",
   },
   {
     num: "04",
@@ -42,6 +45,7 @@ const modules = [
     desc: "Wie du deinem Kind das Gefühl von Kontrolle gibst – ohne die Führung zu verlieren.",
     bunnyId: null as string | null,
     pdfUrl: "/manus-storage/4._Die_Illusion_der_Wahl_(fertig)_9f509a89.pdf",
+    workbookPages: "S. 11–13",
   },
   {
     num: "05",
@@ -49,6 +53,7 @@ const modules = [
     desc: "Warum liebevolle Führung keine Schwäche ist – sondern die stärkste Form der Erziehung.",
     bunnyId: null as string | null,
     pdfUrl: "/manus-storage/5._Das_Fuhrungsparadox_(fertig)_1eafc149.pdf",
+    workbookPages: "S. 14–16",
   },
   {
     num: "06",
@@ -56,6 +61,7 @@ const modules = [
     desc: "Konkrete Strategien für den Moment, wenn der Sturm losbricht.",
     bunnyId: null as string | null,
     pdfUrl: "/manus-storage/6._Erste_Hilfe_bei_Wutanfallen_(fertig)_1d990ea9.pdf",
+    workbookPages: "S. 17–19",
   },
   {
     num: "07",
@@ -63,6 +69,7 @@ const modules = [
     desc: "Wie du selbst ruhig bleibst – auch wenn dein Kind es nicht ist.",
     bunnyId: null as string | null,
     pdfUrl: "/manus-storage/7._Empathie_und_Gelassenheit_(fertig)_b34eba6e.pdf",
+    workbookPages: "S. 20–21",
   },
   {
     num: "08",
@@ -70,6 +77,7 @@ const modules = [
     desc: "Übungen, die deinem Kind helfen, mit Frust umzugehen – langfristig.",
     bunnyId: "54786fc6-d7bf-4877-b924-620f6194e010",
     pdfUrl: "/manus-storage/8._Ubungen_zur_Starkung_der_Frustrationstoleranz_(fertig)__4b406dc0.pdf",
+    workbookPages: "S. 22–24",
   },
   {
     num: "09",
@@ -77,6 +85,7 @@ const modules = [
     desc: "Was tun, wenn der Wutanfall im Supermarkt oder auf dem Spielplatz passiert?",
     bunnyId: "479c1b6c-990e-4071-8722-3c5d73855652",
     pdfUrl: "/manus-storage/9._Wutanfalle_in_der_Offentlichkeit_df4b0416.pdf",
+    workbookPages: "S. 25–27",
   },
   {
     num: "10",
@@ -84,6 +93,7 @@ const modules = [
     desc: "Wie eine starke Bindung Trotzanfälle reduziert und das Familienleben entspannt.",
     bunnyId: "539d2943-7fc7-4e3b-a3fe-4df03f6efb38",
     pdfUrl: "/manus-storage/10._Bindungsorientiert_(fertig)_42ac071e.pdf",
+    workbookPages: "S. 28–30",
   },
   {
     num: "11",
@@ -91,6 +101,7 @@ const modules = [
     desc: "Zusammenfassung, nächste Schritte und Darlens persönliche Botschaft an dich.",
     bunnyId: "605051f1-86ed-44ef-a66c-4f002b95c810",
     pdfUrl: "/manus-storage/11._Mama-Hafen_(fertig)_844234c9.pdf",
+    workbookPages: "S. 31–41",
   },
 ];
 
@@ -396,72 +407,50 @@ export default function Kurs() {
                   {currentModule?.desc}
                 </p>
 
-                {/* Modul-PDF Download */}
-                {currentModule?.pdfUrl && (
-                  <a
-                    href={currentModule.pdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "0.5rem",
-                      background: "var(--sand)",
-                      color: "var(--teal)",
-                      borderRadius: 10,
-                      padding: "0.5rem 1rem",
-                      fontSize: "0.83rem",
-                      fontWeight: 700,
-                      textDecoration: "none",
-                      border: "1.5px solid var(--teal)",
-                      transition: "background 0.15s",
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLAnchorElement).style.background = "var(--teal)";
-                      (e.currentTarget as HTMLAnchorElement).style.color = "white";
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLAnchorElement).style.background = "var(--sand)";
-                      (e.currentTarget as HTMLAnchorElement).style.color = "var(--teal)";
-                    }}
-                  >
-                    📄 Arbeitsblatt zu Lektion {currentModule.num} öffnen
-                  </a>
-                )}
+                {/* Workbook-Button mit Seitenangabe */}
+                <a
+                  href={WORKBOOK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    background: "var(--coral)",
+                    color: "white",
+                    borderRadius: 10,
+                    padding: "0.5rem 1rem",
+                    fontSize: "0.82rem",
+                    fontWeight: 700,
+                    textDecoration: "none",
+                    boxShadow: "0 2px 10px rgba(232,112,74,0.2)",
+                    transition: "background 0.15s, transform 0.15s",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.background = "#c0392b";
+                    (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-1px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.background = "var(--coral)";
+                    (e.currentTarget as HTMLAnchorElement).style.transform = "";
+                  }}
+                >
+                  📖 Workbook öffnen
+                  {currentModule?.workbookPages && (
+                    <span style={{
+                      background: "rgba(255,255,255,0.25)",
+                      borderRadius: 6,
+                      padding: "0.1rem 0.45rem",
+                      fontSize: "0.75rem",
+                      fontWeight: 600,
+                      marginLeft: "0.2rem",
+                    }}>
+                      {currentModule.workbookPages}
+                    </span>
+                  )}
+                </a>
               </div>
             </div>
-
-            {/* Workbook-Download */}
-            <a
-              href={WORKBOOK_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                background: "var(--coral)",
-                borderRadius: 10,
-                padding: "0.5rem 1rem",
-                textDecoration: "none",
-                color: "white",
-                fontSize: "0.82rem",
-                fontWeight: 700,
-                boxShadow: "0 2px 10px rgba(232,112,74,0.25)",
-                transition: "background 0.15s, transform 0.15s",
-                marginTop: "0.6rem",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.background = "var(--coral-dark, #c0392b)";
-                (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-1px)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.background = "var(--coral)";
-                (e.currentTarget as HTMLAnchorElement).style.transform = "";
-              }}
-            >
-              📥 Workbook herunterladen
-            </a>
           </div>
 
           {/* Modulliste */}
