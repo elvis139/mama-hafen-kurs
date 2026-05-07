@@ -59,7 +59,7 @@ const modules = [
     num: "06",
     title: "Erste Hilfe bei Wutanfällen",
     desc: "Was tust du, wenn dein Kind gerade mitten im Wutanfall ist? Diese Lektion gibt dir konkrete Strategien für genau diesen Moment. Du lernst, wie du deeskalierst, ohne nachzugeben, wie du die Verbindung hältst und wie du deinem Kind hilfst, sich wieder zu beruhigen.",
-    bunnyId: null as string | null,
+    bunnyId: "b24d269a-09bf-4e7d-a068-746722639e5c",
     pdfUrl: "/manus-storage/6._Erste_Hilfe_bei_Wutanfallen_(fertig)_1d990ea9.pdf",
     workbookPages: "S. 17–19",
   },
@@ -170,6 +170,7 @@ function VideoPlaceholder() {
 export default function Kurs() {
   const [, navigate] = useLocation();
   const [activeModule, setActiveModule] = useState(0);
+  const [descOpen, setDescOpen] = useState(false);
 
   const sessionToken = useMemo(() => {
     if (typeof window !== "undefined") {
@@ -305,33 +306,6 @@ export default function Kurs() {
         </div>
       </header>
 
-      {/* ── Willkommens-Banner ── */}
-      <div
-        style={{
-          background: "var(--sand)",
-          borderBottom: "1px solid var(--border)",
-          padding: "1rem 0 1.4rem",
-          marginBottom: "0",
-        }}
-      >
-        <div className="container">
-          <h1
-            style={{
-              fontFamily: "'DM Serif Display', serif",
-              fontSize: "clamp(1.1rem, 3vw, 1.4rem)",
-              color: "var(--foreground)",
-              margin: 0,
-              lineHeight: 1.2,
-            }}
-          >
-            Dein Kurs
-          </h1>
-          <p style={{ color: "var(--muted-foreground)", fontSize: "0.8rem", margin: "0.25rem 0 0", lineHeight: 1.4 }}>
-            11 Lektionen · Wähle eine Lektion aus der Liste oder starte mit Lektion 01
-          </p>
-        </div>
-      </div>
-
       {/* ── Hauptinhalt ── */}
       <div className="container" style={{ paddingTop: "2.5rem", paddingBottom: "3rem" }}>
         <div
@@ -401,9 +375,38 @@ export default function Kurs() {
                     {currentModule?.title}
                   </h2>
                 </div>
-                <p style={{ color: "var(--muted-foreground)", fontSize: "0.9rem", lineHeight: 1.65, margin: "0 0 1rem" }}>
-                  {currentModule?.desc}
-                </p>
+                {/* Aufklappbare Beschreibung */}
+                <div style={{ marginBottom: "1rem" }}>
+                  <button
+                    onClick={() => setDescOpen((o) => !o)}
+                    style={{
+                      background: "none",
+                      border: "none",
+                      padding: 0,
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.35rem",
+                      color: "var(--teal)",
+                      fontFamily: "'DM Sans', sans-serif",
+                      fontWeight: 700,
+                      fontSize: "0.82rem",
+                    }}
+                  >
+                    <span style={{
+                      display: "inline-block",
+                      transition: "transform 0.2s",
+                      transform: descOpen ? "rotate(90deg)" : "rotate(0deg)",
+                      fontSize: "0.7rem",
+                    }}>&#9654;</span>
+                    Beschreibung
+                  </button>
+                  {descOpen && (
+                    <p style={{ color: "var(--muted-foreground)", fontSize: "0.88rem", lineHeight: 1.65, margin: "0.5rem 0 0", paddingLeft: "1.1rem" }}>
+                      {currentModule?.desc}
+                    </p>
+                  )}
+                </div>
 
                 {/* Workbook-Button mit Seitenangabe */}
                 <a
