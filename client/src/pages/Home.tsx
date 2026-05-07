@@ -225,15 +225,16 @@ export default function Home() {
             style={{
               fontFamily: "'DM Serif Display', serif",
               fontWeight: 700,
-              fontSize: "1.2rem",
+              fontSize: "clamp(0.95rem, 3.5vw, 1.2rem)",
               color: navScrolled ? "var(--teal)" : "var(--nav-logo-color, var(--teal))",
               textShadow: navScrolled ? "none" : "var(--nav-logo-shadow, none)",
               transition: "color 0.3s ease",
+              whiteSpace: "nowrap",
             }}
           >
             ⚓ Mama-Hafen
           </span>
-          <div style={{ display: "flex", gap: "0.6rem", alignItems: "center" }}>
+          <div style={{ display: "flex", gap: "0.4rem", alignItems: "center" }}>
             <a
               href="/kurs"
               style={{
@@ -242,12 +243,13 @@ export default function Home() {
                 color: "white",
                 border: navScrolled ? "none" : "1.5px solid rgba(255,255,255,0.45)",
                 borderRadius: 50,
-                padding: "0.5rem 1.1rem",
-                fontSize: "0.85rem",
+                padding: "clamp(0.3rem, 1.5vw, 0.5rem) clamp(0.6rem, 2.5vw, 1rem)",
+                fontSize: "clamp(0.72rem, 2.5vw, 0.82rem)",
                 fontFamily: "'DM Sans', sans-serif",
                 fontWeight: 700,
                 textDecoration: "none",
                 transition: "all 0.3s",
+                whiteSpace: "nowrap",
               }}
             >
               🎬 Zum Kurs
@@ -255,7 +257,11 @@ export default function Home() {
             <button
               className="btn-coral"
               onClick={() => scrollTo("warteliste")}
-              style={{ padding: "0.5rem 1.1rem", fontSize: "0.85rem" }}
+              style={{
+                padding: "clamp(0.3rem, 1.5vw, 0.5rem) clamp(0.6rem, 2.5vw, 1rem)",
+                fontSize: "clamp(0.72rem, 2.5vw, 0.82rem)",
+                whiteSpace: "nowrap",
+              }}
             >
               Jetzt anmelden
             </button>

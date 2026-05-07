@@ -26,4 +26,4 @@
 - [x] BunnyPlayer-Komponente gebaut (iframe, kein Share-Button, Vollbild, adaptive Qualität)
 - [x] Video-IDs direkt in modules-Array (bunnyId-Feld) – Modul 11 aktiv
 - [x] Kurs.tsx: YouTube-Player durch BunnyPlayer ersetzt
-- [ ] Admin-Upload-Seite für Videos bauen (passwortgeschützt) – optional
+- [x] Admin-Upload-Seite: nicht nötig – Video-IDs werden direkt in Kurs.tsx eingetragen
