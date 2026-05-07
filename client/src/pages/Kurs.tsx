@@ -11,6 +11,26 @@ import { trpc } from "@/lib/trpc";
 import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "wouter";
 
+// Fortschritts-Schlüssel im localStorage (pro E-Mail-Adresse)
+const getProgressKey = (email: string) => `mama_hafen_progress_${email}`;
+
+function loadProgress(email: string): Record<string, number> {
+  try {
+    const raw = localStorage.getItem(getProgressKey(email));
+    return raw ? JSON.parse(raw) : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveProgress(email: string, progress: Record<string, number>) {
+  try {
+    localStorage.setItem(getProgressKey(email), JSON.stringify(progress));
+  } catch {
+    // ignore
+  }
+}
+
 const WORKBOOK_URL = "/manus-storage/Mama-Hafen-Workbook_3f11ba7d.pdf";
 const BUNNY_LIBRARY_ID = "655693";
 
@@ -171,6 +191,7 @@ export default function Kurs() {
   const [, navigate] = useLocation();
   const [activeModule, setActiveModule] = useState(0);
   const [descOpen, setDescOpen] = useState(false);
+  const [progress, setProgress] = useState<Record<string, number>>({});
 
   const sessionToken = useMemo(() => {
     if (typeof window !== "undefined") {
@@ -200,6 +221,20 @@ export default function Kurs() {
     }
   }, [error, navigate]);
 
+  // Fortschritt laden sobald E-Mail bekannt
+  useEffect(() => {
+    if (data?.email) {
+      setProgress(loadProgress(data.email));
+    }
+  }, [data?.email]);
+
+  const markWatched = (moduleNum: string, percent: number) => {
+    if (!data?.email) return;
+    const updated = { ...progress, [moduleNum]: percent };
+    setProgress(updated);
+    saveProgress(data.email, updated);
+  };
+
   const handleLogout = () => {
     localStorage.removeItem("mama_hafen_session");
     navigate("/kurs/login");
@@ -226,6 +261,13 @@ export default function Kurs() {
   }
 
   const currentModule = modules[activeModule];
+
+  // Gesamtfortschritt berechnen
+  const totalDone = modules.filter(m => (progress[m.num] ?? 0) >= 100).length;
+  const totalPartial = modules.filter(m => { const p = progress[m.num] ?? 0; return p > 0 && p < 100; }).length;
+  const overallPercent = Math.round(
+    modules.reduce((sum, m) => sum + (progress[m.num] ?? 0), 0) / modules.length
+  );
 
   return (
     <div
@@ -273,6 +315,15 @@ export default function Kurs() {
           >
             ⚓ Mama-Hafen
           </a>
+          {/* Gesamtfortschritt */}
+          <div style={{ flex: 1, display: "flex", alignItems: "center", gap: "0.5rem", overflow: "hidden", padding: "0 0.5rem" }}>
+            <div style={{ flex: 1, height: 6, background: "rgba(255,255,255,0.2)", borderRadius: 4, overflow: "hidden", minWidth: 40, maxWidth: 120 }}>
+              <div style={{ height: "100%", width: `${overallPercent}%`, background: overallPercent >= 100 ? "#22c55e" : "rgba(255,255,255,0.85)", borderRadius: 4, transition: "width 0.4s" }} />
+            </div>
+            <span style={{ color: "rgba(255,255,255,0.75)", fontSize: "clamp(0.65rem, 1.8vw, 0.78rem)", whiteSpace: "nowrap", flexShrink: 0 }}>
+              {totalDone}/{modules.length}
+            </span>
+          </div>
           <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", flexShrink: 0 }}>
             {data?.email && (
               <span style={{
@@ -408,6 +459,35 @@ export default function Kurs() {
                   )}
                 </div>
 
+                {/* Fortschritt-Buttons */}
+                <div style={{ marginBottom: "0.8rem" }}>
+                  <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap" }}>
+                    {[{ label: "Noch nicht gesehen", val: 0 }, { label: "Angefangen", val: 50 }, { label: "✓ Fertig gesehen", val: 100 }].map(({ label, val }) => {
+                      const cur = progress[currentModule.num] ?? 0;
+                      const isActive = val === 0 ? cur === 0 : val === 50 ? cur > 0 && cur < 100 : cur >= 100;
+                      return (
+                        <button
+                          key={val}
+                          onClick={() => markWatched(currentModule.num, val)}
+                          style={{
+                            background: isActive ? (val >= 100 ? "#22c55e" : val === 50 ? "var(--teal)" : "var(--sand)") : "transparent",
+                            color: isActive ? (val === 0 ? "var(--foreground)" : "white") : "var(--muted-foreground)",
+                            border: isActive ? "none" : "1px solid var(--border)",
+                            borderRadius: 8,
+                            padding: "0.35rem 0.75rem",
+                            fontSize: "0.78rem",
+                            fontWeight: isActive ? 700 : 500,
+                            cursor: "pointer",
+                            fontFamily: "'DM Sans', sans-serif",
+                            transition: "all 0.15s",
+                          }}
+                        >
+                          {label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
                 {/* Workbook-Button mit Seitenangabe */}
                 <a
                   href={WORKBOOK_URL}
@@ -533,6 +613,18 @@ export default function Kurs() {
                       }}
                     >
                       {m.title}
+                    </div>
+                    {/* Fortschrittsbalken */}
+                    <div style={{ marginTop: "0.25rem", height: 4, background: "var(--border)", borderRadius: 4, overflow: "hidden" }}>
+                      <div
+                        style={{
+                          height: "100%",
+                          width: `${progress[m.num] ?? 0}%`,
+                          background: (progress[m.num] ?? 0) >= 100 ? "#22c55e" : "var(--teal)",
+                          borderRadius: 4,
+                          transition: "width 0.4s ease",
+                        }}
+                      />
                     </div>
                   </div>
                   {m.bunnyId ? (

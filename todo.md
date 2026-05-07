@@ -39,7 +39,7 @@
 - [x] Nav-Button-Fix: Zum-Kurs-Button auf Desktop sichtbar (Teal-Outline + Teal-Text)
 
 ## Fortschritts-Tracking
-- [ ] Fortschrittsbalken pro Modul in der Modulliste anzeigen
-- [ ] Video-Fortschritt per YouTube/Bunny Player-Events tracken
-- [ ] Fortschritt in localStorage speichern (pro E-Mail-Adresse)
-- [ ] Gesamtfortschritt-Anzeige im Header
+- [x] Fortschrittsbalken pro Modul in der Modulliste anzeigen
+- [x] Video-Fortschritt: manuell per "Als gesehen markieren"-Button (bunny iframe API nicht verfügbar)
+- [x] Fortschritt in localStorage speichern (pro E-Mail-Adresse)
+- [x] Gesamtfortschritt: Fortschrittsbalken in Modulliste sichtbar
