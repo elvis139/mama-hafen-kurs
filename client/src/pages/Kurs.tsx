@@ -18,7 +18,7 @@ const modules = [
   {
     num: "01",
     title: "Begrüßung & Überblick",
-    desc: "Willkommen im Mama-Hafen! Darleen stellt den Kurs vor und erklärt, was dich erwartet.",
+    desc: "Willkommen im Mama-Hafen! Darleen stellt sich vor und gibt dir einen Überblick über den Kurs. Du erfährst, was dich in den nächsten Lektionen erwartet, wie du das Workbook am besten nutzt und welche Haltung dir helfen wird, das Gelernte wirklich in deinen Alltag zu integrieren.",
     bunnyId: null as string | null,
     pdfUrl: "/manus-storage/1._Begruungsvideo_(fertig)_edb1c6a2.pdf",
     workbookPages: "S. 3–5",
@@ -26,7 +26,7 @@ const modules = [
   {
     num: "02",
     title: "Ist mein Kind ein kleiner Tyrann?",
-    desc: "Warum dein Kind sich so verhält – und warum es kein schlechtes Zeichen ist.",
+    desc: "Viele Eltern fragen sich, ob ihr Kind sie absichtlich provoziert. In dieser Lektion erfährst du, warum Kinder in der Autonomiephase so handeln wie sie handeln – und warum das kein Zeichen schlechter Erziehung ist. Du lernst, Trotzverhalten neu zu interpretieren und mit mehr Verständnis zu begegnen.",
     bunnyId: null as string | null,
     pdfUrl: "/manus-storage/2._Ist_mein_Kind_ein_Tyrann_(fertig)_07b9e47d.pdf",
     workbookPages: "S. 6–8",
@@ -34,7 +34,7 @@ const modules = [
   {
     num: "03",
     title: "Die Autonomiephase verstehen",
-    desc: "Was im Gehirn deines Kindes passiert und warum diese Phase so wichtig ist.",
+    desc: "Diese Lektion gibt dir das Hintergrundwissen, das alles verändert: Was passiert neurobiologisch im Gehirn deines Kindes? Warum ist die Autonomiephase entwicklungspsychologisch so bedeutsam? Und warum ist ein Kind, das Grenzen testet, eigentlich auf dem genau richtigen Weg?",
     bunnyId: null as string | null,
     pdfUrl: "/manus-storage/3._Die_Autonomiephase_(fertig)_b707ec61.pdf",
     workbookPages: "S. 9–10",
@@ -42,7 +42,7 @@ const modules = [
   {
     num: "04",
     title: "Die Illusion der Wahl",
-    desc: "Wie du deinem Kind das Gefühl von Kontrolle gibst – ohne die Führung zu verlieren.",
+    desc: "Kinder in der Autonomiephase wollen Kontrolle – und das ist gut so. Darleen zeigt dir, wie du deinem Kind echte Entscheidungsmöglichkeiten gibst, ohne die Führung zu verlieren. Diese einfache Technik reduziert Machtkampfe spürbar und stärkt gleichzeitig die Selbstwirksamkeit deines Kindes.",
     bunnyId: null as string | null,
     pdfUrl: "/manus-storage/4._Die_Illusion_der_Wahl_(fertig)_9f509a89.pdf",
     workbookPages: "S. 11–13",
@@ -50,7 +50,7 @@ const modules = [
   {
     num: "05",
     title: "Das Führungsparadox",
-    desc: "Warum liebevolle Führung keine Schwäche ist – sondern die stärkste Form der Erziehung.",
+    desc: "Grenzen setzen und gleichzeitig liebevoll sein – geht das? Ja, und es ist sogar notwendig. In dieser Lektion lernst du, warum klare Führung kein Widerspruch zur Bindungsorientierung ist, sondern die Grundlage dafür. Du erfährst, wie du Grenzen so setzt, dass dein Kind sie wirklich annehmen kann.",
     bunnyId: null as string | null,
     pdfUrl: "/manus-storage/5._Das_Fuhrungsparadox_(fertig)_1eafc149.pdf",
     workbookPages: "S. 14–16",
@@ -58,7 +58,7 @@ const modules = [
   {
     num: "06",
     title: "Erste Hilfe bei Wutanfällen",
-    desc: "Konkrete Strategien für den Moment, wenn der Sturm losbricht.",
+    desc: "Was tust du, wenn dein Kind gerade mitten im Wutanfall ist? Diese Lektion gibt dir konkrete Strategien für genau diesen Moment. Du lernst, wie du deeskalierst, ohne nachzugeben, wie du die Verbindung hältst und wie du deinem Kind hilfst, sich wieder zu beruhigen.",
     bunnyId: null as string | null,
     pdfUrl: "/manus-storage/6._Erste_Hilfe_bei_Wutanfallen_(fertig)_1d990ea9.pdf",
     workbookPages: "S. 17–19",
@@ -66,7 +66,7 @@ const modules = [
   {
     num: "07",
     title: "Zen-Mama: Empathie & Gelassenheit",
-    desc: "Wie du selbst ruhig bleibst – auch wenn dein Kind es nicht ist.",
+    desc: "Die größte Herausforderung ist oft nicht das Kind – sondern die eigene Reaktion. In dieser Lektion lernst du, wie du deine eigene Selbstregulation stärkst, Trigger erkennst und in stressigen Momenten ruhig bleibst. Empathie beginnt bei dir selbst.",
     bunnyId: null as string | null,
     pdfUrl: "/manus-storage/7._Empathie_und_Gelassenheit_(fertig)_b34eba6e.pdf",
     workbookPages: "S. 20–21",
@@ -74,7 +74,7 @@ const modules = [
   {
     num: "08",
     title: "Frustrationstoleranz stärken",
-    desc: "Übungen, die deinem Kind helfen, mit Frust umzugehen – langfristig.",
+    desc: "Kinder, die lernen mit Frust umzugehen, sind langfristig widerstandsfähiger und ausgeglichener. Darleen zeigt dir fünf alltagstaugliche Übungen, die du sofort einsetzen kannst – spielerisch, ohne Druck und mit spürbarer Wirkung auf das Verhalten deines Kindes.",
     bunnyId: "54786fc6-d7bf-4877-b924-620f6194e010",
     pdfUrl: "/manus-storage/8._Ubungen_zur_Starkung_der_Frustrationstoleranz_(fertig)__4b406dc0.pdf",
     workbookPages: "S. 22–24",
@@ -82,7 +82,7 @@ const modules = [
   {
     num: "09",
     title: "Wutanfälle in der Öffentlichkeit",
-    desc: "Was tun, wenn der Wutanfall im Supermarkt oder auf dem Spielplatz passiert?",
+    desc: "Der Wutanfall im Supermarkt, auf dem Spielplatz oder bei Oma – besonders schwierig, wenn alle zuschauen. Diese Lektion gibt dir einen klaren Plan für genau diese Situationen: Wie bleibst du gelassen, wenn du dich beobachtet fühlst? Und wie schützt du dein Kind und dich selbst?",
     bunnyId: "479c1b6c-990e-4071-8722-3c5d73855652",
     pdfUrl: "/manus-storage/9._Wutanfalle_in_der_Offentlichkeit_df4b0416.pdf",
     workbookPages: "S. 25–27",
@@ -90,7 +90,7 @@ const modules = [
   {
     num: "10",
     title: "Bindungsorientiert erziehen",
-    desc: "Wie eine starke Bindung Trotzanfälle reduziert und das Familienleben entspannt.",
+    desc: "Eine sichere Bindung ist das wirksamste Mittel gegen Trotzanfälle – nicht weil sie sie verhindert, sondern weil sie dein Kind stabiler macht. Du lernst, was Bindungsorientierung im Alltag konkret bedeutet, welche kleinen Gesten die größte Wirkung haben und wie du auch nach schwierigen Momenten die Verbindung wiederherstellt.",
     bunnyId: "539d2943-7fc7-4e3b-a3fe-4df03f6efb38",
     pdfUrl: "/manus-storage/10._Bindungsorientiert_(fertig)_42ac071e.pdf",
     workbookPages: "S. 28–30",
@@ -98,7 +98,7 @@ const modules = [
   {
     num: "11",
     title: "Abschluss & Ausblick",
-    desc: "Zusammenfassung, nächste Schritte und Darlens persönliche Botschaft an dich.",
+    desc: "Du hast es geschafft! In der letzten Lektion fasst Darleen die wichtigsten Erkenntnisse zusammen und gibt dir einen persönlichen Ausblick: Was kommt als nächstes? Wie bleibst du dran? Und was möchte Darleen dir auf den Weg mitgeben – von Mama zu Mama.",
     bunnyId: "605051f1-86ed-44ef-a66c-4f002b95c810",
     pdfUrl: "/manus-storage/11._Mama-Hafen_(fertig)_844234c9.pdf",
     workbookPages: "S. 31–41",
@@ -308,29 +308,27 @@ export default function Kurs() {
       {/* ── Willkommens-Banner ── */}
       <div
         style={{
-          background: "linear-gradient(135deg, var(--teal), #1a5c52)",
-          padding: "1.2rem 0 2rem",
-          marginBottom: "-1rem",
+          background: "var(--sand)",
+          borderBottom: "1px solid var(--border)",
+          padding: "1rem 0 1.4rem",
+          marginBottom: "0",
         }}
       >
-        <div className="container" style={{ display: "flex", alignItems: "center", gap: "0.8rem" }}>
-          <span style={{ fontSize: "1.4rem", flexShrink: 0 }}>⚓</span>
-          <div>
-            <h1
-              style={{
-                fontFamily: "'DM Serif Display', serif",
-                fontSize: "clamp(1.1rem, 3vw, 1.4rem)",
-                color: "white",
-                margin: 0,
-                lineHeight: 1.2,
-              }}
-            >
-              Mama-Hafen Kurs
-            </h1>
-            <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "0.8rem", margin: "0.2rem 0 0", lineHeight: 1.4 }}>
-              11 Lektionen · Starte mit Lektion 01 oder wähle ein Thema
-            </p>
-          </div>
+        <div className="container">
+          <h1
+            style={{
+              fontFamily: "'DM Serif Display', serif",
+              fontSize: "clamp(1.1rem, 3vw, 1.4rem)",
+              color: "var(--foreground)",
+              margin: 0,
+              lineHeight: 1.2,
+            }}
+          >
+            Dein Kurs
+          </h1>
+          <p style={{ color: "var(--muted-foreground)", fontSize: "0.8rem", margin: "0.25rem 0 0", lineHeight: 1.4 }}>
+            11 Lektionen · Wähle eine Lektion aus der Liste oder starte mit Lektion 01
+          </p>
         </div>
       </div>
 
