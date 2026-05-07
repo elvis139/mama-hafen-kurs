@@ -67,7 +67,7 @@ const modules = [
     num: "07",
     title: "Zen-Mama: Empathie & Gelassenheit",
     desc: "Die größte Herausforderung ist oft nicht das Kind – sondern die eigene Reaktion. In dieser Lektion lernst du, wie du deine eigene Selbstregulation stärkst, Trigger erkennst und in stressigen Momenten ruhig bleibst. Empathie beginnt bei dir selbst.",
-    bunnyId: null as string | null,
+    bunnyId: "7d59a256-e4d4-4b2b-bb8d-571851519efd",
     pdfUrl: "/manus-storage/7._Empathie_und_Gelassenheit_(fertig)_b34eba6e.pdf",
     workbookPages: "S. 20–21",
   },

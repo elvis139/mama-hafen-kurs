@@ -31,3 +31,9 @@
 ## Kursseite Layout-Fixes
 - [x] Horizontales Scrollen beheben (overflow-x, box-sizing, kurs-page Klasse)
 - [x] Header auf Kursseite responsiv verkleinern (clamp() für Schrift und Padding)
+
+## PWA (Progressive Web App)
+- [x] manifest.json erstellen (name, short_name, icons, theme_color, display: standalone)
+- [x] PWA-Icons generieren (192x192 und 512x512 + apple-touch-icon 180x180)
+- [x] index.html: manifest-Link, apple-touch-icon, theme-color Meta-Tags
+- [x] Nav-Button-Fix: Zum-Kurs-Button auf Desktop sichtbar (Teal-Outline + Teal-Text)

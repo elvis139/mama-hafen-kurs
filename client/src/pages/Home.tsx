@@ -238,10 +238,10 @@ export default function Home() {
             <a
               href="/kurs"
               style={{
-                background: navScrolled ? "var(--teal)" : "rgba(255,255,255,0.15)",
-                backdropFilter: navScrolled ? "none" : "blur(8px)",
-                color: "white",
-                border: navScrolled ? "none" : "1.5px solid rgba(255,255,255,0.45)",
+                background: navScrolled ? "var(--teal)" : "transparent",
+                backdropFilter: "none",
+                color: navScrolled ? "white" : "var(--teal)",
+                border: navScrolled ? "none" : "1.5px solid var(--teal)",
                 borderRadius: 50,
                 padding: "clamp(0.3rem, 1.5vw, 0.5rem) clamp(0.6rem, 2.5vw, 1rem)",
                 fontSize: "clamp(0.72rem, 2.5vw, 0.82rem)",
@@ -252,7 +252,7 @@ export default function Home() {
                 whiteSpace: "nowrap",
               }}
             >
-              🎬 Zum Kurs
+              🎦 Zum Kurs
             </a>
             <button
               className="btn-coral"
