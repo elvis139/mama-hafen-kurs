@@ -8,8 +8,7 @@ import { useEffect, useRef, useState } from "react";
 
 const IMG_HERO =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663061854558/DswbdQTvMfJMPVPLtDLMpo/mama-hafen-hero-8D3s4D7uWWZgi4Fzfbffn2.webp";
-const IMG_DARLEEN =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663061854558/DswbdQTvMfJMPVPLtDLMpo/mama-hafen-darleen-3tkZX2UvXKzMYVRCKEJYfg.webp";
+const IMG_DARLEEN = "/manus-storage/mama-hafen-darleen_c8ee9f51.jpg";
 
 // ── Scroll-Animation ─────────────────────────────────────────────────────────
 function FadeUp({
@@ -234,13 +233,33 @@ export default function Home() {
           >
             ⚓ Mama-Hafen
           </span>
-          <button
-            className="btn-coral"
-            onClick={() => scrollTo("warteliste")}
-            style={{ padding: "0.5rem 1.1rem", fontSize: "0.85rem" }}
-          >
-            Jetzt anmelden
-          </button>
+          <div style={{ display: "flex", gap: "0.6rem", alignItems: "center" }}>
+            <a
+              href="/kurs"
+              style={{
+                background: navScrolled ? "var(--teal)" : "rgba(255,255,255,0.15)",
+                backdropFilter: navScrolled ? "none" : "blur(8px)",
+                color: "white",
+                border: navScrolled ? "none" : "1.5px solid rgba(255,255,255,0.45)",
+                borderRadius: 50,
+                padding: "0.5rem 1.1rem",
+                fontSize: "0.85rem",
+                fontFamily: "'DM Sans', sans-serif",
+                fontWeight: 700,
+                textDecoration: "none",
+                transition: "all 0.3s",
+              }}
+            >
+              🎬 Zum Kurs
+            </a>
+            <button
+              className="btn-coral"
+              onClick={() => scrollTo("warteliste")}
+              style={{ padding: "0.5rem 1.1rem", fontSize: "0.85rem" }}
+            >
+              Jetzt anmelden
+            </button>
+          </div>
         </div>
       </nav>
 
