@@ -27,3 +27,7 @@
 - [x] Video-IDs direkt in modules-Array (bunnyId-Feld) – Modul 11 aktiv
 - [x] Kurs.tsx: YouTube-Player durch BunnyPlayer ersetzt
 - [x] Admin-Upload-Seite: nicht nötig – Video-IDs werden direkt in Kurs.tsx eingetragen
+
+## Kursseite Layout-Fixes
+- [x] Horizontales Scrollen beheben (overflow-x, box-sizing, kurs-page Klasse)
+- [x] Header auf Kursseite responsiv verkleinern (clamp() für Schrift und Padding)

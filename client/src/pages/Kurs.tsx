@@ -82,7 +82,7 @@ const modules = [
     num: "10",
     title: "Bindungsorientiert erziehen",
     desc: "Wie eine starke Bindung Trotzanfälle reduziert und das Familienleben entspannt.",
-    bunnyId: null as string | null,
+    bunnyId: "539d2943-7fc7-4e3b-a3fe-4df03f6efb38",
     pdfUrl: "/manus-storage/10._Bindungsorientiert_(fertig)_42ac071e.pdf",
   },
   {
@@ -217,18 +217,21 @@ export default function Kurs() {
 
   return (
     <div
+      className="kurs-page"
       style={{
         minHeight: "100svh",
         background: "var(--cream)",
         fontFamily: "'DM Sans', sans-serif",
         color: "var(--foreground)",
+        overflowX: "hidden",
+        width: "100%",
       }}
     >
       {/* ── Header ── */}
       <header
         style={{
           background: "var(--teal)",
-          padding: "0.9rem 0",
+          padding: "0.75rem 0",
           position: "sticky",
           top: 0,
           zIndex: 50,
@@ -241,23 +244,33 @@ export default function Kurs() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
+            gap: "0.5rem",
           }}
         >
           <a
             href="/"
             style={{
               fontFamily: "'DM Serif Display', serif",
-              fontSize: "1.15rem",
+              fontSize: "clamp(0.95rem, 3.5vw, 1.15rem)",
               fontWeight: 700,
               color: "white",
               textDecoration: "none",
+              whiteSpace: "nowrap",
+              flexShrink: 0,
             }}
           >
             ⚓ Mama-Hafen
           </a>
-          <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", flexShrink: 0 }}>
             {data?.email && (
-              <span style={{ color: "rgba(255,255,255,0.75)", fontSize: "0.82rem" }}>
+              <span style={{
+                color: "rgba(255,255,255,0.75)",
+                fontSize: "clamp(0.68rem, 2vw, 0.82rem)",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+                maxWidth: "clamp(80px, 20vw, 180px)",
+              }}>
                 {data.email}
               </span>
             )}
@@ -268,10 +281,11 @@ export default function Kurs() {
                 color: "white",
                 border: "1px solid rgba(255,255,255,0.3)",
                 borderRadius: 8,
-                padding: "0.35rem 0.8rem",
-                fontSize: "0.8rem",
+                padding: "clamp(0.28rem, 1.2vw, 0.4rem) clamp(0.5rem, 2vw, 0.8rem)",
+                fontSize: "clamp(0.68rem, 2.2vw, 0.8rem)",
                 cursor: "pointer",
                 fontFamily: "'DM Sans', sans-serif",
+                whiteSpace: "nowrap",
               }}
             >
               Abmelden
@@ -452,7 +466,7 @@ export default function Kurs() {
           </div>
 
           {/* Modulliste */}
-          <div>
+          <div style={{ minWidth: 0, width: "100%" }}>
             <h3
               style={{
                 fontFamily: "'DM Serif Display', serif",
@@ -469,6 +483,7 @@ export default function Kurs() {
                 borderRadius: 16,
                 overflow: "hidden",
                 boxShadow: "0 4px 18px rgba(0,0,0,0.06)",
+                width: "100%",
               }}
             >
               {modules.map((m, i) => (
@@ -513,8 +528,9 @@ export default function Kurs() {
                   >
                     {m.num}
                   </span>
-                  <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ flex: 1, minWidth: 0, overflow: "hidden" }}>
                     <div
+                      className="module-btn-title"
                       style={{
                         fontWeight: activeModule === i ? 700 : 600,
                         fontSize: "0.88rem",
@@ -564,9 +580,27 @@ export default function Kurs() {
 
       {/* Responsive Styles */}
       <style>{`
+        /* Verhindert horizontales Scrollen durch Elemente die breiter als viewport sind */
+        .kurs-page, .kurs-page * {
+          box-sizing: border-box;
+        }
+        .kurs-page {
+          max-width: 100vw;
+          overflow-x: hidden;
+        }
+        /* Modulliste: Text nicht abschneiden auf Mobile */
+        .module-btn-title {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          max-width: calc(100vw - 120px);
+        }
         @media (min-width: 768px) {
           .kurs-grid {
             grid-template-columns: 3fr 2fr !important;
+          }
+          .module-btn-title {
+            max-width: 100%;
           }
         }
       `}</style>
