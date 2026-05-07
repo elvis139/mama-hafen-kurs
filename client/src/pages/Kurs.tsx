@@ -68,14 +68,14 @@ const modules = [
     num: "08",
     title: "Frustrationstoleranz stärken",
     desc: "Übungen, die deinem Kind helfen, mit Frust umzugehen – langfristig.",
-    bunnyId: null as string | null,
+    bunnyId: "54786fc6-d7bf-4877-b924-620f6194e010",
     pdfUrl: "/manus-storage/8._Ubungen_zur_Starkung_der_Frustrationstoleranz_(fertig)__4b406dc0.pdf",
   },
   {
     num: "09",
     title: "Wutanfälle in der Öffentlichkeit",
     desc: "Was tun, wenn der Wutanfall im Supermarkt oder auf dem Spielplatz passiert?",
-    bunnyId: null as string | null,
+    bunnyId: "479c1b6c-990e-4071-8722-3c5d73855652",
     pdfUrl: "/manus-storage/9._Wutanfalle_in_der_Offentlichkeit_df4b0416.pdf",
   },
   {
@@ -298,24 +298,28 @@ export default function Kurs() {
       <div
         style={{
           background: "linear-gradient(135deg, var(--teal), #1a5c52)",
-          padding: "2.5rem 0 3rem",
-          marginBottom: "-1.5rem",
+          padding: "1.2rem 0 2rem",
+          marginBottom: "-1rem",
         }}
       >
-        <div className="container">
-          <h1
-            style={{
-              fontFamily: "'DM Serif Display', serif",
-              fontSize: "clamp(1.6rem, 4vw, 2.2rem)",
-              color: "white",
-              marginBottom: "0.5rem",
-            }}
-          >
-            Willkommen im Mama-Hafen 🎉
-          </h1>
-          <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.97rem", lineHeight: 1.6 }}>
-            Du hast Zugang zu allen 11 Lektionen. Starte einfach mit Lektion 01 oder wähle ein Thema aus.
-          </p>
+        <div className="container" style={{ display: "flex", alignItems: "center", gap: "0.8rem" }}>
+          <span style={{ fontSize: "1.4rem", flexShrink: 0 }}>⚓</span>
+          <div>
+            <h1
+              style={{
+                fontFamily: "'DM Serif Display', serif",
+                fontSize: "clamp(1.1rem, 3vw, 1.4rem)",
+                color: "white",
+                margin: 0,
+                lineHeight: 1.2,
+              }}
+            >
+              Mama-Hafen Kurs
+            </h1>
+            <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "0.8rem", margin: "0.2rem 0 0", lineHeight: 1.4 }}>
+              11 Lektionen · Starte mit Lektion 01 oder wähle ein Thema
+            </p>
+          </div>
         </div>
       </div>
 
@@ -433,35 +437,30 @@ export default function Kurs() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                display: "flex",
+                display: "inline-flex",
                 alignItems: "center",
-                gap: "1rem",
-                background: "linear-gradient(135deg, var(--coral), #c0392b)",
-                borderRadius: 16,
-                padding: "1.2rem 1.5rem",
+                gap: "0.5rem",
+                background: "var(--coral)",
+                borderRadius: 10,
+                padding: "0.5rem 1rem",
                 textDecoration: "none",
                 color: "white",
-                boxShadow: "0 4px 18px rgba(232,112,74,0.3)",
-                transition: "transform 0.15s, box-shadow 0.15s",
+                fontSize: "0.82rem",
+                fontWeight: 700,
+                boxShadow: "0 2px 10px rgba(232,112,74,0.25)",
+                transition: "background 0.15s, transform 0.15s",
+                marginTop: "0.6rem",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
-                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 6px 24px rgba(232,112,74,0.4)";
+                (e.currentTarget as HTMLAnchorElement).style.background = "var(--coral-dark, #c0392b)";
+                (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-1px)";
               }}
               onMouseLeave={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.background = "var(--coral)";
                 (e.currentTarget as HTMLAnchorElement).style.transform = "";
-                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 18px rgba(232,112,74,0.3)";
               }}
             >
-              <div style={{ fontSize: "2rem", flexShrink: 0 }}>📥</div>
-              <div>
-                <div style={{ fontWeight: 800, fontSize: "0.97rem", marginBottom: "0.2rem" }}>
-                  Kurs-Workbook herunterladen
-                </div>
-                <div style={{ opacity: 0.85, fontSize: "0.82rem" }}>
-                  Reflexionsfragen · Übungen · Notizen · PDF
-                </div>
-              </div>
+              📥 Workbook herunterladen
             </a>
           </div>
 
@@ -470,9 +469,12 @@ export default function Kurs() {
             <h3
               style={{
                 fontFamily: "'DM Serif Display', serif",
-                fontSize: "1.1rem",
-                marginBottom: "0.8rem",
+                fontSize: "0.95rem",
+                marginBottom: "0.5rem",
                 color: "var(--foreground)",
+                textTransform: "uppercase",
+                letterSpacing: "0.06em",
+                opacity: 0.6,
               }}
             >
               Alle Lektionen
@@ -494,8 +496,8 @@ export default function Kurs() {
                     width: "100%",
                     display: "flex",
                     alignItems: "center",
-                    gap: "0.8rem",
-                    padding: "0.8rem 1rem",
+                    gap: "0.6rem",
+                    padding: "0.55rem 0.8rem",
                     background: activeModule === i ? "var(--sand)" : "transparent",
                     border: "none",
                     borderBottom: i < modules.length - 1 ? "1px solid var(--border)" : "none",
