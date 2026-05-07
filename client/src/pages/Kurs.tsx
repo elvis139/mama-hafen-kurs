@@ -51,7 +51,7 @@ const modules = [
     num: "05",
     title: "Das Führungsparadox",
     desc: "Grenzen setzen und gleichzeitig liebevoll sein – geht das? Ja, und es ist sogar notwendig. In dieser Lektion lernst du, warum klare Führung kein Widerspruch zur Bindungsorientierung ist, sondern die Grundlage dafür. Du erfährst, wie du Grenzen so setzt, dass dein Kind sie wirklich annehmen kann.",
-    bunnyId: null as string | null,
+    bunnyId: "d7d8b2f6-1796-485a-a6cf-cf753b824437",
     pdfUrl: "/manus-storage/5._Das_Fuhrungsparadox_(fertig)_1eafc149.pdf",
     workbookPages: "S. 14–16",
   },
