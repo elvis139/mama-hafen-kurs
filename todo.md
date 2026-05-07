@@ -37,3 +37,9 @@
 - [x] PWA-Icons generieren (192x192 und 512x512 + apple-touch-icon 180x180)
 - [x] index.html: manifest-Link, apple-touch-icon, theme-color Meta-Tags
 - [x] Nav-Button-Fix: Zum-Kurs-Button auf Desktop sichtbar (Teal-Outline + Teal-Text)
+
+## Fortschritts-Tracking
+- [ ] Fortschrittsbalken pro Modul in der Modulliste anzeigen
+- [ ] Video-Fortschritt per YouTube/Bunny Player-Events tracken
+- [ ] Fortschritt in localStorage speichern (pro E-Mail-Adresse)
+- [ ] Gesamtfortschritt-Anzeige im Header
