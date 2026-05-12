@@ -157,7 +157,11 @@ const modules = [
 const faqs = [
   {
     q: "Für welches Alter ist der Kurs geeignet?",
-    a: "Der Kurs ist für Eltern von Kindern zwischen 1,5 und 6 Jahren konzipiert – der klassischen Autonomiephase.",
+    a: "Der Kurs ist für Eltern von Kindern zwischen 1,5 und 6 Jahren konzipiert – der klassischen Autonomiephase. Auch wenn dein Kind gerade erst 1 Jahr alt ist, kannst du dich schon jetzt vorbereiten.",
+  },
+  {
+    q: "Wann erhalte ich Zugang nach dem Kauf?",
+    a: "Sofort. Nach erfolgreicher Zahlung erhältst du direkt Zugang zum Kursbereich – kein Warten, kein Download, einfach einloggen und loslegen.",
   },
   {
     q: "Wie lange habe ich Zugang?",
@@ -170,6 +174,10 @@ const faqs = [
   {
     q: "Ist der Ansatz zu 'weich'? Ich möchte meinem Kind trotzdem Grenzen setzen.",
     a: "Bindungsorientiert bedeutet nicht grenzenlos. Du lernst, klare und liebevolle Grenzen zu setzen – ohne Schreien, ohne Strafen, ohne Machtkämpfe.",
+  },
+  {
+    q: "Gibt es eine Geld-zurück-Garantie?",
+    a: "Ja. Wenn du innerhalb von 14 Tagen nach dem Kauf nicht zufrieden bist, erstattest wir dir den vollen Betrag – kein Wenn und Aber.",
   },
   {
     q: "Funktioniert das auch bei meinem Kind?",
@@ -1219,7 +1227,7 @@ export default function Home() {
           padding: 0.12rem 0.45rem !important;
         }
 
-        /* Wartelisten-Karte: volle Breite, weniger Padding auf Mobile */
+        /* Kauf-Karte: volle Breite, weniger Padding auf Mobile */
         .waitlist-card {
           padding: 1.6rem 1.2rem !important;
           border-radius: 18px !important;

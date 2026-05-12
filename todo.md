@@ -56,11 +56,11 @@
 - [x] TypeScript prüfen (0 Fehler) und Checkpoint speichern
 
 ## Landingpage Conversion-Optimierung
-- [ ] Hero: "Auf die Warteliste"-Button → "Jetzt kaufen"-Button
-- [ ] Hero: Texte ohne Wartelisten-Bezug
-- [ ] CTA-Sektion: Warteliste-Formular → direktes Kauf-Formular (E-Mail + Kaufen)
-- [ ] Trust-Icons: Frühbucher/Warteliste-Badges entfernen, Conversion-Badges einsetzen
-- [ ] Alle Bonusinhalte-Erwähnungen entfernen
-- [ ] FAQ: Wartelisten-Fragen entfernen/ersetzen
-- [ ] Kurs-Sektion: Preisbox mit Kaufen-CTA hinzufügen
-- [ ] Checkpoint speichern
+- [x] Hero: "Auf die Warteliste"-Button → "Jetzt kaufen"-Button
+- [x] Hero: Texte ohne Wartelisten-Bezug
+- [x] CTA-Sektion: Warteliste-Formular → direktes Kauf-Formular (E-Mail + Kaufen)
+- [x] Trust-Icons: Frühbucher/Warteliste-Badges entfernt, Conversion-Badges eingesetzt
+- [x] Alle Bonusinhalte-Erwähnungen entfernt
+- [x] FAQ: Wartelisten-Fragen entfernt, Kauf-relevante FAQs eingesetzt (Sofortzugang, Garantie)
+- [x] Kurs-Sektion: Preisbox 97€ mit Kaufen-CTA eingebaut
+- [x] Checkpoint speichern
