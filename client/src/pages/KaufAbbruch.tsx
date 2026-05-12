@@ -1,6 +1,15 @@
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 
 export default function KaufAbbruch() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const t = setTimeout(() => setVisible(true), 80);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
     <div
       style={{
@@ -13,88 +22,263 @@ export default function KaufAbbruch() {
         justifyContent: "center",
         padding: "2rem 1.5rem",
         textAlign: "center",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
-      <div style={{ fontSize: "3rem", marginBottom: "1.2rem" }}>🌊</div>
-
-      <h1
-        style={{
-          fontFamily: "'DM Serif Display', serif",
-          fontSize: "clamp(1.6rem, 4vw, 2.2rem)",
-          color: "var(--foreground)",
-          marginBottom: "1rem",
-          lineHeight: 1.2,
-        }}
-      >
-        Kein Problem – du kannst jederzeit zurückkehren.
-      </h1>
-
-      <p
-        style={{
-          fontSize: "0.97rem",
-          lineHeight: 1.8,
-          color: "var(--muted-foreground)",
-          maxWidth: 460,
-          marginBottom: "2.5rem",
-        }}
-      >
-        Deine Zahlung wurde nicht abgeschlossen. Es wurde nichts berechnet.
-        Wenn du Fragen hast, melde dich gerne.
-      </p>
-
+      {/* Dekorative Hintergrundkreise */}
       <div
         style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "0.85rem",
+          position: "absolute",
+          top: "-120px",
+          left: "-100px",
+          width: "380px",
+          height: "380px",
+          borderRadius: "50%",
+          background: "var(--coral)",
+          opacity: 0.06,
+          pointerEvents: "none",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          bottom: "-80px",
+          right: "-80px",
+          width: "300px",
+          height: "300px",
+          borderRadius: "50%",
+          background: "var(--teal)",
+          opacity: 0.06,
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Karte */}
+      <div
+        style={{
+          background: "white",
+          borderRadius: "24px",
+          boxShadow: "0 8px 40px rgba(0,0,0,0.07), 0 2px 12px rgba(0,0,0,0.05)",
+          padding: "clamp(2rem, 6vw, 3.5rem) clamp(1.5rem, 5vw, 3rem)",
+          maxWidth: "520px",
           width: "100%",
-          maxWidth: 320,
+          position: "relative",
+          opacity: visible ? 1 : 0,
+          transform: visible ? "translateY(0)" : "translateY(24px)",
+          transition: "opacity 0.55s ease, transform 0.55s ease",
         }}
       >
-        <Link href="/#kaufen">
-          <button
+        {/* Status-Badge */}
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.45rem",
+            background: "linear-gradient(135deg, #fff4f0 0%, #fff8f5 100%)",
+            color: "#c0533a",
+            borderRadius: "50px",
+            padding: "0.4rem 1rem",
+            fontSize: "0.78rem",
+            fontWeight: 700,
+            letterSpacing: "0.06em",
+            textTransform: "uppercase",
+            marginBottom: "1.6rem",
+            border: "1px solid rgba(192,83,58,0.2)",
+          }}
+        >
+          <span style={{ fontSize: "0.9rem" }}>✕</span> Zahlung nicht abgeschlossen
+        </div>
+
+        {/* Wellen-Icon */}
+        <div
+          style={{
+            width: "80px",
+            height: "80px",
+            borderRadius: "50%",
+            background: "linear-gradient(135deg, #f5e6e0 0%, #eeddd8 100%)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "0 auto 1.6rem",
+            fontSize: "2.2rem",
+          }}
+        >
+          🌊
+        </div>
+
+        {/* Headline */}
+        <h1
+          style={{
+            fontFamily: "'DM Serif Display', serif",
+            fontSize: "clamp(1.6rem, 4.5vw, 2.1rem)",
+            color: "var(--foreground)",
+            marginBottom: "0.8rem",
+            lineHeight: 1.25,
+          }}
+        >
+          Kein Problem – es wurde nichts berechnet.
+        </h1>
+
+        {/* Subtext */}
+        <p
+          style={{
+            fontSize: "1rem",
+            lineHeight: 1.75,
+            color: "var(--muted-foreground)",
+            maxWidth: "400px",
+            margin: "0 auto 2rem",
+          }}
+        >
+          Deine Zahlung wurde abgebrochen oder ist fehlgeschlagen. Dein Konto
+          wurde <strong style={{ color: "var(--foreground)" }}>nicht belastet</strong>.
+          Du kannst es jederzeit erneut versuchen.
+        </p>
+
+        {/* Info-Box */}
+        <div
+          style={{
+            background: "#fdf8f6",
+            border: "1px solid rgba(192,83,58,0.15)",
+            borderRadius: "14px",
+            padding: "1.2rem 1.4rem",
+            marginBottom: "2rem",
+            textAlign: "left",
+          }}
+        >
+          <p
             style={{
-              width: "100%",
-              background: "var(--coral)",
-              color: "white",
-              border: "none",
-              borderRadius: 50,
-              padding: "0.9rem 1.5rem",
-              fontFamily: "'DM Sans', sans-serif",
-              fontWeight: 800,
-              fontSize: "1rem",
-              cursor: "pointer",
-            }}
-          >
-            ⚓ Jetzt Kurs kaufen
-          </button>
-        </Link>
-        <Link href="/">
-          <button
-            style={{
-              width: "100%",
-              background: "transparent",
-              color: "var(--teal)",
-              border: "2px solid var(--teal)",
-              borderRadius: 50,
-              padding: "0.9rem 1.5rem",
-              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "0.78rem",
               fontWeight: 700,
-              fontSize: "0.95rem",
-              cursor: "pointer",
+              letterSpacing: "0.06em",
+              textTransform: "uppercase",
+              color: "#c0533a",
+              marginBottom: "0.8rem",
             }}
           >
-            Zurück zur Startseite
-          </button>
-        </Link>
+            Mögliche Ursachen
+          </p>
+          {[
+            "Zahlung im Checkout-Fenster abgebrochen",
+            "Kartendaten waren ungültig oder abgelaufen",
+            "Verbindung wurde unterbrochen",
+            "Zahlung von der Bank abgelehnt",
+          ].map((item) => (
+            <div
+              key={item}
+              style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "0.6rem",
+                marginBottom: "0.55rem",
+                fontSize: "0.9rem",
+                color: "var(--muted-foreground)",
+                lineHeight: 1.5,
+              }}
+            >
+              <span
+                style={{
+                  flexShrink: 0,
+                  width: "18px",
+                  height: "18px",
+                  borderRadius: "50%",
+                  background: "rgba(192,83,58,0.12)",
+                  color: "#c0533a",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "0.65rem",
+                  fontWeight: 700,
+                  marginTop: "1px",
+                }}
+              >
+                !
+              </span>
+              {item}
+            </div>
+          ))}
+        </div>
+
+        {/* CTA-Buttons */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "0.75rem",
+          }}
+        >
+          <Link href="/#kaufen">
+            <button
+              style={{
+                width: "100%",
+                background: "linear-gradient(135deg, var(--coral, #e76f51) 0%, #c0533a 100%)",
+                color: "white",
+                border: "none",
+                borderRadius: "50px",
+                padding: "1rem 1.5rem",
+                fontFamily: "'DM Sans', sans-serif",
+                fontWeight: 800,
+                fontSize: "1.05rem",
+                cursor: "pointer",
+                letterSpacing: "0.02em",
+                boxShadow: "0 4px 18px rgba(231,111,81,0.35)",
+                transition: "transform 0.15s ease, box-shadow 0.15s ease",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-2px)";
+                (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 6px 24px rgba(231,111,81,0.45)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0)";
+                (e.currentTarget as HTMLButtonElement).style.boxShadow = "0 4px 18px rgba(231,111,81,0.35)";
+              }}
+            >
+              ⚓ Erneut versuchen
+            </button>
+          </Link>
+
+          <Link href="/">
+            <button
+              style={{
+                width: "100%",
+                background: "transparent",
+                color: "var(--teal)",
+                border: "2px solid rgba(42,157,143,0.35)",
+                borderRadius: "50px",
+                padding: "0.85rem 1.5rem",
+                fontFamily: "'DM Sans', sans-serif",
+                fontWeight: 600,
+                fontSize: "0.92rem",
+                cursor: "pointer",
+                transition: "border-color 0.15s ease",
+              }}
+            >
+              Zurück zur Startseite
+            </button>
+          </Link>
+        </div>
+
+        {/* Hilfe-Hinweis */}
+        <p
+          style={{
+            marginTop: "1.6rem",
+            fontSize: "0.78rem",
+            color: "var(--muted-foreground)",
+            opacity: 0.75,
+            lineHeight: 1.6,
+          }}
+        >
+          Probleme? Schreib uns – wir helfen dir gerne weiter.
+        </p>
       </div>
 
+      {/* Footer */}
       <p
         style={{
-          marginTop: "3rem",
-          fontSize: "0.78rem",
+          marginTop: "2rem",
+          fontSize: "0.75rem",
           color: "var(--muted-foreground)",
-          opacity: 0.7,
+          opacity: 0.55,
         }}
       >
         © Darleen – Mama-Hafen &nbsp;·&nbsp;{" "}

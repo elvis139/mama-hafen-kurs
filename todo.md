@@ -76,3 +76,6 @@
 
 ## Danke-Seite Redesign
 - [x] KaufErfolg.tsx visuell neu gestaltet (Karte, Check-Icon, Zugangs-Liste, Buttons, Einblend-Animation)
+
+## Abbruch-Seite Redesign
+- [x] KaufAbbruch.tsx visuell neu gestaltet (passend zur Erfolgsseite, klare Botschaft: nichts berechnet, erneut versuchen)
