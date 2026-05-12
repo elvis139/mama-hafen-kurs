@@ -73,3 +73,6 @@
 ## End-to-End Test (Stripe)
 - [ ] Stripe-Kaufstrecke im Browser mit Testkarte 4242 4242 4242 4242 testen
 - [ ] Webhook checkout.session.completed verifizieren und courseAccess-Freischaltung bestätigen
+
+## Danke-Seite Redesign
+- [x] KaufErfolg.tsx visuell neu gestaltet (Karte, Check-Icon, Zugangs-Liste, Buttons, Einblend-Animation)
