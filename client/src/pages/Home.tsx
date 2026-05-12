@@ -178,8 +178,6 @@ const faqs = [
 ];
 
 export default function Home() {
-  const [waitlistDone, setWaitlistDone] = useState(false);
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [navScrolled, setNavScrolled] = useState(false);
   const [checkoutLoading, setCheckoutLoading] = useState(false);
@@ -281,14 +279,14 @@ export default function Home() {
             </a>
             <button
               className="btn-coral"
-              onClick={() => scrollTo("warteliste")}
+              onClick={() => scrollTo("kaufen")}
               style={{
                 padding: "clamp(0.3rem, 1.5vw, 0.5rem) clamp(0.6rem, 2.5vw, 1rem)",
                 fontSize: "clamp(0.72rem, 2.5vw, 0.82rem)",
                 whiteSpace: "nowrap",
               }}
             >
-              Jetzt anmelden
+              Jetzt kaufen
             </button>
           </div>
         </div>
@@ -373,7 +371,7 @@ export default function Home() {
                   Mehr erfahren ↓
                 </button>
                 <button
-                  onClick={() => scrollTo("warteliste")}
+                  onClick={() => scrollTo("kaufen")}
                   style={{
                     background: "rgba(255,255,255,0.15)",
                     backdropFilter: "blur(8px)",
@@ -388,7 +386,7 @@ export default function Home() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  Warteliste ⚓
+                  Jetzt starten ⚓
                 </button>
               </div>
             </FadeUp>
@@ -436,7 +434,7 @@ export default function Home() {
                 <FadeUp delay={240}>
                   <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap" }}>
                     <button className="btn-coral" onClick={() => scrollTo("kurs")}>Mehr erfahren ↓</button>
-                    <button className="btn-teal-outline" onClick={() => scrollTo("warteliste")}>Auf die Warteliste</button>
+                    <button className="btn-teal-outline" onClick={() => scrollTo("kaufen")}>Jetzt kaufen ⚓</button>
                   </div>
                 </FadeUp>
               </div>
@@ -461,7 +459,7 @@ export default function Home() {
                     <span style={{ fontSize: "1.3rem" }}>🎬</span>
                     <div>
                       <div style={{ fontWeight: 800, fontSize: "0.82rem" }}>11 Video-Lektionen</div>
-                      <div style={{ fontSize: "0.7rem", color: "var(--muted-foreground)" }}>+ 5 Bonus-Module</div>
+                      <div style={{ fontSize: "0.7rem", color: "var(--muted-foreground)" }}>Sofort & dauerhaft</div>
                     </div>
                   </div>
                 </div>
@@ -754,52 +752,25 @@ export default function Home() {
             </div>
           </FadeUp>
 
-          {/* Bonus */}
+          {/* Kauf-CTA nach Modulliste */}
           <FadeUp delay={130}>
-            <div
-              style={{
-                background: "linear-gradient(135deg, var(--teal), var(--teal-dark))",
-                borderRadius: 18,
-                padding: "1.6rem 1.8rem",
-                maxWidth: 480,
-                margin: "0 auto",
-                color: "white",
-                display: "flex",
-                gap: "1.2rem",
-                alignItems: "center",
-              }}
-            >
-              <div style={{ fontSize: "2rem", flexShrink: 0 }}>🎁</div>
-              <div>
-                <div
-                  style={{
-                    fontWeight: 800,
-                    fontSize: "1rem",
-                    marginBottom: "0.3rem",
-                  }}
-                >
-                  5 Bonus-Lektionen inklusive
-                </div>
-                <div
-                  style={{
-                    opacity: 0.85,
-                    fontSize: "0.87rem",
-                    lineHeight: 1.55,
-                  }}
-                >
-                  Erziehungsmodelle · Konsequenzen ohne Drohungen · Warum
-                  Strafen nicht helfen
-                </div>
-              </div>
+            <div style={{ textAlign: "center", marginTop: "0.5rem" }}>
+              <button
+                className="btn-coral"
+                onClick={() => scrollTo("kaufen")}
+                style={{ fontSize: "1rem", padding: "0.85rem 2rem" }}
+              >
+                Jetzt Kurs kaufen ⚓
+              </button>
             </div>
           </FadeUp>
         </div>
         <Wave fill="var(--teal)" bg="var(--sand)" />
       </section>
 
-      {/* ── CTA / WARTELISTE ── */}
+      {/* ── KAUF-SEKTION ── */}
       <section
-        id="warteliste"
+        id="kaufen"
         style={{
           position: "relative",
           background: "var(--cream)",
@@ -831,7 +802,7 @@ export default function Home() {
             <div style={{ textAlign: "center", marginBottom: "3rem" }}>
               <span style={{
                 display: "inline-block",
-                background: "var(--teal)",
+                background: "var(--coral)",
                 color: "white",
                 fontSize: "0.75rem",
                 fontWeight: 700,
@@ -841,7 +812,7 @@ export default function Home() {
                 borderRadius: 50,
                 marginBottom: "1.2rem",
               }}>
-                🔥 Nur noch wenige Plätze verfügbar
+                ✅ Sofortiger Zugang nach Kauf
               </span>
               <h2 style={{
                 fontFamily: "'DM Serif Display', serif",
@@ -850,26 +821,25 @@ export default function Home() {
                 color: "var(--foreground)",
                 marginBottom: "1rem",
               }}>
-                Jetzt Platz sichern &
+                Starte noch heute &
                 <br />
-                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>als Erste starten.</em>
+                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>erlebe den Unterschied.</em>
               </h2>
               <p style={{
                 color: "var(--muted-foreground)",
                 fontSize: "1rem",
                 lineHeight: 1.75,
-                maxWidth: 480,
+                maxWidth: 500,
                 margin: "0 auto",
               }}>
-                Sichere dir jetzt deinen Platz – Wartelisten-Mitglieder erhalten
-                <strong> Frühbucher-Rabatt</strong> und starten als Erste, wenn der Kurs öffnet.
+                Einmaliger Kauf – dauerhafter Zugang. Schau die Videos in deinem eigenen Tempo,
+                jederzeit und so oft du möchtest.
               </p>
             </div>
           </FadeUp>
 
-          {/* Formular-Karte */}
+          {/* Kauf-Karte */}
           <FadeUp delay={100}>
-            {!waitlistDone ? (
               <div className="waitlist-card" style={{
                 background: "white",
                 borderRadius: 24,
@@ -879,74 +849,50 @@ export default function Home() {
                 maxWidth: 560,
                 margin: "0 auto",
               }}>
-                {/* Mini-Trust-Zeile */}
-                <div className="waitlist-trust" style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  gap: "0",
-                  flexWrap: "nowrap",
+                {/* Preis-Bereich */}
+                <div style={{
+                  textAlign: "center",
                   marginBottom: "1.5rem",
                   paddingBottom: "1.5rem",
                   borderBottom: "1px solid var(--border)",
                 }}>
+                  <div style={{
+                    fontFamily: "'DM Serif Display', serif",
+                    fontSize: "clamp(2.4rem, 8vw, 3.2rem)",
+                    fontWeight: 700,
+                    color: "var(--teal)",
+                    lineHeight: 1,
+                    marginBottom: "0.3rem",
+                  }}>97 €</div>
+                  <div style={{ fontSize: "0.85rem", color: "var(--muted-foreground)" }}>
+                    Einmalzahlung · Dauerhafter Zugang · Sofort verfügbar
+                  </div>
+                </div>
+
+                {/* Was ist enthalten */}
+                <div style={{ marginBottom: "1.5rem" }}>
                   {[
-                    { icon: "🎁", label: "Frühbucher-Bonus sichern" },
-                    { icon: "🔔", label: "Als Erste informiert" },
-                    { icon: "⚡", label: "Sofort startklar" },
-                  ].map((t, i) => (
-                    <div key={t.label} style={{
-                      flex: 1,
+                    { icon: "🎬", text: "11 Video-Lektionen (je 5–12 Min.)" },
+                    { icon: "📚", text: "Workbook mit Übungen zu jeder Lektion" },
+                    { icon: "♾️", text: "Dauerhafter Zugang – auch fürs zweite Kind" },
+                    { icon: "📱", text: "Optimiert für Handy – lerne zwischendurch" },
+                  ].map((item) => (
+                    <div key={item.text} style={{
                       display: "flex",
-                      flexDirection: "column",
                       alignItems: "center",
-                      gap: "0.3rem",
-                      padding: "0.5rem 0.4rem",
-                      borderRight: i < 2 ? "1px solid var(--border)" : "none",
-                      textAlign: "center",
+                      gap: "0.7rem",
+                      padding: "0.45rem 0",
+                      fontSize: "0.92rem",
+                      color: "var(--foreground)",
                     }}>
-                      <span style={{ fontSize: "1.2rem" }}>{t.icon}</span>
-                      <span style={{
-                        fontSize: "0.72rem",
-                        fontWeight: 700,
-                        color: "var(--muted-foreground)",
-                        lineHeight: 1.3,
-                      }}>{t.label}</span>
+                      <span style={{ fontSize: "1.1rem", flexShrink: 0 }}>{item.icon}</span>
+                      <span>{item.text}</span>
                     </div>
                   ))}
                 </div>
 
                 <form onSubmit={handleKaufen}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
-                    <div style={{ position: "relative" }}>
-                      <span style={{
-                        position: "absolute", left: "1rem", top: "50%",
-                        transform: "translateY(-50%)",
-                        fontSize: "1rem", pointerEvents: "none",
-                      }}>👤</span>
-                      <input
-                        type="text"
-                        placeholder="Dein Vorname"
-                        required
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        className="waitlist-input"
-                        style={{
-                          width: "100%",
-                          padding: "0.9rem 1rem 0.9rem 2.6rem",
-                          border: "1.5px solid var(--border)",
-                          borderRadius: 12,
-                          fontSize: "0.97rem",
-                          fontFamily: "'DM Sans', sans-serif",
-                          outline: "none",
-                          background: "var(--cream)",
-                          color: "var(--foreground)",
-                          boxSizing: "border-box",
-                          transition: "border-color 0.2s",
-                        }}
-                        onFocus={e => (e.target.style.borderColor = "var(--teal)")}
-                        onBlur={e => (e.target.style.borderColor = "var(--border)")}
-                      />
-                    </div>
                     <div style={{ position: "relative" }}>
                       <span style={{
                         position: "absolute", left: "1rem", top: "50%",
@@ -970,7 +916,7 @@ export default function Home() {
                           outline: "none",
                           background: "var(--cream)",
                           color: "var(--foreground)",
-                          boxSizing: "border-box",
+                          boxSizing: "border-box" as const,
                           transition: "border-color 0.2s",
                         }}
                         onFocus={e => (e.target.style.borderColor = "var(--teal)")}
@@ -1015,35 +961,39 @@ export default function Home() {
                         {checkoutError}
                       </p>
                     )}
+                    {/* Sicherheits-Hinweis */}
+                    <p style={{
+                      textAlign: "center",
+                      fontSize: "0.78rem",
+                      color: "var(--muted-foreground)",
+                      marginTop: "0.2rem",
+                    }}>
+                      🔒 Sichere Zahlung über Stripe · SSL-verschlüsselt
+                    </p>
                   </div>
                 </form>
-              </div>
-            ) : (
-              <div style={{
-                background: "white",
-                borderRadius: 24,
-                padding: "3rem 2rem",
-                boxShadow: "0 8px 40px rgba(0,0,0,0.09)",
-                border: "1px solid var(--border)",
-                maxWidth: 480,
-                margin: "0 auto",
-                textAlign: "center",
-              }}>
-                <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>🎉</div>
-                <h3 style={{
-                  fontFamily: "'DM Serif Display', serif",
-                  fontSize: "1.4rem",
-                  marginBottom: "0.5rem",
-                  color: "var(--foreground)",
+
+                {/* Garantie */}
+                <div style={{
+                  marginTop: "1.5rem",
+                  paddingTop: "1.5rem",
+                  borderTop: "1px solid var(--border)",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.8rem",
+                  background: "var(--sand)",
+                  borderRadius: 12,
+                  padding: "1rem 1.2rem",
                 }}>
-                  Super, {name}!
-                </h3>
-                <p style={{ color: "var(--muted-foreground)", lineHeight: 1.7, fontSize: "0.95rem" }}>
-                  Du stehst auf der Liste. Wir melden uns an{" "}
-                  <strong style={{ color: "var(--teal)" }}>{email}</strong>.
-                </p>
+                  <span style={{ fontSize: "1.8rem", flexShrink: 0 }}>🛡️</span>
+                  <div>
+                    <div style={{ fontWeight: 800, fontSize: "0.88rem", marginBottom: "0.2rem" }}>14-Tage-Zufriedenheitsgarantie</div>
+                    <div style={{ fontSize: "0.8rem", color: "var(--muted-foreground)", lineHeight: 1.5 }}>
+                      Nicht zufrieden? Schreib uns innerhalb von 14 Tagen – du bekommst dein Geld zurück.
+                    </div>
+                  </div>
+                </div>
               </div>
-            )}
           </FadeUp>
         </div>
 
@@ -1110,10 +1060,10 @@ export default function Home() {
             </h2>
             <button
               className="btn-coral"
-              onClick={() => scrollTo("warteliste")}
+              onClick={() => scrollTo("kaufen")}
               style={{ fontSize: "1rem", padding: "0.9rem 2rem" }}
             >
-              Jetzt auf die Warteliste ⚓
+              Jetzt Kurs kaufen ⚓
             </button>
           </FadeUp>
         </div>

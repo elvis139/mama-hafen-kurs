@@ -54,3 +54,13 @@
 - [x] Frontend: /kauf/erfolg Bestätigungsseite
 - [x] Frontend: /kauf/abbruch Abbruchseite
 - [x] TypeScript prüfen (0 Fehler) und Checkpoint speichern
+
+## Landingpage Conversion-Optimierung
+- [ ] Hero: "Auf die Warteliste"-Button → "Jetzt kaufen"-Button
+- [ ] Hero: Texte ohne Wartelisten-Bezug
+- [ ] CTA-Sektion: Warteliste-Formular → direktes Kauf-Formular (E-Mail + Kaufen)
+- [ ] Trust-Icons: Frühbucher/Warteliste-Badges entfernen, Conversion-Badges einsetzen
+- [ ] Alle Bonusinhalte-Erwähnungen entfernen
+- [ ] FAQ: Wartelisten-Fragen entfernen/ersetzen
+- [ ] Kurs-Sektion: Preisbox mit Kaufen-CTA hinzufügen
+- [ ] Checkpoint speichern

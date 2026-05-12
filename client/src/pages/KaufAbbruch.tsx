@@ -51,7 +51,7 @@ export default function KaufAbbruch() {
           maxWidth: 320,
         }}
       >
-        <Link href="/#warteliste">
+        <Link href="/#kaufen">
           <button
             style={{
               width: "100%",
@@ -66,7 +66,7 @@ export default function KaufAbbruch() {
               cursor: "pointer",
             }}
           >
-            🎁 Nochmal versuchen
+            ⚓ Jetzt Kurs kaufen
           </button>
         </Link>
         <Link href="/">
