@@ -182,6 +182,31 @@ export default function Home() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [navScrolled, setNavScrolled] = useState(false);
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
+  const [checkoutError, setCheckoutError] = useState("");
+
+  const handleKaufen = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setCheckoutLoading(true);
+    setCheckoutError("");
+    try {
+      const res = await fetch("/api/stripe/create-checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, origin: window.location.origin }),
+      });
+      const data = await res.json() as { url?: string; error?: string };
+      if (data.url) {
+        window.open(data.url, "_blank");
+      } else {
+        setCheckoutError(data.error || "Fehler beim Checkout. Bitte versuche es erneut.");
+      }
+    } catch {
+      setCheckoutError("Verbindungsfehler. Bitte versuche es erneut.");
+    } finally {
+      setCheckoutLoading(false);
+    }
+  };
 
   useEffect(() => {
     const fn = () => setNavScrolled(window.scrollY > 50);
@@ -890,7 +915,7 @@ export default function Home() {
                   ))}
                 </div>
 
-                <form onSubmit={(e) => { e.preventDefault(); setWaitlistDone(true); }}>
+                <form onSubmit={handleKaufen}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
                     <div style={{ position: "relative" }}>
                       <span style={{
@@ -954,10 +979,11 @@ export default function Home() {
                     </div>
                     <button
                       type="submit"
+                      disabled={checkoutLoading}
                       className="waitlist-btn"
                       style={{
                         width: "100%",
-                        background: "var(--coral)",
+                        background: checkoutLoading ? "#aaa" : "var(--coral)",
                         color: "white",
                         border: "none",
                         borderRadius: 12,
@@ -965,21 +991,30 @@ export default function Home() {
                         fontFamily: "'DM Sans', sans-serif",
                         fontWeight: 800,
                         fontSize: "1rem",
-                        cursor: "pointer",
+                        cursor: checkoutLoading ? "not-allowed" : "pointer",
                         letterSpacing: "0.02em",
                         transition: "background 0.2s, transform 0.15s",
                       }}
                       onMouseEnter={e => {
-                        (e.currentTarget as HTMLButtonElement).style.background = "#c0392b";
-                        (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-1px)";
+                        if (!checkoutLoading) {
+                          (e.currentTarget as HTMLButtonElement).style.background = "#c0392b";
+                          (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-1px)";
+                        }
                       }}
                       onMouseLeave={e => {
-                        (e.currentTarget as HTMLButtonElement).style.background = "var(--coral)";
-                        (e.currentTarget as HTMLButtonElement).style.transform = "";
+                        if (!checkoutLoading) {
+                          (e.currentTarget as HTMLButtonElement).style.background = "var(--coral)";
+                          (e.currentTarget as HTMLButtonElement).style.transform = "";
+                        }
                       }}
                     >
-                      🎁 Frühbucher-Platz sichern
+                      {checkoutLoading ? "⏳ Weiterleitung..." : "🎁 Jetzt Kurs kaufen"}
                     </button>
+                    {checkoutError && (
+                      <p style={{ color: "#c0392b", fontSize: "0.85rem", textAlign: "center", marginTop: "0.5rem" }}>
+                        {checkoutError}
+                      </p>
+                    )}
                   </div>
                 </form>
               </div>

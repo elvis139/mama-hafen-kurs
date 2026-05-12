@@ -43,3 +43,14 @@
 - [x] Video-Fortschritt: manuell per "Als gesehen markieren"-Button (bunny iframe API nicht verfügbar)
 - [x] Fortschritt in localStorage speichern (pro E-Mail-Adresse)
 - [x] Gesamtfortschritt: Fortschrittsbalken in Modulliste sichtbar
+
+## Stripe-Kaufstrecke
+- [x] Stripe-Feature aktivieren (webdev_add_feature)
+- [x] Stripe-Secrets eintragen (STRIPE_SECRET_KEY, STRIPE_PUBLISHABLE_KEY, STRIPE_WEBHOOK_SECRET, STRIPE_PRICE_ID)
+- [x] Backend: POST /api/stripe/create-checkout (Express-Route)
+- [x] Backend: /api/stripe/webhook Express-Route (raw body, Signatur-Prüfung)
+- [x] Backend: Nach checkout.session.completed → courseAccess freischalten
+- [x] Frontend: Kauf-Button auf Landingpage (Warteliste → Kaufen)
+- [x] Frontend: /kauf/erfolg Bestätigungsseite
+- [x] Frontend: /kauf/abbruch Abbruchseite
+- [x] TypeScript prüfen (0 Fehler) und Checkpoint speichern
