@@ -766,7 +766,7 @@ export default function Home() {
               <button
                 className="btn-coral"
                 onClick={() => scrollTo("kaufen")}
-                style={{ fontSize: "1rem", padding: "0.85rem 2rem" }}
+                style={{ fontSize: "0.88rem", padding: "0.65rem 1.5rem" }}
               >
                 Jetzt Kurs kaufen ⚓
               </button>
@@ -851,7 +851,7 @@ export default function Home() {
               <div className="waitlist-card" style={{
                 background: "white",
                 borderRadius: 24,
-                padding: "2.5rem 2rem",
+                padding: "2rem 1.75rem",
                 boxShadow: "0 8px 40px rgba(0,0,0,0.09)",
                 border: "1px solid var(--border)",
                 maxWidth: 560,
@@ -916,10 +916,10 @@ export default function Home() {
                         className="waitlist-input"
                         style={{
                           width: "100%",
-                          padding: "0.9rem 1rem 0.9rem 2.6rem",
+                          padding: "0.75rem 1rem 0.75rem 2.5rem",
                           border: "1.5px solid var(--border)",
                           borderRadius: 12,
-                          fontSize: "0.97rem",
+                          fontSize: "0.93rem",
                           fontFamily: "'DM Sans', sans-serif",
                           outline: "none",
                           background: "var(--cream)",
@@ -941,10 +941,10 @@ export default function Home() {
                         color: "white",
                         border: "none",
                         borderRadius: 12,
-                        padding: "1rem",
+                        padding: "0.8rem",
                         fontFamily: "'DM Sans', sans-serif",
                         fontWeight: 800,
-                        fontSize: "1rem",
+                        fontSize: "0.95rem",
                         cursor: checkoutLoading ? "not-allowed" : "pointer",
                         letterSpacing: "0.02em",
                         transition: "background 0.2s, transform 0.15s",
@@ -1069,7 +1069,7 @@ export default function Home() {
             <button
               className="btn-coral"
               onClick={() => scrollTo("kaufen")}
-              style={{ fontSize: "1rem", padding: "0.9rem 2rem" }}
+              style={{ fontSize: "0.9rem", padding: "0.7rem 1.7rem" }}
             >
               Jetzt Kurs kaufen ⚓
             </button>
@@ -1184,9 +1184,9 @@ export default function Home() {
           display: flex;
           flex-direction: row;
           align-items: flex-start;
-          gap: 1rem;
+          gap: 0.75rem;
           text-align: left !important;
-          padding: 1.1rem 1.2rem !important;
+          padding: 0.85rem 1rem !important;
         }
         .promise-card .promise-icon {
           font-size: 1.6rem;
@@ -1264,11 +1264,11 @@ export default function Home() {
             flex-direction: column;
             align-items: center;
             text-align: center !important;
-            padding: 1.6rem !important;
+            padding: 1.2rem 1rem !important;
           }
-          .promise-card .promise-icon { font-size: 2.2rem; }
-          .promise-card h3 { font-size: 1.1rem; margin-bottom: 0.6rem; }
-          .promise-card p { font-size: 0.9rem; line-height: 1.65; }
+          .promise-card .promise-icon { font-size: 2rem; }
+          .promise-card h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+          .promise-card p { font-size: 0.88rem; line-height: 1.6; }
         }
 
         /* ── DESKTOP (≥ 768px) ── */
@@ -1303,10 +1303,10 @@ export default function Home() {
           .module-num { width: 32px !important; height: 32px !important; font-size: 0.75rem !important; }
           .module-title { font-size: 0.92rem !important; }
           .module-time { font-size: 0.75rem !important; }
-          .waitlist-card { padding: 2.5rem 2rem !important; border-radius: 24px !important; }
+          .waitlist-card { padding: 2rem 1.75rem !important; border-radius: 24px !important; }
           .waitlist-trust { gap: 1.5rem !important; font-size: 0.82rem !important; }
-          .waitlist-input { padding: 0.9rem 1rem 0.9rem 2.6rem !important; font-size: 0.97rem !important; border-radius: 12px !important; }
-          .waitlist-btn { padding: 1rem !important; font-size: 1rem !important; border-radius: 12px !important; }
+          .waitlist-input { padding: 0.75rem 1rem 0.75rem 2.5rem !important; font-size: 0.93rem !important; border-radius: 12px !important; }
+          .waitlist-btn { padding: 0.8rem !important; font-size: 0.95rem !important; border-radius: 12px !important; }
           .faq-card { padding: 1.2rem 1.5rem !important; border-radius: 20px !important; }
         }
       `}</style>
