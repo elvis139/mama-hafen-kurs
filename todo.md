@@ -66,6 +66,10 @@
 - [x] Checkpoint speichern
 
 ## Stripe-Fix & Preis-Korrektur
-- [ ] Checkout-Fehler diagnostizieren (Server-Logs, Stripe-Keys prüfen)
-- [ ] Preis auf Landingpage von 97€ auf 99€ korrigieren
-- [ ] Checkout-Flow testen
+- [x] Checkout-Fehler diagnostiziert und behoben (CUSTOM_STRIPE_* Variablen)
+- [x] Preis auf Landingpage von 97€ auf 99€ korrigiert
+- [x] Checkout-Flow getestet (Stripe-Session wird erfolgreich erstellt)
+
+## End-to-End Test (Stripe)
+- [ ] Stripe-Kaufstrecke im Browser mit Testkarte 4242 4242 4242 4242 testen
+- [ ] Webhook checkout.session.completed verifizieren und courseAccess-Freischaltung bestätigen

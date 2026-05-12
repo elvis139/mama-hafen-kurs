@@ -871,7 +871,7 @@ export default function Home() {
                     color: "var(--teal)",
                     lineHeight: 1,
                     marginBottom: "0.3rem",
-                  }}>97 €</div>
+                  }}>99 €</div>
                   <div style={{ fontSize: "0.85rem", color: "var(--muted-foreground)" }}>
                     Einmalzahlung · Dauerhafter Zugang · Sofort verfügbar
                   </div>
