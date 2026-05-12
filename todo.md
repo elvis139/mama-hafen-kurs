@@ -64,3 +64,8 @@
 - [x] FAQ: Wartelisten-Fragen entfernt, Kauf-relevante FAQs eingesetzt (Sofortzugang, Garantie)
 - [x] Kurs-Sektion: Preisbox 97€ mit Kaufen-CTA eingebaut
 - [x] Checkpoint speichern
+
+## Stripe-Fix & Preis-Korrektur
+- [ ] Checkout-Fehler diagnostizieren (Server-Logs, Stripe-Keys prüfen)
+- [ ] Preis auf Landingpage von 97€ auf 99€ korrigieren
+- [ ] Checkout-Flow testen

@@ -129,6 +129,6 @@ export function registerStripeRoutes(app: Express) {
     handleWebhook
   );
 
-  // Checkout-Session erstellen
-  app.post("/api/stripe/create-checkout", handleCreateCheckout);
+  // Checkout-Session erstellen – braucht eigenes express.json() da es vor dem globalen registriert wird
+  app.post("/api/stripe/create-checkout", express.json(), handleCreateCheckout);
 }
