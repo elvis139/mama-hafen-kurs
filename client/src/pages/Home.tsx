@@ -574,7 +574,14 @@ export default function Home() {
                 <img
                   src={IMG_DARLEEN}
                   alt="Darleen, Kursleiterin"
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center 10%",
+                    transform: "scale(1.18)",
+                    transformOrigin: "center 20%",
+                  }}
                 />
               </div>
             </FadeUp>
