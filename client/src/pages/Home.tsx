@@ -176,10 +176,6 @@ const faqs = [
     a: "Bindungsorientiert bedeutet nicht grenzenlos. Du lernst, klare und liebevolle Grenzen zu setzen – ohne Schreien, ohne Strafen, ohne Machtkämpfe.",
   },
   {
-    q: "Gibt es eine Geld-zurück-Garantie?",
-    a: "Ja. Wenn du innerhalb von 14 Tagen nach dem Kauf nicht zufrieden bist, erstattest wir dir den vollen Betrag – kein Wenn und Aber.",
-  },
-  {
     q: "Funktioniert das auch bei meinem Kind?",
     a: "Die Strategien basieren auf Entwicklungspsychologie und wurden von Darleen selbst erprobt. Die Grundprinzipien der Autonomiephase gelten für alle Kinder in diesem Alter.",
   },
@@ -988,26 +984,7 @@ export default function Home() {
                   </div>
                 </form>
 
-                {/* Garantie */}
-                <div style={{
-                  marginTop: "1.5rem",
-                  paddingTop: "1.5rem",
-                  borderTop: "1px solid var(--border)",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.8rem",
-                  background: "var(--sand)",
-                  borderRadius: 12,
-                  padding: "1rem 1.2rem",
-                }}>
-                  <span style={{ fontSize: "1.8rem", flexShrink: 0 }}>🛡️</span>
-                  <div>
-                    <div style={{ fontWeight: 800, fontSize: "0.88rem", marginBottom: "0.2rem" }}>14-Tage-Zufriedenheitsgarantie</div>
-                    <div style={{ fontSize: "0.8rem", color: "var(--muted-foreground)", lineHeight: 1.5 }}>
-                      Nicht zufrieden? Schreib uns innerhalb von 14 Tagen – du bekommst dein Geld zurück.
-                    </div>
-                  </div>
-                </div>
+
               </div>
           </FadeUp>
         </div>

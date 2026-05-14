@@ -312,7 +312,7 @@ export default function KaufErfolg() {
           </Link>
         </div>
 
-        {/* Garantie-Hinweis */}
+        {/* Fragen-Hinweis */}
         <p
           style={{
             marginTop: "1.6rem",
@@ -322,7 +322,7 @@ export default function KaufErfolg() {
             lineHeight: 1.6,
           }}
         >
-          🔒 14-Tage-Geld-zurück-Garantie · Fragen? Schreib uns jederzeit.
+          Fragen? Schreib uns jederzeit.
         </p>
       </div>
 
