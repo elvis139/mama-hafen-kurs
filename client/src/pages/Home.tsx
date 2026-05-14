@@ -578,9 +578,9 @@ export default function Home() {
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
-                    objectPosition: "center 28%",
+                    objectPosition: "center 60%",
                     transform: "scale(1.18)",
-                    transformOrigin: "center 35%",
+                    transformOrigin: "center 60%",
                   }}
                 />
               </div>
