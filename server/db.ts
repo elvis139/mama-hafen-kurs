@@ -142,6 +142,41 @@ export async function insertVideoEvent(data: InsertVideoEvent) {
   await db.insert(videoEvents).values(data);
 }
 
+// ── Manuelle Zugangsverwaltung ────────────────────────────────────────────────
+
+export async function grantManualAccess(email: string) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const normalizedEmail = email.toLowerCase().trim();
+  await db.insert(courseAccess)
+    .values({
+      email: normalizedEmail,
+      isActive: true,
+      grantedAt: new Date(),
+      utmSource: "manual",
+      utmMedium: "admin",
+    })
+    .onDuplicateKeyUpdate({
+      set: { isActive: true },
+    });
+  return normalizedEmail;
+}
+
+export async function toggleCourseAccess(email: string, isActive: boolean) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const normalizedEmail = email.toLowerCase().trim();
+  await db.update(courseAccess)
+    .set({ isActive })
+    .where(eq(courseAccess.email, normalizedEmail));
+}
+
+export async function getAllCourseAccess() {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  return db.select().from(courseAccess).orderBy(desc(courseAccess.grantedAt));
+}
+
 // ── Admin-Daten ────────────────────────────────────────────────────────────────
 
 export async function getAdminStats() {

@@ -81,20 +81,31 @@
 - [x] KaufAbbruch.tsx visuell neu gestaltet (passend zur Erfolgsseite, klare Botschaft: nichts berechnet, erneut versuchen)
 
 ## Kurs-Zugangssicherung
-- [ ] Beta-Testzugang entfernen (kein offener Zugang mehr)
-- [ ] Nur Käufer mit isActive=true in course_access dürfen sich einloggen
-- [ ] Admin (elvis@darvismedia.de) bekommt immer Zugang, auch ohne Kauf-Eintrag
+- [x] Beta-Testzugang entfernen (kein offener Zugang mehr)
+- [x] Nur Käufer mit isActive=true in course_access dürfen sich einloggen
+- [x] Admin (elvis@darvismedia.de) bekommt immer Zugang, auch ohne Kauf-Eintrag
 
 ## Google Analytics / Tracking
 - [x] Google Tag (G-CF7P1QL6EZ) in index.html einbauen
 - [x] Conversion-Event (purchase) auf /kauf/erfolg feuern (Wert: 99 EUR)
 
 ## Admin-Dashboard & UTM-Tracking
-- [ ] Datenbankschema: UTM-Felder (utm_source, utm_medium, utm_campaign) in course_access
-- [ ] Datenbankschema: video_events-Tabelle (email, video_id, video_title, event_type, timestamp)
-- [ ] Server: UTM beim Checkout-Create speichern, beim Webhook in course_access schreiben
-- [ ] Server: Video-Event-Endpunkt (POST trpc course.trackVideoEvent)
-- [ ] Server: Admin-Daten-Endpunkt (Käuferliste + Video-Stats, nur für Admin)
-- [ ] Frontend: UTM-Parameter aus URL lesen, in sessionStorage speichern, beim Kauf mitschicken
-- [ ] Frontend: Video-Tracking im Kursbereich (Start/Replay-Events)
-- [ ] Admin-Seite /admin mit Käuferliste, Traffic-Quellen-Chart, Video-Stats (nur für Elvis)
+- [x] Datenbankschema: UTM-Felder (utm_source, utm_medium, utm_campaign) in course_access
+- [x] Datenbankschema: video_events-Tabelle (email, video_id, video_title, event_type, timestamp)
+- [x] Server: UTM beim Checkout-Create speichern, beim Webhook in course_access schreiben
+- [x] Server: Video-Event-Endpunkt (POST trpc course.trackVideoEvent)
+- [x] Server: Admin-Daten-Endpunkt (Käuferliste + Video-Stats, nur für Admin)
+- [x] Frontend: UTM-Parameter aus URL lesen, in sessionStorage speichern, beim Kauf mitschicken
+- [x] Frontend: Video-Tracking im Kursbereich (Start/Replay-Events)
+- [x] Admin-Seite /admin mit Käuferliste, Traffic-Quellen-Chart, Video-Stats (nur für Elvis)
+
+## Manuelle Zugangsverwaltung (Admin)
+- [x] Server-Endpunkt: einzelne E-Mail manuell anlegen (addSingleAccess)
+- [x] Server-Endpunkt: CSV-Import mehrerer E-Mail-Adressen (addBulkAccess)
+- [x] Server-Endpunkt: Zugang deaktivieren/reaktivieren (toggleAccess)
+- [x] Admin-Dashboard: UI für Einzel-Anlage (Formular + Bestätigung)
+- [x] Admin-Dashboard: UI für CSV-Upload (Datei hochladen + Vorschau + Bestätigung)
+- [x] Admin-Dashboard: Deaktivieren/Reaktivieren-Button in Käuferliste
+
+## Kursseite Kontakt
+- [x] Kursseite: Kontakt-Link zu info@darvismedia.de hinzufügen

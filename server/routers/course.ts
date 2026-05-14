@@ -7,9 +7,13 @@ import { nanoid } from "nanoid";
 import { z } from "zod";
 import {
   getAdminStats,
+  getAllCourseAccess,
+  getCourseAccessByEmail,
   getCourseAccessByMagicToken,
   getCourseAccessBySessionToken,
+  grantManualAccess,
   insertVideoEvent,
+  toggleCourseAccess,
   updateCourseAccessSession,
   upsertCourseAccess,
 } from "../db";
@@ -165,6 +169,82 @@ export const courseRouter = router({
       });
 
       return { success: true };
+    }),
+
+  /**
+   * Einzelne E-Mail manuell anlegen (Admin)
+   */
+  addSingleAccess: publicProcedure
+    .input(z.object({
+      sessionToken: z.string().min(1),
+      email: z.string().email("Bitte eine gültige E-Mail-Adresse eingeben."),
+    }))
+    .mutation(async ({ input }) => {
+      const access = await getCourseAccessBySessionToken(input.sessionToken);
+      if (!access || access.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
+        throw new TRPCError({ code: "FORBIDDEN", message: "Kein Zugriff." });
+      }
+      const email = await grantManualAccess(input.email);
+      return { success: true, email };
+    }),
+
+  /**
+   * Mehrere E-Mails per CSV-Import anlegen (Admin)
+   */
+  addBulkAccess: publicProcedure
+    .input(z.object({
+      sessionToken: z.string().min(1),
+      emails: z.array(z.string().email()).min(1).max(500),
+    }))
+    .mutation(async ({ input }) => {
+      const access = await getCourseAccessBySessionToken(input.sessionToken);
+      if (!access || access.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
+        throw new TRPCError({ code: "FORBIDDEN", message: "Kein Zugriff." });
+      }
+      const results: { email: string; status: "added" | "error"; error?: string }[] = [];
+      for (const email of input.emails) {
+        try {
+          await grantManualAccess(email);
+          results.push({ email, status: "added" });
+        } catch (err) {
+          results.push({ email, status: "error", error: String(err) });
+        }
+      }
+      const added = results.filter(r => r.status === "added").length;
+      const errors = results.filter(r => r.status === "error").length;
+      return { success: true, added, errors, results };
+    }),
+
+  /**
+   * Zugang deaktivieren oder reaktivieren (Admin)
+   */
+  toggleAccess: publicProcedure
+    .input(z.object({
+      sessionToken: z.string().min(1),
+      email: z.string().email(),
+      isActive: z.boolean(),
+    }))
+    .mutation(async ({ input }) => {
+      const access = await getCourseAccessBySessionToken(input.sessionToken);
+      if (!access || access.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
+        throw new TRPCError({ code: "FORBIDDEN", message: "Kein Zugriff." });
+      }
+      await toggleCourseAccess(input.email, input.isActive);
+      return { success: true };
+    }),
+
+  /**
+   * Alle Zugänge abrufen (Admin) – inkl. deaktivierter
+   */
+  getAllAccess: publicProcedure
+    .input(z.object({ sessionToken: z.string().min(1) }))
+    .query(async ({ input }) => {
+      const access = await getCourseAccessBySessionToken(input.sessionToken);
+      if (!access || access.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
+        throw new TRPCError({ code: "FORBIDDEN", message: "Kein Zugriff." });
+      }
+      const all = await getAllCourseAccess();
+      return all;
     }),
 
   /**

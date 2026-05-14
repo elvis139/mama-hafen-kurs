@@ -667,7 +667,7 @@ export default function Kurs() {
         }}
       >
         <div className="container">
-          <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.76rem", margin: 0 }}>
+          <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.76rem", margin: 0, lineHeight: 1.8 }}>
             © {new Date().getFullYear()} Mama-Hafen · Ein Kurs von Darleen ·{" "}
             <a
               href="https://www.darvismedia.de"
@@ -676,6 +676,20 @@ export default function Kurs() {
               style={{ color: "rgba(255,255,255,0.55)" }}
             >
               darvismedia.de
+            </a>
+          </p>
+          <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.82rem", marginTop: "0.5rem" }}>
+            Fragen oder Probleme?{" "}
+            <a
+              href="mailto:info@darvismedia.de"
+              style={{
+                color: "rgba(255,255,255,0.85)",
+                fontWeight: 700,
+                textDecoration: "underline",
+                textUnderlineOffset: "2px",
+              }}
+            >
+              info@darvismedia.de
             </a>
           </p>
         </div>
