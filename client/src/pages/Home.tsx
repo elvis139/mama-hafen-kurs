@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react";
 
 const IMG_HERO =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663061854558/DswbdQTvMfJMPVPLtDLMpo/mama-hafen-hero-8D3s4D7uWWZgi4Fzfbffn2.webp";
-const IMG_DARLEEN = "/manus-storage/mama-hafen-darleen_c8ee9f51.jpg";
+const IMG_DARLEEN = "/manus-storage/darleen-foto_7fc39ecc.webp";
 
 // ── Scroll-Animation ─────────────────────────────────────────────────────────
 function FadeUp({
