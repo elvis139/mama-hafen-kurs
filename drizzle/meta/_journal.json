@@ -15,6 +15,13 @@
       "when": 1778172686093,
       "tag": "0001_cynical_blue_shield",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1778772351415,
+      "tag": "0002_sharp_shockwave",
+      "breakpoints": true
     }
   ]
 }

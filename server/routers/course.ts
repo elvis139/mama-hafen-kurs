@@ -1,38 +1,52 @@
 /**
- * Kurs-Router: Magic-Link-Login ohne Stripe-Sperre (Test-Modus)
- *
- * Ablauf:
- * 1. requestAccess(email) → erstellt Magic-Token (15 Min gültig), gibt Token zurück
- *    (Im Test-Modus wird das Token direkt zurückgegeben, da kein E-Mail-Versand konfiguriert)
- * 2. verifyToken(token) → validiert Token, erstellt Session-Token (30 Tage), gibt Session zurück
- * 3. getAccess(sessionToken) → prüft Session, gibt Kurs-Daten zurück
+ * Kurs-Router: Magic-Link-Login + Video-Tracking + Admin-Stats
  */
 
 import { TRPCError } from "@trpc/server";
 import { nanoid } from "nanoid";
 import { z } from "zod";
 import {
-  getCourseAccessByEmail,
+  getAdminStats,
   getCourseAccessByMagicToken,
   getCourseAccessBySessionToken,
+  insertVideoEvent,
   updateCourseAccessSession,
   upsertCourseAccess,
 } from "../db";
-import { publicProcedure, router } from "../_core/trpc";
+import { protectedProcedure, publicProcedure, router } from "../_core/trpc";
+import { ENV } from "../_core/env";
 
 const MAGIC_TOKEN_TTL_MS = 15 * 60 * 1000; // 15 Minuten
 const SESSION_TTL_MS = 30 * 24 * 60 * 60 * 1000; // 30 Tage
 
+// Admin-E-Mail (Owner)
+const ADMIN_EMAIL = "elvis@darvismedia.de";
+
 export const courseRouter = router({
   /**
    * Zugang anfordern: E-Mail eingeben → Magic-Token erhalten
-   * Im Test-Modus: Token wird direkt zurückgegeben (kein E-Mail-Versand)
+   * Nur für Käufer (isActive=true) oder Admin
    */
   requestAccess: publicProcedure
     .input(z.object({ email: z.string().email("Bitte eine gültige E-Mail-Adresse eingeben.") }))
     .mutation(async ({ input }) => {
       const { email } = input;
       const normalizedEmail = email.toLowerCase().trim();
+
+      // Admin bekommt immer Zugang
+      const isAdmin = normalizedEmail === ADMIN_EMAIL.toLowerCase();
+
+      if (!isAdmin) {
+        // Prüfen ob Käufer
+        const { getCourseAccessByEmail } = await import("../db");
+        const existing = await getCourseAccessByEmail(normalizedEmail);
+        if (!existing || !existing.isActive) {
+          throw new TRPCError({
+            code: "FORBIDDEN",
+            message: "Diese E-Mail-Adresse hat keinen Kurszugang. Bitte kaufe den Kurs zuerst.",
+          });
+        }
+      }
 
       const magicToken = nanoid(48);
       const tokenExpiresAt = new Date(Date.now() + MAGIC_TOKEN_TTL_MS);
@@ -44,12 +58,10 @@ export const courseRouter = router({
         isActive: true,
       });
 
-      // Im Test-Modus: Token direkt zurückgeben
-      // Später: E-Mail mit Link versenden und nur { success: true } zurückgeben
       return {
         success: true,
-        testModeToken: magicToken, // Nur für Test-Modus – später entfernen
-        message: "Zugang gewährt. Im Test-Modus wird der Link direkt angezeigt.",
+        testModeToken: magicToken,
+        message: "Zugang gewährt.",
       };
     }),
 
@@ -129,5 +141,47 @@ export const courseRouter = router({
         grantedAt: access.grantedAt,
         hasAccess: true,
       };
+    }),
+
+  /**
+   * Video-Event tracken: Start, Replay, Complete
+   */
+  trackVideoEvent: publicProcedure
+    .input(z.object({
+      sessionToken: z.string().min(1),
+      videoId: z.string().min(1),
+      videoTitle: z.string().min(1),
+      eventType: z.enum(["start", "replay", "complete"]),
+    }))
+    .mutation(async ({ input }) => {
+      const access = await getCourseAccessBySessionToken(input.sessionToken);
+      if (!access || !access.isActive) return { success: false };
+
+      await insertVideoEvent({
+        email: access.email,
+        videoId: input.videoId,
+        videoTitle: input.videoTitle,
+        eventType: input.eventType,
+      });
+
+      return { success: true };
+    }),
+
+  /**
+   * Admin-Stats: Käuferliste, Video-Stats, Traffic-Quellen
+   * Nur für Admin (elvis@darvismedia.de)
+   */
+  getAdminStats: protectedProcedure
+    .query(async ({ ctx }) => {
+      // Nur Admin darf diese Daten sehen
+      if (ctx.user.email !== ADMIN_EMAIL && ctx.user.role !== "admin") {
+        throw new TRPCError({
+          code: "FORBIDDEN",
+          message: "Kein Zugriff.",
+        });
+      }
+
+      const stats = await getAdminStats();
+      return stats;
     }),
 });

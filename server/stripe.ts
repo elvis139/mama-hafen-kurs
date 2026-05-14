@@ -17,12 +17,18 @@ function getStripe(): Stripe {
 
 /**
  * POST /api/stripe/create-checkout
- * Body: { email: string, origin: string }
+ * Body: { email: string, origin: string, utmSource?, utmMedium?, utmCampaign? }
  * Returns: { url: string }
  */
 async function handleCreateCheckout(req: Request, res: Response) {
   try {
-    const { email, origin } = req.body as { email?: string; origin?: string };
+    const { email, origin, utmSource, utmMedium, utmCampaign } = req.body as {
+      email?: string;
+      origin?: string;
+      utmSource?: string;
+      utmMedium?: string;
+      utmCampaign?: string;
+    };
     const baseUrl = origin || req.headers.origin || "https://mamahafen.manus.space";
 
     const stripe = getStripe();
@@ -39,6 +45,9 @@ async function handleCreateCheckout(req: Request, res: Response) {
       allow_promotion_codes: true,
       metadata: {
         customer_email: email || "",
+        utm_source: utmSource || "",
+        utm_medium: utmMedium || "",
+        utm_campaign: utmCampaign || "",
       },
       success_url: `${baseUrl}/kauf/erfolg?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${baseUrl}/kauf/abbruch`,
@@ -82,13 +91,16 @@ async function handleWebhook(req: Request, res: Response) {
   if (event.type === "checkout.session.completed") {
     const session = event.data.object as Stripe.Checkout.Session;
     const email = session.customer_email || session.metadata?.customer_email;
+    const utmSource = session.metadata?.utm_source || null;
+    const utmMedium = session.metadata?.utm_medium || null;
+    const utmCampaign = session.metadata?.utm_campaign || null;
 
     if (email) {
       try {
         const normalizedEmail = email.toLowerCase().trim();
         const db = await getDb();
         if (!db) throw new Error("DB not available");
-        // Upsert: Kurszugang für diese E-Mail aktivieren
+        // Upsert: Kurszugang für diese E-Mail aktivieren + UTM speichern
         const existing = await db
           .select()
           .from(courseAccess)
@@ -98,7 +110,13 @@ async function handleWebhook(req: Request, res: Response) {
         if (existing.length > 0) {
           await db
             .update(courseAccess)
-            .set({ isActive: true, grantedAt: new Date() })
+            .set({
+              isActive: true,
+              grantedAt: new Date(),
+              utmSource: utmSource || existing[0].utmSource,
+              utmMedium: utmMedium || existing[0].utmMedium,
+              utmCampaign: utmCampaign || existing[0].utmCampaign,
+            })
             .where(eq(courseAccess.email, normalizedEmail));
         } else {
           await db.insert(courseAccess).values({
@@ -107,9 +125,12 @@ async function handleWebhook(req: Request, res: Response) {
             tokenExpiresAt: null,
             grantedAt: new Date(),
             isActive: true,
+            utmSource,
+            utmMedium,
+            utmCampaign,
           });
         }
-        console.log(`[Stripe] Kurszugang freigeschaltet für: ${normalizedEmail}`);
+        console.log(`[Stripe] Kurszugang freigeschaltet für: ${normalizedEmail} (Quelle: ${utmSource || "direkt"})`);
       } catch (dbErr) {
         console.error("[Stripe] DB-Fehler beim Freischalten:", dbErr);
       }

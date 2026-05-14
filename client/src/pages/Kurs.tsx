@@ -228,11 +228,30 @@ export default function Kurs() {
     }
   }, [data?.email]);
 
+  const trackVideoEvent = trpc.course.trackVideoEvent.useMutation();
+
   const markWatched = (moduleNum: string, percent: number) => {
     if (!data?.email) return;
     const updated = { ...progress, [moduleNum]: percent };
     setProgress(updated);
     saveProgress(data.email, updated);
+  };
+
+  // Video-Start tracken wenn Modul gewechselt wird
+  const handleModuleSelect = (index: number) => {
+    setActiveModule(index);
+    setDescOpen(false);
+    if (sessionToken && modules[index]) {
+      const mod = modules[index];
+      const prevProgress = progress[mod.num] ?? 0;
+      const eventType = prevProgress > 0 ? "replay" : "start";
+      trackVideoEvent.mutate({
+        sessionToken,
+        videoId: mod.bunnyId,
+        videoTitle: mod.title,
+        eventType,
+      });
+    }
   };
 
   const handleLogout = () => {
@@ -561,7 +580,7 @@ export default function Kurs() {
               {modules.map((m, i) => (
                 <button
                   key={m.num}
-                  onClick={() => setActiveModule(i)}
+                  onClick={() => handleModuleSelect(i)}
                   style={{
                     width: "100%",
                     display: "flex",

@@ -1,6 +1,6 @@
-import { eq } from "drizzle-orm";
+import { desc, eq, sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { courseAccess, InsertCourseAccess, InsertUser, users } from "../drizzle/schema";
+import { courseAccess, InsertCourseAccess, InsertUser, InsertVideoEvent, users, videoEvents } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -130,6 +130,65 @@ export async function updateCourseAccessSession(email: string, sessionToken: str
   const db = await getDb();
   if (!db) throw new Error("Database not available");
   await db.update(courseAccess)
-    .set({ sessionToken, sessionExpiresAt, magicToken: null, tokenExpiresAt: null })
+    .set({ sessionToken, sessionExpiresAt, magicToken: null, tokenExpiresAt: null, lastLoginAt: new Date() })
     .where(eq(courseAccess.email, email));
+}
+
+// ── Video-Events ────────────────────────────────────────────────────────────────
+
+export async function insertVideoEvent(data: InsertVideoEvent) {
+  const db = await getDb();
+  if (!db) return;
+  await db.insert(videoEvents).values(data);
+}
+
+// ── Admin-Daten ────────────────────────────────────────────────────────────────
+
+export async function getAdminStats() {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  // Alle Käufer
+  const buyers = await db
+    .select()
+    .from(courseAccess)
+    .where(eq(courseAccess.isActive, true))
+    .orderBy(desc(courseAccess.grantedAt));
+
+  // Video-Events: Starts pro Video
+  const videoStarts = await db
+    .select({
+      videoId: videoEvents.videoId,
+      videoTitle: videoEvents.videoTitle,
+      count: sql<number>`COUNT(*)`.as("count"),
+    })
+    .from(videoEvents)
+    .where(eq(videoEvents.eventType, "start"))
+    .groupBy(videoEvents.videoId, videoEvents.videoTitle)
+    .orderBy(desc(sql`COUNT(*)`));
+
+  // Video-Events: Replays pro Video
+  const videoReplays = await db
+    .select({
+      videoId: videoEvents.videoId,
+      videoTitle: videoEvents.videoTitle,
+      count: sql<number>`COUNT(*)`.as("count"),
+    })
+    .from(videoEvents)
+    .where(eq(videoEvents.eventType, "replay"))
+    .groupBy(videoEvents.videoId, videoEvents.videoTitle)
+    .orderBy(desc(sql`COUNT(*)`));
+
+  // Traffic-Quellen
+  const trafficSources = await db
+    .select({
+      utmSource: courseAccess.utmSource,
+      count: sql<number>`COUNT(*)`.as("count"),
+    })
+    .from(courseAccess)
+    .where(eq(courseAccess.isActive, true))
+    .groupBy(courseAccess.utmSource)
+    .orderBy(desc(sql`COUNT(*)`));
+
+  return { buyers, videoStarts, videoReplays, trafficSources };
 }

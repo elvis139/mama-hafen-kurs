@@ -88,3 +88,13 @@
 ## Google Analytics / Tracking
 - [x] Google Tag (G-CF7P1QL6EZ) in index.html einbauen
 - [x] Conversion-Event (purchase) auf /kauf/erfolg feuern (Wert: 99 EUR)
+
+## Admin-Dashboard & UTM-Tracking
+- [ ] Datenbankschema: UTM-Felder (utm_source, utm_medium, utm_campaign) in course_access
+- [ ] Datenbankschema: video_events-Tabelle (email, video_id, video_title, event_type, timestamp)
+- [ ] Server: UTM beim Checkout-Create speichern, beim Webhook in course_access schreiben
+- [ ] Server: Video-Event-Endpunkt (POST trpc course.trackVideoEvent)
+- [ ] Server: Admin-Daten-Endpunkt (Käuferliste + Video-Stats, nur für Admin)
+- [ ] Frontend: UTM-Parameter aus URL lesen, in sessionStorage speichern, beim Kauf mitschicken
+- [ ] Frontend: Video-Tracking im Kursbereich (Start/Replay-Events)
+- [ ] Admin-Seite /admin mit Käuferliste, Traffic-Quellen-Chart, Video-Stats (nur für Elvis)

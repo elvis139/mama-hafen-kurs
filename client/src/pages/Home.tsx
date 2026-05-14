@@ -187,6 +187,16 @@ export default function Home() {
   const [checkoutLoading, setCheckoutLoading] = useState(false);
   const [checkoutError, setCheckoutError] = useState("");
 
+  // UTM-Parameter aus URL lesen (einmalig beim Laden)
+  const utmParams = (() => {
+    const p = new URLSearchParams(window.location.search);
+    return {
+      utmSource: p.get("utm_source") || "",
+      utmMedium: p.get("utm_medium") || "",
+      utmCampaign: p.get("utm_campaign") || "",
+    };
+  })();
+
   const handleKaufen = async (e: React.FormEvent) => {
     e.preventDefault();
     setCheckoutLoading(true);
@@ -203,7 +213,7 @@ export default function Home() {
       const res = await fetch("/api/stripe/create-checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, origin: window.location.origin }),
+        body: JSON.stringify({ email, origin: window.location.origin, ...utmParams }),
       });
       const data = await res.json() as { url?: string; error?: string };
       if (data.url) {
