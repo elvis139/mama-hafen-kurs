@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 
-// Google gtag Typen
+// Google gtag + Meta Pixel Typen
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
     dataLayer?: unknown[];
+    fbq?: (...args: unknown[]) => void;
   }
 }
 
@@ -44,6 +45,16 @@ export default function KaufErfolg() {
       });
       // Dedupe: pro Session nur einmal senden
       sessionStorage.setItem(dedupeKey, "1");
+
+      // Meta Pixel: Purchase-Event
+      if (typeof window.fbq === "function") {
+        window.fbq("track", "Purchase", {
+          value: 99,
+          currency: "EUR",
+          content_ids: ["mama-hafen-kurs"],
+          content_type: "product",
+        });
+      }
     }
 
     return () => clearTimeout(t);

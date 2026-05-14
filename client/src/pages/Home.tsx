@@ -191,6 +191,14 @@ export default function Home() {
     e.preventDefault();
     setCheckoutLoading(true);
     setCheckoutError("");
+    // Meta Pixel: Checkout gestartet
+    if (typeof (window as Window & { fbq?: (...args: unknown[]) => void }).fbq === "function") {
+      (window as Window & { fbq?: (...args: unknown[]) => void }).fbq!("track", "InitiateCheckout", {
+        value: 99,
+        currency: "EUR",
+        content_ids: ["mama-hafen-kurs"],
+      });
+    }
     try {
       const res = await fetch("/api/stripe/create-checkout", {
         method: "POST",
