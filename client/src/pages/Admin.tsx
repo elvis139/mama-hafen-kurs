@@ -5,9 +5,8 @@
  */
 
 import { trpc } from "@/lib/trpc";
-import { useAuth } from "@/_core/hooks/useAuth";
 import { useLocation } from "wouter";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 const SOURCE_LABELS: Record<string, string> = {
   instagram: "Instagram",
@@ -44,21 +43,27 @@ function StatCard({ label, value, sub, color }: { label: string; value: string |
 }
 
 export default function Admin() {
-  const { user, loading, isAuthenticated } = useAuth();
   const [, navigate] = useLocation();
 
-  const { data, isLoading, error } = trpc.course.getAdminStats.useQuery(undefined, {
-    enabled: isAuthenticated,
-    retry: false,
-  });
+  const sessionToken = useMemo(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("mama_hafen_session") ?? "";
+    }
+    return "";
+  }, []);
+
+  const { data, isLoading, error } = trpc.course.getAdminStats.useQuery(
+    { sessionToken },
+    { enabled: !!sessionToken, retry: false }
+  );
 
   useEffect(() => {
-    if (!loading && !isAuthenticated) {
-      navigate("/");
+    if (!sessionToken) {
+      navigate("/kurs/login");
     }
-  }, [loading, isAuthenticated, navigate]);
+  }, [sessionToken, navigate]);
 
-  if (loading || isLoading) {
+  if (isLoading) {
     return (
       <div style={{
         minHeight: "100svh", background: "var(--cream)",
@@ -136,7 +141,7 @@ export default function Admin() {
             }}>Admin</span>
           </div>
           <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-            <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.85rem" }}>{user?.name}</span>
+            <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.85rem" }}>{data?.buyers?.find(b => b.email === "elvis@darvismedia.de") ? "Elvis" : "Admin"}</span>
             <a href="/" style={{
               color: "white",
               fontSize: "0.85rem",

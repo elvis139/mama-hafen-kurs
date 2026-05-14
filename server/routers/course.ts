@@ -169,16 +169,19 @@ export const courseRouter = router({
 
   /**
    * Admin-Stats: Käuferliste, Video-Stats, Traffic-Quellen
-   * Nur für Admin (elvis@darvismedia.de)
+   * Nur für Admin (elvis@darvismedia.de) – via Kurs-Session-Token
    */
-  getAdminStats: protectedProcedure
-    .query(async ({ ctx }) => {
-      // Nur Admin darf diese Daten sehen
-      if (ctx.user.email !== ADMIN_EMAIL && ctx.user.role !== "admin") {
-        throw new TRPCError({
-          code: "FORBIDDEN",
-          message: "Kein Zugriff.",
-        });
+  getAdminStats: publicProcedure
+    .input(z.object({ sessionToken: z.string().min(1) }))
+    .query(async ({ input }) => {
+      // Session prüfen
+      const access = await getCourseAccessBySessionToken(input.sessionToken);
+      if (!access) {
+        throw new TRPCError({ code: "UNAUTHORIZED", message: "Bitte einloggen." });
+      }
+      // Nur Admin-E-Mail darf Stats sehen
+      if (access.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
+        throw new TRPCError({ code: "FORBIDDEN", message: "Kein Zugriff." });
       }
 
       const stats = await getAdminStats();
