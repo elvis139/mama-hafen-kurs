@@ -584,17 +584,7 @@ export default function Home() {
             {/* Text */}
             <div className="about-text">
               <FadeUp>
-                <span
-                  style={{
-                    color: "var(--coral)",
-                    fontWeight: 800,
-                    fontSize: "0.78rem",
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Deine Kursleiterin
-                </span>
+
                 <h2
                   style={{
                     fontFamily: "'DM Serif Display', serif",
