@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 
+// Google gtag Typen
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+    dataLayer?: unknown[];
+  }
+}
+
 export default function KaufErfolg() {
   const [visible, setVisible] = useState(false);
 
@@ -8,6 +16,36 @@ export default function KaufErfolg() {
     window.scrollTo(0, 0);
     // Kurze Verzögerung für Einblend-Animation
     const t = setTimeout(() => setVisible(true), 80);
+
+    // Google Analytics: Kauf-Conversion feuern
+    // Nur wenn eine echte Stripe session_id in der URL steht
+    const params = new URLSearchParams(window.location.search);
+    const sessionId = params.get("session_id");
+    const dedupeKey = sessionId ? `ga_purchase_fired_${sessionId}` : null;
+
+    if (
+      sessionId &&
+      dedupeKey &&
+      !sessionStorage.getItem(dedupeKey) &&
+      typeof window.gtag === "function"
+    ) {
+      window.gtag("event", "purchase", {
+        transaction_id: sessionId,
+        value: 99,
+        currency: "EUR",
+        items: [
+          {
+            item_id: "mama-hafen-kurs",
+            item_name: "Mama-Hafen Online-Kurs",
+            price: 99,
+            quantity: 1,
+          },
+        ],
+      });
+      // Dedupe: pro Session nur einmal senden
+      sessionStorage.setItem(dedupeKey, "1");
+    }
+
     return () => clearTimeout(t);
   }, []);
 

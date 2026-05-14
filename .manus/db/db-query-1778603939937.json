@@ -1,0 +1,19 @@
+{
+  "query": "SHOW TABLES;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway05.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3RxoCSxtP2KH5AE.663ebd1b92d8 --database DswbdQTvMfJMPVPLtDLMpo --execute SHOW TABLES;",
+  "rows": [
+    {
+      "Tables_in_DswbdQTvMfJMPVPLtDLMpo": "__drizzle_migrations"
+    },
+    {
+      "Tables_in_DswbdQTvMfJMPVPLtDLMpo": "course_access"
+    },
+    {
+      "Tables_in_DswbdQTvMfJMPVPLtDLMpo": "users"
+    }
+  ],
+  "messages": [],
+  "stdout": "Tables_in_DswbdQTvMfJMPVPLtDLMpo\n__drizzle_migrations\ncourse_access\nusers\n",
+  "stderr": "",
+  "execution_time_ms": 623
+}

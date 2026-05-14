@@ -79,3 +79,12 @@
 
 ## Abbruch-Seite Redesign
 - [x] KaufAbbruch.tsx visuell neu gestaltet (passend zur Erfolgsseite, klare Botschaft: nichts berechnet, erneut versuchen)
+
+## Kurs-Zugangssicherung
+- [ ] Beta-Testzugang entfernen (kein offener Zugang mehr)
+- [ ] Nur Käufer mit isActive=true in course_access dürfen sich einloggen
+- [ ] Admin (elvis@darvismedia.de) bekommt immer Zugang, auch ohne Kauf-Eintrag
+
+## Google Analytics / Tracking
+- [x] Google Tag (G-CF7P1QL6EZ) in index.html einbauen
+- [x] Conversion-Event (purchase) auf /kauf/erfolg feuern (Wert: 99 EUR)

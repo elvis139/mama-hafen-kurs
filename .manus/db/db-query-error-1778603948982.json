@@ -1,0 +1,8 @@
+{
+  "query": "SELECT email, is_active, granted_at, magic_token, token_expires_at FROM course_access ORDER BY granted_at DESC LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway05.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3RxoCSxtP2KH5AE.663ebd1b92d8 --database DswbdQTvMfJMPVPLtDLMpo --execute SELECT email, is_active, granted_at, magic_token, token_expires_at FROM course_access ORDER BY granted_at DESC LIMIT 20;",
+  "returncode": 1,
+  "logs": [
+    "ERROR 1054 (42S22) at line 1: Unknown column 'is_active' in 'field list'"
+  ]
+}

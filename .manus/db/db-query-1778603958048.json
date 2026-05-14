@@ -1,0 +1,22 @@
+{
+  "query": "SELECT email, isActive, grantedAt, magicToken FROM course_access ORDER BY grantedAt DESC LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway05.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3RxoCSxtP2KH5AE.663ebd1b92d8 --database DswbdQTvMfJMPVPLtDLMpo --execute SELECT email, isActive, grantedAt, magicToken FROM course_access ORDER BY grantedAt DESC LIMIT 20;",
+  "rows": [
+    {
+      "email": "elvis@darvismedia.de",
+      "isActive": "1",
+      "grantedAt": "2026-05-12 16:01:34",
+      "magicToken": "NULL"
+    },
+    {
+      "email": "info@darvismedia.de",
+      "isActive": "1",
+      "grantedAt": "2026-05-07 19:20:12",
+      "magicToken": "NULL"
+    }
+  ],
+  "messages": [],
+  "stdout": "email\tisActive\tgrantedAt\tmagicToken\nelvis@darvismedia.de\t1\t2026-05-12 16:01:34\tNULL\ninfo@darvismedia.de\t1\t2026-05-07 19:20:12\tNULL\n",
+  "stderr": "",
+  "execution_time_ms": 568
+}
