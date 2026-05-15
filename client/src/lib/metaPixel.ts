@@ -1,0 +1,63 @@
+/**
+ * Meta Pixel Helper
+ * Pixel ID: 4541103249457123
+ */
+
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+  }
+}
+
+function fbq(...args: unknown[]) {
+  if (typeof window !== "undefined" && typeof window.fbq === "function") {
+    window.fbq(...args);
+  }
+}
+
+/** Wird automatisch beim Seitenwechsel gefeuert (PageView ist bereits im HTML-Head) */
+export function trackPageView() {
+  fbq("track", "PageView");
+}
+
+/** Kauf-Button geklickt – Nutzer beginnt den Checkout-Prozess */
+export function trackInitiateCheckout(value?: number) {
+  fbq("track", "InitiateCheckout", {
+    content_name: "Mama-Hafen Online-Kurs",
+    content_category: "Online-Kurs",
+    currency: "EUR",
+    value: value ?? 97,
+    num_items: 1,
+  });
+}
+
+/** Kauf erfolgreich abgeschlossen (nach Stripe-Weiterleitung) */
+export function trackPurchase(value?: number) {
+  fbq("track", "Purchase", {
+    content_name: "Mama-Hafen Online-Kurs",
+    content_category: "Online-Kurs",
+    currency: "EUR",
+    value: value ?? 97,
+    content_type: "product",
+    content_ids: ["mama-hafen-kurs"],
+    num_items: 1,
+  });
+}
+
+/** Kursseite aufgerufen (Nutzer hat Zugang und sieht den Kurs) */
+export function trackViewContent() {
+  fbq("track", "ViewContent", {
+    content_name: "Mama-Hafen Online-Kurs",
+    content_category: "Online-Kurs",
+    currency: "EUR",
+    value: 97,
+  });
+}
+
+/** Warteliste / Lead-Formular ausgefüllt */
+export function trackLead() {
+  fbq("track", "Lead", {
+    content_name: "Mama-Hafen Warteliste",
+    content_category: "Online-Kurs",
+  });
+}

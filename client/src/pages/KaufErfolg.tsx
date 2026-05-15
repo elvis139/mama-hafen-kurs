@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
+import { trackPurchase } from "@/lib/metaPixel";
 
-// Google gtag + Meta Pixel Typen
+// Google gtag Typen
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
     dataLayer?: unknown[];
-    fbq?: (...args: unknown[]) => void;
   }
 }
 
@@ -47,14 +47,7 @@ export default function KaufErfolg() {
       sessionStorage.setItem(dedupeKey, "1");
 
       // Meta Pixel: Purchase-Event
-      if (typeof window.fbq === "function") {
-        window.fbq("track", "Purchase", {
-          value: 99,
-          currency: "EUR",
-          content_ids: ["mama-hafen-kurs"],
-          content_type: "product",
-        });
-      }
+      trackPurchase(99);
     }
 
     return () => clearTimeout(t);

@@ -5,6 +5,7 @@
  */
 
 import { useEffect, useRef, useState } from "react";
+import { trackInitiateCheckout } from "@/lib/metaPixel";
 
 const IMG_HERO =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663061854558/DswbdQTvMfJMPVPLtDLMpo/mama-hafen-hero-8D3s4D7uWWZgi4Fzfbffn2.webp";
@@ -202,13 +203,7 @@ export default function Home() {
     setCheckoutLoading(true);
     setCheckoutError("");
     // Meta Pixel: Checkout gestartet
-    if (typeof (window as Window & { fbq?: (...args: unknown[]) => void }).fbq === "function") {
-      (window as Window & { fbq?: (...args: unknown[]) => void }).fbq!("track", "InitiateCheckout", {
-        value: 99,
-        currency: "EUR",
-        content_ids: ["mama-hafen-kurs"],
-      });
-    }
+    trackInitiateCheckout(99);
     try {
       const res = await fetch("/api/stripe/create-checkout", {
         method: "POST",
