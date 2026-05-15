@@ -10,6 +10,7 @@ import KursLogin from "./pages/KursLogin";
 import KaufErfolg from "./pages/KaufErfolg";
 import KaufAbbruch from "./pages/KaufAbbruch";
 import Admin from "./pages/Admin";
+import CookieBanner from "./components/CookieBanner";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -43,6 +44,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <CookieBanner />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

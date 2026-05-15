@@ -11,7 +11,16 @@ declare global {
 
 const PIXEL_IDS = ["4541103249457123", "1464149581564441"];
 
+function hasConsent(): boolean {
+  try {
+    return localStorage.getItem("mama_hafen_cookie_consent") === "accepted";
+  } catch {
+    return false;
+  }
+}
+
 function fbq(event: string, eventName: string, params?: Record<string, unknown>) {
+  if (!hasConsent()) return;
   if (typeof window !== "undefined" && typeof window.fbq === "function") {
     PIXEL_IDS.forEach((id) => {
       window.fbq!(event, eventName, params, { eventID: id });

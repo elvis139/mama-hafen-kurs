@@ -109,3 +109,9 @@
 
 ## Kursseite Kontakt
 - [x] Kursseite: Kontakt-Link zu info@darvismedia.de hinzufügen
+
+## Cookie-Banner (DSGVO)
+- [x] CookieBanner-Komponente bauen (Akzeptieren / Ablehnen)
+- [x] Meta Pixel erst nach Zustimmung laden
+- [x] Google Analytics erst nach Zustimmung laden
+- [x] Einwilligung in localStorage speichern
