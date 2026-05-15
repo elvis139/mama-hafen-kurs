@@ -506,18 +506,18 @@ export default function Home() {
             {[
               {
                 icon: "🧘",
-                title: "Gelassen bleiben",
-                text: "Du verstehst, was hinter Wutanfällen steckt – und reagierst ruhig statt reaktiv.",
+                title: "Ruhig bleiben – auch wenn es eskaliert",
+                text: "Beim nächsten Wutanfall im Supermarkt weißt du genau, was zu tun ist – statt selbst laut zu werden oder dich hilflos zu fühlen.",
               },
               {
                 icon: "🤝",
-                title: "Grenzen ohne Kampf",
-                text: "Du setzt klare Grenzen liebevoll – ohne Schreien, ohne schlechtes Gewissen.",
+                title: "Grenzen setzen – ohne Machtkampf",
+                text: "Du sagst Nein – und dein Kind akzeptiert es. Ohne Schreien, ohne schlechtes Gewissen, ohne stundenlange Diskussionen.",
               },
               {
                 icon: "💛",
-                title: "Tiefere Verbindung",
-                text: "Eine starke Bindung reduziert Trotzanfälle und macht das Mamasein wieder leicht.",
+                title: "Wieder Mama sein – nicht Krisenmanagerin",
+                text: "Wenn du verstehst, warum dein Kind so reagiert, hört die Erschöpfung auf. Du genießt wieder gemeinsame Momente – statt sie nur zu überstehen.",
               },
             ].map((p, i) => (
               <FadeUp key={p.title} delay={i * 80}>
@@ -618,10 +618,7 @@ export default function Home() {
                     fontSize: "0.97rem",
                   }}
                 >
-                  Zweifache Mama – und ich kenne diese Erschöpfung aus eigener
-                  Erfahrung. Die Autonomiephase hat mich damals an meine
-                  Grenzen gebracht. Ich war ständig laut und erkannte mich
-                  selbst kaum noch.
+                  Ich bin Mama von zwei Kindern – und ich habe genau das durchgemacht, wovon du gerade vielleicht mitten drin bist. Meine beiden haben mich mit ihrer Trotzphase an absolute Grenzen gebracht. Ich war täglich am Ende, habe Dinge gesagt, die ich bereut habe, und hatte Angst, dass ich als Mama versage. Unsere Familie hat darunter gelitten – und ich auch.
                 </p>
               </FadeUp>
               <FadeUp delay={140}>
@@ -637,9 +634,7 @@ export default function Home() {
                     lineHeight: 1.6,
                   }}
                 >
-                  „Mit den richtigen Werkzeugen konnte ich nicht nur meinen
-                  Kindern helfen – sondern auch selbst wieder Gelassenheit
-                  finden."
+                  „Ich habe so lange gesucht, bis ich endlich verstanden habe, was wirklich hinter diesem Verhalten steckt. Und als ich es verstanden hatte, hat sich alles verändert.“
                 </blockquote>
               </FadeUp>
               <FadeUp delay={200}>
@@ -650,9 +645,7 @@ export default function Home() {
                     fontSize: "0.97rem",
                   }}
                 >
-                  Ich habe mich intensiv mit Entwicklungspsychologie beschäftigt
-                  und diesen Kurs entwickelt – damit du nicht so lange suchen
-                  musst wie ich.
+                  Seitdem ist es meine persönliche Mission, diese Erkenntnis weiterzugeben – damit andere Mamas nicht so lange verzweifeln müssen wie ich. Nicht damit Familien daran zerbrechen. Sondern damit du wieder die Mama sein kannst, die du sein möchtest.
                 </p>
               </FadeUp>
             </div>
@@ -870,14 +863,35 @@ export default function Home() {
                   paddingBottom: "1.5rem",
                   borderBottom: "1px solid var(--border)",
                 }}>
-                  <div style={{
-                    fontFamily: "'DM Serif Display', serif",
-                    fontSize: "clamp(2.4rem, 8vw, 3.2rem)",
-                    fontWeight: 700,
-                    color: "var(--teal)",
-                    lineHeight: 1,
-                    marginBottom: "0.3rem",
-                  }}>99 €</div>
+                  <div style={{ marginBottom: "0.4rem" }}>
+                    <span style={{
+                      display: "inline-block",
+                      background: "var(--coral)",
+                      color: "white",
+                      fontSize: "0.72rem",
+                      fontWeight: 700,
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      padding: "0.25rem 0.75rem",
+                      borderRadius: 50,
+                      marginBottom: "0.6rem",
+                    }}>Einführungspreis</span>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "baseline", justifyContent: "center", gap: "0.6rem", marginBottom: "0.3rem" }}>
+                    <span style={{
+                      fontFamily: "'DM Serif Display', serif",
+                      fontSize: "clamp(2.4rem, 8vw, 3.2rem)",
+                      fontWeight: 700,
+                      color: "var(--teal)",
+                      lineHeight: 1,
+                    }}>99 €</span>
+                    <span style={{
+                      fontSize: "1.2rem",
+                      color: "var(--muted-foreground)",
+                      textDecoration: "line-through",
+                      opacity: 0.7,
+                    }}>149 €</span>
+                  </div>
                   <div style={{ fontSize: "0.85rem", color: "var(--muted-foreground)" }}>
                     Einmalzahlung · Dauerhafter Zugang · Sofort verfügbar
                   </div>
@@ -936,6 +950,9 @@ export default function Home() {
                         onFocus={e => (e.target.style.borderColor = "var(--teal)")}
                         onBlur={e => (e.target.style.borderColor = "var(--border)")}
                       />
+                      <p style={{ fontSize: "0.78rem", color: "var(--muted-foreground)", marginTop: "0.35rem", marginBottom: 0 }}>
+                        🔑 Diese E-Mail-Adresse wird dein Kurs-Login – bitte dieselbe wie bei Stripe verwenden.
+                      </p>
                     </div>
                     <button
                       type="submit"
