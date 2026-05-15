@@ -9,9 +9,13 @@ declare global {
   }
 }
 
-function fbq(...args: unknown[]) {
+const PIXEL_IDS = ["4541103249457123", "1464149581564441"];
+
+function fbq(event: string, eventName: string, params?: Record<string, unknown>) {
   if (typeof window !== "undefined" && typeof window.fbq === "function") {
-    window.fbq(...args);
+    PIXEL_IDS.forEach((id) => {
+      window.fbq!(event, eventName, params, { eventID: id });
+    });
   }
 }
 
