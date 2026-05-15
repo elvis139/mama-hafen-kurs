@@ -285,43 +285,141 @@ export default function KursLogin() {
 
         {step === "error" && (
           <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: "2.5rem", marginBottom: "0.8rem" }}>❌</div>
-            <h2
-              style={{
-                fontFamily: "'DM Serif Display', serif",
-                fontSize: "1.3rem",
-                marginBottom: "0.6rem",
-                color: "var(--foreground)",
-              }}
-            >
-              Etwas ist schiefgelaufen
-            </h2>
-            <p
-              style={{
-                color: "var(--muted-foreground)",
-                fontSize: "0.9rem",
-                lineHeight: 1.6,
-                marginBottom: "1.5rem",
-              }}
-            >
-              {errorMsg}
-            </p>
-            <button
-              onClick={() => { setStep("input"); setErrorMsg(""); }}
-              style={{
-                background: "var(--teal)",
-                color: "white",
-                border: "none",
-                borderRadius: 10,
-                padding: "0.8rem 1.5rem",
-                fontFamily: "'DM Sans', sans-serif",
-                fontWeight: 700,
-                fontSize: "0.95rem",
-                cursor: "pointer",
-              }}
-            >
-              Erneut versuchen
-            </button>
+            {/* Kein Kurszugang: spezifische Meldung */}
+            {errorMsg.includes("keinen Kurszugang") ? (
+              <>
+                <div style={{ fontSize: "2.5rem", marginBottom: "0.8rem" }}>🔒</div>
+                <h2
+                  style={{
+                    fontFamily: "'DM Serif Display', serif",
+                    fontSize: "1.35rem",
+                    marginBottom: "0.7rem",
+                    color: "var(--foreground)",
+                  }}
+                >
+                  Kein Zugang gefunden
+                </h2>
+                <p
+                  style={{
+                    color: "var(--muted-foreground)",
+                    fontSize: "0.92rem",
+                    lineHeight: 1.7,
+                    marginBottom: "0.8rem",
+                  }}
+                >
+                  Für <strong style={{ color: "var(--foreground)" }}>{email}</strong> wurde kein Kurszugang gefunden.
+                </p>
+                <div
+                  style={{
+                    background: "#fff8f0",
+                    border: "1.5px solid var(--coral)",
+                    borderRadius: 14,
+                    padding: "1rem 1.2rem",
+                    marginBottom: "1.5rem",
+                    textAlign: "left",
+                  }}
+                >
+                  <p style={{ fontWeight: 700, fontSize: "0.88rem", color: "var(--foreground)", marginBottom: "0.5rem" }}>
+                    Mögliche Ursachen:
+                  </p>
+                  <ul style={{ margin: 0, paddingLeft: "1.2rem", color: "var(--muted-foreground)", fontSize: "0.87rem", lineHeight: 1.7 }}>
+                    <li>Du hast eine andere E-Mail-Adresse beim Kauf verwendet</li>
+                    <li>Du hast den Kurs noch nicht gekauft</li>
+                    <li>Dein Zugang wurde deaktiviert</li>
+                  </ul>
+                </div>
+                <a
+                  href="/"
+                  style={{
+                    display: "block",
+                    background: "var(--coral)",
+                    color: "white",
+                    border: "none",
+                    borderRadius: 12,
+                    padding: "0.9rem 1.5rem",
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontWeight: 800,
+                    fontSize: "0.97rem",
+                    textDecoration: "none",
+                    marginBottom: "0.8rem",
+                  }}
+                >
+                  ⚓ Kurs jetzt kaufen
+                </a>
+                <a
+                  href="mailto:info@darvismedia.de"
+                  style={{
+                    display: "block",
+                    background: "none",
+                    border: "1.5px solid var(--teal)",
+                    color: "var(--teal)",
+                    borderRadius: 12,
+                    padding: "0.8rem 1.5rem",
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontWeight: 700,
+                    fontSize: "0.9rem",
+                    textDecoration: "none",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  ✉️ Hilfe anfragen – info@darvismedia.de
+                </a>
+                <button
+                  onClick={() => { setStep("input"); setErrorMsg(""); }}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    color: "var(--muted-foreground)",
+                    fontSize: "0.85rem",
+                    cursor: "pointer",
+                    textDecoration: "underline",
+                  }}
+                >
+                  Andere E-Mail versuchen
+                </button>
+              </>
+            ) : (
+              /* Allgemeiner Fehler */
+              <>
+                <div style={{ fontSize: "2.5rem", marginBottom: "0.8rem" }}>❌</div>
+                <h2
+                  style={{
+                    fontFamily: "'DM Serif Display', serif",
+                    fontSize: "1.3rem",
+                    marginBottom: "0.6rem",
+                    color: "var(--foreground)",
+                  }}
+                >
+                  Etwas ist schiefgelaufen
+                </h2>
+                <p
+                  style={{
+                    color: "var(--muted-foreground)",
+                    fontSize: "0.9rem",
+                    lineHeight: 1.6,
+                    marginBottom: "1.5rem",
+                  }}
+                >
+                  {errorMsg}
+                </p>
+                <button
+                  onClick={() => { setStep("input"); setErrorMsg(""); }}
+                  style={{
+                    background: "var(--teal)",
+                    color: "white",
+                    border: "none",
+                    borderRadius: 10,
+                    padding: "0.8rem 1.5rem",
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontWeight: 700,
+                    fontSize: "0.95rem",
+                    cursor: "pointer",
+                  }}
+                >
+                  Erneut versuchen
+                </button>
+              </>
+            )}
           </div>
         )}
       </div>
