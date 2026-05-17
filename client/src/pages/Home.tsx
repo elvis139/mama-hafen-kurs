@@ -487,7 +487,7 @@ export default function Home() {
       </section>
 
       {/* ── STORY-SEKTION: Darlees Geschichte (aus Video-Skript) ── */}
-      <section style={{ background: "white", padding: "4.5rem 0 4rem" }}>
+      <section style={{ background: "var(--cream)", padding: "4.5rem 0 4rem", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
         <div className="container" style={{ maxWidth: 720 }}>
 
           {/* Autorin-Badge */}
