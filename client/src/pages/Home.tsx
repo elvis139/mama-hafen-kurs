@@ -490,24 +490,15 @@ export default function Home() {
       <section style={{ background: "white", padding: "4.5rem 0 3.5rem" }}>
         <div className="container" style={{ maxWidth: 760 }}>
           <FadeUp>
-            {/* Einstieg: Leser abholen */}
-            <div style={{
-              background: "var(--cream)",
-              borderLeft: "4px solid var(--coral)",
-              borderRadius: "0 16px 16px 0",
-              padding: "1.4rem 1.6rem",
-              marginBottom: "2.2rem",
+            <p style={{
+              fontFamily: "'DM Serif Display', serif",
+              fontSize: "clamp(1.05rem, 2.5vw, 1.25rem)",
+              lineHeight: 1.65,
+              color: "var(--foreground)",
+              marginBottom: "2rem",
             }}>
-              <p style={{
-                fontFamily: "'DM Serif Display', serif",
-                fontSize: "clamp(1.05rem, 2.5vw, 1.25rem)",
-                lineHeight: 1.65,
-                color: "var(--foreground)",
-                margin: 0,
-              }}>
-                Vielleicht kennst du diesen Moment: Du bist eigentlich eine geduldige, liebevolle Mama – und trotzdem stehst du da, am absoluten Limit, und weißt nicht mehr weiter.
-              </p>
-            </div>
+              Vielleicht kennst du diesen Moment: Du bist eigentlich eine geduldige, liebevolle Mama – und trotzdem stehst du da, am absoluten Limit, und weißt nicht mehr weiter.
+            </p>
           </FadeUp>
 
           <FadeUp delay={80}>
@@ -532,42 +523,15 @@ export default function Home() {
             </p>
           </FadeUp>
 
-          {/* Übergang: Darleen war genau da */}
           <FadeUp delay={160}>
-            <div style={{
-              display: "flex",
-              alignItems: "flex-start",
-              gap: "1.2rem",
-              background: "var(--sand)",
-              borderRadius: 18,
-              padding: "1.6rem",
-              margin: "2rem 0",
+            <p style={{
+              fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
+              lineHeight: 1.8,
+              color: "var(--muted-foreground)",
+              marginBottom: "1.4rem",
             }}>
-              <img
-                src={IMG_DARLEEN}
-                alt="Darleen"
-                style={{
-                  width: 72, height: 72,
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                  flexShrink: 0,
-                  border: "3px solid white",
-                  boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-                }}
-              />
-              <div>
-                <p style={{
-                  fontFamily: "'DM Serif Display', serif",
-                  fontSize: "clamp(1rem, 2.2vw, 1.15rem)",
-                  lineHeight: 1.6,
-                  color: "var(--foreground)",
-                  margin: "0 0 0.5rem",
-                }}>
-                  "Ich war genau da. Mit meinen zwei Kindern habe ich jeden Tag gedacht: Ich schaffe das nicht mehr."
-                </p>
-                <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "var(--teal)" }}>— Darleen, Mama von zwei Kindern</span>
-              </div>
-            </div>
+              Darleen war genau da. Mit ihren zwei Kindern hat sie jeden Tag gedacht: Ich schaffe das nicht mehr. Sie hat sich gefragt, was sie falsch macht – und sich gleichzeitig so sehr gewünscht, einfach nur Mama sein zu dürfen.
+            </p>
           </FadeUp>
 
           <FadeUp delay={200}>
@@ -592,32 +556,24 @@ export default function Home() {
             </p>
           </FadeUp>
 
-          {/* Übergang zum Kurs */}
           <FadeUp delay={280}>
-            <div style={{
-              textAlign: "center",
-              padding: "1.5rem",
-              background: "linear-gradient(135deg, var(--teal) 0%, #0a6560 100%)",
-              borderRadius: 18,
-              color: "white",
+            <p style={{
+              fontFamily: "'DM Serif Display', serif",
+              fontSize: "clamp(1.05rem, 2.5vw, 1.2rem)",
+              lineHeight: 1.65,
+              color: "var(--foreground)",
+              marginBottom: "0.5rem",
             }}>
-              <p style={{
-                fontFamily: "'DM Serif Display', serif",
-                fontSize: "clamp(1.1rem, 2.5vw, 1.3rem)",
-                lineHeight: 1.6,
-                margin: "0 0 0.5rem",
-              }}>
-                Genau deshalb gibt es den Mama-Hafen Kurs.
-              </p>
-              <p style={{
-                fontSize: "0.92rem",
-                opacity: 0.88,
-                margin: 0,
-                lineHeight: 1.6,
-              }}>
-                Damit du nicht alleine herausfinden musst, was Darleen Jahre gekostet hat.
-              </p>
-            </div>
+              Genau deshalb gibt es den Mama-Hafen Kurs.
+            </p>
+            <p style={{
+              fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
+              lineHeight: 1.8,
+              color: "var(--muted-foreground)",
+              marginBottom: "2rem",
+            }}>
+              Damit du nicht alleine herausfinden musst, was Darleen Jahre gekostet hat.
+            </p>
           </FadeUp>
         </div>
       </section>
