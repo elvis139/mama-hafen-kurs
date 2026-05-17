@@ -500,6 +500,7 @@ export default function Home() {
                   width: 52, height: 52,
                   borderRadius: "50%",
                   objectFit: "cover",
+                  objectPosition: "center top",
                   border: "2px solid var(--sand)",
                   flexShrink: 0,
                 }}
