@@ -648,13 +648,15 @@ export default function Home() {
                 <br /><br />
                 Wir schauen uns gemeinsam die Grundlagen aus der Kinderforschung an und gehen aber auch in die Praxis! Ich habe die besten Tipps und Strategien, die uns als Familie geholfen haben, für dich zusammengestellt und mein Workbook kannst du als kleine Übersicht der Themen benutzen und dabei Lektion für Lektion deinen eigenen Familienalltag reflektieren und das Gelernte direkt übertragen und anwenden!
               </p>
-              <button
-                className="btn-coral"
-                onClick={() => document.getElementById("kaufen")?.scrollIntoView({ behavior: "smooth" })}
-                style={{ padding: "0.55rem 1.6rem", fontSize: "0.9rem", borderRadius: 50 }}
-              >
-                Jetzt Kurs sichern →
-              </button>
+              <div style={{ textAlign: "center" }}>
+                <button
+                  className="btn-coral"
+                  onClick={() => document.getElementById("kaufen")?.scrollIntoView({ behavior: "smooth" })}
+                  style={{ padding: "0.55rem 1.6rem", fontSize: "0.9rem", borderRadius: 50 }}
+                >
+                  Jetzt Kurs sichern →
+                </button>
+              </div>
             </div>
           </FadeUp>
 
