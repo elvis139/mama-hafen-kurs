@@ -710,7 +710,7 @@ export default function Home() {
                   boxShadow: "0 16px 45px rgba(0,0,0,0.1)",
                   aspectRatio: "3/4",
                   maxWidth: 320,
-                  margin: "0 auto 0 -2rem",
+                  margin: "0 auto 0 -4rem",
                 }}
               >
                 <img
