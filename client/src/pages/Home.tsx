@@ -486,6 +486,142 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── STORY-SEKTION: Leser abholen → Darlees Weg ── */}
+      <section style={{ background: "white", padding: "4.5rem 0 3.5rem" }}>
+        <div className="container" style={{ maxWidth: 760 }}>
+          <FadeUp>
+            {/* Einstieg: Leser abholen */}
+            <div style={{
+              background: "var(--cream)",
+              borderLeft: "4px solid var(--coral)",
+              borderRadius: "0 16px 16px 0",
+              padding: "1.4rem 1.6rem",
+              marginBottom: "2.2rem",
+            }}>
+              <p style={{
+                fontFamily: "'DM Serif Display', serif",
+                fontSize: "clamp(1.05rem, 2.5vw, 1.25rem)",
+                lineHeight: 1.65,
+                color: "var(--foreground)",
+                margin: 0,
+              }}>
+                Vielleicht kennst du diesen Moment: Du bist eigentlich eine geduldige, liebevolle Mama – und trotzdem stehst du da, am absoluten Limit, und weißt nicht mehr weiter.
+              </p>
+            </div>
+          </FadeUp>
+
+          <FadeUp delay={80}>
+            <p style={{
+              fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
+              lineHeight: 1.8,
+              color: "var(--muted-foreground)",
+              marginBottom: "1.4rem",
+            }}>
+              Dein Kind dreht durch – wegen nichts. Wegen der falschen Tasse. Wegen dem Pullover, der "falsch" sitzt. Wegen einem Nein, das du eigentlich ganz ruhig gesagt hast. Und du stehst daneben und denkst: <em style={{ color: "var(--foreground)", fontStyle: "italic" }}>"Was mache ich falsch? Warum funktioniert das bei uns nicht?"</em>
+            </p>
+          </FadeUp>
+
+          <FadeUp delay={120}>
+            <p style={{
+              fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
+              lineHeight: 1.8,
+              color: "var(--muted-foreground)",
+              marginBottom: "1.4rem",
+            }}>
+              Du liebst dein Kind über alles. Aber manche Tage fühlen sich an wie ein endloser Kampf. Du bist erschöpft. Du schämst dich vielleicht sogar ein bisschen – weil du dachtest, das wird schon irgendwie. Weil andere Mamas das doch auch hinkriegen. Weil du dir wünschst, du könntest einfach mal wieder <strong>Mama sein</strong> – und nicht nur Krisenmanagerin.
+            </p>
+          </FadeUp>
+
+          {/* Übergang: Darleen war genau da */}
+          <FadeUp delay={160}>
+            <div style={{
+              display: "flex",
+              alignItems: "flex-start",
+              gap: "1.2rem",
+              background: "var(--sand)",
+              borderRadius: 18,
+              padding: "1.6rem",
+              margin: "2rem 0",
+            }}>
+              <img
+                src={IMG_DARLEEN}
+                alt="Darleen"
+                style={{
+                  width: 72, height: 72,
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  flexShrink: 0,
+                  border: "3px solid white",
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                }}
+              />
+              <div>
+                <p style={{
+                  fontFamily: "'DM Serif Display', serif",
+                  fontSize: "clamp(1rem, 2.2vw, 1.15rem)",
+                  lineHeight: 1.6,
+                  color: "var(--foreground)",
+                  margin: "0 0 0.5rem",
+                }}>
+                  "Ich war genau da. Mit meinen zwei Kindern habe ich jeden Tag gedacht: Ich schaffe das nicht mehr."
+                </p>
+                <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "var(--teal)" }}>— Darleen, Mama von zwei Kindern</span>
+              </div>
+            </div>
+          </FadeUp>
+
+          <FadeUp delay={200}>
+            <p style={{
+              fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
+              lineHeight: 1.8,
+              color: "var(--muted-foreground)",
+              marginBottom: "1.4rem",
+            }}>
+              Darleen hat nicht einfach "Geduld geübt" oder "mehr Konsequenz" gezeigt. Sie hat verstanden, <strong style={{ color: "var(--foreground)" }}>warum</strong> ihr Kind so reagiert – was wirklich hinter den Wutanfällen steckt, was das Kind in diesem Moment braucht, und wie sie als Mama reagieren kann, ohne sich selbst zu verlieren.
+            </p>
+          </FadeUp>
+
+          <FadeUp delay={240}>
+            <p style={{
+              fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
+              lineHeight: 1.8,
+              color: "var(--muted-foreground)",
+              marginBottom: "2rem",
+            }}>
+              Und als sich bei ihr zuhause etwas verändert hat – als die Abende ruhiger wurden, als ihr Kind anfing, Grenzen anzunehmen, als sie aufgehört hat, sich jeden Abend zu fragen ob sie eine schlechte Mama ist – da wusste sie: <em style={{ color: "var(--foreground)" }}>Das darf ich nicht für mich behalten.</em>
+            </p>
+          </FadeUp>
+
+          {/* Übergang zum Kurs */}
+          <FadeUp delay={280}>
+            <div style={{
+              textAlign: "center",
+              padding: "1.5rem",
+              background: "linear-gradient(135deg, var(--teal) 0%, #0a6560 100%)",
+              borderRadius: 18,
+              color: "white",
+            }}>
+              <p style={{
+                fontFamily: "'DM Serif Display', serif",
+                fontSize: "clamp(1.1rem, 2.5vw, 1.3rem)",
+                lineHeight: 1.6,
+                margin: "0 0 0.5rem",
+              }}>
+                Genau deshalb gibt es den Mama-Hafen Kurs.
+              </p>
+              <p style={{
+                fontSize: "0.92rem",
+                opacity: 0.88,
+                margin: 0,
+                lineHeight: 1.6,
+              }}>
+                Damit du nicht alleine herausfinden musst, was Darleen Jahre gekostet hat.
+              </p>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
       {/* ── 3 VERSPRECHEN ── */}
       <section style={{ background: "var(--sand)", padding: "4rem 0" }}>
         <Wave fill="var(--sand)" bg="var(--cream)" flip />

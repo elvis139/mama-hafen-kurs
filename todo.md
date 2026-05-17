@@ -115,3 +115,6 @@
 - [x] Meta Pixel erst nach Zustimmung laden
 - [x] Google Analytics erst nach Zustimmung laden
 - [x] Einwilligung in localStorage speichern
+
+## Story-Sektion Landingpage
+- [x] Emotionale Story-Sektion nach Hero einbauen (Leser abholen → Darlees Weg → Lösung)
