@@ -486,95 +486,127 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── STORY-SEKTION: Leser abholen → Darlees Weg ── */}
-      <section style={{ background: "white", padding: "4.5rem 0 3.5rem" }}>
-        <div className="container" style={{ maxWidth: 760 }}>
+      {/* ── STORY-SEKTION: Darlees Geschichte ── */}
+      <section style={{ background: "white", padding: "4.5rem 0 4rem" }}>
+        <div className="container" style={{ maxWidth: 720 }}>
+
+          {/* Autorin-Badge */}
           <FadeUp>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", marginBottom: "2rem" }}>
+              <img
+                src={IMG_DARLEEN}
+                alt="Darleen"
+                style={{
+                  width: 52, height: 52,
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  border: "2px solid var(--sand)",
+                  flexShrink: 0,
+                }}
+              />
+              <div>
+                <div style={{ fontWeight: 700, fontSize: "0.9rem", color: "var(--foreground)" }}>Darleen</div>
+                <div style={{ fontSize: "0.8rem", color: "var(--muted-foreground)" }}>Mama von zwei Kindern &middot; Gründerin Mama-Hafen</div>
+              </div>
+            </div>
+          </FadeUp>
+
+          {/* Einstieg */}
+          <FadeUp delay={60}>
             <p style={{
               fontFamily: "'DM Serif Display', serif",
-              fontSize: "clamp(1.05rem, 2.5vw, 1.25rem)",
-              lineHeight: 1.65,
+              fontSize: "clamp(1.1rem, 2.8vw, 1.35rem)",
+              lineHeight: 1.6,
               color: "var(--foreground)",
-              marginBottom: "2rem",
+              marginBottom: "1.8rem",
             }}>
-              Vielleicht kennst du diesen Moment: Du bist eigentlich eine geduldige, liebevolle Mama – und trotzdem stehst du da, am absoluten Limit, und weißt nicht mehr weiter.
+              Ich erinnere mich noch genau an den Abend, an dem ich auf dem Badezimmerboden saß und einfach geweint habe.
             </p>
           </FadeUp>
 
-          <FadeUp delay={80}>
+          <FadeUp delay={100}>
             <p style={{
               fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
-              lineHeight: 1.8,
+              lineHeight: 1.85,
               color: "var(--muted-foreground)",
-              marginBottom: "1.4rem",
+              marginBottom: "1.5rem",
             }}>
-              Dein Kind dreht durch – wegen nichts. Wegen der falschen Tasse. Wegen dem Pullover, der "falsch" sitzt. Wegen einem Nein, das du eigentlich ganz ruhig gesagt hast. Und du stehst daneben und denkst: <em style={{ color: "var(--foreground)", fontStyle: "italic" }}>"Was mache ich falsch? Warum funktioniert das bei uns nicht?"</em>
+              Nicht weil etwas Schlimmes passiert war. Sondern weil ich einfach nicht mehr konnte. Mein Kind hatte den dritten Wutanfall an diesem Tag – wegen einer Banane. Einer Banane, die ich falsch abgeschält hatte. Und ich, die ich eigentlich eine geduldige, liebevolle Mama sein wollte, hatte geschrien. Laut. So laut, dass ich mich danach selbst nicht mehr erkannt habe.
             </p>
           </FadeUp>
 
-          <FadeUp delay={120}>
+          <FadeUp delay={140}>
             <p style={{
               fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
-              lineHeight: 1.8,
+              lineHeight: 1.85,
               color: "var(--muted-foreground)",
-              marginBottom: "1.4rem",
+              marginBottom: "1.5rem",
             }}>
-              Du liebst dein Kind über alles. Aber manche Tage fühlen sich an wie ein endloser Kampf. Du bist erschöpft. Du schämst dich vielleicht sogar ein bisschen – weil du dachtest, das wird schon irgendwie. Weil andere Mamas das doch auch hinkriegen. Weil du dir wünschst, du könntest einfach mal wieder <strong>Mama sein</strong> – und nicht nur Krisenmanagerin.
+              Ich habe mich so oft gefragt: Was mache ich falsch? Warum klappt das bei anderen? Warum ist mein Kind so? Ich habe Ratgeber gelesen, Videos geschaut, Freundinnen gefragt. Und trotzdem stand ich jeden Morgen wieder da – mit dem Gefühl, dass dieser Tag wieder einer wird, den ich nur überstehen muss.
             </p>
           </FadeUp>
 
-          <FadeUp delay={160}>
+          <FadeUp delay={180}>
             <p style={{
               fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
-              lineHeight: 1.8,
+              lineHeight: 1.85,
               color: "var(--muted-foreground)",
-              marginBottom: "1.4rem",
+              marginBottom: "1.5rem",
             }}>
-              Darleen war genau da. Mit ihren zwei Kindern hat sie jeden Tag gedacht: Ich schaffe das nicht mehr. Sie hat sich gefragt, was sie falsch macht – und sich gleichzeitig so sehr gewünscht, einfach nur Mama sein zu dürfen.
+              Das Schlimmste war nicht mal die Erschöpfung. Das Schlimmste war dieses leise Gefühl, das ich mir kaum eingestehen wollte: dass ich manchmal einfach nicht mehr Mama sein wollte. Nicht weil ich mein Kind nicht liebe – sondern weil ich mich selbst darin verloren hatte.
             </p>
           </FadeUp>
 
-          <FadeUp delay={200}>
+          {/* Wendepunkt */}
+          <FadeUp delay={220}>
+            <div style={{
+              borderLeft: "3px solid var(--teal)",
+              paddingLeft: "1.3rem",
+              margin: "2rem 0",
+            }}>
+              <p style={{
+                fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
+                lineHeight: 1.85,
+                color: "var(--muted-foreground)",
+                margin: 0,
+              }}>
+                Irgendwann habe ich aufgehört, nach dem "richtigen Trick" zu suchen. Stattdessen habe ich angefangen zu verstehen, <strong style={{ color: "var(--foreground)" }}>was in meinem Kind wirklich vorgeht</strong> – was diese Phase bedeutet, warum das Gehirn eines Kleinkindes so reagiert, und was es in diesen Momenten wirklich braucht. Nicht von mir als Krisenmanagerin. Sondern von mir als Mama.
+              </p>
+            </div>
+          </FadeUp>
+
+          <FadeUp delay={260}>
             <p style={{
               fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
-              lineHeight: 1.8,
+              lineHeight: 1.85,
               color: "var(--muted-foreground)",
-              marginBottom: "1.4rem",
+              marginBottom: "1.5rem",
             }}>
-              Darleen hat nicht einfach "Geduld geübt" oder "mehr Konsequenz" gezeigt. Sie hat verstanden, <strong style={{ color: "var(--foreground)" }}>warum</strong> ihr Kind so reagiert – was wirklich hinter den Wutanfällen steckt, was das Kind in diesem Moment braucht, und wie sie als Mama reagieren kann, ohne sich selbst zu verlieren.
+              Und dann – langsam, nicht von heute auf morgen – hat sich etwas verändert. Die Abende wurden ruhiger. Ich wurde ruhiger. Nicht weil mein Kind plötzlich perfekt war, sondern weil ich endlich wusste, was ich tue. Und warum.
             </p>
           </FadeUp>
 
-          <FadeUp delay={240}>
-            <p style={{
-              fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
-              lineHeight: 1.8,
-              color: "var(--muted-foreground)",
-              marginBottom: "2rem",
-            }}>
-              Und als sich bei ihr zuhause etwas verändert hat – als die Abende ruhiger wurden, als ihr Kind anfing, Grenzen anzunehmen, als sie aufgehört hat, sich jeden Abend zu fragen ob sie eine schlechte Mama ist – da wusste sie: <em style={{ color: "var(--foreground)" }}>Das darf ich nicht für mich behalten.</em>
-            </p>
-          </FadeUp>
-
-          <FadeUp delay={280}>
+          {/* Abschluss */}
+          <FadeUp delay={300}>
             <p style={{
               fontFamily: "'DM Serif Display', serif",
               fontSize: "clamp(1.05rem, 2.5vw, 1.2rem)",
               lineHeight: 1.65,
               color: "var(--foreground)",
-              marginBottom: "0.5rem",
+              marginBottom: "0.6rem",
             }}>
-              Genau deshalb gibt es den Mama-Hafen Kurs.
+              Genau das möchte ich dir weitergeben.
             </p>
             <p style={{
               fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
-              lineHeight: 1.8,
+              lineHeight: 1.85,
               color: "var(--muted-foreground)",
-              marginBottom: "2rem",
+              marginBottom: 0,
             }}>
-              Damit du nicht alleine herausfinden musst, was Darleen Jahre gekostet hat.
+              Nicht als Expertin, die alles weiß. Sondern als Mama, die genau dort war, wo du gerade bist – und einen Weg rausgefunden hat. Damit du nicht so lange brauchst wie ich.
             </p>
           </FadeUp>
+
         </div>
       </section>
 
