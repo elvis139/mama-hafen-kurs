@@ -520,7 +520,7 @@ export default function Home() {
               color: "var(--foreground)",
               marginBottom: "1.8rem",
             }}>
-              Du bist nicht allein. Ich kenne diese Momente, in denen man alles versucht – und trotzdem scheitert.
+              Du bist nicht allein. Ich kenne diese Momente, in denen man alles versucht und trotzdem scheitert.
             </p>
           </FadeUp>
 
@@ -531,7 +531,11 @@ export default function Home() {
               color: "var(--muted-foreground)",
               marginBottom: "1.5rem",
             }}>
-              Mich hat die Autonomiephase damals aus der Bahn geworfen und aus mir einen Menschen gemacht, den ich kaum noch wiedererkannt habe. Ich bin ständig laut geworden, habe mich mit meinen „sturen Kindern“ herumgestritten. Und danach habe ich mich selbst fertiggemacht – weil ich dachte, ich habe als Mutter komplett versagt. Ich habe mir einfach mehr Freude und Entspanntheit gewünscht. Dass nicht immer alles ein Kampf ist.
+              Schon seit ich klein war, wollte ich unbedingt Mama werden und am besten "alles besser machen", was mich damals bei meinen eigenen Eltern gestört hat.
+              Ich habe mich also schon sehr früh mit dem Thema Erziehung beschäftigt und viel gelesen und gelernt.
+              Als ich dann schwanger wurde, fühlte ich mich wahnsinnig gut vorbereitet...und wurde dann eiskalt von der "Trotzphase" erwischt.
+              Ich wurde plötzlich zu einem Menschen, den ich kaum noch wiedererkannt habe. Ich bin ständig laut geworden, habe mich mit meinen „sturen Kindern" herumgestritten. Und danach habe ich mich selbst fertiggemacht – weil ich dachte, dass ich als Mutter komplett versagt habe.
+              Ich wollte unbedingt Mama werden und nun fühlte sich alles an wie ein Kampf. Und ich sehnte mich so sehr nach dieser Freude und Entspanntheit mit meinen Kindern, die ich mir immer gewünscht hatte.
             </p>
           </FadeUp>
 
@@ -559,7 +563,9 @@ export default function Home() {
                 color: "var(--muted-foreground)",
                 margin: 0,
               }}>
-                Irgendwann habe ich angefangen, wirklich zu verstehen, <strong style={{ color: "var(--foreground)" }}>was in meinen Kindern vorgeht</strong>. Ich habe viel recherchiert, gelesen und war dann völlig schockiert – weil fast alles, was ich über die Trotzphase geglaubt hatte, Schwachsinn ist. Plötzlich habe ich auch meine eigene Kindheit mit ganz anderen Augen gesehen. Und ich habe verstanden, warum mich so manches Verhalten meiner Kinder so extrem triggert.
+                Irgendwann habe ich angefangen, wirklich zu verstehen, <strong style={{ color: "var(--foreground)" }}>was in meinen Kindern vorgeht</strong> und dass fast alles, was ich über die Trotzphase geglaubt hatte, Schwachsinn ist. Plötzlich habe ich auch meine eigene Kindheit mit ganz anderen Augen gesehen. Und ich habe verstanden, warum mich so manches Verhalten meiner Kinder so extrem triggert.
+                <br /><br />
+                Ich habe verstanden wie wichtig die Autonomiephase ist und dass es eben nicht darum geht, ihnen den Trotz und die Widerspenstigkeit "auszutreiben" (wie man es früher gern gesagt hat), sondern um einen wichtigen Entwicklungsschritt.
               </p>
             </div>
           </FadeUp>
@@ -572,7 +578,7 @@ export default function Home() {
               color: "var(--muted-foreground)",
               marginBottom: "1.5rem",
             }}>
-              Heute sieht unser Familienalltag komplett anders aus. Morgens starten wir ruhig und entspannt in den Tag. Keine ständigen Diskussionen mehr. Die Kinder kooperieren viel besser, und ich habe das Gefühl, dass wir zusammenarbeiten statt gegeneinander. Auch die Wutanfälle sind so viel seltener geworden – und wenn sie doch mal passieren, verlaufen sie viel schneller und ruhiger, weil ich weiß, wie ich reagieren muss.
+              Heute sieht unser Familienalltag komplett anders aus. Morgens starten wir ruhig und entspannt in den Tag. Es gibt endlich keine ständigen Diskussionen mehr! Die Kinder kooperieren viel besser, und ich habe das Gefühl, dass wir zusammenarbeiten statt gegeneinander. Auch die Wutanfälle sind so viel seltener geworden – und wenn sie doch mal passieren, verlaufen sie viel schneller und ruhiger, weil ich weiß, wie ich reagieren muss.
             </p>
           </FadeUp>
 
@@ -583,7 +589,7 @@ export default function Home() {
               color: "var(--muted-foreground)",
               marginBottom: "1.5rem",
             }}>
-              Ich fühle mich endlich nicht mehr wie eine erschöpfte Managerin, die nur noch versucht, den Tag irgendwie zu überstehen. Stattdessen habe ich das Gefühl, wirklich für meine Kinder da zu sein – ohne mich selbst aufgeben zu müssen. Ich kann das Mamasein wirklich genießen.
+              Ich fühle mich endlich nicht mehr wie eine erschöpfte Managerin, die nur noch versucht, den Tag irgendwie zu überstehen. Stattdessen habe ich das Gefühl, wirklich für meine Kinder da zu sein – ohne mich selbst aufgeben zu müssen. Ich kann das Mamasein und die Kindheit meiner Söhne endlich genießen. Und ich wünsche wirklich jeder Mama, dass sie das auch erleben kann!
             </p>
           </FadeUp>
 
@@ -604,7 +610,9 @@ export default function Home() {
               color: "var(--muted-foreground)",
               marginBottom: 0,
             }}>
-              Damit du sowohl verstehst, was in deinem Kind vorgeht, als auch praktische Strategien bekommst, die wirklich funktionieren. Alles, was mir mit meinen eigenen zwei Kindern wirklich geholfen hat – für dich zusammengestellt.
+              Damit du sowohl aus entwicklungspsychologischer Sicht verstehst, was in deinem Kind gerade vorgeht. Als auch praktische Strategien an die Hand bekommst, die wirklich funktionieren.
+              <br /><br />
+              Wir schauen uns gemeinsam die Grundlagen aus der Kinderforschung an und gehen aber auch in die Praxis! Ich habe die besten Tipps und Strategien, die uns als Familie geholfen haben, für dich zusammengestellt und mein Workbook kannst du als kleine Übersicht der Themen benutzen und dabei Lektion für Lektion deinen eigenen Familienalltag reflektieren und das Gelernte direkt übertragen und anwenden!
             </p>
           </FadeUp>
 
