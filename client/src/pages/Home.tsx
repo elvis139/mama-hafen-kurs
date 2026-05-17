@@ -640,7 +640,7 @@ export default function Home() {
               {
                 icon: "🧘",
                 title: "Ruhig bleiben – auch wenn es eskaliert",
-                text: "Beim nächsten Wutanfall im Supermarkt weißt du genau, was zu tun ist – statt selbst laut zu werden oder dich hilflos zu fühlen.",
+                text: "Beim nächsten Wutanfall im Supermarkt weißt du genau, was zu tun ist, anstatt selbst laut zu werden oder dich hilflos zu fühlen.",
               },
               {
                 icon: "🤝",
