@@ -32,7 +32,7 @@ function saveProgress(email: string, progress: Record<string, number>) {
   }
 }
 
-const WORKBOOK_URL = "/manus-storage/Mama-Hafen-Workbook_04f58f4f.pdf";
+const WORKBOOK_URL = "/manus-storage/Mama-Hafen-Workbook_49306f60.pdf";
 const BUNNY_LIBRARY_ID = "655693";
 
 const modules = [
