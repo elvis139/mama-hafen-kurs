@@ -486,7 +486,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── STORY-SEKTION: Darlees Geschichte ── */}
+      {/* ── STORY-SEKTION: Darlees Geschichte (aus Video-Skript) ── */}
       <section style={{ background: "white", padding: "4.5rem 0 4rem" }}>
         <div className="container" style={{ maxWidth: 720 }}>
 
@@ -511,7 +511,7 @@ export default function Home() {
             </div>
           </FadeUp>
 
-          {/* Einstieg */}
+          {/* Einstieg: Leser abholen */}
           <FadeUp delay={60}>
             <p style={{
               fontFamily: "'DM Serif Display', serif",
@@ -520,7 +520,7 @@ export default function Home() {
               color: "var(--foreground)",
               marginBottom: "1.8rem",
             }}>
-              Ich erinnere mich noch genau an den Abend, an dem ich auf dem Badezimmerboden saß und einfach geweint habe.
+              Du bist nicht allein. Ich kenne diese Momente, in denen man alles versucht – und trotzdem scheitert.
             </p>
           </FadeUp>
 
@@ -531,7 +531,7 @@ export default function Home() {
               color: "var(--muted-foreground)",
               marginBottom: "1.5rem",
             }}>
-              Nicht weil etwas Schlimmes passiert war. Sondern weil ich einfach nicht mehr konnte. Mein Kind hatte den dritten Wutanfall an diesem Tag – wegen einer Banane. Einer Banane, die ich falsch abgeschält hatte. Und ich, die ich eigentlich eine geduldige, liebevolle Mama sein wollte, hatte geschrien. Laut. So laut, dass ich mich danach selbst nicht mehr erkannt habe.
+              Mich hat die Autonomiephase damals aus der Bahn geworfen und aus mir einen Menschen gemacht, den ich kaum noch wiedererkannt habe. Ich bin ständig laut geworden, habe mich mit meinen „sturen Kindern“ herumgestritten. Und danach habe ich mich selbst fertiggemacht – weil ich dachte, ich habe als Mutter komplett versagt. Ich habe mir einfach mehr Freude und Entspanntheit gewünscht. Dass nicht immer alles ein Kampf ist.
             </p>
           </FadeUp>
 
@@ -542,23 +542,12 @@ export default function Home() {
               color: "var(--muted-foreground)",
               marginBottom: "1.5rem",
             }}>
-              Ich habe mich so oft gefragt: Was mache ich falsch? Warum klappt das bei anderen? Warum ist mein Kind so? Ich habe Ratgeber gelesen, Videos geschaut, Freundinnen gefragt. Und trotzdem stand ich jeden Morgen wieder da – mit dem Gefühl, dass dieser Tag wieder einer wird, den ich nur überstehen muss.
-            </p>
-          </FadeUp>
-
-          <FadeUp delay={180}>
-            <p style={{
-              fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
-              lineHeight: 1.85,
-              color: "var(--muted-foreground)",
-              marginBottom: "1.5rem",
-            }}>
-              Das Schlimmste war nicht mal die Erschöpfung. Das Schlimmste war dieses leise Gefühl, das ich mir kaum eingestehen wollte: dass ich manchmal einfach nicht mehr Mama sein wollte. Nicht weil ich mein Kind nicht liebe – sondern weil ich mich selbst darin verloren hatte.
+              Ich erinnere mich noch genau daran, wie frustriert und ausgelaugt ich mich früher gefühlt habe. Der Tag begann morgens direkt mit Stress und Konflikten, die scheinbar aus dem Nichts kamen. Ständig gab es Diskussionen oder einfach nur ein bockiges „Nein“ – egal ob beim Anziehen, Zähneputzen, beim Essen oder auf dem Spielplatz. Meine Kinder waren einfach ständig unzufrieden. Und ich saß abends, wenn die Kinder endlich eingeschlafen waren, oft einfach nur völlig erschöpft auf der Couch und fragte mich, warum das Mamaleben so anstrengend sein muss.
             </p>
           </FadeUp>
 
           {/* Wendepunkt */}
-          <FadeUp delay={220}>
+          <FadeUp delay={180}>
             <div style={{
               borderLeft: "3px solid var(--teal)",
               paddingLeft: "1.3rem",
@@ -570,9 +559,21 @@ export default function Home() {
                 color: "var(--muted-foreground)",
                 margin: 0,
               }}>
-                Irgendwann habe ich aufgehört, nach dem "richtigen Trick" zu suchen. Stattdessen habe ich angefangen zu verstehen, <strong style={{ color: "var(--foreground)" }}>was in meinem Kind wirklich vorgeht</strong> – was diese Phase bedeutet, warum das Gehirn eines Kleinkindes so reagiert, und was es in diesen Momenten wirklich braucht. Nicht von mir als Krisenmanagerin. Sondern von mir als Mama.
+                Irgendwann habe ich angefangen, wirklich zu verstehen, <strong style={{ color: "var(--foreground)" }}>was in meinen Kindern vorgeht</strong>. Ich habe viel recherchiert, gelesen und war dann völlig schockiert – weil fast alles, was ich über die Trotzphase geglaubt hatte, Schwachsinn ist. Plötzlich habe ich auch meine eigene Kindheit mit ganz anderen Augen gesehen. Und ich habe verstanden, warum mich so manches Verhalten meiner Kinder so extrem triggert.
               </p>
             </div>
+          </FadeUp>
+
+          {/* Transformation */}
+          <FadeUp delay={220}>
+            <p style={{
+              fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
+              lineHeight: 1.85,
+              color: "var(--muted-foreground)",
+              marginBottom: "1.5rem",
+            }}>
+              Heute sieht unser Familienalltag komplett anders aus. Morgens starten wir ruhig und entspannt in den Tag. Keine ständigen Diskussionen mehr. Die Kinder kooperieren viel besser, und ich habe das Gefühl, dass wir zusammenarbeiten statt gegeneinander. Auch die Wutanfälle sind so viel seltener geworden – und wenn sie doch mal passieren, verlaufen sie viel schneller und ruhiger, weil ich weiß, wie ich reagieren muss.
+            </p>
           </FadeUp>
 
           <FadeUp delay={260}>
@@ -582,7 +583,7 @@ export default function Home() {
               color: "var(--muted-foreground)",
               marginBottom: "1.5rem",
             }}>
-              Und dann – langsam, nicht von heute auf morgen – hat sich etwas verändert. Die Abende wurden ruhiger. Ich wurde ruhiger. Nicht weil mein Kind plötzlich perfekt war, sondern weil ich endlich wusste, was ich tue. Und warum.
+              Ich fühle mich endlich nicht mehr wie eine erschöpfte Managerin, die nur noch versucht, den Tag irgendwie zu überstehen. Stattdessen habe ich das Gefühl, wirklich für meine Kinder da zu sein – ohne mich selbst aufgeben zu müssen. Ich kann das Mamasein wirklich genießen.
             </p>
           </FadeUp>
 
@@ -595,7 +596,7 @@ export default function Home() {
               color: "var(--foreground)",
               marginBottom: "0.6rem",
             }}>
-              Genau das möchte ich dir weitergeben.
+              Genau deshalb habe ich diesen Kurs entwickelt.
             </p>
             <p style={{
               fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
@@ -603,7 +604,7 @@ export default function Home() {
               color: "var(--muted-foreground)",
               marginBottom: 0,
             }}>
-              Nicht als Expertin, die alles weiß. Sondern als Mama, die genau dort war, wo du gerade bist – und einen Weg rausgefunden hat. Damit du nicht so lange brauchst wie ich.
+              Damit du sowohl verstehst, was in deinem Kind vorgeht, als auch praktische Strategien bekommst, die wirklich funktionieren. Alles, was mir mit meinen eigenen zwei Kindern wirklich geholfen hat – für dich zusammengestellt.
             </p>
           </FadeUp>
 
