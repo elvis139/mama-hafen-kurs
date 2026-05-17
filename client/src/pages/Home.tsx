@@ -710,7 +710,7 @@ export default function Home() {
                   boxShadow: "0 16px 45px rgba(0,0,0,0.1)",
                   aspectRatio: "3/4",
                   maxWidth: 320,
-                  margin: "0 auto",
+                  margin: "0 auto 0 -2rem",
                 }}
               >
                 <img
@@ -720,9 +720,9 @@ export default function Home() {
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
-                    objectPosition: "30% top",
+                    objectPosition: "center top",
                     transform: "scale(1.45)",
-                    transformOrigin: "30% top",
+                    transformOrigin: "center top",
                   }}
                 />
               </div>
