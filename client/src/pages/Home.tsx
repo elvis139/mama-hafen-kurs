@@ -651,7 +651,7 @@ export default function Home() {
               <button
                 className="btn-coral"
                 onClick={() => document.getElementById("kaufen")?.scrollIntoView({ behavior: "smooth" })}
-                style={{ width: "100%", padding: "0.85rem", fontSize: "1rem", borderRadius: 50 }}
+                style={{ padding: "0.55rem 1.6rem", fontSize: "0.9rem", borderRadius: 50 }}
               >
                 Jetzt Kurs sichern →
               </button>
