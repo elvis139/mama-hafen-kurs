@@ -720,9 +720,9 @@ export default function Home() {
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
-                    objectPosition: "center top",
+                    objectPosition: "30% top",
                     transform: "scale(1.45)",
-                    transformOrigin: "center top",
+                    transformOrigin: "30% top",
                   }}
                 />
               </div>
