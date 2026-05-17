@@ -487,39 +487,53 @@ export default function Home() {
       </section>
 
       {/* ── STORY-SEKTION: Darlees Geschichte (aus Video-Skript) ── */}
-      <section style={{ background: "var(--cream)", padding: "4.5rem 0 4rem", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
-        <div className="container" style={{ maxWidth: 720 }}>
+      <section style={{ background: "var(--cream)", padding: "5rem 0 4.5rem", position: "relative", overflow: "hidden" }}>
+        {/* Dezenter Hintergrund-Akzent */}
+        <div style={{
+          position: "absolute", top: 0, right: 0,
+          width: "40%", height: "100%",
+          background: "radial-gradient(ellipse at 80% 20%, rgba(74,163,148,0.06) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }} />
+        <div className="container" style={{ maxWidth: 740, position: "relative" }}>
 
-          {/* Autorin-Badge */}
+          {/* Autorin-Badge – aufgewertet */}
           <FadeUp>
-            <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", marginBottom: "2rem" }}>
+            <div style={{
+              display: "inline-flex", alignItems: "center", gap: "0.9rem",
+              background: "white",
+              border: "1px solid var(--border)",
+              borderRadius: 50,
+              padding: "0.45rem 1.1rem 0.45rem 0.45rem",
+              boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+              marginBottom: "2.2rem",
+            }}>
               <img
                 src={IMG_DARLEEN}
                 alt="Darleen"
                 style={{
-                  width: 52, height: 52,
+                  width: 44, height: 44,
                   borderRadius: "50%",
                   objectFit: "cover",
                   objectPosition: "center top",
-                  border: "2px solid var(--sand)",
                   flexShrink: 0,
                 }}
               />
               <div>
-                <div style={{ fontWeight: 700, fontSize: "0.9rem", color: "var(--foreground)" }}>Darleen</div>
-                <div style={{ fontSize: "0.8rem", color: "var(--muted-foreground)" }}>Mama von zwei Kindern &middot; Gründerin Mama-Hafen</div>
+                <div style={{ fontWeight: 700, fontSize: "0.88rem", color: "var(--foreground)", lineHeight: 1.3 }}>Darleen</div>
+                <div style={{ fontSize: "0.76rem", color: "var(--muted-foreground)" }}>Mama von zwei Kindern · Gründerin Mama-Hafen</div>
               </div>
             </div>
           </FadeUp>
 
-          {/* Einstieg: Leser abholen */}
+          {/* Einstieg: Leser abholen – größer & fetter */}
           <FadeUp delay={60}>
             <p style={{
               fontFamily: "'DM Serif Display', serif",
-              fontSize: "clamp(1.1rem, 2.8vw, 1.35rem)",
-              lineHeight: 1.6,
+              fontSize: "clamp(1.25rem, 3.2vw, 1.6rem)",
+              lineHeight: 1.55,
               color: "var(--foreground)",
-              marginBottom: "1.8rem",
+              marginBottom: "2rem",
             }}>
               Du bist nicht allein. Ich kenne diese Momente, in denen man alles versucht und trotzdem scheitert.
             </p>
@@ -540,22 +554,33 @@ export default function Home() {
             </p>
           </FadeUp>
 
-          <FadeUp delay={140}>
-            <p style={{
-              fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
-              lineHeight: 1.85,
-              color: "var(--muted-foreground)",
-              marginBottom: "1.5rem",
+          {/* Schmerz-Box – hebt den emotionalen Tiefpunkt hervor */}
+          <FadeUp delay={130}>
+            <div style={{
+              background: "rgba(196,168,130,0.12)",
+              border: "1px solid rgba(196,168,130,0.35)",
+              borderRadius: 16,
+              padding: "1.4rem 1.6rem",
+              marginBottom: "1.8rem",
             }}>
-              Ich erinnere mich noch genau daran, wie frustriert und ausgelaugt ich mich früher gefühlt habe. Der Tag begann morgens direkt mit Stress und Konflikten, die scheinbar aus dem Nichts kamen. Ständig gab es Diskussionen oder einfach nur ein bockiges „Nein“ – egal ob beim Anziehen, Zähneputzen, beim Essen oder auf dem Spielplatz. Meine Kinder waren einfach ständig unzufrieden. Und ich saß abends, wenn die Kinder endlich eingeschlafen waren, oft einfach nur völlig erschöpft auf der Couch und fragte mich, warum das Mamaleben so anstrengend sein muss.
-            </p>
+              <p style={{
+                fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
+                lineHeight: 1.85,
+                color: "var(--muted-foreground)",
+                margin: 0,
+              }}>
+                Ich erinnere mich noch genau daran, wie frustriert und ausgelaugt ich mich früher gefühlt habe. Der Tag begann morgens direkt mit Stress und Konflikten, die scheinbar aus dem Nichts kamen. Ständig gab es Diskussionen oder einfach nur ein bockiges „Nein" – egal ob beim Anziehen, Zähneputzen, beim Essen oder auf dem Spielplatz. Meine Kinder waren einfach ständig unzufrieden. Und ich saß abends, wenn die Kinder endlich eingeschlafen waren, oft einfach nur völlig erschöpft auf der Couch und fragte mich, warum das Mamaleben so anstrengend sein muss.
+              </p>
+            </div>
           </FadeUp>
 
-          {/* Wendepunkt */}
+          {/* Wendepunkt – Teal-Akzent */}
           <FadeUp delay={180}>
             <div style={{
-              borderLeft: "3px solid var(--teal)",
-              paddingLeft: "1.3rem",
+              background: "rgba(74,163,148,0.07)",
+              borderLeft: "4px solid var(--teal)",
+              borderRadius: "0 14px 14px 0",
+              padding: "1.3rem 1.5rem",
               margin: "2rem 0",
             }}>
               <p style={{
@@ -594,27 +619,43 @@ export default function Home() {
             </p>
           </FadeUp>
 
-          {/* Abschluss */}
+          {/* Abschluss – Conversion-Box */}
           <FadeUp delay={300}>
-            <p style={{
-              fontFamily: "'DM Serif Display', serif",
-              fontSize: "clamp(1.05rem, 2.5vw, 1.2rem)",
-              lineHeight: 1.65,
-              color: "var(--foreground)",
-              marginBottom: "0.6rem",
+            <div style={{
+              background: "white",
+              border: "1.5px solid var(--border)",
+              borderRadius: 18,
+              padding: "1.8rem 2rem",
+              boxShadow: "0 6px 28px rgba(0,0,0,0.07)",
+              marginTop: "0.5rem",
             }}>
-              Genau deshalb habe ich diesen Kurs entwickelt.
-            </p>
-            <p style={{
-              fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
-              lineHeight: 1.85,
-              color: "var(--muted-foreground)",
-              marginBottom: 0,
-            }}>
-              Damit du sowohl aus entwicklungspsychologischer Sicht verstehst, was in deinem Kind gerade vorgeht. Als auch praktische Strategien an die Hand bekommst, die wirklich funktionieren.
-              <br /><br />
-              Wir schauen uns gemeinsam die Grundlagen aus der Kinderforschung an und gehen aber auch in die Praxis! Ich habe die besten Tipps und Strategien, die uns als Familie geholfen haben, für dich zusammengestellt und mein Workbook kannst du als kleine Übersicht der Themen benutzen und dabei Lektion für Lektion deinen eigenen Familienalltag reflektieren und das Gelernte direkt übertragen und anwenden!
-            </p>
+              <p style={{
+                fontFamily: "'DM Serif Display', serif",
+                fontSize: "clamp(1.1rem, 2.5vw, 1.3rem)",
+                lineHeight: 1.55,
+                color: "var(--foreground)",
+                marginBottom: "0.8rem",
+              }}>
+                Genau deshalb habe ich diesen Kurs entwickelt.
+              </p>
+              <p style={{
+                fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
+                lineHeight: 1.85,
+                color: "var(--muted-foreground)",
+                marginBottom: "1.4rem",
+              }}>
+                Damit du sowohl aus entwicklungspsychologischer Sicht verstehst, was in deinem Kind gerade vorgeht. Als auch praktische Strategien an die Hand bekommst, die wirklich funktionieren.
+                <br /><br />
+                Wir schauen uns gemeinsam die Grundlagen aus der Kinderforschung an und gehen aber auch in die Praxis! Ich habe die besten Tipps und Strategien, die uns als Familie geholfen haben, für dich zusammengestellt und mein Workbook kannst du als kleine Übersicht der Themen benutzen und dabei Lektion für Lektion deinen eigenen Familienalltag reflektieren und das Gelernte direkt übertragen und anwenden!
+              </p>
+              <button
+                className="btn-coral"
+                onClick={() => document.getElementById("kaufen")?.scrollIntoView({ behavior: "smooth" })}
+                style={{ width: "100%", padding: "0.85rem", fontSize: "1rem", borderRadius: 50 }}
+              >
+                Jetzt Kurs sichern →
+              </button>
+            </div>
           </FadeUp>
 
         </div>
