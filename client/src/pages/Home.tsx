@@ -751,7 +751,7 @@ export default function Home() {
                     fontSize: "0.97rem",
                   }}
                 >
-                  Ich bin Mama von zwei Kindern – und ich habe genau das durchgemacht, wovon du gerade vielleicht mitten drin bist. Meine beiden haben mich mit ihrer Trotzphase an absolute Grenzen gebracht. Ich war täglich am Ende, habe Dinge gesagt, die ich bereut habe, und hatte Angst, dass ich als Mama versage. Unsere Familie hat darunter gelitten – und ich auch.
+                  Ich bin Mama von zwei Kindern – und ich habe genau das durchgemacht, wo du gerade vielleicht mitten drin bist. Mein erstes Kind hat mich während seiner Autonomiephase absolut an meine Grenzen gebracht. Ich war täglich am Ende, habe Dinge gesagt, die ich bereut habe, und hatte Angst, dass ich als Mama versage. Meine Kinder haben darunter gelitten – und ich natürlich auch.
                 </p>
               </FadeUp>
               <FadeUp delay={140}>
@@ -767,7 +767,8 @@ export default function Home() {
                     lineHeight: 1.6,
                   }}
                 >
-                  „Ich habe so lange gesucht, bis ich endlich verstanden habe, was wirklich hinter diesem Verhalten steckt. Und als ich es verstanden hatte, hat sich alles verändert.“
+                  Mein erster Schritt war es, zu verstehen wie sich das Gehirn von Kindern entwickelt.
+                  Doch Theorie allein genügt nicht, deshalb habe ich viele Expertentipps selbst ausprobiert und die besten für euch zusammengetragen!
                 </blockquote>
               </FadeUp>
               <FadeUp delay={200}>
@@ -778,7 +779,8 @@ export default function Home() {
                     fontSize: "0.97rem",
                   }}
                 >
-                  Seitdem ist es meine persönliche Mission, diese Erkenntnis weiterzugeben – damit andere Mamas nicht so lange verzweifeln müssen wie ich. Nicht damit Familien daran zerbrechen. Sondern damit du wieder die Mama sein kannst, die du sein möchtest.
+                  Seitdem ist es meine persönliche Mission, diese Erkenntnis weiterzugeben – damit du nicht selbst all die Ratgeber, Forschungserkenntnisse und Tipps durchforsten musst.
+                  Damit du schon morgen wieder die Mama sein kannst, die du sein möchtest und mit Zufriedenheit und nicht mit Bedauern und Enttäuschung auf die ersten Jahre deiner Kinder zurückblicken kannst!
                 </p>
               </FadeUp>
             </div>
