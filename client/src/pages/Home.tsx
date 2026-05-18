@@ -1201,7 +1201,7 @@ export default function Home() {
                           7-Tage-Geld-zurück-Garantie
                         </div>
                         <div style={{ fontSize: "0.78rem", color: "var(--muted-foreground)", lineHeight: 1.5 }}>
-                          Nicht überzeugt? Schreib uns einfach eine Mail – wir erstatten dir nach einer kurzen Rückmeldung umgehend den vollen Betrag.
+                          Nicht überzeugt? Schreib uns einfach eine Mail – wir erstatten dir umgehend den vollen Betrag.
                         </div>
                       </div>
                     </div>
