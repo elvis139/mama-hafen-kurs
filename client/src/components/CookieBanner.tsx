@@ -32,6 +32,27 @@ export function loadTrackingScripts() {
     document.head.appendChild(script1);
   }
 
+  // Pinterest Tag
+  if (!(window as any).pintrk) {
+    const pinterestScript = document.createElement("script");
+    pinterestScript.innerHTML = `
+      !function(e){if(!window.pintrk){window.pintrk = function () {
+      window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+      n=window.pintrk;n.queue=[],n.version="3.0";var
+      t=document.createElement("script");t.async=!0,t.src=e;var
+      r=document.getElementsByTagName("script")[0];
+      r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+      pintrk('load', '2614439815904');
+      pintrk('page');
+    `;
+    document.head.appendChild(pinterestScript);
+
+    // Pinterest noscript fallback
+    const noscript = document.createElement("noscript");
+    noscript.innerHTML = `<img height="1" width="1" style="display:none;" alt="" src="https://ct.pinterest.com/v3/?event=init&tid=2614439815904&noscript=1" />`;
+    document.body.appendChild(noscript);
+  }
+
   // Google Analytics
   if (!(window as any).gtag) {
     const gaScript = document.createElement("script");
@@ -105,7 +126,7 @@ export default function CookieBanner() {
           }}
         >
           🍪 Wir verwenden Cookies und ähnliche Technologien (Meta Pixel, Google
-          Analytics), um unsere Website zu verbessern und dir relevante Inhalte
+          Analytics, Pinterest Tag), um unsere Website zu verbessern und dir relevante Inhalte
           zu zeigen. Mit einem Klick auf „Akzeptieren" stimmst du dem zu. Mehr
           dazu in unserer{" "}
           <a
