@@ -3,6 +3,7 @@ import express from "express";
 import Stripe from "stripe";
 import { ENV } from "./_core/env";
 import { getDb } from "./db";
+import { notifyOwner } from "./_core/notification";
 import { courseAccess } from "../drizzle/schema";
 import { eq } from "drizzle-orm";
 
@@ -131,6 +132,13 @@ async function handleWebhook(req: Request, res: Response) {
           });
         }
         console.log(`[Stripe] Kurszugang freigeschaltet für: ${normalizedEmail} (Quelle: ${utmSource || "direkt"})`);
+
+        // Benachrichtigung an elvis@darvismedia.de senden
+        const purchaseTime = new Date().toLocaleString("de-DE", { timeZone: "Europe/Berlin" });
+        await notifyOwner({
+          title: "🎉 Neuer Kurs-Kauf!",
+          content: `Ein neuer Kauf wurde abgeschlossen:\n\n📧 E-Mail: ${normalizedEmail}\n🕐 Zeitpunkt: ${purchaseTime}\n📊 Quelle: ${utmSource || "direkt"}${utmMedium ? " / " + utmMedium : ""}${utmCampaign ? " / " + utmCampaign : ""}\n\nDer Kurszugang wurde automatisch freigeschaltet.`,
+        }).catch(e => console.warn("[Stripe] Benachrichtigung fehlgeschlagen:", e));
       } catch (dbErr) {
         console.error("[Stripe] DB-Fehler beim Freischalten:", dbErr);
       }
