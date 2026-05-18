@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { trackPurchase } from "@/lib/metaPixel";
+import { pinterestPurchase } from "@/lib/pinterestTag";
 
 // Google gtag Typen
 declare global {
@@ -48,6 +49,8 @@ export default function KaufErfolg() {
 
       // Meta Pixel: Purchase-Event
       trackPurchase(99);
+      // Pinterest: Checkout/Purchase-Event
+      pinterestPurchase(99, sessionId);
     }
 
     return () => clearTimeout(t);

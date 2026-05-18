@@ -6,6 +6,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { trackInitiateCheckout } from "@/lib/metaPixel";
+import { pinterestInitiateCheckout, pinterestViewContent, pinterestLead } from "@/lib/pinterestTag";
 
 const IMG_HERO =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663061854558/DswbdQTvMfJMPVPLtDLMpo/mama-hafen-hero-8D3s4D7uWWZgi4Fzfbffn2.webp";
@@ -204,6 +205,9 @@ export default function Home() {
     setCheckoutError("");
     // Meta Pixel: Checkout gestartet
     trackInitiateCheckout(99);
+    // Pinterest: Lead (E-Mail eingegeben) + Checkout gestartet
+    pinterestLead();
+    pinterestInitiateCheckout(99);
     try {
       const res = await fetch("/api/stripe/create-checkout", {
         method: "POST",
@@ -227,6 +231,23 @@ export default function Home() {
     const fn = () => setNavScrolled(window.scrollY > 50);
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
+  }, []);
+
+  // Pinterest: ViewContent feuern wenn Kaufsektion sichtbar wird
+  useEffect(() => {
+    const kaufSection = document.getElementById("kaufen");
+    if (!kaufSection) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          pinterestViewContent(99);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    obs.observe(kaufSection);
+    return () => obs.disconnect();
   }, []);
 
   const scrollTo = (id: string) =>
