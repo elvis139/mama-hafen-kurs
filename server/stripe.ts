@@ -4,6 +4,7 @@ import Stripe from "stripe";
 import { ENV } from "./_core/env";
 import { getDb } from "./db";
 import { notifyOwner } from "./_core/notification";
+import { sendWelcomeEmail } from "./email";
 import { courseAccess } from "../drizzle/schema";
 import { eq } from "drizzle-orm";
 
@@ -132,6 +133,12 @@ async function handleWebhook(req: Request, res: Response) {
           });
         }
         console.log(`[Stripe] Kurszugang freigeschaltet für: ${normalizedEmail} (Quelle: ${utmSource || "direkt"})`);
+
+        // Willkommens-E-Mail an Käuferin senden
+        const courseUrl = `${session.metadata?.origin || "https://mamahafen.manus.space"}/kurs`;
+        sendWelcomeEmail(normalizedEmail, courseUrl)
+          .then(() => console.log(`[Stripe] Willkommens-E-Mail gesendet an: ${normalizedEmail}`))
+          .catch(e => console.warn("[Stripe] Willkommens-E-Mail fehlgeschlagen:", e));
 
         // Benachrichtigung an elvis@darvismedia.de senden
         const purchaseTime = new Date().toLocaleString("de-DE", { timeZone: "Europe/Berlin" });
