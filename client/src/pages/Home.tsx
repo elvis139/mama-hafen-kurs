@@ -1326,10 +1326,8 @@ export default function Home() {
             }}
           >
             {[
-              ["darvismedia.de", "https://www.darvismedia.de"],
               ["Impressum", "https://www.darvismedia.de/impressum"],
               ["Datenschutz", "https://www.darvismedia.de/datenschutz"],
-              ["Kontakt", "https://www.darvismedia.de/kontakt"],
             ].map(([label, href]) => (
               <a
                 key={label}
@@ -1345,6 +1343,16 @@ export default function Home() {
                 {label}
               </a>
             ))}
+            <a
+              href="mailto:info@darvismedia.de"
+              style={{
+                color: "rgba(255,255,255,0.55)",
+                fontSize: "0.83rem",
+                textDecoration: "none",
+              }}
+            >
+              Kontakt
+            </a>
           </div>
           <p
             style={{
