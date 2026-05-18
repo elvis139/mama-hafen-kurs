@@ -656,6 +656,9 @@ export default function Home() {
                 >
                   Jetzt Kurs sichern →
                 </button>
+                <p style={{ marginTop: "0.6rem", fontSize: "0.76rem", color: "var(--muted-foreground)" }}>
+                  🛡️ 7-Tage-Geld-zurück-Garantie · Kein Risiko
+                </p>
               </div>
             </div>
           </FadeUp>
@@ -1180,6 +1183,28 @@ export default function Home() {
                     }}>
                       🔒 Sichere Zahlung über Stripe · SSL-verschlüsselt
                     </p>
+
+                    {/* 7-Tage-Garantie */}
+                    <div style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.9rem",
+                      background: "rgba(74,163,148,0.08)",
+                      border: "1.5px solid rgba(74,163,148,0.3)",
+                      borderRadius: 14,
+                      padding: "0.9rem 1.1rem",
+                      marginTop: "0.4rem",
+                    }}>
+                      <span style={{ fontSize: "2rem", flexShrink: 0 }}>🛡️</span>
+                      <div style={{ textAlign: "left" }}>
+                        <div style={{ fontWeight: 700, fontSize: "0.88rem", color: "var(--teal)", marginBottom: "0.2rem" }}>
+                          7-Tage-Geld-zurück-Garantie
+                        </div>
+                        <div style={{ fontSize: "0.78rem", color: "var(--muted-foreground)", lineHeight: 1.5 }}>
+                          Nicht überzeugt? Schreib uns einfach eine Mail – wir erstatten dir nach einer kurzen Rückmeldung umgehend den vollen Betrag.
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </form>
 
@@ -1254,8 +1279,19 @@ export default function Home() {
               onClick={() => scrollTo("kaufen")}
               style={{ fontSize: "0.9rem", padding: "0.7rem 1.7rem" }}
             >
-              Jetzt Kurs kaufen ⚓
+              Jetzt Kurs kaufen ⛓️
             </button>
+            <p style={{
+              marginTop: "1rem",
+              fontSize: "0.82rem",
+              color: "rgba(255,255,255,0.75)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.4rem",
+            }}>
+              🛡️ <strong style={{ color: "white" }}>7-Tage-Geld-zurück-Garantie</strong> · Kein Risiko
+            </p>
           </FadeUp>
         </div>
       </section>
