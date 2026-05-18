@@ -755,8 +755,11 @@ export default function Home() {
                   borderRadius: "42% 58% 48% 52% / 46% 50% 50% 54%",
                   overflow: "hidden",
                   boxShadow: "0 16px 45px rgba(0,0,0,0.1)",
-                  aspectRatio: "3/4",
-                  maxWidth: 320,
+                  width: 359,
+                  height: 462,
+                  maxWidth: 359,
+                  paddingRight: "35px",
+                  paddingLeft: "1px",
                   margin: "0 auto 0 -4rem",
                 }}
               >
