@@ -10,7 +10,7 @@ import { pinterestInitiateCheckout, pinterestViewContent, pinterestLead } from "
 
 const IMG_HERO =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663061854558/DswbdQTvMfJMPVPLtDLMpo/mama-hafen-hero-8D3s4D7uWWZgi4Fzfbffn2.webp";
-const IMG_DARLEEN = "/manus-storage/mama-hafen-darleen-new_48a06a5b.webp";
+const IMG_DARLEEN = "/manus-storage/darleen-profile-new_a8e2e5c7.webp";
 
 // ── Scroll-Animation ─────────────────────────────────────────────────────────
 function FadeUp({
