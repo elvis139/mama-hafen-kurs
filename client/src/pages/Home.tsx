@@ -776,15 +776,12 @@ export default function Home() {
                   borderRadius: "42% 58% 48% 52% / 46% 50% 50% 54%",
                   overflow: "hidden",
                   boxShadow: "0 16px 45px rgba(0,0,0,0.1)",
-                  width: 337,
-                  height: 357,
-                  maxWidth: 337,
+                  width: 359,
+                  height: 462,
+                  maxWidth: 359,
                   paddingRight: "35px",
                   paddingLeft: "1px",
-                  marginTop: "-6px",
-                  marginRight: "5px",
-                  marginLeft: "14px",
-                  marginBottom: 0,
+                  margin: "0 auto 0 -4rem",
                 }}
               >
                 <img
