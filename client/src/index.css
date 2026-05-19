@@ -76,8 +76,8 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'DM Sans', sans-serif;
-    font-size: 1.05rem;
-    line-height: 1.75;
+    font-size: 0.93rem;
+    line-height: 1.65;
   }
   h1, h2, h3, h4 {
     font-family: 'DM Serif Display', serif;
@@ -122,8 +122,9 @@
     color: white;
     font-family: 'DM Sans', sans-serif;
     font-weight: 800;
+    font-size: 0.88rem;
     border-radius: 50px;
-    padding: 0.9rem 2.2rem;
+    padding: 0.7rem 1.6rem;
     border: none;
     transition: all 0.25s ease;
     box-shadow: 0 4px 20px oklch(0.65 0.13 35 / 0.35);

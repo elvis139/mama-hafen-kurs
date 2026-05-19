@@ -688,15 +688,15 @@ export default function Home() {
       </section>
 
       {/* ── 3 VERSPRECHEN ── */}
-      <section style={{ background: "var(--sand)", padding: "4rem 0" }}>
+      <section style={{ background: "var(--sand)", padding: "2.5rem 0 3rem" }}>
         <Wave fill="var(--sand)" bg="var(--cream)" flip />
         <div className="container">
           <FadeUp>
-            <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>
+            <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
               <h2
                 style={{
                   fontFamily: "'DM Serif Display', serif",
-                  fontSize: "clamp(1.6rem, 4vw, 2.2rem)",
+                  fontSize: "clamp(1.4rem, 4vw, 2rem)",
                 }}
               >
                 Was du nach dem Kurs anders machst
@@ -863,15 +863,15 @@ export default function Home() {
       </section>
 
       {/* ── COMMUNITY USP SECTION ── */}
-      <section style={{ background: "var(--cream)", padding: "3.5rem 0 4rem" }}>
+      <section style={{ background: "var(--cream)", padding: "2rem 0 2.5rem" }}>
         <div className="container">
           <FadeUp>
             <div style={{
               maxWidth: 680,
               margin: "0 auto",
               background: "linear-gradient(135deg, var(--teal) 0%, #1a5c52 100%)",
-              borderRadius: 28,
-              padding: "2.8rem 2.5rem",
+              borderRadius: 20,
+              padding: "1.6rem 1.4rem",
               boxShadow: "0 16px 56px rgba(42,124,111,0.28)",
               position: "relative",
               overflow: "hidden",
@@ -899,20 +899,20 @@ export default function Home() {
 
               <h2 style={{
                 fontFamily: "'DM Serif Display', serif",
-                fontSize: "clamp(1.5rem, 4vw, 2rem)",
+                fontSize: "clamp(1.2rem, 4vw, 1.8rem)",
                 color: "#ffffff",
                 lineHeight: 1.25,
-                marginBottom: "1.2rem",
+                marginBottom: "0.9rem",
                 marginTop: 0,
               }}>
                 Ich möchte nicht den 1.000sten Erziehungskurs verkaufen.
               </h2>
 
               <p style={{
-                fontSize: "1rem",
+                fontSize: "0.88rem",
                 color: "rgba(255,255,255,0.9)",
-                lineHeight: 1.8,
-                marginBottom: "1.4rem",
+                lineHeight: 1.7,
+                marginBottom: "1rem",
               }}>
                 Ich möchte <strong style={{ color: "#ffffff" }}>dir</strong> helfen – mit deinen ganz konkreten Problemen und Herausforderungen.
                 Deshalb werde ich Woche für Woche eure echten Fragen aufgreifen und in einem Video besprechen.
@@ -939,8 +939,8 @@ export default function Home() {
                     padding: "0.85rem 1rem",
                     backdropFilter: "blur(4px)",
                   }}>
-                    <span style={{ fontSize: "1.2rem", flexShrink: 0, marginTop: "0.05rem" }}>{item.icon}</span>
-                    <span style={{ fontSize: "0.93rem", color: "rgba(255,255,255,0.92)", lineHeight: 1.6 }}>{item.text}</span>
+                    <span style={{ fontSize: "1rem", flexShrink: 0, marginTop: "0.05rem" }}>{item.icon}</span>
+                    <span style={{ fontSize: "0.83rem", color: "rgba(255,255,255,0.92)", lineHeight: 1.55 }}>{item.text}</span>
                   </div>
                 ))}
               </div>
@@ -950,7 +950,7 @@ export default function Home() {
       </section>
 
       {/* ── KURSMODULE ── */}
-      <section id="kurs" style={{ background: "var(--sand)", padding: "4rem 0" }}>
+      <section id="kurs" style={{ background: "var(--sand)", padding: "2.5rem 0 3rem" }}>
         <Wave fill="var(--sand)" bg="var(--cream)" flip />
         <div className="container">
           <FadeUp>
