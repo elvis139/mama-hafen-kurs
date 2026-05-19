@@ -772,6 +772,7 @@ export default function Home() {
             {/* Bild */}
             <FadeUp className="about-image-wrap">
               <div
+                className="darleen-frame"
                 style={{
                   borderRadius: "42% 58% 48% 52% / 46% 50% 50% 54%",
                   overflow: "hidden",
@@ -1582,12 +1583,21 @@ export default function Home() {
         .about-layout {
           display: flex;
           flex-direction: column;
-          gap: 1.8rem;
+          gap: 1rem;
           align-items: center;
         }
         .about-image-wrap {
           width: 100%;
-          max-width: 110px;
+          max-width: 160px;
+          margin: 0 auto;
+        }
+        .darleen-frame {
+          width: 160px !important;
+          height: 206px !important;
+          max-width: 160px !important;
+          margin: 0 auto !important;
+          padding-right: 16px !important;
+          padding-left: 0px !important;
         }
         .about-text { width: 100%; }
 
