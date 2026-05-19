@@ -908,26 +908,7 @@ export default function Home() {
                 pointerEvents: "none",
               }}>⚓</div>
 
-              {/* "Jetzt Neu" Sticker oben links – ragt aus dem Feld heraus */}
-              <div style={{
-                position: "absolute",
-                top: "-2rem",
-                left: "1rem",
-                width: 120,
-                height: 120,
-                borderRadius: "50%",
-                background: "var(--coral)",
-                boxShadow: "0 6px 20px rgba(0,0,0,0.3)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexDirection: "column" as const,
-                transform: "rotate(-12deg)",
-                zIndex: 10,
-              }}>
-                <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 900, fontSize: "1.1rem", color: "white", letterSpacing: "0.04em", textTransform: "uppercase", lineHeight: 1.2, textAlign: "center", display: "block" }}>Jetzt</span>
-                <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 900, fontSize: "1.1rem", color: "white", letterSpacing: "0.04em", textTransform: "uppercase", lineHeight: 1.2, textAlign: "center", display: "block" }}>Neu</span>
-              </div>
+
 
 
 
