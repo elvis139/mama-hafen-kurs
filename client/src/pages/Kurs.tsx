@@ -238,7 +238,7 @@ function QuestionForm({ sessionToken }: { sessionToken: string }) {
         ⚓ Deine Frage an Darleen
       </h3>
       <p style={{ fontSize: "0.82rem", color: "var(--muted-foreground)", marginBottom: "0.9rem", lineHeight: 1.55 }}>
-        Hast du eine Frage zur Autonomiephase oder zum Kurs? Schreib sie hier – Darleen beantwortet sie im wöchentlichen Community-Video.
+        Hast du eine explizite Frage zu dem Thema, die Darleen in ihren wöchentlichen Community-Video beantworten soll? Dann kannst du sie hier stellen.
       </p>
 
       {submitted ? (
