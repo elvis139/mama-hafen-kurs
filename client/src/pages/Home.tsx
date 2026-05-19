@@ -867,9 +867,28 @@ export default function Home() {
       <section style={{ background: "var(--cream)", padding: "2rem 0 2.5rem" }}>
         <div className="container">
           <FadeUp>
+            <div style={{ maxWidth: 680, margin: "0 auto", position: "relative", paddingTop: "3.5rem" }}>
+              {/* "Jetzt Neu" Sticker oben links – ragt über das grüne Feld heraus */}
+              <div style={{
+                position: "absolute",
+                top: 0,
+                left: "1.2rem",
+                width: 120,
+                height: 120,
+                borderRadius: "50%",
+                background: "var(--coral)",
+                boxShadow: "0 6px 20px rgba(0,0,0,0.3)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column" as const,
+                transform: "rotate(-12deg)",
+                zIndex: 10,
+              }}>
+                <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 900, fontSize: "1.1rem", color: "white", letterSpacing: "0.04em", textTransform: "uppercase", lineHeight: 1.2, textAlign: "center", display: "block" }}>Jetzt</span>
+                <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 900, fontSize: "1.1rem", color: "white", letterSpacing: "0.04em", textTransform: "uppercase", lineHeight: 1.2, textAlign: "center", display: "block" }}>Neu</span>
+              </div>
             <div style={{
-              maxWidth: 680,
-              margin: "0 auto",
               background: "linear-gradient(135deg, var(--teal) 0%, #1a5c52 100%)",
               borderRadius: 20,
               padding: "1.6rem 1.4rem",
@@ -958,6 +977,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+            </div>
             </div>
           </FadeUp>
         </div>
