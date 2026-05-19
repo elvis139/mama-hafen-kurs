@@ -7,11 +7,13 @@ import { nanoid } from "nanoid";
 import { z } from "zod";
 import {
   getAdminStats,
+  getAllCommunityQuestions,
   getAllCourseAccess,
   getCourseAccessByEmail,
   getCourseAccessByMagicToken,
   getCourseAccessBySessionToken,
   grantManualAccess,
+  insertCommunityQuestion,
   insertVideoEvent,
   toggleCourseAccess,
   updateCourseAccessSession,
@@ -266,5 +268,68 @@ export const courseRouter = router({
 
       const stats = await getAdminStats();
       return stats;
+    }),
+
+  /**
+   * Community-Frage einreichen
+   * Öffentlich – Session-Token wird manuell validiert
+   */
+  submitQuestion: publicProcedure
+    .input(
+      z.object({
+        sessionToken: z.string().min(1),
+        question: z.string().min(10, "Bitte schreibe mindestens 10 Zeichen."),
+      })
+    )
+    .mutation(async ({ input }) => {
+      const access = await getCourseAccessBySessionToken(input.sessionToken);
+      if (!access) {
+        throw new TRPCError({ code: "UNAUTHORIZED", message: "Bitte einloggen." });
+      }
+      // In DB speichern
+      await insertCommunityQuestion({
+        userEmail: access.email,
+        userName: access.email,
+        question: input.question,
+      });
+      // E-Mail-Benachrichtigung an info@darvismedia.de
+      try {
+        const { sendEmail } = await import("../email");
+        await sendEmail({
+          to: "info@darvismedia.de",
+          subject: "Frage von Mama-Hafen",
+          html: `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #f8f5f0;">
+              <h2 style="color: #2d7a7a;">⚓ Neue Frage von Mama-Hafen</h2>
+              <p style="color: #555;"><strong>Von:</strong> ${access.email}</p>
+              <hr style="border: none; border-top: 1px solid #ddd; margin: 16px 0;" />
+              <div style="background: white; border-radius: 8px; padding: 20px; border-left: 4px solid #e8734a;">
+                <p style="color: #333; line-height: 1.7; white-space: pre-wrap;">${input.question}</p>
+              </div>
+              <p style="color: #999; font-size: 0.85rem; margin-top: 16px;">Eingegangen am ${new Date().toLocaleDateString("de-DE", { day: "2-digit", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" })} Uhr</p>
+            </div>
+          `,
+        });
+      } catch (err) {
+        console.error("[submitQuestion] E-Mail-Versand fehlgeschlagen:", err);
+      }
+      return { success: true };
+    }),
+
+  /**
+   * Alle Community-Fragen abrufen (nur Admin)
+   */
+  getQuestions: publicProcedure
+    .input(z.object({ sessionToken: z.string().min(1) }))
+    .query(async ({ input }) => {
+      const access = await getCourseAccessBySessionToken(input.sessionToken);
+      if (!access) {
+        throw new TRPCError({ code: "UNAUTHORIZED", message: "Bitte einloggen." });
+      }
+      if (access.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
+        throw new TRPCError({ code: "FORBIDDEN", message: "Kein Zugriff." });
+      }
+      const questions = await getAllCommunityQuestions();
+      return questions;
     }),
 });

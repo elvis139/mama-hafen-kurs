@@ -188,6 +188,154 @@ function VideoPlaceholder() {
   );
 }
 
+// ── Frage-Formular ───────────────────────────────────────────────────────────
+function QuestionForm({ sessionToken }: { sessionToken: string }) {
+  const [question, setQuestion] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const MAX_CHARS = 5000;
+
+  const submitQuestion = trpc.course.submitQuestion.useMutation({
+    onSuccess: () => {
+      setSubmitted(true);
+      setQuestion("");
+      setErrorMsg("");
+    },
+    onError: (err) => {
+      setErrorMsg(err.message || "Fehler beim Absenden. Bitte versuche es erneut.");
+    },
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!question.trim() || question.trim().length < 10) {
+      setErrorMsg("Bitte schreibe mindestens 10 Zeichen.");
+      return;
+    }
+    setErrorMsg("");
+    submitQuestion.mutate({ sessionToken, question: question.trim() });
+  };
+
+  return (
+    <div
+      style={{
+        background: "white",
+        borderRadius: 16,
+        boxShadow: "0 4px 18px rgba(0,0,0,0.06)",
+        padding: "1.4rem 1.5rem",
+        marginBottom: "1.2rem",
+        borderTop: "3px solid var(--teal)",
+      }}
+    >
+      <h3
+        style={{
+          fontFamily: "'DM Serif Display', serif",
+          fontSize: "1.05rem",
+          marginBottom: "0.3rem",
+          color: "var(--teal)",
+        }}
+      >
+        ⚓ Deine Frage an Darleen
+      </h3>
+      <p style={{ fontSize: "0.82rem", color: "var(--muted-foreground)", marginBottom: "0.9rem", lineHeight: 1.55 }}>
+        Hast du eine Frage zur Autonomiephase oder zum Kurs? Schreib sie hier – Darleen beantwortet sie im wöchentlichen Community-Video.
+      </p>
+
+      {submitted ? (
+        <div
+          style={{
+            background: "#f0fdf4",
+            border: "1px solid #86efac",
+            borderRadius: 10,
+            padding: "1rem 1.2rem",
+            display: "flex",
+            alignItems: "flex-start",
+            gap: "0.6rem",
+          }}
+        >
+          <span style={{ fontSize: "1.2rem" }}>✅</span>
+          <div>
+            <p style={{ fontWeight: 700, color: "#15803d", margin: 0, fontSize: "0.9rem" }}>Frage erfolgreich gesendet!</p>
+            <p style={{ color: "#166534", margin: "0.3rem 0 0", fontSize: "0.82rem", lineHeight: 1.5 }}>
+              Darleen hat deine Frage erhalten und beantwortet sie im nächsten Community-Video.
+            </p>
+            <button
+              onClick={() => setSubmitted(false)}
+              style={{
+                marginTop: "0.6rem",
+                background: "none",
+                border: "none",
+                color: "var(--teal)",
+                fontWeight: 700,
+                fontSize: "0.8rem",
+                cursor: "pointer",
+                padding: 0,
+                fontFamily: "'DM Sans', sans-serif",
+              }}
+            >
+              Weitere Frage stellen
+            </button>
+          </div>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <textarea
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+            maxLength={MAX_CHARS}
+            rows={5}
+            placeholder="Schreib deine Frage hier... z.B. 'Was mache ich, wenn mein Kind im Supermarkt einen Wutanfall bekommt?'"
+            style={{
+              width: "100%",
+              borderRadius: 10,
+              border: errorMsg ? "1.5px solid #ef4444" : "1.5px solid var(--border)",
+              padding: "0.75rem 1rem",
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "0.88rem",
+              lineHeight: 1.6,
+              color: "var(--foreground)",
+              background: "var(--cream)",
+              resize: "vertical",
+              outline: "none",
+              boxSizing: "border-box",
+              transition: "border-color 0.15s",
+            }}
+            onFocus={(e) => { if (!errorMsg) (e.target as HTMLTextAreaElement).style.borderColor = "var(--teal)"; }}
+            onBlur={(e) => { if (!errorMsg) (e.target as HTMLTextAreaElement).style.borderColor = "var(--border)"; }}
+          />
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "0.4rem", gap: "0.5rem", flexWrap: "wrap" }}>
+            <span style={{ fontSize: "0.75rem", color: question.length > MAX_CHARS * 0.9 ? "#e8734a" : "var(--muted-foreground)" }}>
+              {question.length} / {MAX_CHARS} Zeichen
+            </span>
+            {errorMsg && (
+              <span style={{ fontSize: "0.78rem", color: "#ef4444", flex: 1, textAlign: "right" }}>{errorMsg}</span>
+            )}
+          </div>
+          <button
+            type="submit"
+            disabled={submitQuestion.isPending || !question.trim()}
+            style={{
+              marginTop: "0.75rem",
+              background: submitQuestion.isPending || !question.trim() ? "var(--muted-foreground)" : "var(--teal)",
+              color: "white",
+              border: "none",
+              borderRadius: 10,
+              padding: "0.6rem 1.4rem",
+              fontFamily: "'DM Sans', sans-serif",
+              fontWeight: 700,
+              fontSize: "0.88rem",
+              cursor: submitQuestion.isPending || !question.trim() ? "not-allowed" : "pointer",
+              transition: "background 0.15s",
+            }}
+          >
+            {submitQuestion.isPending ? "Wird gesendet…" : "Frage absenden"}
+          </button>
+        </form>
+      )}
+    </div>
+  );
+}
+
 export default function Kurs() {
   const [, navigate] = useLocation();
   const [activeModule, setActiveModule] = useState(0);
@@ -556,6 +704,9 @@ export default function Kurs() {
             </div>
           </div>
 
+          {/* Frage an Darleen */}
+          <QuestionForm sessionToken={sessionToken} />
+
           {/* Modulliste */}
           <div style={{ minWidth: 0, width: "100%" }}>
             <h3
@@ -662,6 +813,7 @@ export default function Kurs() {
       </div>
 
       {/* Footer */}
+      {/* QuestionForm-Komponente – wird oben im Grid gerendert */}
       <footer
         style={{
           background: "var(--teal-dark, #1a3a3a)",

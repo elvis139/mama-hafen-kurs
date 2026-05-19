@@ -177,3 +177,21 @@ export async function sendWelcomeEmail(to: string, courseUrl: string): Promise<v
     text: `Willkommen im Mama-Hafen!\n\nDein Kurs ist jetzt freigeschaltet. Starte hier: ${courseUrl}\n\nBei Fragen: info@darvismedia.de`,
   });
 }
+
+/**
+ * Generische E-Mail-Funktion für interne Benachrichtigungen.
+ */
+export async function sendEmail(options: {
+  to: string;
+  subject: string;
+  html: string;
+  text?: string;
+}): Promise<void> {
+  await transporter.sendMail({
+    from: `"Mama-Hafen" <${process.env.GMAIL_USER}>`,
+    to: options.to,
+    subject: options.subject,
+    html: options.html,
+    text: options.text,
+  });
+}

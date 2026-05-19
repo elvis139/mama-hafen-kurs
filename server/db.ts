@@ -1,6 +1,6 @@
 import { desc, eq, sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { courseAccess, InsertCourseAccess, InsertUser, InsertVideoEvent, users, videoEvents } from "../drizzle/schema";
+import { communityQuestions, courseAccess, InsertCommunityQuestion, InsertCourseAccess, InsertUser, InsertVideoEvent, users, videoEvents } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -226,4 +226,21 @@ export async function getAdminStats() {
     .orderBy(desc(sql`COUNT(*)`));
 
   return { buyers, videoStarts, videoReplays, trafficSources };
+}
+
+// ── Community-Fragen ──────────────────────────────────────────────────────────
+
+export async function insertCommunityQuestion(data: InsertCommunityQuestion): Promise<void> {
+  const db = await getDb();
+  if (!db) return;
+  await db.insert(communityQuestions).values(data);
+}
+
+export async function getAllCommunityQuestions() {
+  const db = await getDb();
+  if (!db) return [];
+  return db
+    .select()
+    .from(communityQuestions)
+    .orderBy(desc(communityQuestions.createdAt));
 }

@@ -425,10 +425,103 @@ function AccessManagement({ sessionToken }: { sessionToken: string }) {
   );
 }
 
-// ── Haupt-Komponente ──────────────────────────────────────────────────────────
+// ── Community-Fragen-Ansicht ──────────────────────────────────────────────
+function QuestionsView({ sessionToken }: { sessionToken: string }) {
+  const { data, isLoading, error } = trpc.course.getQuestions.useQuery(
+    { sessionToken },
+    { enabled: !!sessionToken, retry: false }
+  );
+
+  if (isLoading) {
+    return (
+      <div style={{ textAlign: "center", padding: "3rem", color: "var(--muted-foreground)" }}>
+        <div style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>⏳</div>
+        Fragen werden geladen…
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div style={{ textAlign: "center", padding: "3rem", color: "#ef4444" }}>
+        Fehler beim Laden der Fragen: {error.message}
+      </div>
+    );
+  }
+
+  const questions = data ?? [];
+
+  return (
+    <div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.2rem" }}>
+        <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "1.3rem", color: "var(--teal)", margin: 0 }}>
+          ❓ Community-Fragen
+        </h2>
+        <span style={{
+          background: "var(--teal)",
+          color: "white",
+          borderRadius: 50,
+          padding: "0.2rem 0.75rem",
+          fontSize: "0.8rem",
+          fontWeight: 700,
+        }}>{questions.length} Fragen</span>
+      </div>
+
+      {questions.length === 0 ? (
+        <div style={{
+          background: "white",
+          borderRadius: 16,
+          padding: "3rem",
+          textAlign: "center",
+          boxShadow: "0 4px 18px rgba(0,0,0,0.06)",
+        }}>
+          <div style={{ fontSize: "2rem", marginBottom: "0.75rem" }}>⚓</div>
+          <p style={{ color: "var(--muted-foreground)", fontSize: "0.95rem" }}>Noch keine Fragen eingegangen.</p>
+        </div>
+      ) : (
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+          {questions.map((q) => (
+            <div
+              key={q.id}
+              style={{
+                background: "white",
+                borderRadius: 14,
+                boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+                padding: "1.2rem 1.4rem",
+                borderLeft: "4px solid var(--teal)",
+              }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "0.5rem", marginBottom: "0.75rem", flexWrap: "wrap" }}>
+                <div>
+                  <span style={{ fontWeight: 700, fontSize: "0.9rem", color: "var(--foreground)" }}>{q.userEmail}</span>
+                  {q.userName && q.userName !== q.userEmail && (
+                    <span style={{ marginLeft: "0.5rem", color: "var(--muted-foreground)", fontSize: "0.82rem" }}>({q.userName})</span>
+                  )}
+                </div>
+                <span style={{ color: "var(--muted-foreground)", fontSize: "0.78rem", whiteSpace: "nowrap" }}>
+                  {q.createdAt ? new Date(q.createdAt).toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" }) + " Uhr" : "–"}
+                </span>
+              </div>
+              <p style={{
+                color: "var(--foreground)",
+                fontSize: "0.9rem",
+                lineHeight: 1.65,
+                margin: 0,
+                whiteSpace: "pre-wrap",
+                wordBreak: "break-word",
+              }}>{q.question}</p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── Haupt-Komponente ──────────────────────────────────────────────
 export default function Admin() {
   const [, navigate] = useLocation();
-  const [activeTab, setActiveTab] = useState<"dashboard" | "access">("dashboard");
+  const [activeTab, setActiveTab] = useState<"dashboard" | "access" | "questions">("dashboard");
 
   const sessionToken = useMemo(() => {
     if (typeof window !== "undefined") {
@@ -566,6 +659,7 @@ export default function Admin() {
           {([
             { id: "dashboard", label: "📊 Statistiken" },
             { id: "access", label: "🔑 Zugangsverwaltung" },
+            { id: "questions", label: "❓ Community-Fragen" },
           ] as const).map(tab => (
             <button
               key={tab.id}
@@ -782,6 +876,10 @@ export default function Admin() {
 
         {activeTab === "access" && (
           <AccessManagement sessionToken={sessionToken} />
+        )}
+
+        {activeTab === "questions" && (
+          <QuestionsView sessionToken={sessionToken} />
         )}
       </main>
     </div>

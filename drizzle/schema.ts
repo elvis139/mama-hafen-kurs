@@ -63,3 +63,17 @@ export const videoEvents = mysqlTable("video_events", {
 
 export type VideoEvent = typeof videoEvents.$inferSelect;
 export type InsertVideoEvent = typeof videoEvents.$inferInsert;
+
+/**
+ * Community-Fragen: Fragen von Kursteilnehmerinnen an Darleen.
+ */
+export const communityQuestions = mysqlTable("community_questions", {
+  id: int("id").autoincrement().primaryKey(),
+  userEmail: varchar("userEmail", { length: 320 }).notNull(),
+  userName: text("userName"),
+  question: text("question").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type CommunityQuestion = typeof communityQuestions.$inferSelect;
+export type InsertCommunityQuestion = typeof communityQuestions.$inferInsert;
