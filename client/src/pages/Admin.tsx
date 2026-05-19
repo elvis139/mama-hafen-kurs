@@ -427,10 +427,20 @@ function AccessManagement({ sessionToken }: { sessionToken: string }) {
 
 // ── Community-Fragen-Ansicht ──────────────────────────────────────────────
 function QuestionsView({ sessionToken }: { sessionToken: string }) {
+  const [confirmDeleteId, setConfirmDeleteId] = useState<number | null>(null);
+  const utils = trpc.useUtils();
+
   const { data, isLoading, error } = trpc.course.getQuestions.useQuery(
     { sessionToken },
     { enabled: !!sessionToken, retry: false }
   );
+
+  const deleteQuestion = trpc.course.deleteQuestion.useMutation({
+    onSuccess: () => {
+      setConfirmDeleteId(null);
+      utils.course.getQuestions.invalidate();
+    },
+  });
 
   if (isLoading) {
     return (
@@ -467,6 +477,7 @@ function QuestionsView({ sessionToken }: { sessionToken: string }) {
         }}>{questions.length} Fragen</span>
       </div>
 
+      <>
       {questions.length === 0 ? (
         <div style={{
           background: "white",
@@ -489,9 +500,40 @@ function QuestionsView({ sessionToken }: { sessionToken: string }) {
                 boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
                 padding: "1.2rem 1.4rem",
                 borderLeft: "4px solid var(--teal)",
+                position: "relative",
               }}
             >
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "0.5rem", marginBottom: "0.75rem", flexWrap: "wrap" }}>
+              {/* X-Lösch-Button */}
+              <button
+                onClick={() => setConfirmDeleteId(q.id)}
+                title="Frage löschen"
+                style={{
+                  position: "absolute",
+                  top: "0.75rem",
+                  right: "0.75rem",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  color: "var(--muted-foreground)",
+                  fontSize: "1.1rem",
+                  lineHeight: 1,
+                  padding: "0.2rem 0.4rem",
+                  borderRadius: 6,
+                  transition: "color 0.15s, background 0.15s",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.color = "#ef4444";
+                  (e.currentTarget as HTMLButtonElement).style.background = "#fee2e2";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.color = "var(--muted-foreground)";
+                  (e.currentTarget as HTMLButtonElement).style.background = "none";
+                }}
+              >
+                ✕
+              </button>
+
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: "0.5rem", marginBottom: "0.75rem", flexWrap: "wrap", paddingRight: "2rem" }}>
                 <div>
                   <span style={{ fontWeight: 700, fontSize: "0.9rem", color: "var(--foreground)" }}>{q.userEmail}</span>
                   {q.userName && q.userName !== q.userEmail && (
@@ -514,6 +556,84 @@ function QuestionsView({ sessionToken }: { sessionToken: string }) {
           ))}
         </div>
       )}
+
+      {/* Sicherheitsabfrage-Dialog */}
+        {confirmDeleteId !== null && (
+          <div
+            style={{
+              position: "fixed",
+              inset: 0,
+              background: "rgba(0,0,0,0.45)",
+              zIndex: 1000,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "1rem",
+            }}
+            onClick={() => setConfirmDeleteId(null)}
+          >
+            <div
+              style={{
+                background: "white",
+                borderRadius: 16,
+                padding: "2rem",
+                maxWidth: 420,
+                width: "100%",
+                boxShadow: "0 20px 60px rgba(0,0,0,0.2)",
+                textAlign: "center",
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div style={{ fontSize: "2rem", marginBottom: "0.75rem" }}>🗑️</div>
+              <h3 style={{
+                fontFamily: "'DM Serif Display', serif",
+                fontSize: "1.15rem",
+                color: "var(--foreground)",
+                marginBottom: "0.5rem",
+              }}>Frage wirklich löschen?</h3>
+              <p style={{ color: "var(--muted-foreground)", fontSize: "0.88rem", lineHeight: 1.6, marginBottom: "1.5rem" }}>
+                Diese Aktion kann nicht rückgängig gemacht werden. Die Frage wird dauerhaft aus der Datenbank entfernt.
+              </p>
+              <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center" }}>
+                <button
+                  onClick={() => setConfirmDeleteId(null)}
+                  style={{
+                    background: "var(--sand)",
+                    color: "var(--foreground)",
+                    border: "none",
+                    borderRadius: 10,
+                    padding: "0.6rem 1.4rem",
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontWeight: 700,
+                    fontSize: "0.9rem",
+                    cursor: "pointer",
+                  }}
+                >
+                  Abbrechen
+                </button>
+                <button
+                  onClick={() => deleteQuestion.mutate({ sessionToken, questionId: confirmDeleteId })}
+                  disabled={deleteQuestion.isPending}
+                  style={{
+                    background: deleteQuestion.isPending ? "var(--muted-foreground)" : "#ef4444",
+                    color: "white",
+                    border: "none",
+                    borderRadius: 10,
+                    padding: "0.6rem 1.4rem",
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontWeight: 700,
+                    fontSize: "0.9rem",
+                    cursor: deleteQuestion.isPending ? "not-allowed" : "pointer",
+                    transition: "background 0.15s",
+                  }}
+                >
+                  {deleteQuestion.isPending ? "Wird gelöscht…" : "Ja, löschen"}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </>
     </div>
   );
 }

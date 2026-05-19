@@ -244,3 +244,9 @@ export async function getAllCommunityQuestions() {
     .from(communityQuestions)
     .orderBy(desc(communityQuestions.createdAt));
 }
+
+export async function deleteCommunityQuestion(id: number): Promise<void> {
+  const db = await getDb();
+  if (!db) return;
+  await db.delete(communityQuestions).where(eq(communityQuestions.id, id));
+}

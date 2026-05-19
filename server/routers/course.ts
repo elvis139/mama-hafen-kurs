@@ -6,6 +6,7 @@ import { TRPCError } from "@trpc/server";
 import { nanoid } from "nanoid";
 import { z } from "zod";
 import {
+  deleteCommunityQuestion,
   getAdminStats,
   getAllCommunityQuestions,
   getAllCourseAccess,
@@ -331,5 +332,19 @@ export const courseRouter = router({
       }
       const questions = await getAllCommunityQuestions();
       return questions;
+    }),
+
+  deleteQuestion: publicProcedure
+    .input(z.object({ sessionToken: z.string().min(1), questionId: z.number().int().positive() }))
+    .mutation(async ({ input }) => {
+      const access = await getCourseAccessBySessionToken(input.sessionToken);
+      if (!access) {
+        throw new TRPCError({ code: "UNAUTHORIZED", message: "Bitte einloggen." });
+      }
+      if (access.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
+        throw new TRPCError({ code: "FORBIDDEN", message: "Kein Zugriff." });
+      }
+      await deleteCommunityQuestion(input.questionId);
+      return { success: true };
     }),
 });
