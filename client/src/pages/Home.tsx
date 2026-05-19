@@ -873,6 +873,7 @@ export default function Home() {
                 position: "absolute",
                 top: 0,
                 left: "1.2rem",
+                marginLeft: "-51px",
                 width: 120,
                 height: 120,
                 borderRadius: "50%",
