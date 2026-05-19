@@ -968,6 +968,45 @@ export default function Home() {
             </div>
           </FadeUp>
 
+          {/* USP Highlight: Workbook + Wöchentliche Community-Videos */}
+          <FadeUp delay={110}>
+            <div
+              style={{
+                background: "linear-gradient(135deg, var(--teal) 0%, #1a5c52 100%)",
+                borderRadius: 20,
+                padding: "1.8rem 2rem",
+                maxWidth: 480,
+                margin: "0 auto 2rem",
+                boxShadow: "0 8px 32px rgba(42,124,111,0.25)",
+              }}
+            >
+              <div style={{
+                fontSize: "0.72rem",
+                fontWeight: 800,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "rgba(255,255,255,0.7)",
+                marginBottom: "0.5rem",
+              }}>Inklusive im Kurs</div>
+              <div style={{
+                fontFamily: "'DM Serif Display', serif",
+                fontSize: "1.25rem",
+                color: "#ffffff",
+                fontWeight: 700,
+                lineHeight: 1.3,
+                marginBottom: "0.9rem",
+              }}>📓 Workbook + Woche für Woche neue Praxisvideos</div>
+              <p style={{
+                fontSize: "0.88rem",
+                color: "rgba(255,255,255,0.88)",
+                lineHeight: 1.7,
+                margin: 0,
+              }}>
+                Zusätzlich zu den 11 Lektionen veröffentliche ich regelmäßig neue Videos, in denen ich echte Erziehungsfragen und Praxisbeispiele aus der Community bespreche. Der Kurs wächst mit dir. Woche für Woche.
+              </p>
+            </div>
+          </FadeUp>
+
           {/* Kauf-CTA nach Modulliste */}
           <FadeUp delay={130}>
             <div style={{ textAlign: "center", marginTop: "0.5rem" }}>
@@ -1110,7 +1149,8 @@ export default function Home() {
                 <div style={{ marginBottom: "1.5rem" }}>
                   {[
                     { icon: "🎬", text: "11 Video-Lektionen (je 5–12 Min.)" },
-                    { icon: "📚", text: "Workbook mit Übungen zu jeder Lektion" },
+                    { icon: "📓", text: "Workbook mit Reflexionsfragen zu jeder Lektion" },
+                    { icon: "🔄", text: "Woche für Woche neue Praxisvideos aus der Community" },
                     { icon: "♾️", text: "Dauerhafter Zugang – auch fürs zweite Kind" },
                     { icon: "📱", text: "Optimiert für Handy – lerne zwischendurch" },
                   ].map((item) => (
