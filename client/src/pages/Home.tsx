@@ -795,9 +795,9 @@ export default function Home() {
                     objectPosition: "center top",
                     transform: "scale(1.45)",
                     transformOrigin: "center top",
-                    paddingRight: "24px",
-                    paddingBottom: "100px",
-                    paddingLeft: "37px",
+                    paddingRight: "11px",
+                    paddingBottom: "55px",
+                    paddingLeft: "22px",
                   }}
                 />
               </div>
