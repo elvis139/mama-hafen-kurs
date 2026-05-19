@@ -1587,7 +1587,7 @@ export default function Home() {
         }
         .about-image-wrap {
           width: 100%;
-          max-width: 220px;
+          max-width: 110px;
         }
         .about-text { width: 100%; }
 
