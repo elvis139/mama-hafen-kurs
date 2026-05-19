@@ -889,6 +889,27 @@ export default function Home() {
                 pointerEvents: "none",
               }}>⚓</div>
 
+              {/* "Jetzt Neu" Sticker oben links */}
+              <div style={{
+                position: "absolute",
+                top: "-0.8rem",
+                left: "1.2rem",
+                width: 62,
+                height: 62,
+                borderRadius: "50%",
+                background: "var(--coral)",
+                boxShadow: "0 4px 14px rgba(0,0,0,0.25)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column" as const,
+                transform: "rotate(-12deg)",
+                zIndex: 2,
+              }}>
+                <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 900, fontSize: "0.62rem", color: "white", letterSpacing: "0.04em", textTransform: "uppercase", lineHeight: 1.2, textAlign: "center", display: "block" }}>Jetzt</span>
+                <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 900, fontSize: "0.62rem", color: "white", letterSpacing: "0.04em", textTransform: "uppercase", lineHeight: 1.2, textAlign: "center", display: "block" }}>Neu</span>
+              </div>
+
               <div style={{
                 fontSize: "0.72rem",
                 fontWeight: 800,
@@ -896,7 +917,8 @@ export default function Home() {
                 textTransform: "uppercase",
                 color: "rgba(255,255,255,0.65)",
                 marginBottom: "0.7rem",
-              }}>Was diesen Kurs anders macht</div>
+                marginTop: "0.5rem",
+              }}>Was diesen Kurs besonders macht</div>
 
               <h2 style={{
                 fontFamily: "'DM Serif Display', serif",
@@ -906,7 +928,7 @@ export default function Home() {
                 marginBottom: "0.9rem",
                 marginTop: 0,
               }}>
-                Ich möchte nicht den 1.000sten Erziehungskurs verkaufen.
+                Kein Kurs wie jeder andere – sondern einer, der mit dir wächst.
               </h2>
 
               <p style={{
@@ -915,10 +937,7 @@ export default function Home() {
                 lineHeight: 1.7,
                 marginBottom: "1rem",
               }}>
-                Ich möchte <strong style={{ color: "#ffffff" }}>dir</strong> helfen – mit deinen ganz konkreten Problemen und Herausforderungen.
-                Deshalb werde ich Woche für Woche eure echten Fragen aufgreifen und in einem Video besprechen.
-                Keine allgemeinen Ratschläge. Keine Theorie, die im Alltag nicht funktioniert.
-                Sondern echte Antworten auf echte Mama-Momente.
+                Lasst uns von einander lernen und weg von der Theorie und hin zur Praxis gehen! Woche für Woche wird dieser Kurs mit echten Alltagsbeispielen erweitert.
               </p>
 
               <div style={{
@@ -927,9 +946,9 @@ export default function Home() {
                 gap: "0.75rem",
               }}>
                 {[
-                  { icon: "📓", text: "Workbook mit Reflexionsfragen zu jeder Lektion" },
-                  { icon: "🔄", text: "Woche für Woche neue Praxisvideos – basierend auf euren Fragen" },
-                  { icon: "💬", text: "Deine Herausforderungen. Meine Antworten. Direkt für dich." },
+                  { icon: "📓", text: "Workbook mit Reflexionsfragen und praktischen Impulsen, die du sofort umsetzen kannst" },
+                  { icon: "🔄", text: "Woche für Woche neue Videos – mit Beispielen aus eurem Alltag" },
+                  { icon: "💬", text: "Brauchst du Hilfe bei der Umsetzung? Schick mir deine Fragen zu konkreten Alltagssituationen" },
                 ].map((item) => (
                   <div key={item.text} style={{
                     display: "flex",
