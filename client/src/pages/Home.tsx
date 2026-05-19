@@ -862,6 +862,93 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── COMMUNITY USP SECTION ── */}
+      <section style={{ background: "var(--cream)", padding: "3.5rem 0 4rem" }}>
+        <div className="container">
+          <FadeUp>
+            <div style={{
+              maxWidth: 680,
+              margin: "0 auto",
+              background: "linear-gradient(135deg, var(--teal) 0%, #1a5c52 100%)",
+              borderRadius: 28,
+              padding: "2.8rem 2.5rem",
+              boxShadow: "0 16px 56px rgba(42,124,111,0.28)",
+              position: "relative",
+              overflow: "hidden",
+            }}>
+              {/* Decorative anchor watermark */}
+              <div style={{
+                position: "absolute",
+                right: "-1.5rem",
+                bottom: "-2rem",
+                fontSize: "9rem",
+                opacity: 0.06,
+                lineHeight: 1,
+                userSelect: "none",
+                pointerEvents: "none",
+              }}>⚓</div>
+
+              <div style={{
+                fontSize: "0.72rem",
+                fontWeight: 800,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                color: "rgba(255,255,255,0.65)",
+                marginBottom: "0.7rem",
+              }}>Was diesen Kurs anders macht</div>
+
+              <h2 style={{
+                fontFamily: "'DM Serif Display', serif",
+                fontSize: "clamp(1.5rem, 4vw, 2rem)",
+                color: "#ffffff",
+                lineHeight: 1.25,
+                marginBottom: "1.2rem",
+                marginTop: 0,
+              }}>
+                Ich möchte nicht den 1.000sten Erziehungskurs verkaufen.
+              </h2>
+
+              <p style={{
+                fontSize: "1rem",
+                color: "rgba(255,255,255,0.9)",
+                lineHeight: 1.8,
+                marginBottom: "1.4rem",
+              }}>
+                Ich möchte <strong style={{ color: "#ffffff" }}>dir</strong> helfen – mit deinen ganz konkreten Problemen und Herausforderungen.
+                Deshalb werde ich Woche für Woche eure echten Fragen aufgreifen und in einem Video besprechen.
+                Keine allgemeinen Ratschläge. Keine Theorie, die im Alltag nicht funktioniert.
+                Sondern echte Antworten auf echte Mama-Momente.
+              </p>
+
+              <div style={{
+                display: "flex",
+                flexDirection: "column" as const,
+                gap: "0.75rem",
+              }}>
+                {[
+                  { icon: "📓", text: "Workbook mit Reflexionsfragen zu jeder Lektion" },
+                  { icon: "🔄", text: "Woche für Woche neue Praxisvideos – basierend auf euren Fragen" },
+                  { icon: "💬", text: "Deine Herausforderungen. Meine Antworten. Direkt für dich." },
+                ].map((item) => (
+                  <div key={item.text} style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "0.8rem",
+                    background: "rgba(255,255,255,0.1)",
+                    borderRadius: 12,
+                    padding: "0.85rem 1rem",
+                    backdropFilter: "blur(4px)",
+                  }}>
+                    <span style={{ fontSize: "1.2rem", flexShrink: 0, marginTop: "0.05rem" }}>{item.icon}</span>
+                    <span style={{ fontSize: "0.93rem", color: "rgba(255,255,255,0.92)", lineHeight: 1.6 }}>{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
       {/* ── KURSMODULE ── */}
       <section id="kurs" style={{ background: "var(--sand)", padding: "4rem 0" }}>
         <Wave fill="var(--sand)" bg="var(--cream)" flip />
