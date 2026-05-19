@@ -889,36 +889,28 @@ export default function Home() {
                 pointerEvents: "none",
               }}>⚓</div>
 
-              {/* "Jetzt Neu" Sticker oben links */}
+              {/* "Jetzt Neu" Sticker oben links – ragt aus dem Feld heraus */}
               <div style={{
                 position: "absolute",
-                top: "-0.8rem",
-                left: "1.2rem",
-                width: 62,
-                height: 62,
+                top: "-2rem",
+                left: "1rem",
+                width: 120,
+                height: 120,
                 borderRadius: "50%",
                 background: "var(--coral)",
-                boxShadow: "0 4px 14px rgba(0,0,0,0.25)",
+                boxShadow: "0 6px 20px rgba(0,0,0,0.3)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 flexDirection: "column" as const,
                 transform: "rotate(-12deg)",
-                zIndex: 2,
+                zIndex: 10,
               }}>
-                <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 900, fontSize: "0.62rem", color: "white", letterSpacing: "0.04em", textTransform: "uppercase", lineHeight: 1.2, textAlign: "center", display: "block" }}>Jetzt</span>
-                <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 900, fontSize: "0.62rem", color: "white", letterSpacing: "0.04em", textTransform: "uppercase", lineHeight: 1.2, textAlign: "center", display: "block" }}>Neu</span>
+                <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 900, fontSize: "1.1rem", color: "white", letterSpacing: "0.04em", textTransform: "uppercase", lineHeight: 1.2, textAlign: "center", display: "block" }}>Jetzt</span>
+                <span style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 900, fontSize: "1.1rem", color: "white", letterSpacing: "0.04em", textTransform: "uppercase", lineHeight: 1.2, textAlign: "center", display: "block" }}>Neu</span>
               </div>
 
-              <div style={{
-                fontSize: "0.72rem",
-                fontWeight: 800,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.65)",
-                marginBottom: "0.7rem",
-                marginTop: "0.5rem",
-              }}>Was diesen Kurs besonders macht</div>
+
 
               <h2 style={{
                 fontFamily: "'DM Serif Display', serif",
@@ -926,9 +918,11 @@ export default function Home() {
                 color: "#ffffff",
                 lineHeight: 1.25,
                 marginBottom: "0.9rem",
-                marginTop: 0,
+                marginTop: "1rem",
+                paddingLeft: "84px",
+                paddingRight: "10px",
               }}>
-                Kein Kurs wie jeder andere – sondern einer, der mit dir wächst.
+                Was diesen Kurs noch besonders macht?
               </h2>
 
               <p style={{
