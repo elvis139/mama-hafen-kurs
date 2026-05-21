@@ -340,6 +340,7 @@ export default function Home() {
           <div style={{
             background: "var(--cream)",
             padding: "5rem 1.5rem 1.5rem",
+            marginBottom: "52px",
           }}>
             <FadeUp>
               <span style={{
