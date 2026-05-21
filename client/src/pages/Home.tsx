@@ -393,12 +393,23 @@ export default function Home() {
               </div>
             </FadeUp>
           </div>
+          {/* Verlauf von Cream ins Video */}
+          <div style={{
+            width: "100%",
+            height: "60px",
+            background: "linear-gradient(to bottom, var(--cream) 0%, transparent 100%)",
+            position: "relative",
+            zIndex: 2,
+            marginBottom: "-60px",
+            pointerEvents: "none",
+          }} />
           {/* Video-Block darunter */}
           <div style={{
             width: "100%",
             aspectRatio: "4/5",
             background: "#000",
             overflow: "hidden",
+            position: "relative",
           }}>
             <iframe
               src="https://iframe.mediadelivery.net/embed/655693/0cfadc3e-fff1-4751-97c7-76a159676f00?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
