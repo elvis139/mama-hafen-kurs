@@ -500,6 +500,9 @@ export default function Home() {
                   <div style={{
                     position: "absolute", bottom: "1.5rem", left: "-1rem",
                     background: "white", borderRadius: 12, padding: "0.7rem 1rem",
+                    paddingBottom: "8px",
+                    marginBottom: "327px",
+                    marginLeft: "-22px",
                     boxShadow: "0 6px 24px rgba(0,0,0,0.1)",
                     display: "flex", alignItems: "center", gap: "0.6rem",
                   }}>
