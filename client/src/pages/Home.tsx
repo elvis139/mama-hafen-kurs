@@ -334,104 +334,79 @@ export default function Home() {
       {/* Desktop: 2-Spalten-Layout. Mobile: Vollbild-Hintergrund mit Overlay */}
       <section className="hero-section">
 
-        {/* Mobile Hero: Video mit Overlay und Text darüber */}
+        {/* Mobile Hero: Text oben, Video darunter */}
         <div className="hero-mobile">
-          <iframe
-            src="https://iframe.mediadelivery.net/embed/655693/0cfadc3e-fff1-4751-97c7-76a159676f00?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
-            style={{
-              position: "absolute", inset: 0,
-              width: "100%", height: "100%",
-              border: "none",
-              objectFit: "cover",
-            }}
-            allow="autoplay; fullscreen"
-            allowFullScreen
-            title="Mama-Hafen Hero Video Mobile"
-          />
-          {/* Gradient-Overlay von unten */}
+          {/* Text-Block */}
           <div style={{
-            position: "absolute", inset: 0,
-            background: "linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.82) 100%)",
-          }} />
-          {/* Text über dem Bild */}
-          <div style={{
-            position: "relative", zIndex: 2,
-            display: "flex", flexDirection: "column", justifyContent: "flex-end",
-            height: "100%", padding: "1.5rem 1.5rem 2.5rem",
+            background: "var(--cream)",
+            padding: "5rem 1.5rem 1.5rem",
           }}>
             <FadeUp>
               <span style={{
-                display: "inline-block", background: "rgba(255,255,255,0.18)",
-                backdropFilter: "blur(8px)", color: "white",
+                display: "inline-block", background: "var(--teal)",
+                color: "white",
                 fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.08em",
                 textTransform: "uppercase", padding: "0.3rem 0.9rem",
-                borderRadius: 50, marginBottom: "1rem", border: "1px solid rgba(255,255,255,0.3)",
+                borderRadius: 50, marginBottom: "1rem",
               }}>
-                ⚓ Online-Kurs für Mamas
+                ⛳ Online-Kurs für Mamas
               </span>
             </FadeUp>
             <FadeUp delay={60}>
               <h1 style={{
                 fontFamily: "'DM Serif Display', serif",
-                fontSize: "clamp(1.9rem, 8vw, 2.8rem)",
-                lineHeight: 1.15, color: "white",
-                marginBottom: "0.9rem", textShadow: "0 2px 12px rgba(0,0,0,0.3)",
+                fontSize: "clamp(1.9rem, 8vw, 2.6rem)",
+                lineHeight: 1.15, color: "var(--foreground)",
+                marginBottom: "0.9rem",
               }}>
                 Ist dein Kind plötzlich ein kleiner{" "}
-                <em style={{ color: "#a8e6cf", fontStyle: "italic" }}>Tyrann?</em>
+                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>Tyrann?</em>
               </h1>
             </FadeUp>
             <FadeUp delay={120}>
               <p style={{
                 fontSize: "0.95rem", lineHeight: 1.7,
-                color: "rgba(255,255,255,0.88)",
-                marginBottom: "1.5rem",
+                color: "var(--muted-foreground)",
+                marginBottom: "1.2rem",
               }}>
                 Lerne, die Autonomiephase zu verstehen und endlich wieder{" "}
-                <strong style={{ color: "white" }}>Ruhe in euren Familienalltag</strong>{" "}
+                <strong style={{ color: "var(--foreground)" }}>Ruhe in euren Familienalltag</strong>{" "}
                 zu bringen.
               </p>
             </FadeUp>
             <FadeUp delay={180}>
-              <div style={{ display: "flex", gap: "0.6rem", alignItems: "center" }}>
+              <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
                 <button
                   onClick={() => scrollTo("kurs")}
-                  style={{
-                    background: "var(--coral)",
-                    color: "white",
-                    border: "none",
-                    borderRadius: 50,
-                    padding: "0.6rem 1.3rem",
-                    fontFamily: "'DM Sans', sans-serif",
-                    fontWeight: 700,
-                    fontSize: "0.85rem",
-                    cursor: "pointer",
-                    whiteSpace: "nowrap",
-                  }}
+                  className="btn-coral"
+                  style={{ fontSize: "0.85rem", padding: "0.6rem 1.3rem" }}
                 >
                   Mehr erfahren ↓
                 </button>
                 <button
                   onClick={() => scrollTo("kaufen")}
-                  style={{
-                    background: "rgba(255,255,255,0.15)",
-                    backdropFilter: "blur(8px)",
-                    color: "white",
-                    border: "1.5px solid rgba(255,255,255,0.45)",
-                    borderRadius: 50,
-                    padding: "0.6rem 1.3rem",
-                    fontFamily: "'DM Sans', sans-serif",
-                    fontWeight: 700,
-                    fontSize: "0.85rem",
-                    cursor: "pointer",
-                    whiteSpace: "nowrap",
-                  }}
+                  className="btn-teal-outline"
+                  style={{ fontSize: "0.85rem", padding: "0.6rem 1.3rem" }}
                 >
-                  Jetzt starten ⚓
+                  Jetzt kaufen ⛳
                 </button>
               </div>
             </FadeUp>
-
+          </div>
+          {/* Video-Block darunter */}
+          <div style={{
+            width: "100%",
+            aspectRatio: "4/5",
+            background: "#000",
+            overflow: "hidden",
+          }}>
+            <iframe
+              src="https://iframe.mediadelivery.net/embed/655693/0cfadc3e-fff1-4751-97c7-76a159676f00?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
+              style={{ width: "100%", height: "100%", border: "none", display: "block" }}
+              allow="autoplay; fullscreen"
+              allowFullScreen
+              title="Mama-Hafen Hero Video Mobile"
+            />
           </div>
         </div>
 
@@ -1571,15 +1546,11 @@ export default function Home() {
           --nav-logo-shadow: none;
         }
 
-        /* Mobile Hero: Vollbild */
+        /* Mobile Hero: Text oben + Video unten */
         .hero-mobile {
-          display: block;
-          position: relative;
+          display: flex;
+          flex-direction: column;
           width: 100%;
-          height: 100svh;
-          min-height: 580px;
-          max-height: 780px;
-          overflow: hidden;
         }
         .hero-desktop { display: none; }
 
