@@ -419,17 +419,7 @@ export default function Home() {
               allowFullScreen
               title="Mama-Hafen Hero Video Mobile"
             />
-            {/* Verlauf unten: transparent → cream */}
-            <div style={{
-              position: "absolute",
-              bottom: 0,
-              left: 0,
-              right: 0,
-              height: "80px",
-              background: "linear-gradient(to bottom, transparent 0%, var(--cream) 100%)",
-              pointerEvents: "none",
-              zIndex: 2,
-            }} />
+
           </div>
         </div>
 
