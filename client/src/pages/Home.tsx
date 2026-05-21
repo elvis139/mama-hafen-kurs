@@ -334,16 +334,19 @@ export default function Home() {
       {/* Desktop: 2-Spalten-Layout. Mobile: Vollbild-Hintergrund mit Overlay */}
       <section className="hero-section">
 
-        {/* Mobile Hero: Vollbild-Bild mit Overlay und Text darüber */}
+        {/* Mobile Hero: Video mit Overlay und Text darüber */}
         <div className="hero-mobile">
-          <img
-            src={IMG_HERO}
-            alt="Mama begleitet Kind liebevoll"
+          <iframe
+            src="https://iframe.mediadelivery.net/embed/655693/0cfadc3e-fff1-4751-97c7-76a159676f00?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
             style={{
               position: "absolute", inset: 0,
               width: "100%", height: "100%",
-              objectFit: "cover", objectPosition: "center top",
+              border: "none",
+              objectFit: "cover",
             }}
+            allow="autoplay; fullscreen"
+            allowFullScreen
+            title="Mama-Hafen Hero Video Mobile"
           />
           {/* Gradient-Overlay von unten */}
           <div style={{
@@ -476,17 +479,23 @@ export default function Home() {
                   </div>
                 </FadeUp>
               </div>
-              {/* Bild */}
+              {/* Hero Video – Desktop */}
               <FadeUp delay={180}>
                 <div style={{ position: "relative" }}>
                   <div style={{
-                    borderRadius: "55% 45% 50% 50% / 48% 52% 48% 52%",
+                    borderRadius: "16px",
                     overflow: "hidden",
-                    boxShadow: "0 20px 55px rgba(0,0,0,0.13)",
+                    boxShadow: "0 20px 55px rgba(0,0,0,0.18)",
                     aspectRatio: "4/5",
+                    background: "#000",
                   }}>
-                    <img src={IMG_HERO} alt="Mama begleitet Kind liebevoll"
-                      style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    <iframe
+                      src="https://iframe.mediadelivery.net/embed/655693/0cfadc3e-fff1-4751-97c7-76a159676f00?autoplay=true&loop=true&muted=true&preload=true&responsive=true"
+                      style={{ width: "100%", height: "100%", border: "none", display: "block" }}
+                      allow="autoplay; fullscreen"
+                      allowFullScreen
+                      title="Mama-Hafen Hero Video"
+                    />
                   </div>
                   <div style={{
                     position: "absolute", bottom: "1.5rem", left: "-1rem",
