@@ -486,7 +486,7 @@ export default function Home() {
                     />
                   </div>
                   <div style={{
-                    position: "absolute", bottom: "1.5rem", left: "-1.5rem",
+                    position: "absolute", top: "1.5rem", left: "-1.5rem",
                     background: "white", borderRadius: 12, padding: "0.7rem 1rem 0.5rem",
                     boxShadow: "0 6px 24px rgba(0,0,0,0.1)",
                     display: "flex", alignItems: "center", gap: "0.6rem",
