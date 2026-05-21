@@ -413,7 +413,7 @@ export default function Home() {
             position: "relative",
           }}>
             <iframe
-              src="https://iframe.mediadelivery.net/embed/655693/0cfadc3e-fff1-4751-97c7-76a159676f00?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
+              src="https://iframe.mediadelivery.net/embed/655693/04954a8d-6668-4219-bf6b-7b8b127e882d?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
               style={{ width: "100%", height: "100%", border: "none", display: "block" }}
               allow="autoplay; fullscreen"
               allowFullScreen
@@ -478,7 +478,7 @@ export default function Home() {
                     background: "#000",
                   }}>
                     <iframe
-                      src="https://iframe.mediadelivery.net/embed/655693/0cfadc3e-fff1-4751-97c7-76a159676f00?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
+                      src="https://iframe.mediadelivery.net/embed/655693/04954a8d-6668-4219-bf6b-7b8b127e882d?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
                       style={{ width: "100%", height: "100%", border: "none", display: "block" }}
                       allow="autoplay; fullscreen"
                       allowFullScreen
