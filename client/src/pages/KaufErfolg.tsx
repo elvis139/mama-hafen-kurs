@@ -47,6 +47,14 @@ export default function KaufErfolg() {
       // Dedupe: pro Session nur einmal senden
       sessionStorage.setItem(dedupeKey, "1");
 
+      // Google Ads: Kauf-Conversion feuern
+      window.gtag("event", "conversion", {
+        send_to: "AW-417491334/purchase",
+        value: 99.0,
+        currency: "EUR",
+        transaction_id: sessionId,
+      });
+
       // Meta Pixel: Purchase-Event
       trackPurchase(99);
       // Pinterest: Checkout/Purchase-Event
