@@ -371,7 +371,7 @@ export default function Home() {
                 color: "var(--muted-foreground)",
                 marginBottom: "1.2rem",
               }}>
-                Nein, das muss nicht so sein. Ich zeige dir, wie du die Trotzphase wirklich verstehst – und endlich wieder Leichtigkeit in euren Alltag bringst.
+                Nein, das muss nicht so sein. Ich zeige dir, wie du die Trotzphase wirklich verstehst und meisterst – und so endlich wieder Leichtigkeit in euren Alltag bringst.
               </p>
             </FadeUp>
             <FadeUp delay={180}>
@@ -453,7 +453,7 @@ export default function Home() {
                     fontSize: "1rem", lineHeight: 1.8,
                     color: "var(--muted-foreground)", marginBottom: "1.8rem",
                   }}>
-                    Nein, das muss nicht so sein. Ich zeige dir, wie du die Trotzphase wirklich verstehst – und endlich wieder Leichtigkeit in euren Alltag bringst.
+                    Nein, das muss nicht so sein. Ich zeige dir, wie du die Trotzphase wirklich verstehst und meisterst – und so endlich wieder Leichtigkeit in euren Alltag bringst.
                   </p>
                 </FadeUp>
                 <FadeUp delay={240}>
