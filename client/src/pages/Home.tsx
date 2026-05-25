@@ -1295,7 +1295,7 @@ export default function Home() {
                 color: "var(--foreground)",
                 marginBottom: "1rem",
               }}>
-                Ich habe mir so einen Kurs gewünscht,{" "}
+                Ich hätte mir so einen Kurs gewünscht,{" "}
                 <em style={{ color: "var(--teal)", fontStyle: "italic" }}>als ich mitten in der Trotzphase steckte.</em>
               </h2>
               <p style={{
@@ -1305,8 +1305,7 @@ export default function Home() {
                 maxWidth: 520,
                 margin: "0 auto",
               }}>
-                Kurz, ehrlich, direkt aus der Praxis. Kein Blabla, kein Perfektionismus – nur das, was wirklich hilft.
-                Einmaliger Kauf, dauerhafter Zugang. Schau die Videos jederzeit und so oft du möchtest.
+                Kurz, ehrlich und direkt mit echten Situationen aus dem Familienalltag. Hier nun als einmaliger Kauf mit dauerhaftem Zugang. Schau die Videos jederzeit und so oft du möchtest.
               </p>
             </div>
           </FadeUp>
