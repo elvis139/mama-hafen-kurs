@@ -360,9 +360,8 @@ export default function Home() {
                 lineHeight: 1.15, color: "var(--foreground)",
                 marginBottom: "0.9rem",
               }}>
-                Morgens Stress beim Anziehen, abends{" "}
-                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>erschöpft auf der Couch</em>{" "}
-                – und du fragst dich, warum das Mamaleben so anstrengend sein muss.
+                Jeden Tag dasselbe: Diskussionen, Wutanfälle, Schuldgefühle –{" "}
+                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>und abends fragst du dich, ob das wirklich alles sein kann.</em>
               </h1>
             </FadeUp>
             <FadeUp delay={120}>
@@ -371,8 +370,7 @@ export default function Home() {
                 color: "var(--muted-foreground)",
                 marginBottom: "1.2rem",
               }}>
-                Ich kenne das genau so. Und ich habe einen Weg rausgefunden –{" "}
-                <strong style={{ color: "var(--foreground)" }}>den zeige ich dir in diesem Kurs.</strong>
+                Nein, das muss nicht so sein. Ich zeige dir, wie du die Trotzphase wirklich verstehst – und endlich wieder Leichtigkeit in euren Alltag bringst.
               </p>
             </FadeUp>
             <FadeUp delay={180}>
@@ -445,9 +443,8 @@ export default function Home() {
                     fontSize: "clamp(2.2rem, 4vw, 3.3rem)",
                     lineHeight: 1.15, marginBottom: "1.2rem",
                   }}>
-                    Morgens Stress beim Anziehen, abends{" "}
-                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>erschöpft auf der Couch</em>{" "}
-                    – und du fragst dich, warum das Mamaleben so anstrengend sein muss.
+                    Jeden Tag dasselbe: Diskussionen, Wutanfälle, Schuldgefühle –{" "}
+                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>und abends fragst du dich, ob das wirklich alles sein kann.</em>
                   </h1>
                 </FadeUp>
                 <FadeUp delay={160}>
@@ -455,8 +452,7 @@ export default function Home() {
                     fontSize: "1rem", lineHeight: 1.8,
                     color: "var(--muted-foreground)", marginBottom: "1.8rem",
                   }}>
-                    Ich kenne das genau so. Und ich habe einen Weg rausgefunden –{" "}
-                    <strong>den zeige ich dir in diesem Kurs.</strong>
+                    Nein, das muss nicht so sein. Ich zeige dir, wie du die Trotzphase wirklich verstehst – und endlich wieder Leichtigkeit in euren Alltag bringst.
                   </p>
                 </FadeUp>
                 <FadeUp delay={240}>
