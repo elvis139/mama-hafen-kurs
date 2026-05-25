@@ -360,8 +360,9 @@ export default function Home() {
                 lineHeight: 1.15, color: "var(--foreground)",
                 marginBottom: "0.9rem",
               }}>
-                Ständig am Limit – und das Mamaleben fühlt sich nur noch an wie{" "}
-                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>ein einziger Machtkampf?</em>
+                Morgens Stress beim Anziehen, abends{" "}
+                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>erschöpft auf der Couch</em>{" "}
+                – und du fragst dich, warum das Mamaleben so anstrengend sein muss.
               </h1>
             </FadeUp>
             <FadeUp delay={120}>
@@ -370,7 +371,8 @@ export default function Home() {
                 color: "var(--muted-foreground)",
                 marginBottom: "1.2rem",
               }}>
-                Ich kenne das. Ich wollte raus aus diesem Mindset – und konnte mit den richtigen Werkzeugen nicht nur meinen Kindern helfen, sondern auch selbst viel mehr Gelassenheit finden. <strong style={{ color: "var(--foreground)" }}>Genau das zeige ich dir in diesem Kurs.</strong>
+                Ich kenne das genau so. Und ich habe einen Weg rausgefunden –{" "}
+                <strong style={{ color: "var(--foreground)" }}>den zeige ich dir in diesem Kurs.</strong>
               </p>
             </FadeUp>
             <FadeUp delay={180}>
@@ -443,8 +445,9 @@ export default function Home() {
                     fontSize: "clamp(2.2rem, 4vw, 3.3rem)",
                     lineHeight: 1.15, marginBottom: "1.2rem",
                   }}>
-                    Ständig am Limit – und das Mamaleben fühlt sich nur noch an wie{" "}
-                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>ein einziger Machtkampf?</em>
+                    Morgens Stress beim Anziehen, abends{" "}
+                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>erschöpft auf der Couch</em>{" "}
+                    – und du fragst dich, warum das Mamaleben so anstrengend sein muss.
                   </h1>
                 </FadeUp>
                 <FadeUp delay={160}>
@@ -452,7 +455,8 @@ export default function Home() {
                     fontSize: "1rem", lineHeight: 1.8,
                     color: "var(--muted-foreground)", marginBottom: "1.8rem",
                   }}>
-                    Ich kenne das. Ich wollte raus aus diesem Mindset – und konnte mit den richtigen Werkzeugen nicht nur meinen Kindern helfen, sondern auch selbst viel mehr Gelassenheit finden. <strong>Genau das zeige ich dir in diesem Kurs.</strong>
+                    Ich kenne das genau so. Und ich habe einen Weg rausgefunden –{" "}
+                    <strong>den zeige ich dir in diesem Kurs.</strong>
                   </p>
                 </FadeUp>
                 <FadeUp delay={240}>
