@@ -349,6 +349,7 @@ export default function Home() {
                     fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.08em",
                     textTransform: "uppercase", padding: "0.3rem 0.9rem",
                     borderRadius: 50, marginBottom: "1rem",
+                    textAlign: "center",
                   }}>
                 ⚓ Für Mamas von Kindern zwischen 1,5 und 6 Jahren
               </span>
@@ -1669,7 +1670,7 @@ export default function Home() {
               margin: 0,
             }}
           >
-            © {new Date().getFullYear()} Mama-Hafen · Ein Kurs von Darleen
+            © {new Date().getFullYear()} Mama-Hafen · Ein Kurs von Mamaleen
           </p>
         </div>
       </footer>
