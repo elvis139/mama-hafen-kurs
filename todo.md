@@ -118,3 +118,7 @@
 
 ## Story-Sektion Landingpage
 - [x] Emotionale Story-Sektion nach Hero einbauen (Leser abholen → Darlees Weg → Lösung)
+
+## Automatischer Checkout-Monitor
+- [x] /api/scheduled/checkout-monitor Route implementiert (sendet E-Mail bei Stripe-Fehler)
+- [x] Stündlicher Cron-Job eingerichtet (alle 60 Minuten, Task-UID: dzMt2hM3ubRLPi2GKtTcq1)

@@ -159,27 +159,27 @@ const modules = [
 const faqs = [
   {
     q: "Für welches Alter ist der Kurs geeignet?",
-    a: "Der Kurs ist für Eltern von Kindern zwischen 1,5 und 6 Jahren konzipiert – der klassischen Autonomiephase. Auch wenn dein Kind gerade erst 1 Jahr alt ist, kannst du dich schon jetzt vorbereiten.",
+    a: "Der Kurs ist für Mamas von Kindern zwischen 1,5 und 6 Jahren gemacht – also genau für die Zeit, die viele als die anstrengendste Phase überhaupt erleben. Ich habe selbst zwei Kinder durch diese Phase begleitet und weiß, wie unterschiedlich das sein kann.",
   },
   {
     q: "Wann erhalte ich Zugang nach dem Kauf?",
-    a: "Sofort. Nach erfolgreicher Zahlung erhältst du direkt Zugang zum Kursbereich – kein Warten, kein Download, einfach einloggen und loslegen.",
+    a: "Sofort! Nach erfolgreicher Zahlung erhältst du direkt Zugang zum Kursbereich – kein Warten, kein Download. Einfach einloggen und loslegen. Ich weiß, wie wenig Zeit Mamas haben.",
   },
   {
     q: "Wie lange habe ich Zugang?",
-    a: "Du erhältst dauerhaften Zugang. Schau die Videos jederzeit und so oft du möchtest – auch wenn dein zweites Kind in die Trotzphase kommt.",
+    a: "Du hast dauerhaften Zugang. Schau die Videos jederzeit und so oft du möchtest – auch wenn dein zweites Kind in die Trotzphase kommt. Der Kurs gehört dir.",
   },
   {
     q: "Muss ich viel Zeit investieren?",
-    a: "Nein. Die Videos sind 5–12 Minuten lang. Du kannst den Kurs in deinem eigenen Tempo absolvieren – auch in kleinen Häppchen zwischendurch.",
+    a: "Nein – und das war mir wirklich wichtig. Ich habe die Videos bewusst kurz gehalten: 5 bis 12 Minuten pro Lektion. Du kannst den Kurs in kleinen Häppchen absolvieren – in der Mittagspause, abends auf der Couch, oder wenn die Kinder schlafen.",
   },
   {
     q: "Ist der Ansatz zu 'weich'? Ich möchte meinem Kind trotzdem Grenzen setzen.",
-    a: "Bindungsorientiert bedeutet nicht grenzenlos. Du lernst, klare und liebevolle Grenzen zu setzen – ohne Schreien, ohne Strafen, ohne Machtkämpfe.",
+    a: "Das fragen mich wirklich viele – und ich verstehe es total. Bindungsorientiert bedeutet nicht grenzenlos. Ganz im Gegenteil: Du lernst, klare und liebevolle Grenzen zu setzen – ohne Schreien, ohne Strafen, ohne Machtkampf. Das ist kein Trick, das ist Entwicklungspsychologie.",
   },
   {
     q: "Funktioniert das auch bei meinem Kind?",
-    a: "Die Strategien basieren auf Entwicklungspsychologie und wurden von Darleen selbst erprobt. Die Grundprinzipien der Autonomiephase gelten für alle Kinder in diesem Alter.",
+    a: "Ich kann dir keine Garantie geben, dass sich alles von heute auf morgen verändert – das wäre unehrlich. Aber die Grundprinzipien der Autonomiephase gelten für alle Kinder in diesem Alter. Und wenn du verstehst, was wirklich in deinem Kind vorgeht, verändert sich auch deine Reaktion darauf. Das habe ich selbst erlebt.",
   },
 ];
 
@@ -344,13 +344,13 @@ export default function Home() {
           }}>
             <FadeUp>
               <span style={{
-                display: "inline-block", background: "var(--teal)",
-                color: "white",
-                fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.08em",
-                textTransform: "uppercase", padding: "0.3rem 0.9rem",
-                borderRadius: 50, marginBottom: "1rem",
-              }}>
-                ⛳ Online-Kurs für Mamas
+                    display: "inline-block", background: "var(--teal)",
+                    color: "white",
+                    fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.08em",
+                    textTransform: "uppercase", padding: "0.3rem 0.9rem",
+                    borderRadius: 50, marginBottom: "1rem",
+                  }}>
+                ⚓ Für Mamas von Kindern zwischen 1,5 und 6 Jahren
               </span>
             </FadeUp>
             <FadeUp delay={60}>
@@ -360,8 +360,10 @@ export default function Home() {
                 lineHeight: 1.15, color: "var(--foreground)",
                 marginBottom: "0.9rem",
               }}>
-                Ist dein Kind plötzlich ein kleiner{" "}
-                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>Tyrann?</em>
+                Dein Kind trotzt.<br/>
+                Du bist am Ende.<br/>
+                Ich kenne das –{" "}
+                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>und ich habe einen Weg raus.</em>
               </h1>
             </FadeUp>
             <FadeUp delay={120}>
@@ -370,9 +372,8 @@ export default function Home() {
                 color: "var(--muted-foreground)",
                 marginBottom: "1.2rem",
               }}>
-                Lerne, die Autonomiephase zu verstehen und endlich wieder{" "}
-                <strong style={{ color: "var(--foreground)" }}>Ruhe in euren Familienalltag</strong>{" "}
-                zu bringen.
+                Ich war genau da, wo du gerade bist. Täglich am Ende, laut geworden, obwohl ich das nie wollte – und abends mit Schuldgefühlen auf der Couch. Bis ich verstanden habe, was wirklich in meinen Kindern vorgeht.<br/>
+                <span style={{ fontSize: "0.88rem", color: "var(--muted-foreground)" }}>Ehrlich gesagt: Das hier ist kein Wundermittel. Aber es ist das Verständnis, das bei mir alles verändert hat – und ich gebe es dir weiter. <strong style={{ color: "var(--foreground)" }}>In 92 Minuten.</strong></span>
               </p>
             </FadeUp>
             <FadeUp delay={180}>
@@ -436,7 +437,7 @@ export default function Home() {
                     textTransform: "uppercase", padding: "0.3rem 0.9rem",
                     borderRadius: 50, marginBottom: "1.2rem",
                   }}>
-                    ⚓ Online-Kurs für Mamas
+                    ⚓ Für Mamas von Kindern zwischen 1,5 und 6 Jahren
                   </span>
                 </FadeUp>
                 <FadeUp delay={80}>
@@ -445,8 +446,10 @@ export default function Home() {
                     fontSize: "clamp(2.2rem, 4vw, 3.3rem)",
                     lineHeight: 1.15, marginBottom: "1.2rem",
                   }}>
-                    Ist dein Kind plötzlich ein kleiner{" "}
-                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>Tyrann?</em>
+                    Dein Kind trotzt.<br/>
+                    Du bist am Ende.<br/>
+                    Ich kenne das –{" "}
+                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>und ich habe einen Weg raus.</em>
                   </h1>
                 </FadeUp>
                 <FadeUp delay={160}>
@@ -454,10 +457,8 @@ export default function Home() {
                     fontSize: "1rem", lineHeight: 1.8,
                     color: "var(--muted-foreground)", marginBottom: "1.8rem",
                   }}>
-                    Lerne, die Autonomiephase zu verstehen, Wutanfälle liebevoll
-                    zu begleiten und endlich wieder{" "}
-                    <strong style={{ color: "var(--foreground)" }}>Ruhe in euren Familienalltag</strong>{" "}
-                    zu bringen.
+                    Ich war genau da, wo du gerade bist. Täglich am Ende, laut geworden, obwohl ich das nie wollte – und abends mit Schuldgefühlen auf der Couch. Bis ich verstanden habe, was wirklich in meinen Kindern vorgeht.<br/><br/>
+                    <span style={{ fontSize: "0.9rem" }}>Ehrlich gesagt: Das hier ist kein Wundermittel. Aber es ist das Verständnis, das bei mir alles verändert hat – und ich gebe es dir weiter. <strong>In 92 Minuten.</strong></span>
                   </p>
                 </FadeUp>
                 <FadeUp delay={240}>
@@ -682,6 +683,129 @@ export default function Home() {
           </FadeUp>
 
         </div>
+      </section>
+
+      {/* ── SOCIAL PROOF / REVIEWS ── */}
+      <section style={{ background: "var(--sand)", padding: "4rem 0" }}>
+        <Wave fill="var(--sand)" bg="var(--cream)" flip />
+        <div className="container" style={{ maxWidth: 760 }}>
+          <FadeUp>
+            <div style={{ textAlign: "center", marginBottom: "0.5rem" }}>
+              <span style={{
+                fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em",
+                textTransform: "uppercase", color: "var(--coral)",
+              }}>Echtes Feedback · Echte Testerinnen</span>
+              <h2 style={{
+                fontFamily: "'DM Serif Display', serif",
+                fontSize: "clamp(1.5rem, 4vw, 2rem)",
+                marginTop: "0.5rem", marginBottom: "0.5rem",
+              }}>Was Mamas nach dem Kurs sagen.</h2>
+              <p style={{ color: "var(--muted-foreground)", fontSize: "0.92rem", lineHeight: 1.7, maxWidth: 520, margin: "0 auto", fontStyle: "italic" }}>
+                „Jede Nachricht, die ich bekomme, macht mich so glücklich. Zu wissen, dass ich anderen Mamas helfen kann – genau das ist der Grund, warum ich diesen Kurs gemacht habe.“ – Darleen
+              </p>
+            </div>
+          </FadeUp>
+
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: "1rem",
+            marginTop: "2rem",
+          }}>
+            {[
+              {
+                stars: 5,
+                title: "„Etwas mehr innere Ruhe.“",
+                text: "Einige Tipps kannte ich schon – aber durch Darlees Erzählung haben sie mir neu gezeigt, wie man sie wirklich einsetzt. Zwei-drei Ansätze habe ich direkt neu umgesetzt. Für meine Große (6) waren sie besonders wertvoll.",
+                author: "Katharina M., Mama einer 6-Jährigen",
+              },
+              {
+                stars: 5,
+                title: "„Mama ist nicht nur die, die alles organisiert und schimpft.“",
+                text: "Ich habe mir in den letzten Tagen bewusst mehr Zeit für Spaß, Pausen und Nähe genommen – und habe das Gefühl, dass es schon hilft. Das war mein persönlicher Wendepunkt.",
+                author: "Laura B., Mama eines 2-Jährigen",
+              },
+              {
+                stars: 5,
+                title: "„Grenzen Setzen – so wertvoll und toll erklärt.“",
+                text: "Viele Tipps verfolgen wir bereits. Trotzdem fanden wir das Thema Grenzen Setzen besonders stark. Wir werden es einbauen. Tolle Erklärungen und ein guter Reminder für das, was wir schon tun.",
+                author: "Sandra R., Mama von zwei Kindern",
+              },
+              {
+                stars: 5,
+                title: "„Seitdem fallen ihr die Entscheidungen leichter.“",
+                text: "Mein mittleres Kind habe ich durch zu viele offene Fragen überfordert. Nun grenze ich die Auswahl auf zwei oder drei Möglichkeiten ein. Das hat sich sofort verändert.",
+                author: "Julia W., Mama von drei Kindern",
+              },
+              {
+                stars: 5,
+                title: "„Durch die praktischen Beispiele versteht man sofort, was Darleen meint.“",
+                text: "Nein, ich fand alles gut verständlich. Die Beispiele helfen enorm – man weiß sofort, was gemeint ist, und kann es direkt anwenden.",
+                author: "Nina K., Mama eines 3-Jährigen",
+              },
+              {
+                stars: 5,
+                title: "„Man hört dir sehr gern zu – es fällt einem leicht zu folgen.“",
+                text: "Das war echt angenehm und hat mich nochmal neu motiviert. Neue Perspektiven, die ich vorher nicht gesehen hatte. Die Videolänge und Anzahl sind super – gut in den Alltag integrierbar!",
+                author: "Melanie S., Mama von zwei Kindern",
+              },
+            ].map((r, i) => (
+              <FadeUp key={r.author} delay={i * 60}>
+                <div style={{
+                  background: "white",
+                  borderRadius: 18,
+                  padding: "1.4rem 1.5rem",
+                  boxShadow: "0 4px 18px rgba(0,0,0,0.06)",
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column" as const,
+                  gap: "0.6rem",
+                }}>
+                  <div style={{ color: "#f59e0b", fontSize: "0.9rem", letterSpacing: "0.05em" }}>
+                    {"\u2605".repeat(r.stars)}
+                  </div>
+                  <div style={{
+                    fontFamily: "'DM Serif Display', serif",
+                    fontSize: "1rem",
+                    color: "var(--foreground)",
+                    lineHeight: 1.4,
+                  }}>{r.title}</div>
+                  <p style={{
+                    fontSize: "0.88rem",
+                    color: "var(--muted-foreground)",
+                    lineHeight: 1.65,
+                    margin: 0,
+                    flex: 1,
+                  }}>{r.text}</p>
+                  <div style={{
+                    fontSize: "0.78rem",
+                    color: "var(--teal)",
+                    fontWeight: 700,
+                    marginTop: "auto",
+                    paddingTop: "0.5rem",
+                    borderTop: "1px solid var(--border)",
+                  }}>&#8212; {r.author}</div>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+
+          <FadeUp delay={200}>
+            <div style={{
+              background: "rgba(74,163,148,0.08)",
+              borderLeft: "4px solid var(--teal)",
+              borderRadius: "0 14px 14px 0",
+              padding: "1.2rem 1.5rem",
+              marginTop: "2rem",
+            }}>
+              <p style={{ fontSize: "0.95rem", color: "var(--muted-foreground)", lineHeight: 1.7, margin: 0, fontStyle: "italic" }}>
+                „Dieses Feedback bedeutet mir alles. Wenn mir eine Mama schreibt, dass sich etwas verändert hat – dass der Morgen ruhiger war, dass sie ihrem Kind zugehört hat, anstatt laut zu werden – dann weiß ich, dass es sich gelohnt hat.“
+              </p>
+              <p style={{ fontSize: "0.82rem", fontWeight: 700, color: "var(--teal)", marginTop: "0.6rem", marginBottom: 0 }}>Darleen – Gründerin Mama-Hafen</p>
+            </div>
+          </FadeUp>
+        </div>
+        <Wave fill="var(--cream)" bg="var(--sand)" />
       </section>
 
       {/* ── 3 VERSPRECHEN ── */}
@@ -1176,19 +1300,18 @@ export default function Home() {
                 color: "var(--foreground)",
                 marginBottom: "1rem",
               }}>
-                Starte noch heute &
-                <br />
-                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>erlebe den Unterschied.</em>
+                Ich habe mir so einen Kurs gewünscht,{" "}
+                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>als ich mitten in der Trotzphase steckte.</em>
               </h2>
               <p style={{
                 color: "var(--muted-foreground)",
                 fontSize: "1rem",
                 lineHeight: 1.75,
-                maxWidth: 500,
+                maxWidth: 520,
                 margin: "0 auto",
               }}>
-                Einmaliger Kauf – dauerhafter Zugang. Schau die Videos in deinem eigenen Tempo,
-                jederzeit und so oft du möchtest.
+                Kurz, ehrlich, direkt aus der Praxis. Kein Blabla, kein Perfektionismus – nur das, was wirklich hilft.
+                Einmaliger Kauf, dauerhafter Zugang. Schau die Videos jederzeit und so oft du möchtest.
               </p>
             </div>
           </FadeUp>
@@ -1391,13 +1514,18 @@ export default function Home() {
         <div className="container" style={{ maxWidth: 700 }}>
           <FadeUp>
             <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+              <span style={{
+                fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em",
+                textTransform: "uppercase", color: "var(--coral)",
+                display: "block", marginBottom: "0.5rem",
+              }}>Das fragen mich wirklich viele!</span>
               <h2
                 style={{
                   fontFamily: "'DM Serif Display', serif",
                   fontSize: "clamp(1.5rem, 4vw, 2rem)",
                 }}
               >
-                Häufige Fragen
+                Deine Fragen – meine ehrlichen Antworten.
               </h2>
             </div>
           </FadeUp>
@@ -1424,29 +1552,48 @@ export default function Home() {
       <section
         style={{
           background: "var(--teal)",
-          padding: "3.5rem 0",
+          padding: "4rem 0",
           textAlign: "center",
         }}
       >
-        <div className="container">
+        <div className="container" style={{ maxWidth: 640 }}>
           <FadeUp>
+            <p style={{
+              fontSize: "0.85rem",
+              color: "rgba(255,255,255,0.7)",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              fontWeight: 700,
+              marginBottom: "0.8rem",
+            }}>Von Mama zu Mama</p>
             <h2
               style={{
                 fontFamily: "'DM Serif Display', serif",
                 color: "white",
                 fontSize: "clamp(1.5rem, 4vw, 2.2rem)",
-                marginBottom: "1.4rem",
+                marginBottom: "1.2rem",
                 lineHeight: 1.3,
               }}
             >
-              Dein Kind wartet auf seinen sicheren Hafen.
+              Ich fühle mich endlich nicht mehr wie eine erschöpfte Managerin, die nur noch versucht, den Tag irgendwie zu überstehen.
             </h2>
+            <p style={{
+              color: "rgba(255,255,255,0.85)",
+              fontSize: "1rem",
+              lineHeight: 1.75,
+              marginBottom: "2rem",
+            }}>
+              Stattdessen habe ich das Gefühl, wirklich für meine Kinder da zu sein – ohne mich selbst aufgeben zu müssen.
+              Ich kann das Mamasein und die Kindheit meiner Söhne endlich genießen.
+              <br/><br/>
+              <strong style={{ color: "white" }}>Das wünsche ich auch dir.</strong>
+            </p>
             <button
               className="btn-coral"
               onClick={() => scrollTo("kaufen")}
-              style={{ fontSize: "0.9rem", padding: "0.7rem 1.7rem" }}
+              style={{ fontSize: "0.95rem", padding: "0.8rem 2rem" }}
             >
-              Jetzt Kurs kaufen ⛓️
+              Jetzt Kurs kaufen ⚓
             </button>
             <p style={{
               marginTop: "1rem",
@@ -1457,7 +1604,7 @@ export default function Home() {
               justifyContent: "center",
               gap: "0.4rem",
             }}>
-              🛡️ <strong style={{ color: "white" }}>7-Tage-Geld-zurück-Garantie</strong> · Kein Risiko
+              🛡️ <strong style={{ color: "white" }}>7-Tage-Geld-zurück-Garantie</strong> · Ohne Fragen, ohne Bitte um Erklärung.
             </p>
           </FadeUp>
         </div>
