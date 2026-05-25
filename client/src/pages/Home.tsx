@@ -360,10 +360,9 @@ export default function Home() {
                 lineHeight: 1.15, color: "var(--foreground)",
                 marginBottom: "0.9rem",
               }}>
-                Dein Kind trotzt.<br/>
-                Du bist am Ende.<br/>
-                Ich kenne das –{" "}
-                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>und ich habe einen Weg raus.</em>
+                Was wäre, wenn dein Kind{" "}
+                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>kein Tyrann ist</em>{" "}
+                – sondern gerade etwas ganz Wichtiges lernt?
               </h1>
             </FadeUp>
             <FadeUp delay={120}>
@@ -372,8 +371,7 @@ export default function Home() {
                 color: "var(--muted-foreground)",
                 marginBottom: "1.2rem",
               }}>
-                Ich war genau da, wo du gerade bist. Täglich am Ende, laut geworden, obwohl ich das nie wollte – und abends mit Schuldgefühlen auf der Couch. Bis ich verstanden habe, was wirklich in meinen Kindern vorgeht.<br/>
-                <span style={{ fontSize: "0.88rem", color: "var(--muted-foreground)" }}>Ehrlich gesagt: Das hier ist kein Wundermittel. Aber es ist das Verständnis, das bei mir alles verändert hat – und ich gebe es dir weiter. <strong style={{ color: "var(--foreground)" }}>In 92 Minuten.</strong></span>
+                Ich habe nach einiger Zeit völlig schockiert festgestellt, dass fast alles, was ich über die Trotzphase geglaubt hatte, Schwachsinn ist. Und das hat alles verändert – für mich, und für meine Kinder.
               </p>
             </FadeUp>
             <FadeUp delay={180}>
@@ -446,10 +444,9 @@ export default function Home() {
                     fontSize: "clamp(2.2rem, 4vw, 3.3rem)",
                     lineHeight: 1.15, marginBottom: "1.2rem",
                   }}>
-                    Dein Kind trotzt.<br/>
-                    Du bist am Ende.<br/>
-                    Ich kenne das –{" "}
-                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>und ich habe einen Weg raus.</em>
+                    Was wäre, wenn dein Kind{" "}
+                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>kein Tyrann ist</em>{" "}
+                    – sondern gerade etwas ganz Wichtiges lernt?
                   </h1>
                 </FadeUp>
                 <FadeUp delay={160}>
@@ -457,8 +454,7 @@ export default function Home() {
                     fontSize: "1rem", lineHeight: 1.8,
                     color: "var(--muted-foreground)", marginBottom: "1.8rem",
                   }}>
-                    Ich war genau da, wo du gerade bist. Täglich am Ende, laut geworden, obwohl ich das nie wollte – und abends mit Schuldgefühlen auf der Couch. Bis ich verstanden habe, was wirklich in meinen Kindern vorgeht.<br/><br/>
-                    <span style={{ fontSize: "0.9rem" }}>Ehrlich gesagt: Das hier ist kein Wundermittel. Aber es ist das Verständnis, das bei mir alles verändert hat – und ich gebe es dir weiter. <strong>In 92 Minuten.</strong></span>
+                    Ich habe nach einiger Zeit völlig schockiert festgestellt, dass fast alles, was ich über die Trotzphase geglaubt hatte, Schwachsinn ist. Und das hat alles verändert – für mich, und für meine Kinder.
                   </p>
                 </FadeUp>
                 <FadeUp delay={240}>
