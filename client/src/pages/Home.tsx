@@ -361,8 +361,8 @@ export default function Home() {
                 lineHeight: 1.15, color: "var(--foreground)",
                 marginBottom: "0.9rem",
               }}>
-                Trotzphase, Wutanfälle, Schuldgefühle –{" "}
-                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>muss das wirklich so sein?</em>
+                Jeden Tag dasselbe: Diskussionen, Wutanfälle, Schuldgefühle –{" "}
+                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>und abends fragst du dich, ob das wirklich alles sein kann.</em>
               </h1>
             </FadeUp>
             <FadeUp delay={120}>
@@ -444,8 +444,8 @@ export default function Home() {
                     fontSize: "clamp(2.2rem, 4vw, 3.3rem)",
                     lineHeight: 1.15, marginBottom: "1.2rem",
                   }}>
-                    Trotzphase, Wutanfälle, Schuldgefühle –{" "}
-                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>muss das wirklich so sein?</em>
+                    Jeden Tag dasselbe: Diskussionen, Wutanfälle, Schuldgefühle –{" "}
+                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>und abends fragst du dich, ob das wirklich alles sein kann.</em>
                   </h1>
                 </FadeUp>
                 <FadeUp delay={160}>
