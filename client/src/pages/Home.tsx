@@ -360,9 +360,8 @@ export default function Home() {
                 lineHeight: 1.15, color: "var(--foreground)",
                 marginBottom: "0.9rem",
               }}>
-                Was wäre, wenn dein Kind{" "}
-                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>kein Tyrann ist</em>{" "}
-                – sondern gerade etwas ganz Wichtiges lernt?
+                Ständig am Limit – und das Mamaleben fühlt sich nur noch an wie{" "}
+                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>ein einziger Machtkampf?</em>
               </h1>
             </FadeUp>
             <FadeUp delay={120}>
@@ -371,7 +370,7 @@ export default function Home() {
                 color: "var(--muted-foreground)",
                 marginBottom: "1.2rem",
               }}>
-                Ich habe nach einiger Zeit völlig schockiert festgestellt, dass fast alles, was ich über die Trotzphase geglaubt hatte, Schwachsinn ist. Und das hat alles verändert – für mich, und für meine Kinder.
+                Ich kenne das. Ich wollte raus aus diesem Mindset – und konnte mit den richtigen Werkzeugen nicht nur meinen Kindern helfen, sondern auch selbst viel mehr Gelassenheit finden. <strong style={{ color: "var(--foreground)" }}>Genau das zeige ich dir in diesem Kurs.</strong>
               </p>
             </FadeUp>
             <FadeUp delay={180}>
@@ -444,9 +443,8 @@ export default function Home() {
                     fontSize: "clamp(2.2rem, 4vw, 3.3rem)",
                     lineHeight: 1.15, marginBottom: "1.2rem",
                   }}>
-                    Was wäre, wenn dein Kind{" "}
-                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>kein Tyrann ist</em>{" "}
-                    – sondern gerade etwas ganz Wichtiges lernt?
+                    Ständig am Limit – und das Mamaleben fühlt sich nur noch an wie{" "}
+                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>ein einziger Machtkampf?</em>
                   </h1>
                 </FadeUp>
                 <FadeUp delay={160}>
@@ -454,7 +452,7 @@ export default function Home() {
                     fontSize: "1rem", lineHeight: 1.8,
                     color: "var(--muted-foreground)", marginBottom: "1.8rem",
                   }}>
-                    Ich habe nach einiger Zeit völlig schockiert festgestellt, dass fast alles, was ich über die Trotzphase geglaubt hatte, Schwachsinn ist. Und das hat alles verändert – für mich, und für meine Kinder.
+                    Ich kenne das. Ich wollte raus aus diesem Mindset – und konnte mit den richtigen Werkzeugen nicht nur meinen Kindern helfen, sondern auch selbst viel mehr Gelassenheit finden. <strong>Genau das zeige ich dir in diesem Kurs.</strong>
                   </p>
                 </FadeUp>
                 <FadeUp delay={240}>
