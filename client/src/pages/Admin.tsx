@@ -638,10 +638,164 @@ function QuestionsView({ sessionToken }: { sessionToken: string }) {
   );
 }
 
+// ── Checkout-Monitor ─────────────────────────────────────────────
+function CheckoutMonitorView({ sessionToken }: { sessionToken: string }) {
+  const utils = trpc.useUtils();
+
+  const { data, isLoading, error } = trpc.course.getCheckoutTestLogs.useQuery(
+    { sessionToken },
+    { enabled: !!sessionToken, retry: false, refetchInterval: 30000 }
+  );
+
+  const runTest = trpc.course.runCheckoutTest.useMutation({
+    onSuccess: () => {
+      // Nach 5 Sekunden Logs neu laden (Test läuft asynchron)
+      setTimeout(() => {
+        utils.course.getCheckoutTestLogs.invalidate();
+      }, 5000);
+    },
+  });
+
+  const logs = data ?? [];
+
+  return (
+    <div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.5rem", flexWrap: "wrap", gap: "1rem" }}>
+        <div>
+          <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "1.3rem", color: "var(--teal)", margin: 0 }}>
+            🔧 Checkout-Monitor
+          </h2>
+          <p style={{ color: "var(--muted-foreground)", fontSize: "0.82rem", marginTop: "0.3rem", marginBottom: 0 }}>
+            Automatisch aktualisiert alle 30 Sekunden · Letzte 10 Einträge
+          </p>
+        </div>
+        <button
+          onClick={() => runTest.mutate({ sessionToken })}
+          disabled={runTest.isPending}
+          style={{
+            background: runTest.isPending ? "var(--muted-foreground)" : "var(--teal)",
+            color: "white",
+            border: "none",
+            borderRadius: 50,
+            padding: "0.6rem 1.4rem",
+            fontFamily: "'DM Sans', sans-serif",
+            fontWeight: 700,
+            fontSize: "0.88rem",
+            cursor: runTest.isPending ? "not-allowed" : "pointer",
+            transition: "background 0.2s",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {runTest.isPending ? "⏳ Test läuft…" : "▶ Test jetzt ausführen"}
+        </button>
+      </div>
+
+      {runTest.data && (
+        <div style={{
+          background: "#ecfdf5",
+          border: "1px solid #6ee7b7",
+          borderRadius: 10,
+          padding: "0.75rem 1rem",
+          marginBottom: "1.2rem",
+          fontSize: "0.88rem",
+          color: "#065f46",
+          fontWeight: 600,
+        }}>
+          ✅ {runTest.data.message}
+        </div>
+      )}
+
+      {isLoading ? (
+        <div style={{ textAlign: "center", padding: "3rem", color: "var(--muted-foreground)" }}>
+          <div style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>⏳</div>
+          Logs werden geladen…
+        </div>
+      ) : error ? (
+        <div style={{ textAlign: "center", padding: "3rem", color: "#ef4444" }}>
+          Fehler beim Laden: {error.message}
+        </div>
+      ) : logs.length === 0 ? (
+        <div style={{
+          background: "white",
+          borderRadius: 16,
+          padding: "3rem",
+          textAlign: "center",
+          boxShadow: "0 4px 18px rgba(0,0,0,0.06)",
+        }}>
+          <div style={{ fontSize: "2rem", marginBottom: "0.75rem" }}>🔍</div>
+          <p style={{ color: "var(--muted-foreground)", fontSize: "0.95rem" }}>
+            Noch keine Test-Logs vorhanden. Klicke auf „Test jetzt ausführen".
+          </p>
+        </div>
+      ) : (
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+          {logs.map((log) => {
+            const isSuccess = log.status === "success";
+            const borderColor = isSuccess ? "#10b981" : "#ef4444";
+            const badgeBg = isSuccess ? "#ecfdf5" : "#fef2f2";
+            const badgeColor = isSuccess ? "#065f46" : "#991b1b";
+            return (
+              <div
+                key={log.id}
+                style={{
+                  background: "white",
+                  borderRadius: 12,
+                  boxShadow: "0 2px 10px rgba(0,0,0,0.06)",
+                  padding: "1rem 1.2rem",
+                  borderLeft: `4px solid ${borderColor}`,
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0.4rem",
+                }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.5rem" }}>
+                  <span style={{
+                    background: badgeBg,
+                    color: badgeColor,
+                    fontWeight: 700,
+                    fontSize: "0.78rem",
+                    padding: "0.2rem 0.7rem",
+                    borderRadius: 50,
+                    letterSpacing: "0.04em",
+                    textTransform: "uppercase",
+                  }}>
+                    {isSuccess ? "✅ Erfolg" : "❌ Fehler"}
+                  </span>
+                  <span style={{ color: "var(--muted-foreground)", fontSize: "0.78rem", whiteSpace: "nowrap" }}>
+                    {log.testedAt
+                      ? new Date(log.testedAt).toLocaleDateString("de-DE", {
+                          day: "2-digit", month: "2-digit", year: "numeric",
+                          hour: "2-digit", minute: "2-digit", second: "2-digit",
+                        }) + " Uhr"
+                      : "–"}
+                  </span>
+                </div>
+                <p style={{ margin: 0, fontSize: "0.88rem", color: "var(--foreground)", lineHeight: 1.5 }}>
+                  {log.message}
+                </p>
+                {log.errorCode && (
+                  <span style={{ fontSize: "0.78rem", color: "#b45309", fontFamily: "monospace", background: "#fffbeb", padding: "0.15rem 0.5rem", borderRadius: 4 }}>
+                    Code: {log.errorCode}
+                  </span>
+                )}
+                {log.responseTime != null && (
+                  <span style={{ fontSize: "0.78rem", color: "var(--muted-foreground)" }}>
+                    ⏱ Antwortzeit: {log.responseTime} ms
+                  </span>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ── Haupt-Komponente ──────────────────────────────────────────────
 export default function Admin() {
   const [, navigate] = useLocation();
-  const [activeTab, setActiveTab] = useState<"dashboard" | "access" | "questions">("dashboard");
+  const [activeTab, setActiveTab] = useState<"dashboard" | "access" | "questions" | "checkoutMonitor">("dashboard");
 
   const sessionToken = useMemo(() => {
     if (typeof window !== "undefined") {
@@ -780,6 +934,7 @@ export default function Admin() {
             { id: "dashboard", label: "📊 Statistiken" },
             { id: "access", label: "🔑 Zugangsverwaltung" },
             { id: "questions", label: "❓ Community-Fragen" },
+            { id: "checkoutMonitor", label: "🔧 Checkout-Monitor" },
           ] as const).map(tab => (
             <button
               key={tab.id}
@@ -1000,6 +1155,10 @@ export default function Admin() {
 
         {activeTab === "questions" && (
           <QuestionsView sessionToken={sessionToken} />
+        )}
+
+        {activeTab === "checkoutMonitor" && (
+          <CheckoutMonitorView sessionToken={sessionToken} />
         )}
       </main>
     </div>

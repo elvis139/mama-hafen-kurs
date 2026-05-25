@@ -13,6 +13,7 @@ import {
   getCourseAccessByEmail,
   getCourseAccessByMagicToken,
   getCourseAccessBySessionToken,
+  getCheckoutTestLogs,
   grantManualAccess,
   insertCommunityQuestion,
   insertVideoEvent,
@@ -346,5 +347,45 @@ export const courseRouter = router({
       }
       await deleteCommunityQuestion(input.questionId);
       return { success: true };
+    }),
+
+  /**
+   * Checkout-Test-Logs abrufen (nur Admin)
+   */
+  getCheckoutTestLogs: publicProcedure
+    .input(z.object({ sessionToken: z.string().min(1) }))
+    .query(async ({ input }) => {
+      const access = await getCourseAccessBySessionToken(input.sessionToken);
+      if (!access) {
+        throw new TRPCError({ code: "UNAUTHORIZED", message: "Bitte einloggen." });
+      }
+      if (access.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
+        throw new TRPCError({ code: "FORBIDDEN", message: "Kein Zugriff." });
+      }
+      const logs = await getCheckoutTestLogs();
+      return logs;
+    }),
+
+  /**
+   * Checkout manuell testen (nur Admin) – läuft im Hintergrund, speichert Log
+   */
+  runCheckoutTest: publicProcedure
+    .input(z.object({ sessionToken: z.string().min(1) }))
+    .mutation(async ({ input }) => {
+      const access = await getCourseAccessBySessionToken(input.sessionToken);
+      if (!access) {
+        throw new TRPCError({ code: "UNAUTHORIZED", message: "Bitte einloggen." });
+      }
+      if (access.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
+        throw new TRPCError({ code: "FORBIDDEN", message: "Kein Zugriff." });
+      }
+
+      // Test im Hintergrund ausführen (fire & forget)
+      fetch("https://mamahafen-dswbdqtv.manus.space/api/scheduled/checkout-monitor", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      }).catch(err => console.error("[runCheckoutTest] Fehler:", err));
+
+      return { success: true, message: "Test gestartet. Ergebnis erscheint in wenigen Sekunden in den Logs." };
     }),
 });

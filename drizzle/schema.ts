@@ -77,3 +77,19 @@ export const communityQuestions = mysqlTable("community_questions", {
 
 export type CommunityQuestion = typeof communityQuestions.$inferSelect;
 export type InsertCommunityQuestion = typeof communityQuestions.$inferInsert;
+
+/**
+ * Checkout-Test-Logs: Automatische Tests des Stripe-Checkouts.
+ * Speichert die letzten 10 Erfolgs- und Fehler-Einträge.
+ */
+export const checkoutTestLogs = mysqlTable("checkout_test_logs", {
+  id: int("id").autoincrement().primaryKey(),
+  status: mysqlEnum("status", ["success", "error"]).notNull(),
+  message: text("message").notNull(),
+  errorCode: varchar("errorCode", { length: 128 }),
+  responseTime: int("responseTime"), // in ms
+  testedAt: timestamp("testedAt").defaultNow().notNull(),
+});
+
+export type CheckoutTestLog = typeof checkoutTestLogs.$inferSelect;
+export type InsertCheckoutTestLog = typeof checkoutTestLogs.$inferInsert;

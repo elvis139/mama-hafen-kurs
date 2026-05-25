@@ -1,6 +1,6 @@
 import { desc, eq, sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { communityQuestions, courseAccess, InsertCommunityQuestion, InsertCourseAccess, InsertUser, InsertVideoEvent, users, videoEvents } from "../drizzle/schema";
+import { checkoutTestLogs, communityQuestions, courseAccess, InsertCheckoutTestLog, InsertCommunityQuestion, InsertCourseAccess, InsertUser, InsertVideoEvent, users, videoEvents } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -249,4 +249,16 @@ export async function deleteCommunityQuestion(id: number): Promise<void> {
   const db = await getDb();
   if (!db) return;
   await db.delete(communityQuestions).where(eq(communityQuestions.id, id));
+}
+
+// ── Checkout-Test-Logs ──────────────────────────────────────────────────────
+
+export async function getCheckoutTestLogs() {
+  const db = await getDb();
+  if (!db) return [];
+  return db
+    .select()
+    .from(checkoutTestLogs)
+    .orderBy(desc(checkoutTestLogs.testedAt))
+    .limit(10);
 }
