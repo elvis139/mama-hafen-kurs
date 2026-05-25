@@ -508,14 +508,14 @@ export default function Home() {
               <span style={{
                 fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em",
                 textTransform: "uppercase", color: "var(--coral)",
-              }}>Echtes Feedback · Echte Testerinnen</span>
+              }}></span>
               <h2 style={{
                 fontFamily: "'DM Serif Display', serif",
                 fontSize: "clamp(1.5rem, 4vw, 2rem)",
                 marginTop: "0.5rem", marginBottom: "0.5rem",
               }}>Was Mamas nach dem Kurs sagen.</h2>
               <p style={{ color: "var(--muted-foreground)", fontSize: "0.92rem", lineHeight: 1.7, maxWidth: 520, margin: "0 auto", fontStyle: "italic" }}>
-                „Jede Nachricht, die ich bekomme, macht mich so glücklich. Zu wissen, dass ich anderen Mamas helfen kann – genau das ist der Grund, warum ich diesen Kurs gemacht habe.“ – Darleen
+                Jede Nachricht, die ich bekomme, macht mich so glücklich. Zu wissen, dass ich anderen Mamas helfen kann – genau das ist der Grund, warum ich diesen Kurs gemacht habe.
               </p>
             </div>
           </FadeUp>
@@ -615,7 +615,7 @@ export default function Home() {
               <p style={{ fontSize: "0.95rem", color: "var(--muted-foreground)", lineHeight: 1.7, margin: 0, fontStyle: "italic" }}>
                 „Dieses Feedback bedeutet mir alles. Wenn mir eine Mama schreibt, dass sich etwas verändert hat – dass der Morgen ruhiger war, dass sie ihrem Kind zugehört hat, anstatt laut zu werden – dann weiß ich, dass es sich gelohnt hat.“
               </p>
-              <p style={{ fontSize: "0.82rem", fontWeight: 700, color: "var(--teal)", marginTop: "0.6rem", marginBottom: 0 }}>Darleen – Gründerin Mama-Hafen</p>
+              <p style={{ fontSize: "0.82rem", fontWeight: 700, color: "var(--teal)", marginTop: "0.6rem", marginBottom: 0 }}></p>
             </div>
           </FadeUp>
         </div>
