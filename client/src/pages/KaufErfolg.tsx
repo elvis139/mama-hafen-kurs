@@ -33,13 +33,13 @@ export default function KaufErfolg() {
     ) {
       window.gtag("event", "purchase", {
         transaction_id: sessionId,
-        value: 99,
-        currency: "EUR",
-        items: [
-          {
-            item_id: "mama-hafen-kurs",
-            item_name: "Mama-Hafen Online-Kurs",
-            price: 99,
+          value: 149,
+          currency: "EUR",
+          items: [
+            {
+              item_id: "mama-hafen-kurs",
+              item_name: "Mama-Hafen Online-Kurs",
+              price: 149,
             quantity: 1,
           },
         ],
@@ -49,16 +49,16 @@ export default function KaufErfolg() {
 
       // Google Ads: Kauf-Conversion feuern
       window.gtag("event", "conversion", {
-        send_to: "AW-417491334/boOVCJ6d7LIcEIbTiccB",
-        value: 99.0,
+        send_to: "AW-417491334/B4wLCPu-rLMcElbTiccB",
+        value: 149.0,
         currency: "EUR",
         transaction_id: sessionId,
       });
 
       // Meta Pixel: Purchase-Event
-      trackPurchase(99);
+      trackPurchase(149);
       // Pinterest: Checkout/Purchase-Event
-      pinterestPurchase(99, sessionId);
+      pinterestPurchase(149, sessionId);
     }
 
     return () => clearTimeout(t);
