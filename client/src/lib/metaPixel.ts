@@ -19,11 +19,16 @@ function hasConsent(): boolean {
   }
 }
 
+function generateEventId(): string {
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+}
+
 function fbq(event: string, eventName: string, params?: Record<string, unknown>) {
   if (!hasConsent()) return;
   if (typeof window !== "undefined" && typeof window.fbq === "function") {
-    PIXEL_IDS.forEach((id) => {
-      window.fbq!(event, eventName, params, { eventID: id });
+    const eventID = generateEventId();
+    PIXEL_IDS.forEach(() => {
+      window.fbq!(event, eventName, params, { eventID });
     });
   }
 }
