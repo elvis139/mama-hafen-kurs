@@ -53,11 +53,12 @@ export function loadTrackingScripts() {
     document.body.appendChild(noscript);
   }
 
-  // Google Analytics
+  // Google Analytics + Google Ads (gemeinsam über gtag.js)
   if (!(window as any).gtag) {
+    // Haupt-Script (lädt beide Tags)
     const gaScript = document.createElement("script");
     gaScript.async = true;
-    gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-CF7P1QL6EZ";
+    gaScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-417491334";
     document.head.appendChild(gaScript);
 
     const gaInit = document.createElement("script");
@@ -65,9 +66,14 @@ export function loadTrackingScripts() {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      gtag('config', 'AW-417491334');
       gtag('config', 'G-CF7P1QL6EZ');
     `;
     document.head.appendChild(gaInit);
+  } else {
+    // gtag bereits vorhanden – nur noch Google Ads config senden
+    (window as any).gtag('config', 'AW-417491334');
+    (window as any).gtag('config', 'G-CF7P1QL6EZ');
   }
 }
 

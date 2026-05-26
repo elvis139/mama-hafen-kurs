@@ -122,3 +122,11 @@
 ## Automatischer Checkout-Monitor
 - [x] /api/scheduled/checkout-monitor Route implementiert (sendet E-Mail bei Stripe-Fehler)
 - [x] Stündlicher Cron-Job eingerichtet (alle 60 Minuten, Task-UID: dzMt2hM3ubRLPi2GKtTcq1)
+
+## Checkout-Monitor Admin-Tab
+- [x] DB-Schema: checkout_test_logs Tabelle (id, status, message, errorCode, responseTime, testedAt)
+- [x] server/db.ts: getCheckoutTestLogs() Helper hinzugefügt
+- [x] server/routers/course.ts: getCheckoutTestLogs + runCheckoutTest Procedures hinzugefügt
+- [x] Admin.tsx: CheckoutMonitorView-Komponente gebaut (Auto-Refresh 30s, Test-Button, Log-Liste)
+- [x] Admin.tsx: "🔧 Checkout-Monitor" Tab in Tab-Leiste hinzugefügt
+- [x] pnpm db:push ausgeführt (checkout_test_logs Tabelle in DB)
