@@ -66,14 +66,24 @@ export function loadTrackingScripts() {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'AW-417491334');
-      gtag('config', 'G-CF7P1QL6EZ');
+      gtag('config', 'AW-417491334', { send_page_view: true });
+      gtag('config', 'G-CF7P1QL6EZ', { send_page_view: true });
+      gtag('event', 'page_view', {
+        send_to: 'AW-417491334',
+        page_location: window.location.href,
+        page_title: document.title
+      });
     `;
     document.head.appendChild(gaInit);
   } else {
-    // gtag bereits vorhanden – nur noch Google Ads config senden
-    (window as any).gtag('config', 'AW-417491334');
-    (window as any).gtag('config', 'G-CF7P1QL6EZ');
+    // gtag bereits vorhanden – config + page_view senden
+    (window as any).gtag('config', 'AW-417491334', { send_page_view: true });
+    (window as any).gtag('config', 'G-CF7P1QL6EZ', { send_page_view: true });
+    (window as any).gtag('event', 'page_view', {
+      send_to: 'AW-417491334',
+      page_location: window.location.href,
+      page_title: document.title
+    });
   }
 }
 
