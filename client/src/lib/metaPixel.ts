@@ -1,6 +1,6 @@
 /**
  * Meta Pixel Helper
- * Pixel ID: 4541103249457123
+ * Pixel ID: 1464149581564441
  */
 
 declare global {
@@ -9,7 +9,7 @@ declare global {
   }
 }
 
-const PIXEL_IDS = ["4541103249457123", "1464149581564441"];
+const PIXEL_IDS = ["1464149581564441"];
 
 function hasConsent(): boolean {
   try {

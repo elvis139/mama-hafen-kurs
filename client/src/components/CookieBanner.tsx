@@ -25,7 +25,6 @@ export function loadTrackingScripts() {
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '4541103249457123');
       fbq('init', '1464149581564441');
       fbq('track', 'PageView');
     `;

@@ -115,6 +115,7 @@
 - [x] Meta Pixel erst nach Zustimmung laden
 - [x] Google Analytics erst nach Zustimmung laden
 - [x] Einwilligung in localStorage speichern
+- [x] Google Ads Tag (AW-417491334) aus index.html entfernt → erst nach Zustimmung laden
 
 ## Story-Sektion Landingpage
 - [x] Emotionale Story-Sektion nach Hero einbauen (Leser abholen → Darlees Weg → Lösung)
