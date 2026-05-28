@@ -424,7 +424,7 @@ export default function Home() {
 
         {/* Desktop Hero: 2-Spalten-Layout */}
         <div className="hero-desktop">
-          <div className="container" style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>
+          <div className="container" style={{ paddingTop: "0.5rem", paddingBottom: "0.5rem" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3.5rem", alignItems: "center" }}>
               {/* Text */}
               <div>
@@ -1854,8 +1854,8 @@ export default function Home() {
           .hero-desktop {
             display: flex;
             align-items: center;
-            padding-top: 5rem;
-            min-height: 100svh;
+            padding-top: 4rem;
+            min-height: auto;
           }
           .about-layout {
             flex-direction: row;
