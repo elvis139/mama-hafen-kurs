@@ -530,12 +530,6 @@ export default function Home() {
             {[
               {
                 stars: 5,
-                title: "„Etwas mehr innere Ruhe.“",
-                text: "Einige Tipps kannte ich schon – aber durch Darlees Erzählung haben sie mir neu gezeigt, wie man sie wirklich einsetzt. Zwei-drei Ansätze habe ich direkt neu umgesetzt. Für meine Große (6) waren sie besonders wertvoll.",
-                author: "Katharina M., Mama einer 6-Jährigen",
-              },
-              {
-                stars: 5,
                 title: "„Mama ist nicht nur die, die alles organisiert und schimpft.“",
                 text: "Ich habe mir in den letzten Tagen bewusst mehr Zeit für Spaß, Pausen und Nähe genommen – und habe das Gefühl, dass es schon hilft. Das war mein persönlicher Wendepunkt.",
                 author: "Laura B., Mama eines 2-Jährigen",
@@ -582,6 +576,13 @@ export default function Home() {
                 text: "Hat sehr viel Spaß gemacht. Tolle Erklärungen, tolle Vermittlung von Basiswissen und ein guter Reminder für das, was wir schon tun \u2013 plus noch einige wertvolle neue Hinweise und Blickwinkel auf gerade aktuelle Themen bei uns. Danke dafür.",
                 author: "Katharina R., Mama von zwei Kindern",
               },
+              {
+                stars: 5,
+                title: "„Etwas mehr innere Ruhe.“",
+                text: "Einige Tipps kannte ich schon – aber durch Darlees Erzählung haben sie mir neu gezeigt, wie man sie wirklich einsetzt. Zwei-drei Ansätze habe ich direkt neu umgesetzt. Für meine Große (6) waren sie besonders wertvoll.",
+                author: "Katharina M., Mama einer 6-Jährigen",
+              },
+
             ].map((r, i) => (
               <FadeUp key={r.author} delay={i * 60}>
                 <div style={{
