@@ -500,6 +500,48 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── TRUST STRIP: Follower-Social-Proof ── */}
+      <section style={{ background: "var(--teal)", padding: "0.85rem 0" }}>
+        <div className="container">
+          <FadeUp>
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "clamp(1rem, 4vw, 3rem)",
+              flexWrap: "wrap",
+            }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.55rem" }}>
+                <span style={{ fontSize: "1.2rem" }}>🎥</span>
+                <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.85)", fontWeight: 500 }}>YouTube</span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.55rem" }}>
+                <span style={{ fontSize: "1.2rem" }}>📸</span>
+                <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.85)", fontWeight: 500 }}>Instagram</span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: "0.55rem" }}>
+                <span style={{ fontSize: "1.2rem" }}>🎵</span>
+                <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.85)", fontWeight: 500 }}>TikTok</span>
+              </div>
+              <div style={{
+                width: "1px", height: "24px",
+                background: "rgba(255,255,255,0.25)",
+                flexShrink: 0,
+              }} className="trust-divider" />
+              <div style={{ textAlign: "center" }}>
+                <span style={{
+                  fontFamily: "'DM Serif Display', serif",
+                  fontSize: "1.15rem",
+                  fontWeight: 700,
+                  color: "white",
+                }}>120.000+ Mamas</span>
+                <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.85)", marginLeft: "0.4rem" }}>vertrauen Darlees Erziehungstipps</span>
+              </div>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
       {/* ── SOCIAL PROOF / REVIEWS ── */}
       <section style={{ background: "var(--sand)", padding: "4rem 0" }}>
         <Wave fill="var(--sand)" bg="var(--cream)" flip />
@@ -664,6 +706,7 @@ export default function Home() {
               <div>
                 <div style={{ fontWeight: 700, fontSize: "0.88rem", color: "var(--foreground)", lineHeight: 1.3 }}>Darleen</div>
                 <div style={{ fontSize: "0.76rem", color: "var(--muted-foreground)" }}>Mama von zwei Kindern · Gründerin Mama-Hafen</div>
+                <div style={{ fontSize: "0.72rem", color: "var(--teal)", fontWeight: 700, marginTop: "0.15rem" }}>🎥📸🎵 120.000+ Follower</div>
               </div>
             </div>
           </FadeUp>
@@ -1493,7 +1536,7 @@ export default function Home() {
                       color: "var(--muted-foreground)",
                       marginTop: "0.2rem",
                     }}>
-                      🔒 Sichere Zahlung über Stripe · SSL-verschlüsselt
+                      🎥📸🎵 120.000+ Mamas in der Community · 🔒 Sichere Zahlung über Stripe
                     </p>
 
                     {/* 7-Tage-Garantie */}
