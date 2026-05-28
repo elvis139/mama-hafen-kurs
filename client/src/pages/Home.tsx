@@ -1349,9 +1349,7 @@ export default function Home() {
                         onFocus={e => (e.target.style.borderColor = "var(--teal)")}
                         onBlur={e => (e.target.style.borderColor = "var(--border)")}
                       />
-                      <p style={{ fontSize: "0.78rem", color: "var(--muted-foreground)", marginTop: "0.35rem", marginBottom: 0 }}>
-                        🔑 Nach dem Klick wirst du zu Stripe weitergeleitet – dort gibst du deine Zahlungsdaten ein.
-                      </p>
+
                     </div>
                     <button
                       type="submit"
@@ -1427,7 +1425,7 @@ export default function Home() {
                       </div>
                       {/* Stripe-Hinweis */}
                       <p style={{ fontSize: "0.75rem", color: "var(--muted-foreground)", margin: 0 }}>
-                        🔒 Sichere Zahlung über Stripe
+                        🔒 Sichere Zahlung über Stripe · Nach dem Klick wirst du zu Stripe weitergeleitet
                       </p>
                     </div>
 
