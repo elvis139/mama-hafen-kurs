@@ -424,7 +424,7 @@ export default function Home() {
 
         {/* Desktop Hero: 2-Spalten-Layout */}
         <div className="hero-desktop">
-          <div className="container" style={{ paddingTop: "0.5rem", paddingBottom: "0.5rem" }}>
+          <div className="container" style={{ paddingTop: "0.5rem", paddingBottom: "38px" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3.5rem", alignItems: "center" }}>
               {/* Text */}
               <div>
