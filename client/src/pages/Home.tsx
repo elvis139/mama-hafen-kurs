@@ -743,7 +743,7 @@ export default function Home() {
                     style={{ width: 44, height: 44, borderRadius: "50%", objectFit: "cover", objectPosition: "center top", flexShrink: 0 }}
                   />
                   <div>
-                    <div style={{ fontWeight: 700, fontSize: "0.88rem", color: "var(--foreground)", lineHeight: 1.3 }}>Darleen</div>
+                    <div style={{ fontWeight: 700, fontSize: "0.88rem", color: "var(--foreground)", lineHeight: 1.3 }}>Mamaleen</div>
                     <div style={{ fontSize: "0.76rem", color: "var(--muted-foreground)" }}>Mama von zwei Kindern · Gründerin Mama-Hafen</div>
                     <div style={{ display: "flex", alignItems: "center", gap: "0.3rem", marginTop: "0.2rem" }}>
                       <Youtube size={13} color="var(--teal)" />
@@ -769,7 +769,7 @@ export default function Home() {
 
               <FadeUp delay={100}>
                 <p style={{ fontSize: "0.97rem", lineHeight: 1.8, color: "var(--muted-foreground)", marginBottom: "1.2rem" }}>
-                  Ich bin Mama von zwei Kindern – und ich habe genau das durchgemacht, wo du gerade vielleicht mitten drin bist. Als die Trotzphase kam, wurde ich plötzlich zu einem Menschen, den ich kaum noch wiedererkannt habe. Ständig laut, ständig schuldig – und abends auf der Couch völlig erschöpft, mit der Frage: Warum muss das Mamaleben so anstrengend sein?
+                  Ich bin Mama von zwei Kindern – und ich habe genau das durchgemacht, wo du gerade vielleicht mitten drin bist. Als die Trotzphase kam, wurde ich plötzlich zu einem Menschen, den ich kaum noch wiedererkannt habe. Ich wurde ständig laut und habe mich dann deswegen schuldig gefühlt und abends lag ich dann völlig erschöpft auf der Couch und habe mich gefragt: Warum muss das Mamaleben so verdammt anstrengend sein?
                 </p>
               </FadeUp>
 
@@ -782,14 +782,14 @@ export default function Home() {
                   marginBottom: "1.2rem",
                 }}>
                   <p style={{ fontSize: "0.97rem", lineHeight: 1.8, color: "var(--muted-foreground)", margin: 0, fontStyle: "italic" }}>
-                    Mein erster Schritt war es, zu verstehen, <strong style={{ color: "var(--foreground)" }}>was in meinen Kindern wirklich vorgeht</strong>. Plötzlich ergab alles einen Sinn – und ich habe verstanden, dass die Autonomiephase kein Problem ist, das man "austreiben" muss, sondern ein wichtiger Entwicklungsschritt.
+                    Mein erster Schritt war es, zu verstehen, <strong style={{ color: "var(--foreground)" }}>was in meinen Kindern wirklich vorgeht</strong> und wie sich <strong style={{ color: "var(--foreground)" }}>das Gehirn von Kindern entwickelt</strong>. Plötzlich ergab alles einen Sinn – und ich habe verstanden, dass die Autonomiephase <strong style={{ color: "var(--foreground)" }}>kein Problem ist, das man "austreiben" muss</strong>, sondern ein wichtiger Entwicklungsschritt. Doch Theorie allein genügt nicht, deshalb habe ich <strong style={{ color: "var(--foreground)" }}>viele Expertentipps selbst ausprobiert</strong> und die besten für euch zusammengetragen!
                   </p>
                 </div>
               </FadeUp>
 
               <FadeUp delay={200}>
                 <p style={{ fontSize: "0.97rem", lineHeight: 1.8, color: "var(--muted-foreground)", marginBottom: "1.4rem" }}>
-                  Heute starten wir ruhig in den Tag, die Kinder kooperieren – und ich kann das Mamasein endlich genießen. Genau deshalb habe ich diesen Kurs entwickelt: damit du nicht selbst alle Ratgeber durchforsten musst, sondern schon morgen wieder die Mama sein kannst, die du sein möchtest.
+                  Heute starten wir ruhig in den Tag, die Kinder kooperieren – und ich kann das Mamasein endlich genießen. Genau deshalb habe ich diesen Kurs entwickelt: Damit du nicht selbst alle Ratgeber durchforsten musst, sondern schon morgen wieder die Mama sein kannst, die du sein möchtest.
                 </p>
               </FadeUp>
 
