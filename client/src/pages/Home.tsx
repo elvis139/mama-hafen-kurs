@@ -5,6 +5,14 @@
  */
 
 import { useEffect, useRef, useState } from "react";
+import { Instagram, Youtube } from "lucide-react";
+
+// TikTok SVG Icon (nicht in lucide-react enthalten)
+const TikTokIcon = ({ size = 14, color = "currentColor" }: { size?: number; color?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color} xmlns="http://www.w3.org/2000/svg">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/>
+  </svg>
+);
 import { trackInitiateCheckout } from "@/lib/metaPixel";
 import { pinterestInitiateCheckout, pinterestViewContent, pinterestLead } from "@/lib/pinterestTag";
 
@@ -670,186 +678,127 @@ export default function Home() {
         <Wave fill="var(--cream)" bg="var(--sand)" />
       </section>
 
-      {/* ── STORY-SEKTION: Darlees Geschichte (aus Video-Skript) ── */}
-      <section style={{ background: "var(--cream)", padding: "5rem 0 4.5rem", position: "relative", overflow: "hidden" }}>
-        {/* Dezenter Hintergrund-Akzent */}
+      {/* ── STORY-SEKTION: Darlees Geschichte – zusammengeführt ── */}
+      <section style={{ background: "var(--cream)", padding: "4rem 0 3.5rem", position: "relative", overflow: "hidden" }}>
         <div style={{
           position: "absolute", top: 0, right: 0,
           width: "40%", height: "100%",
           background: "radial-gradient(ellipse at 80% 20%, rgba(74,163,148,0.06) 0%, transparent 70%)",
           pointerEvents: "none",
         }} />
-        <div className="container" style={{ maxWidth: 740, position: "relative" }}>
+        <div className="container">
+          <div className="about-layout">
 
-          {/* Autorin-Badge – aufgewertet */}
-          <FadeUp>
-            <div style={{
-              display: "inline-flex", alignItems: "center", gap: "0.9rem",
-              background: "white",
-              border: "1px solid var(--border)",
-              borderRadius: 50,
-              padding: "0.45rem 1.1rem 0.45rem 0.45rem",
-              boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
-              marginBottom: "2.2rem",
-            }}>
-              <img
-                src={IMG_DARLEEN}
-                alt="Darleen"
+            {/* Bild */}
+            <FadeUp className="about-image-wrap">
+              <div
+                className="darleen-frame"
                 style={{
-                  width: 44, height: 44,
-                  borderRadius: "50%",
-                  objectFit: "cover",
-                  objectPosition: "center top",
-                  flexShrink: 0,
+                  borderRadius: "42% 58% 48% 52% / 46% 50% 50% 54%",
+                  overflow: "hidden",
+                  boxShadow: "0 16px 45px rgba(0,0,0,0.1)",
+                  width: 359,
+                  height: 462,
+                  maxWidth: 359,
+                  paddingRight: "35px",
+                  paddingLeft: "1px",
+                  margin: "0 auto 0 -4rem",
                 }}
-              />
-              <div>
-                <div style={{ fontWeight: 700, fontSize: "0.88rem", color: "var(--foreground)", lineHeight: 1.3 }}>Darleen</div>
-                <div style={{ fontSize: "0.76rem", color: "var(--muted-foreground)" }}>Mama von zwei Kindern · Gründerin Mama-Hafen</div>
-                <div style={{ fontSize: "0.72rem", color: "var(--teal)", fontWeight: 700, marginTop: "0.15rem" }}>🎥📸🎵 120.000+ Follower</div>
+              >
+                <img
+                  src={IMG_DARLEEN}
+                  alt="Darleen, Kursleiterin"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center top",
+                    transform: "scale(1.45)",
+                    transformOrigin: "center top",
+                    paddingRight: "11px",
+                    paddingBottom: "55px",
+                    paddingLeft: "22px",
+                  }}
+                />
               </div>
-            </div>
-          </FadeUp>
+            </FadeUp>
 
-          {/* Einstieg: Leser abholen – größer & fetter */}
-          <FadeUp delay={60}>
-            <p style={{
-              fontFamily: "'DM Serif Display', serif",
-              fontSize: "clamp(1.25rem, 3.2vw, 1.6rem)",
-              lineHeight: 1.55,
-              color: "var(--foreground)",
-              marginBottom: "2rem",
-            }}>
-              Du bist nicht allein. Ich kenne diese Momente, in denen man alles versucht und trotzdem scheitert.
-            </p>
-          </FadeUp>
+            {/* Text */}
+            <div className="about-text">
 
-          <FadeUp delay={100}>
-            <p style={{
-              fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
-              lineHeight: 1.85,
-              color: "var(--muted-foreground)",
-              marginBottom: "1.5rem",
-            }}>
-              Schon seit ich klein war, wollte ich unbedingt Mama werden und am besten "alles besser machen", was mich damals bei meinen eigenen Eltern gestört hat.
-              Ich habe mich also schon sehr früh mit dem Thema Erziehung beschäftigt und viel gelesen und gelernt.
-              Als ich dann schwanger wurde, fühlte ich mich wahnsinnig gut vorbereitet...und wurde dann eiskalt von der "Trotzphase" erwischt.
-              Ich wurde plötzlich zu einem Menschen, den ich kaum noch wiedererkannt habe. Ich bin ständig laut geworden, habe mich mit meinen „sturen Kindern" herumgestritten. Und danach habe ich mich selbst fertiggemacht – weil ich dachte, dass ich als Mutter komplett versagt habe.
-              Ich wollte unbedingt Mama werden und nun fühlte sich alles an wie ein Kampf. Und ich sehnte mich so sehr nach dieser Freude und Entspanntheit mit meinen Kindern, die ich mir immer gewünscht hatte.
-            </p>
-          </FadeUp>
+              {/* Autorin-Badge */}
+              <FadeUp>
+                <div style={{
+                  display: "inline-flex", alignItems: "center", gap: "0.9rem",
+                  background: "white",
+                  border: "1px solid var(--border)",
+                  borderRadius: 50,
+                  padding: "0.45rem 1.1rem 0.45rem 0.45rem",
+                  boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+                  marginBottom: "1.5rem",
+                }}>
+                  <img
+                    src={IMG_DARLEEN}
+                    alt="Darleen"
+                    style={{ width: 44, height: 44, borderRadius: "50%", objectFit: "cover", objectPosition: "center top", flexShrink: 0 }}
+                  />
+                  <div>
+                    <div style={{ fontWeight: 700, fontSize: "0.88rem", color: "var(--foreground)", lineHeight: 1.3 }}>Darleen</div>
+                    <div style={{ fontSize: "0.76rem", color: "var(--muted-foreground)" }}>Mama von zwei Kindern · Gründerin Mama-Hafen</div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.3rem", marginTop: "0.2rem" }}>
+                      <Youtube size={13} color="var(--teal)" />
+                      <Instagram size={13} color="var(--teal)" />
+                      <TikTokIcon size={13} color="var(--teal)" />
+                      <span style={{ fontSize: "0.72rem", color: "var(--teal)", fontWeight: 700 }}>120.000+ Follower</span>
+                    </div>
+                  </div>
+                </div>
+              </FadeUp>
 
-          {/* Schmerz-Box – hebt den emotionalen Tiefpunkt hervor */}
-          <FadeUp delay={130}>
-            <div style={{
-              background: "rgba(196,168,130,0.12)",
-              border: "1px solid rgba(196,168,130,0.35)",
-              borderRadius: 16,
-              padding: "1.4rem 1.6rem",
-              marginBottom: "1.8rem",
-            }}>
-              <p style={{
-                fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
-                lineHeight: 1.85,
-                color: "var(--muted-foreground)",
-                margin: 0,
-              }}>
-                Ich erinnere mich noch genau daran, wie frustriert und ausgelaugt ich mich früher gefühlt habe. Der Tag begann morgens direkt mit Stress und Konflikten, die scheinbar aus dem Nichts kamen. Ständig gab es Diskussionen oder einfach nur ein bockiges „Nein" – egal ob beim Anziehen, Zähneputzen, beim Essen oder auf dem Spielplatz. Meine Kinder waren einfach ständig unzufrieden. Und ich saß abends, wenn die Kinder endlich eingeschlafen waren, oft einfach nur völlig erschöpft auf der Couch und fragte mich, warum das Mamaleben so anstrengend sein muss.
-              </p>
-            </div>
-          </FadeUp>
+              <FadeUp delay={60}>
+                <h2 style={{
+                  fontFamily: "'DM Serif Display', serif",
+                  fontSize: "clamp(1.5rem, 3.5vw, 2rem)",
+                  lineHeight: 1.3,
+                  color: "var(--foreground)",
+                  marginBottom: "1rem",
+                }}>
+                  Hallo, ich bin Darleen – und ich kenne diese Momente.
+                </h2>
+              </FadeUp>
 
-          {/* Wendepunkt – Teal-Akzent */}
-          <FadeUp delay={180}>
-            <div style={{
-              background: "rgba(74,163,148,0.07)",
-              borderLeft: "4px solid var(--teal)",
-              borderRadius: "0 14px 14px 0",
-              padding: "1.3rem 1.5rem",
-              margin: "2rem 0",
-            }}>
-              <p style={{
-                fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
-                lineHeight: 1.85,
-                color: "var(--muted-foreground)",
-                margin: 0,
-              }}>
-                Irgendwann habe ich angefangen, wirklich zu verstehen, <strong style={{ color: "var(--foreground)" }}>was in meinen Kindern vorgeht</strong> und dass fast alles, was ich über die Trotzphase geglaubt hatte, Schwachsinn ist. Plötzlich habe ich auch meine eigene Kindheit mit ganz anderen Augen gesehen. Und ich habe verstanden, warum mich so manches Verhalten meiner Kinder so extrem triggert.
-                <br /><br />
-                Ich habe verstanden wie wichtig die Autonomiephase ist und dass es eben nicht darum geht, ihnen den Trotz und die Widerspenstigkeit "auszutreiben" (wie man es früher gern gesagt hat), sondern um einen wichtigen Entwicklungsschritt.
-              </p>
-            </div>
-          </FadeUp>
-
-          {/* Transformation */}
-          <FadeUp delay={220}>
-            <p style={{
-              fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
-              lineHeight: 1.85,
-              color: "var(--muted-foreground)",
-              marginBottom: "1.5rem",
-            }}>
-              Heute sieht unser Familienalltag komplett anders aus. Morgens starten wir ruhig und entspannt in den Tag. Es gibt endlich keine ständigen Diskussionen mehr! Die Kinder kooperieren viel besser, und ich habe das Gefühl, dass wir zusammenarbeiten statt gegeneinander. Auch die Wutanfälle sind so viel seltener geworden – und wenn sie doch mal passieren, verlaufen sie viel schneller und ruhiger, weil ich weiß, wie ich reagieren muss.
-            </p>
-          </FadeUp>
-
-          <FadeUp delay={260}>
-            <p style={{
-              fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
-              lineHeight: 1.85,
-              color: "var(--muted-foreground)",
-              marginBottom: "1.5rem",
-            }}>
-              Ich fühle mich endlich nicht mehr wie eine erschöpfte Managerin, die nur noch versucht, den Tag irgendwie zu überstehen. Stattdessen habe ich das Gefühl, wirklich für meine Kinder da zu sein – ohne mich selbst aufgeben zu müssen. Ich kann das Mamasein und die Kindheit meiner Söhne endlich genießen. Und ich wünsche wirklich jeder Mama, dass sie das auch erleben kann!
-            </p>
-          </FadeUp>
-
-          {/* Abschluss – Conversion-Box */}
-          <FadeUp delay={300}>
-            <div style={{
-              background: "white",
-              border: "1.5px solid var(--border)",
-              borderRadius: 18,
-              padding: "1.8rem 2rem",
-              boxShadow: "0 6px 28px rgba(0,0,0,0.07)",
-              marginTop: "0.5rem",
-            }}>
-              <p style={{
-                fontFamily: "'DM Serif Display', serif",
-                fontSize: "clamp(1.1rem, 2.5vw, 1.3rem)",
-                lineHeight: 1.55,
-                color: "var(--foreground)",
-                marginBottom: "0.8rem",
-              }}>
-                Genau deshalb habe ich diesen Kurs entwickelt.
-              </p>
-              <p style={{
-                fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
-                lineHeight: 1.85,
-                color: "var(--muted-foreground)",
-                marginBottom: "1.4rem",
-              }}>
-                Damit du sowohl aus entwicklungspsychologischer Sicht verstehst, was in deinem Kind gerade vorgeht. Als auch praktische Strategien an die Hand bekommst, die wirklich funktionieren.
-                <br /><br />
-                Wir schauen uns gemeinsam die Grundlagen aus der Kinderforschung an und gehen aber auch in die Praxis! Ich habe die besten Tipps und Strategien, die uns als Familie geholfen haben, für dich zusammengestellt und mein Workbook kannst du als kleine Übersicht der Themen benutzen und dabei Lektion für Lektion deinen eigenen Familienalltag reflektieren und das Gelernte direkt übertragen und anwenden!
-              </p>
-              <div style={{ textAlign: "center" }}>
-                <button
-                  className="btn-coral"
-                  onClick={() => document.getElementById("kaufen")?.scrollIntoView({ behavior: "smooth" })}
-                  style={{ padding: "0.55rem 1.6rem", fontSize: "0.9rem", borderRadius: 50 }}
-                >
-                  Jetzt Kurs sichern →
-                </button>
-                <p style={{ marginTop: "0.6rem", fontSize: "0.76rem", color: "var(--muted-foreground)" }}>
-                  🛡️ 7-Tage-Geld-zurück-Garantie · Kein Risiko
+              <FadeUp delay={100}>
+                <p style={{ fontSize: "0.97rem", lineHeight: 1.8, color: "var(--muted-foreground)", marginBottom: "1.2rem" }}>
+                  Ich bin Mama von zwei Kindern – und ich habe genau das durchgemacht, wo du gerade vielleicht mitten drin bist. Als die Trotzphase kam, wurde ich plötzlich zu einem Menschen, den ich kaum noch wiedererkannt habe. Ständig laut, ständig schuldig – und abends auf der Couch völlig erschöpft, mit der Frage: Warum muss das Mamaleben so anstrengend sein?
                 </p>
-              </div>
-            </div>
-          </FadeUp>
+              </FadeUp>
 
+              <FadeUp delay={150}>
+                <div style={{
+                  background: "rgba(74,163,148,0.07)",
+                  borderLeft: "4px solid var(--teal)",
+                  borderRadius: "0 14px 14px 0",
+                  padding: "1.1rem 1.3rem",
+                  marginBottom: "1.2rem",
+                }}>
+                  <p style={{ fontSize: "0.97rem", lineHeight: 1.8, color: "var(--muted-foreground)", margin: 0, fontStyle: "italic" }}>
+                    Mein erster Schritt war es, zu verstehen, <strong style={{ color: "var(--foreground)" }}>was in meinen Kindern wirklich vorgeht</strong>. Plötzlich ergab alles einen Sinn – und ich habe verstanden, dass die Autonomiephase kein Problem ist, das man "austreiben" muss, sondern ein wichtiger Entwicklungsschritt.
+                  </p>
+                </div>
+              </FadeUp>
+
+              <FadeUp delay={200}>
+                <p style={{ fontSize: "0.97rem", lineHeight: 1.8, color: "var(--muted-foreground)", marginBottom: "1.4rem" }}>
+                  Heute starten wir ruhig in den Tag, die Kinder kooperieren – und ich kann das Mamasein endlich genießen. Genau deshalb habe ich diesen Kurs entwickelt: damit du nicht selbst alle Ratgeber durchforsten musst, sondern schon morgen wieder die Mama sein kannst, die du sein möchtest.
+                </p>
+              </FadeUp>
+
+            </div>
+          </div>
         </div>
       </section>
+
+
 
       {/* ── 3 VERSPRECHEN ── */}
       <section style={{ background: "var(--sand)", padding: "2.5rem 0 3rem" }}>
@@ -929,103 +878,7 @@ export default function Home() {
         <Wave fill="var(--cream)" bg="var(--sand)" />
       </section>
 
-      {/* ── ÜBER DARLEEN ── */}
-      <section style={{ background: "var(--cream)", padding: "4rem 0" }}>
-        <div className="container">
-          <div className="about-layout">
-            {/* Bild */}
-            <FadeUp className="about-image-wrap">
-              <div
-                className="darleen-frame"
-                style={{
-                  borderRadius: "42% 58% 48% 52% / 46% 50% 50% 54%",
-                  overflow: "hidden",
-                  boxShadow: "0 16px 45px rgba(0,0,0,0.1)",
-                  width: 359,
-                  height: 462,
-                  maxWidth: 359,
-                  paddingRight: "35px",
-                  paddingLeft: "1px",
-                  margin: "0 auto 0 -4rem",
-                }}
-              >
-                <img
-                  src={IMG_DARLEEN}
-                  alt="Darleen, Kursleiterin"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    objectPosition: "center top",
-                    transform: "scale(1.45)",
-                    transformOrigin: "center top",
-                    paddingRight: "11px",
-                    paddingBottom: "55px",
-                    paddingLeft: "22px",
-                  }}
-                />
-              </div>
-            </FadeUp>
-            {/* Text */}
-            <div className="about-text">
-              <FadeUp>
 
-                <h2
-                  style={{
-                    fontFamily: "'DM Serif Display', serif",
-                    fontSize: "clamp(1.6rem, 4vw, 2.2rem)",
-                    marginTop: "0.4rem",
-                    marginBottom: "1rem",
-                  }}
-                >
-                  Hallo, ich bin Darleen.
-                </h2>
-              </FadeUp>
-              <FadeUp delay={80}>
-                <p
-                  style={{
-                    lineHeight: 1.8,
-                    color: "var(--muted-foreground)",
-                    marginBottom: "1.2rem",
-                    fontSize: "0.97rem",
-                  }}
-                >
-                  Ich bin Mama von zwei Kindern – und ich habe genau das durchgemacht, wo du gerade vielleicht mitten drin bist. Mein erstes Kind hat mich während seiner Autonomiephase absolut an meine Grenzen gebracht. Ich war täglich am Ende, habe Dinge gesagt, die ich bereut habe, und hatte Angst, dass ich als Mama versage. Meine Kinder haben darunter gelitten – und ich natürlich auch.
-                </p>
-              </FadeUp>
-              <FadeUp delay={140}>
-                <blockquote
-                  style={{
-                    borderLeft: "4px solid var(--teal)",
-                    paddingLeft: "1.2rem",
-                    margin: "0 0 1.2rem",
-                    fontFamily: "'DM Serif Display', serif",
-                    fontStyle: "italic",
-                    fontSize: "1rem",
-                    color: "var(--teal-dark)",
-                    lineHeight: 1.6,
-                  }}
-                >
-                  Mein erster Schritt war es, zu verstehen wie sich das Gehirn von Kindern entwickelt.
-                  Doch Theorie allein genügt nicht, deshalb habe ich viele Expertentipps selbst ausprobiert und die besten für euch zusammengetragen!
-                </blockquote>
-              </FadeUp>
-              <FadeUp delay={200}>
-                <p
-                  style={{
-                    lineHeight: 1.8,
-                    color: "var(--muted-foreground)",
-                    fontSize: "0.97rem",
-                  }}
-                >
-                  Seitdem ist es meine persönliche Mission, diese Erkenntnis weiterzugeben – damit du nicht selbst all die Ratgeber, Forschungserkenntnisse und Tipps durchforsten musst.
-                  Damit du schon morgen wieder die Mama sein kannst, die du sein möchtest und mit Zufriedenheit und nicht mit Bedauern und Enttäuschung auf die ersten Jahre deiner Kinder zurückblicken kannst!
-                </p>
-              </FadeUp>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ── CTA nach Darleen-Story ── */}
       <section style={{ background: "var(--cream)", padding: "2rem 0 0", textAlign: "center" }}>
