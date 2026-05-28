@@ -624,20 +624,6 @@ export default function Home() {
             ))}
           </div>
 
-          <FadeUp delay={200}>
-            <div style={{
-              background: "rgba(74,163,148,0.08)",
-              borderLeft: "4px solid var(--teal)",
-              borderRadius: "0 14px 14px 0",
-              padding: "1.2rem 1.5rem",
-              marginTop: "2rem",
-            }}>
-              <p style={{ fontSize: "0.95rem", color: "var(--muted-foreground)", lineHeight: 1.7, margin: 0, fontStyle: "italic" }}>
-                „Dieses Feedback bedeutet mir alles. Wenn mir eine Mama schreibt, dass sich etwas verändert hat – dass der Morgen ruhiger war, dass sie ihrem Kind zugehört hat, anstatt laut zu werden – dann weiß ich, dass es sich gelohnt hat.“
-              </p>
-              <p style={{ fontSize: "0.82rem", fontWeight: 700, color: "var(--teal)", marginTop: "0.6rem", marginBottom: 0 }}></p>
-            </div>
-          </FadeUp>
         </div>
         <Wave fill="var(--cream)" bg="var(--sand)" />
       </section>
