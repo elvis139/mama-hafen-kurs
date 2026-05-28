@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { trackPurchase } from "@/lib/metaPixel";
 import { pinterestPurchase } from "@/lib/pinterestTag";
+import { trpc } from "@/lib/trpc";
 
 // Google gtag Typen
 declare global {
@@ -13,56 +14,59 @@ declare global {
 
 export default function KaufErfolg() {
   const [visible, setVisible] = useState(false);
+  const [sessionId] = useState(() => new URLSearchParams(window.location.search).get("session_id") ?? "");
+
+  // Server-seitige Verifikation: Purchase-Events nur feuern wenn Stripe bestätigt
+  const { data: verifyData } = trpc.payment.verifySession.useQuery(
+    { sessionId },
+    { enabled: !!sessionId, retry: false }
+  );
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // Kurze Verzögerung für Einblend-Animation
     const t = setTimeout(() => setVisible(true), 80);
-
-    // Google Analytics: Kauf-Conversion feuern
-    // Nur wenn eine echte Stripe session_id in der URL steht
-    const params = new URLSearchParams(window.location.search);
-    const sessionId = params.get("session_id");
-    const dedupeKey = sessionId ? `ga_purchase_fired_${sessionId}` : null;
-
-    if (
-      sessionId &&
-      dedupeKey &&
-      !sessionStorage.getItem(dedupeKey) &&
-      typeof window.gtag === "function"
-    ) {
-      window.gtag("event", "purchase", {
-        transaction_id: sessionId,
-          value: 99,
-          currency: "EUR",
-          items: [
-            {
-              item_id: "mama-hafen-kurs",
-              item_name: "Mama-Hafen Online-Kurs",
-              price: 99,
-            quantity: 1,
-          },
-        ],
-      });
-      // Dedupe: pro Session nur einmal senden
-      sessionStorage.setItem(dedupeKey, "1");
-
-      // Google Ads: Kauf-Conversion feuern
-      window.gtag("event", "conversion", {
-        send_to: "AW-417491334/B4wLCPu-rLMcElbTiccB",
-        value: 99.0,
-        currency: "EUR",
-        transaction_id: sessionId,
-      });
-
-      // Meta Pixel: Purchase-Event
-      trackPurchase(99);
-      // Pinterest: Checkout/Purchase-Event
-      pinterestPurchase(99, sessionId);
-    }
-
     return () => clearTimeout(t);
   }, []);
+
+  // Conversion-Events erst feuern wenn Server paid: true zurückgibt
+  useEffect(() => {
+    if (!verifyData?.paid || !sessionId) return;
+
+    const dedupeKey = `purchase_fired_${sessionId}`;
+    if (sessionStorage.getItem(dedupeKey)) return;
+
+    // Dedupe: pro Session nur einmal senden
+    sessionStorage.setItem(dedupeKey, "1");
+
+    // Google Analytics: Kauf-Conversion
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "purchase", {
+        transaction_id: sessionId,
+        value: verifyData.amount ?? 99,
+        currency: verifyData.currency?.toUpperCase() ?? "EUR",
+        items: [{
+          item_id: "mama-hafen-kurs",
+          item_name: "Mama-Hafen Online-Kurs",
+          price: verifyData.amount ?? 99,
+          quantity: 1,
+        }],
+      });
+
+      // Google Ads: Kauf-Conversion
+      window.gtag("event", "conversion", {
+        send_to: "AW-417491334/B4wLCPu-rLMcElbTiccB",
+        value: verifyData.amount ?? 99.0,
+        currency: verifyData.currency?.toUpperCase() ?? "EUR",
+        transaction_id: sessionId,
+      });
+    }
+
+    // Meta Pixel: Purchase-Event (nur bei verifiziertem Kauf)
+    trackPurchase(verifyData.amount ?? 99);
+
+    // Pinterest: Checkout/Purchase-Event
+    pinterestPurchase(verifyData.amount ?? 99, sessionId);
+  }, [verifyData, sessionId]);
 
   return (
     <div
