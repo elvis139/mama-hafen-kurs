@@ -564,6 +564,24 @@ export default function Home() {
                 text: "Der Kurs war echt angenehm und hat mich nochmal neu motiviert. Neue Perspektiven, die ich vorher nicht gesehen hatte. Die Videolänge und Anzahl sind super – gut in den Alltag integrierbar!",
                 author: "Melanie S., Mama von zwei Kindern",
               },
+              {
+                stars: 5,
+                title: '„Ich würde den Kurs auch Oma und Opa empfehlen!"',
+                text: "Ich würde den Kurs auch Oma und Opas als Basiskurs empfehlen. Gerade da haben wir Schwierigkeiten und weniger Akzeptanz für unsere Ansätze Kinder zu erziehen. Gerade das Warum und die kausalen Zusammenhänge fanden wir in dem Kurs toll.",
+                author: "Sandra M., Mama eines 2-Jährigen",
+              },
+              {
+                stars: 5,
+                title: '„Man hört dir sehr gern zu!"',
+                text: "Man hört dir sehr gern zu und es fällt einem leicht dir zu folgen, war echt angenehm und hat mich nochmal neu motiviert und mir wieder ein paar neue Perspektiven gegeben \u2013 vielen lieben Dank dafür!!",
+                author: "Laura B., Mama eines 3-Jährigen",
+              },
+              {
+                stars: 5,
+                title: '„Tolle Erklärungen und wertvolle neue Blickwinkel!"',
+                text: "Hat sehr viel Spaß gemacht. Tolle Erklärungen, tolle Vermittlung von Basiswissen und ein guter Reminder für das, was wir schon tun \u2013 plus noch einige wertvolle neue Hinweise und Blickwinkel auf gerade aktuelle Themen bei uns. Danke dafür.",
+                author: "Katharina R., Mama von zwei Kindern",
+              },
             ].map((r, i) => (
               <FadeUp key={r.author} delay={i * 60}>
                 <div style={{
