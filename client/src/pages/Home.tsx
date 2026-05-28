@@ -554,14 +554,14 @@ export default function Home() {
               },
               {
                 stars: 5,
-                title: "„Durch die praktischen Beispiele versteht man sofort, was Darleen meint.“",
-                text: "Nein, ich fand alles gut verständlich. Die Beispiele helfen enorm – man weiß sofort, was gemeint ist, und kann es direkt anwenden.",
+                title: '„Die praktischen Beispiele aus dem Kurs konnte ich direkt anwenden!“',
+                text: "Ich fand alles gut verständlich. Die Beispiele helfen enorm – man weiß sofort, was gemeint ist, und kann es direkt anwenden.",
                 author: "Nina K., Mama eines 3-Jährigen",
               },
               {
                 stars: 5,
                 title: "„Man hört dir sehr gern zu – es fällt einem leicht zu folgen.“",
-                text: "Das war echt angenehm und hat mich nochmal neu motiviert. Neue Perspektiven, die ich vorher nicht gesehen hatte. Die Videolänge und Anzahl sind super – gut in den Alltag integrierbar!",
+                text: "Der Kurs war echt angenehm und hat mich nochmal neu motiviert. Neue Perspektiven, die ich vorher nicht gesehen hatte. Die Videolänge und Anzahl sind super – gut in den Alltag integrierbar!",
                 author: "Melanie S., Mama von zwei Kindern",
               },
             ].map((r, i) => (
