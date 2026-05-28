@@ -597,7 +597,7 @@ export default function Home() {
                 stars: 5,
                 title: "„Grenzen Setzen – so wertvoll und toll erklärt.“",
                 text: "Viele Tipps verfolgen wir bereits. Trotzdem fanden wir das Thema Grenzen Setzen besonders stark. Wir werden es einbauen. Tolle Erklärungen und ein guter Reminder für das, was wir schon tun.",
-                author: "Sandra R., Mama von zwei Kindern",
+                author: "Melanie R., Mama von zwei Kindern",
               },
               {
                 stars: 5,
@@ -627,7 +627,7 @@ export default function Home() {
                 stars: 5,
                 title: '„Man hört dir sehr gern zu!"',
                 text: "Man hört dir sehr gern zu und es fällt einem leicht dir zu folgen, war echt angenehm und hat mich nochmal neu motiviert und mir wieder ein paar neue Perspektiven gegeben \u2013 vielen lieben Dank dafür!!",
-                author: "Laura B., Mama eines 3-Jährigen",
+                author: "Sofia B., Mama eines 3-Jährigen",
               },
               {
                 stars: 5,
@@ -639,7 +639,7 @@ export default function Home() {
                 stars: 5,
                 title: "„Etwas mehr innere Ruhe.“",
                 text: "Einige Tipps kannte ich schon – aber durch Darlees Erzählung haben sie mir neu gezeigt, wie man sie wirklich einsetzt. Zwei-drei Ansätze habe ich direkt neu umgesetzt. Für meine Große (6) waren sie besonders wertvoll.",
-                author: "Katharina M., Mama einer 6-Jährigen",
+                author: "Anne K., Mama einer 6-Jährigen",
               },
 
             ].map((r, i) => (
