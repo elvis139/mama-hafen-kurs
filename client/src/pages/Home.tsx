@@ -552,7 +552,7 @@ export default function Home() {
                   fontWeight: 700,
                   color: "white",
                 }}>120.000+ Mamas</span>
-                <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.85)", marginLeft: "0.4rem" }}>folgen Mamaleen</span>
+                <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.85)", marginLeft: "0.4rem" }}>sind Teil unserer Mamaleen-Community</span>
               </div>
             </div>
           </FadeUp>
