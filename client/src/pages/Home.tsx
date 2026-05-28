@@ -452,8 +452,8 @@ export default function Home() {
                     fontSize: "clamp(2.2rem, 4vw, 3.3rem)",
                     lineHeight: 1.15, marginBottom: "1.2rem",
                   }}>
-                    Jeden Tag dasselbe: Diskussionen, Wutanfälle, Schuldgefühle –{" "}
-                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>und abends fragst du dich, ob das wirklich alles sein kann.</em>
+                    Du liebst dein Kind über alles –{" "}
+                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>aber Wutanfälle, Trotz und Machtkämpfe bringen dich täglich an deine Grenzen.</em>
                   </h1>
                 </FadeUp>
                 <FadeUp delay={160}>
@@ -461,7 +461,7 @@ export default function Home() {
                     fontSize: "1rem", lineHeight: 1.8,
                     color: "var(--muted-foreground)", marginBottom: "1.8rem",
                   }}>
-                    Nein, das muss nicht so sein. Ich zeige dir, wie du die Trotzphase wirklich verstehst und meisterst – und so endlich wieder Leichtigkeit in euren Alltag bringst.
+                    Nein, das muss nicht so sein. Ich zeige dir, wie du die Autonomiephase wirklich verstehst und meisterst – und so endlich wieder Leichtigkeit in euren Alltag bringst.
                   </p>
                 </FadeUp>
                 <FadeUp delay={240}>
