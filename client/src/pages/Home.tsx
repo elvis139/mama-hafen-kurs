@@ -466,8 +466,8 @@ export default function Home() {
                 </FadeUp>
                 <FadeUp delay={240}>
                   <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap" }}>
-                    <button className="btn-coral" onClick={() => scrollTo("kurs")}>Mehr erfahren ↓</button>
-                    <button className="btn-teal-outline" onClick={() => scrollTo("kaufen")}>Jetzt kaufen ⚓</button>
+                    <button className="btn-teal-outline" onClick={() => scrollTo("kurs")}>Mehr erfahren ↓</button>
+                    <button className="btn-coral" onClick={() => scrollTo("kaufen")}>Jetzt kaufen ⚓</button>
                   </div>
                 </FadeUp>
               </div>
