@@ -81,8 +81,8 @@ function Wave({
 }
 
 // ── FAQ ───────────────────────────────────────────────────────────────────────
-function FaqItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false);
+function FaqItem({ q, a, defaultOpen = false }: { q: string; a: string; defaultOpen?: boolean }) {
+  const [open, setOpen] = useState(defaultOpen);
   return (
     <div style={{ borderBottom: "1px solid var(--border)", padding: "1rem 0" }}>
       <button
@@ -984,6 +984,29 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── CTA nach Darleen-Story ── */}
+      <section style={{ background: "var(--cream)", padding: "2rem 0 0", textAlign: "center" }}>
+        <FadeUp>
+          <div className="container" style={{ maxWidth: 600 }}>
+            <p style={{
+              fontSize: "1rem",
+              color: "var(--muted-foreground)",
+              lineHeight: 1.75,
+              marginBottom: "1.5rem",
+            }}>
+              Bereit, die Trotzphase endlich zu verstehen – und wieder die Mama zu sein, die du sein möchtest?
+            </p>
+            <button
+              className="btn-coral"
+              onClick={() => document.getElementById("kaufen")?.scrollIntoView({ behavior: "smooth" })}
+              style={{ fontSize: "0.95rem", padding: "0.75rem 2rem" }}
+            >
+              Jetzt Kurs kaufen ⚓
+            </button>
+          </div>
+        </FadeUp>
+      </section>
+
       {/* ── COMMUNITY USP SECTION ── */}
       <section style={{ background: "var(--cream)", padding: "2rem 0 2.5rem" }}>
         <div className="container">
@@ -1422,7 +1445,7 @@ export default function Home() {
                         onBlur={e => (e.target.style.borderColor = "var(--border)")}
                       />
                       <p style={{ fontSize: "0.78rem", color: "var(--muted-foreground)", marginTop: "0.35rem", marginBottom: 0 }}>
-                        🔑 Diese E-Mail-Adresse wird dein Kurs-Login – bitte dieselbe wie bei Stripe verwenden.
+                        🔑 Nach dem Klick wirst du zu Stripe weitergeleitet – dort gibst du deine Zahlungsdaten ein.
                       </p>
                     </div>
                     <button
@@ -1538,8 +1561,8 @@ export default function Home() {
                 boxShadow: "0 4px 18px rgba(0,0,0,0.06)",
               }}
             >
-              {faqs.map((f) => (
-                <FaqItem key={f.q} q={f.q} a={f.a} />
+              {faqs.map((f, i) => (
+                <FaqItem key={f.q} q={f.q} a={f.a} defaultOpen={i === 0} />
               ))}
             </div>
           </FadeUp>
