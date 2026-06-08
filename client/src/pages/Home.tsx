@@ -243,7 +243,7 @@ export default function Home() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  // Exit-Intent: Popup zeigen wenn Maus den oberen Bildschirmrand verlässt
+  // Exit-Intent: Desktop – Popup zeigen wenn Maus den oberen Bildschirmrand verlässt
   useEffect(() => {
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 5 && !exitPopupShown.current) {
@@ -253,6 +253,19 @@ export default function Home() {
     };
     document.addEventListener("mouseleave", handleMouseLeave);
     return () => document.removeEventListener("mouseleave", handleMouseLeave);
+  }, []);
+
+  // Exit-Intent: Mobile – Popup zeigen wenn App in den Hintergrund wechselt (Tab-Wechsel / Home-Button)
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "hidden" && !exitPopupShown.current) {
+        exitPopupShown.current = true;
+        // Kurze Verzögerung damit das Popup beim Rückkehren sichtbar ist
+        setTimeout(() => setExitPopupVisible(true), 300);
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, []);
 
   // Pinterest: ViewContent feuern wenn Kaufsektion sichtbar wird
