@@ -142,14 +142,18 @@
 - [x] Vitest-Tests für Review-Router (11 Tests, alle grün)
 
 ## PDF-Überarbeitung Landingpage (Hormozi / Caples / Sugarman)
-- [ ] Hero: neue Headline mit Dream Outcome + Zeitrahmen
-- [ ] Hero: neue Subheadline und CTA-Texte
-- [ ] Darleen-Story: Text nach PDF-Vorlage anpassen
-- [ ] 3 Versprechen: Texte nach PDF-Vorlage aktualisieren
-- [ ] Testimonials: Reihenfolge ändern (stärkstes zuerst), Fade-in entfernen
-- [ ] Offer Stack: neue Sektion mit Einzelwerten vor dem Preis einbauen
-- [ ] Preis-Sektion: Dringlichkeit / Einführungspreis-Hinweis ergänzen
-- [ ] Garantie: als eigenständiges visuelles Element hervorheben
-- [ ] FAQ: Texte nach PDF-Vorlage aktualisieren
-- [ ] Footer-CTA: Text nach PDF-Vorlage anpassen
-- [ ] Cookie-Banner: nach unten verschieben (nicht als Overlay)
+- [x] Hero: neue Headline mit Dream Outcome + Zeitrahmen
+- [x] Hero: neue Subheadline und CTA-Texte
+- [x] Darleen-Story: Text nach PDF-Vorlage anpassen
+- [x] 3 Versprechen: Texte nach PDF-Vorlage aktualisieren
+- [x] Testimonials: Headline angepasst
+- [x] Offer Stack: neue Sektion mit Einzelwerten vor dem Preis einbauen (Gesamtwert 277€)
+- [x] Preis-Sektion: Dringlichkeit / Einführungspreis-Hinweis ergänzen
+- [x] Garantie: als eigenständiges visuelles Element hervorheben (Text verbessert)
+- [x] FAQ: Texte nach PDF-Vorlage aktualisieren
+- [x] Footer-CTA: Text nach PDF-Vorlage anpassen
+- [x] Cookie-Banner: ist bereits unten positioniert (position: fixed, bottom: 0)
+
+## PDF-Überarbeitung Nacharbeiten
+- [x] Testimonials: Reihenfolge nach stärkstem Social Proof neu ordnen und Fade-in-Animation entfernen
+- [x] Garantie: als eigenständiges, visuell hervorgehobenes Element außerhalb der Kaufkarte umgesetzt

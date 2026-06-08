@@ -589,9 +589,27 @@ export default function Home() {
             {[
               {
                 stars: 5,
+                title: "„Seitdem fallen ihr die Entscheidungen leichter.“",
+                text: "Mein mittleres Kind habe ich durch zu viele offene Fragen überfordert. Nun grenze ich die Auswahl auf zwei oder drei Möglichkeiten ein. Das hat sich sofort verändert.",
+                author: "Julia W., Mama von drei Kindern",
+              },
+              {
+                stars: 5,
                 title: "„Mama ist nicht nur die, die alles organisiert und schimpft.“",
                 text: "Ich habe mir in den letzten Tagen bewusst mehr Zeit für Spaß, Pausen und Nähe genommen – und habe das Gefühl, dass es schon hilft. Das war mein persönlicher Wendepunkt.",
                 author: "Laura B., Mama eines 2-Jährigen",
+              },
+              {
+                stars: 5,
+                title: '"Die praktischen Beispiele konnte ich direkt anwenden!"',
+                text: "Ich fand alles gut verständlich. Die Beispiele helfen enorm – man weiß sofort, was gemeint ist, und kann es direkt anwenden.",
+                author: "Nina K., Mama eines 3-Jährigen",
+              },
+              {
+                stars: 5,
+                title: "„Ich würde den Kurs auch Oma und Opa empfehlen!“",
+                text: "Ich würde den Kurs auch Oma und Opas als Basiskurs empfehlen. Gerade da haben wir Schwierigkeiten und weniger Akzeptanz für unsere Ansätze Kinder zu erziehen. Gerade das Warum und die kausalen Zusammenhänge fanden wir in dem Kurs toll.",
+                author: "Sandra M., Mama eines 2-Jährigen",
               },
               {
                 stars: 5,
@@ -601,85 +619,64 @@ export default function Home() {
               },
               {
                 stars: 5,
-                title: "„Seitdem fallen ihr die Entscheidungen leichter.“",
-                text: "Mein mittleres Kind habe ich durch zu viele offene Fragen überfordert. Nun grenze ich die Auswahl auf zwei oder drei Möglichkeiten ein. Das hat sich sofort verändert.",
-                author: "Julia W., Mama von drei Kindern",
+                title: "„Etwas mehr innere Ruhe.“",
+                text: "Einige Tipps kannte ich schon – aber durch Darlees Erzählung haben sie mir neu gezeigt, wie man sie wirklich einsetzt. Zwei-drei Ansätze habe ich direkt neu umgesetzt. Für meine Große (6) waren sie besonders wertvoll.",
+                author: "Anne K., Mama einer 6-Jährigen",
               },
               {
                 stars: 5,
-                title: '„Die praktischen Beispiele aus dem Kurs konnte ich direkt anwenden!“',
-                text: "Ich fand alles gut verständlich. Die Beispiele helfen enorm – man weiß sofort, was gemeint ist, und kann es direkt anwenden.",
-                author: "Nina K., Mama eines 3-Jährigen",
-              },
-              {
-                stars: 5,
-                title: "„Man hört dir sehr gern zu – es fällt einem leicht zu folgen.“",
+                title: "„Der Kurs hat mich neu motiviert.“",
                 text: "Der Kurs war echt angenehm und hat mich nochmal neu motiviert. Neue Perspektiven, die ich vorher nicht gesehen hatte. Die Videolänge und Anzahl sind super – gut in den Alltag integrierbar!",
                 author: "Melanie S., Mama von zwei Kindern",
               },
               {
                 stars: 5,
-                title: '„Ich würde den Kurs auch Oma und Opa empfehlen!"',
-                text: "Ich würde den Kurs auch Oma und Opas als Basiskurs empfehlen. Gerade da haben wir Schwierigkeiten und weniger Akzeptanz für unsere Ansätze Kinder zu erziehen. Gerade das Warum und die kausalen Zusammenhänge fanden wir in dem Kurs toll.",
-                author: "Sandra M., Mama eines 2-Jährigen",
-              },
-              {
-                stars: 5,
-                title: '„Man hört dir sehr gern zu!"',
-                text: "Man hört dir sehr gern zu und es fällt einem leicht dir zu folgen, war echt angenehm und hat mich nochmal neu motiviert und mir wieder ein paar neue Perspektiven gegeben \u2013 vielen lieben Dank dafür!!",
-                author: "Sofia B., Mama eines 3-Jährigen",
-              },
-              {
-                stars: 5,
-                title: '„Tolle Erklärungen und wertvolle neue Blickwinkel!"',
-                text: "Hat sehr viel Spaß gemacht. Tolle Erklärungen, tolle Vermittlung von Basiswissen und ein guter Reminder für das, was wir schon tun \u2013 plus noch einige wertvolle neue Hinweise und Blickwinkel auf gerade aktuelle Themen bei uns. Danke dafür.",
+                title: "„Tolle Erklärungen und wertvolle neue Blickwinkel!“",
+                text: "Hat sehr viel Spaß gemacht. Tolle Erklärungen, tolle Vermittlung von Basiswissen und ein guter Reminder für das, was wir schon tun – plus noch einige wertvolle neue Hinweise und Blickwinkel auf gerade aktuelle Themen bei uns. Danke dafür.",
                 author: "Katharina R., Mama von zwei Kindern",
               },
               {
                 stars: 5,
-                title: "„Etwas mehr innere Ruhe.“",
-                text: "Einige Tipps kannte ich schon – aber durch Darlees Erzählung haben sie mir neu gezeigt, wie man sie wirklich einsetzt. Zwei-drei Ansätze habe ich direkt neu umgesetzt. Für meine Große (6) waren sie besonders wertvoll.",
-                author: "Anne K., Mama einer 6-Jährigen",
+                title: "„Man hört dir sehr gern zu!“",
+                text: "Man hört dir sehr gern zu und es fällt einem leicht dir zu folgen, war echt angenehm und hat mich nochmal neu motiviert und mir wieder ein paar neue Perspektiven gegeben – vielen lieben Dank dafür!!",
+                author: "Sofia B., Mama eines 3-Jährigen",
               },
-
-            ].map((r, i) => (
-              <FadeUp key={r.author} delay={i * 60}>
-                <div style={{
-                  background: "white",
-                  borderRadius: 18,
-                  padding: "1.4rem 1.5rem",
-                  boxShadow: "0 4px 18px rgba(0,0,0,0.06)",
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column" as const,
-                  gap: "0.6rem",
-                }}>
-                  <div style={{ color: "#f59e0b", fontSize: "0.9rem", letterSpacing: "0.05em" }}>
-                    {"\u2605".repeat(r.stars)}
-                  </div>
-                  <div style={{
-                    fontFamily: "'DM Serif Display', serif",
-                    fontSize: "1rem",
-                    color: "var(--foreground)",
-                    lineHeight: 1.4,
-                  }}>{r.title}</div>
-                  <p style={{
-                    fontSize: "0.88rem",
-                    color: "var(--muted-foreground)",
-                    lineHeight: 1.65,
-                    margin: 0,
-                    flex: 1,
-                  }}>{r.text}</p>
-                  <div style={{
-                    fontSize: "0.78rem",
-                    color: "var(--teal)",
-                    fontWeight: 700,
-                    marginTop: "auto",
-                    paddingTop: "0.5rem",
-                    borderTop: "1px solid var(--border)",
-                  }}>&#8212; {r.author}</div>
+            ].map((r) => (
+              <div key={r.author} style={{
+                background: "white",
+                borderRadius: 18,
+                padding: "1.4rem 1.5rem",
+                boxShadow: "0 4px 18px rgba(0,0,0,0.06)",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column" as const,
+                gap: "0.6rem",
+              }}>
+                <div style={{ color: "#f59e0b", fontSize: "0.9rem", letterSpacing: "0.05em" }}>
+                  {"\u2605".repeat(r.stars)}
                 </div>
-              </FadeUp>
+                <div style={{
+                  fontFamily: "'DM Serif Display', serif",
+                  fontSize: "1rem",
+                  color: "var(--foreground)",
+                  lineHeight: 1.4,
+                }}>{r.title}</div>
+                <p style={{
+                  fontSize: "0.88rem",
+                  color: "var(--muted-foreground)",
+                  lineHeight: 1.65,
+                  margin: 0,
+                  flex: 1,
+                }}>{r.text}</p>
+                <div style={{
+                  fontSize: "0.78rem",
+                  color: "var(--teal)",
+                  fontWeight: 700,
+                  marginTop: "auto",
+                  paddingTop: "0.5rem",
+                  borderTop: "1px solid var(--border)",
+                }}>&#8212; {r.author}</div>
+              </div>
             ))}
           </div>
 
@@ -1526,6 +1523,54 @@ export default function Home() {
 
 
               </div>
+          </FadeUp>
+
+          {/* ── GARANTIE als eigenständiges Element ── */}
+          <FadeUp delay={150}>
+            <div style={{
+              maxWidth: 560,
+              margin: "1.5rem auto 0",
+              background: "linear-gradient(135deg, rgba(74,163,148,0.08) 0%, rgba(74,163,148,0.03) 100%)",
+              border: "2px solid var(--teal)",
+              borderRadius: 20,
+              padding: "1.5rem 1.75rem",
+              display: "flex",
+              alignItems: "flex-start",
+              gap: "1.2rem",
+              boxShadow: "0 4px 24px rgba(74,163,148,0.12)",
+            }}>
+              <div style={{
+                flexShrink: 0,
+                width: 56,
+                height: 56,
+                borderRadius: "50%",
+                background: "var(--teal)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "1.6rem",
+              }}>🛡️</div>
+              <div>
+                <div style={{
+                  fontFamily: "'DM Serif Display', serif",
+                  fontSize: "1.15rem",
+                  color: "var(--teal)",
+                  fontWeight: 700,
+                  marginBottom: "0.5rem",
+                  lineHeight: 1.3,
+                }}>
+                  7-Tage-Geld-zurück-Garantie – ohne Wenn und Aber
+                </div>
+                <p style={{
+                  fontSize: "0.88rem",
+                  color: "var(--muted-foreground)",
+                  lineHeight: 1.7,
+                  margin: 0,
+                }}>
+                  Ich bin mir so sicher, dass dieser Kurs euren Alltag verändern wird, dass ich dir das komplette Risiko abnehme. Wenn du nach 7 Tagen das Gefühl hast, dass er dir nicht weiterhilft, schreib mir eine kurze E-Mail. Du bekommst dein Geld sofort und zu 100 % zurück. <strong style={{ color: "var(--foreground)" }}>Ohne Fragen. Ohne Wenn und Aber.</strong>
+                </p>
+              </div>
+            </div>
           </FadeUp>
         </div>
 
