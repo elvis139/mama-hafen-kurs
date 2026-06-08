@@ -196,6 +196,8 @@ export default function Home() {
   const [navScrolled, setNavScrolled] = useState(false);
   const [checkoutLoading, setCheckoutLoading] = useState(false);
   const [checkoutError, setCheckoutError] = useState("");
+  const [exitPopupVisible, setExitPopupVisible] = useState(false);
+  const exitPopupShown = useRef(false);
 
   // UTM-Parameter aus URL lesen (einmalig beim Laden)
   const utmParams = (() => {
@@ -239,6 +241,18 @@ export default function Home() {
     const fn = () => setNavScrolled(window.scrollY > 50);
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
+  }, []);
+
+  // Exit-Intent: Popup zeigen wenn Maus den oberen Bildschirmrand verlässt
+  useEffect(() => {
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 5 && !exitPopupShown.current) {
+        exitPopupShown.current = true;
+        setExitPopupVisible(true);
+      }
+    };
+    document.addEventListener("mouseleave", handleMouseLeave);
+    return () => document.removeEventListener("mouseleave", handleMouseLeave);
   }, []);
 
   // Pinterest: ViewContent feuern wenn Kaufsektion sichtbar wird
@@ -1740,6 +1754,143 @@ export default function Home() {
           </p>
         </div>
       </footer>
+
+      {/* ── EXIT-INTENT POPUP ── */}
+      {exitPopupVisible && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 9998,
+            background: "rgba(0,0,0,0.55)",
+            backdropFilter: "blur(4px)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "1.5rem",
+          }}
+          onClick={(e) => { if (e.target === e.currentTarget) setExitPopupVisible(false); }}
+        >
+          <div style={{
+            background: "var(--cream)",
+            borderRadius: 24,
+            padding: "2.5rem 2rem 2rem",
+            maxWidth: 440,
+            width: "100%",
+            position: "relative",
+            boxShadow: "0 24px 64px rgba(0,0,0,0.22)",
+            textAlign: "center",
+          }}>
+            {/* Schließen-Button */}
+            <button
+              onClick={() => setExitPopupVisible(false)}
+              style={{
+                position: "absolute",
+                top: "1rem",
+                right: "1rem",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                fontSize: "1.4rem",
+                color: "var(--muted-foreground)",
+                lineHeight: 1,
+                padding: "0.2rem 0.4rem",
+              }}
+              aria-label="Schließen"
+            >×</button>
+
+            {/* Anker-Emoji */}
+            <div style={{ fontSize: "2.8rem", marginBottom: "0.8rem" }}>⚓</div>
+
+            {/* Headline */}
+            <h2 style={{
+              fontFamily: "'DM Serif Display', serif",
+              fontSize: "1.5rem",
+              color: "var(--foreground)",
+              lineHeight: 1.25,
+              marginBottom: "0.75rem",
+            }}>
+              Noch nicht bereit?
+            </h2>
+
+            {/* Subtext */}
+            <p style={{
+              fontSize: "0.95rem",
+              color: "var(--muted-foreground)",
+              lineHeight: 1.7,
+              marginBottom: "1.75rem",
+            }}>
+              Kein Problem. Ich teile jede Woche kostenlose Tipps für die Autonomiephase auf Instagram und YouTube – damit du auch ohne den Kurs schon erste Hilfe bekommst.
+            </p>
+
+            {/* Buttons */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+              <a
+                href="https://www.instagram.com/mamaleen_official/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "0.6rem",
+                  background: "linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)",
+                  color: "white",
+                  borderRadius: 50,
+                  padding: "0.8rem 1.5rem",
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontWeight: 700,
+                  fontSize: "0.95rem",
+                  textDecoration: "none",
+                  boxShadow: "0 4px 16px rgba(220,39,67,0.3)",
+                }}
+              >
+                <Instagram size={20} />
+                Auf Instagram folgen
+              </a>
+              <a
+                href="https://www.youtube.com/@mamaleen_official"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "0.6rem",
+                  background: "#FF0000",
+                  color: "white",
+                  borderRadius: 50,
+                  padding: "0.8rem 1.5rem",
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontWeight: 700,
+                  fontSize: "0.95rem",
+                  textDecoration: "none",
+                  boxShadow: "0 4px 16px rgba(255,0,0,0.3)",
+                }}
+              >
+                <Youtube size={20} />
+                Auf YouTube folgen
+              </a>
+            </div>
+
+            {/* Abweisen-Link */}
+            <button
+              onClick={() => setExitPopupVisible(false)}
+              style={{
+                marginTop: "1.25rem",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                fontSize: "0.82rem",
+                color: "var(--muted-foreground)",
+                textDecoration: "underline",
+              }}
+            >
+              Nein danke, ich brauche keine Hilfe
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* ── RESPONSIVE STYLES ── */}
       <style>{`
