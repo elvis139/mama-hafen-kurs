@@ -139,4 +139,4 @@
 - [x] Bewertungsseite /bewertung im Mama-Hafen-Design
 - [x] Admin-Bereich /admin (Tab: Bewertungen) mit Freigabe-Funktion
 - [x] 14-Tage-Follow-up-E-Mail (Heartbeat-Scheduler, task_uid: 9KUvDf4aa8ccQZbcBPBDSy)
-- [ ] Vitest-Tests für Review-Router (ausstehend)
+- [x] Vitest-Tests für Review-Router (11 Tests, alle grün)
