@@ -333,7 +333,6 @@ export default function Home() {
               }}
             >
               Jetzt kaufen
-              <span style={{ display: "block", fontSize: "0.7rem", fontWeight: 400, opacity: 0.85, marginTop: "0.1rem" }}>99 € statt 277 €</span>
             </button>
           </div>
         </div>
@@ -397,8 +396,7 @@ export default function Home() {
                   className="btn-teal-outline"
                   style={{ fontSize: "0.85rem", padding: "0.6rem 1.3rem" }}
                 >
-                  Jetzt sichern – 99 €
-                  <span style={{ display: "block", fontSize: "0.72rem", fontWeight: 400, opacity: 0.85, textDecoration: "line-through", marginTop: "0.1rem" }}>statt 277 €</span>
+                  Jetzt für 99 € sichern (inkl. Boni) ⚓
                 </button>
               </div>
             </FadeUp>
@@ -905,8 +903,7 @@ export default function Home() {
               onClick={() => document.getElementById("kaufen")?.scrollIntoView({ behavior: "smooth" })}
               style={{ fontSize: "0.95rem", padding: "0.75rem 2rem" }}
             >
-              Jetzt Kurs kaufen
-              <span style={{ display: "block", fontSize: "0.75rem", fontWeight: 400, opacity: 0.85, marginTop: "0.1rem" }}>99 € statt 277 €</span>
+              Jetzt Kurs kaufen ⚓
             </button>
           </div>
         </FadeUp>
@@ -1166,8 +1163,7 @@ export default function Home() {
                 onClick={() => scrollTo("kaufen")}
                 style={{ fontSize: "0.88rem", padding: "0.65rem 1.5rem" }}
               >
-                Jetzt Kurs kaufen
-                <span style={{ display: "block", fontSize: "0.75rem", fontWeight: 400, opacity: 0.85, marginTop: "0.1rem" }}>99 € statt 277 €</span>
+                Jetzt Kurs kaufen ⚓
               </button>
             </div>
           </FadeUp>
@@ -1658,8 +1654,7 @@ export default function Home() {
               onClick={() => scrollTo("kaufen")}
               style={{ fontSize: "0.95rem", padding: "0.8rem 2rem" }}
             >
-              Jetzt Kurs kaufen
-              <span style={{ display: "block", fontSize: "0.75rem", fontWeight: 400, opacity: 0.85, marginTop: "0.1rem" }}>99 € statt 277 €</span>
+              Jetzt Kurs kaufen ⚓
             </button>
             <p style={{
               marginTop: "1rem",
