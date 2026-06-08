@@ -1635,6 +1635,91 @@ export default function Home() {
         <Wave fill="var(--teal)" bg="var(--sand)" />
       </section>
 
+      {/* ── SOCIAL FOLLOW ── */}
+      <section style={{ background: "var(--sand)", padding: "3rem 0" }}>
+        <div className="container" style={{ maxWidth: 560, textAlign: "center" }}>
+          <FadeUp>
+            <p style={{
+              fontSize: "0.8rem",
+              fontWeight: 700,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              color: "var(--teal)",
+              marginBottom: "0.6rem",
+            }}>Noch nicht sicher?</p>
+            <h2 style={{
+              fontFamily: "'DM Serif Display', serif",
+              fontSize: "clamp(1.4rem, 4vw, 1.9rem)",
+              color: "var(--foreground)",
+              lineHeight: 1.25,
+              marginBottom: "0.9rem",
+            }}>
+              Hol dir kostenlose Tipps – ganz ohne Kauf
+            </h2>
+            <p style={{
+              fontSize: "0.95rem",
+              color: "var(--muted-foreground)",
+              lineHeight: 1.7,
+              marginBottom: "1.75rem",
+            }}>
+              Ich teile jede Woche praktische Tipps für die Autonomiephase auf Instagram und YouTube. Schau einfach rein – kostenlos, unverbindlich, sofort hilfreich.
+            </p>
+            <div style={{ display: "flex", gap: "0.9rem", justifyContent: "center", flexWrap: "wrap" }}>
+              <a
+                href="https://www.instagram.com/mamaleen_official/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.55rem",
+                  background: "linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)",
+                  color: "white",
+                  borderRadius: 50,
+                  padding: "0.75rem 1.6rem",
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontWeight: 700,
+                  fontSize: "0.92rem",
+                  textDecoration: "none",
+                  boxShadow: "0 4px 16px rgba(220,39,67,0.25)",
+                  transition: "transform 0.15s, box-shadow 0.15s",
+                }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)"; (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 8px 24px rgba(220,39,67,0.35)"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.transform = "none"; (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 16px rgba(220,39,67,0.25)"; }}
+              >
+                <Instagram size={18} />
+                @mamaleen_official
+              </a>
+              <a
+                href="https://www.youtube.com/@mamaleen_official"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.55rem",
+                  background: "#FF0000",
+                  color: "white",
+                  borderRadius: 50,
+                  padding: "0.75rem 1.6rem",
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontWeight: 700,
+                  fontSize: "0.92rem",
+                  textDecoration: "none",
+                  boxShadow: "0 4px 16px rgba(255,0,0,0.22)",
+                  transition: "transform 0.15s, box-shadow 0.15s",
+                }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)"; (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 8px 24px rgba(255,0,0,0.35)"; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.transform = "none"; (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 16px rgba(255,0,0,0.22)"; }}
+              >
+                <Youtube size={18} />
+                mamaleen_official
+              </a>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
       {/* ── FOOTER CTA ── */}
       <section
         style={{
