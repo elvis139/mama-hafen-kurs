@@ -11,6 +11,15 @@ declare global {
 
 const PIXEL_IDS = ["1464149581564441"];
 
+/** Nur auf der Live-Domain feuern – keine Events auf Entwicklungs-URLs */
+function isProductionDomain(): boolean {
+  if (typeof window === "undefined") return false;
+  const hostname = window.location.hostname;
+  // Erlaubte Live-Domains
+  const LIVE_DOMAINS = ["mamahafen.manus.space", "mamahafen-dswbdqtv.manus.space"];
+  return LIVE_DOMAINS.some(d => hostname === d || hostname.endsWith("." + d));
+}
+
 function hasConsent(): boolean {
   try {
     return localStorage.getItem("mama_hafen_cookie_consent") === "accepted";
@@ -25,6 +34,7 @@ function generateEventId(): string {
 
 function fbq(event: string, eventName: string, params?: Record<string, unknown>) {
   if (!hasConsent()) return;
+  if (!isProductionDomain()) return; // Keine Events auf Entwicklungs-URLs
   if (typeof window !== "undefined" && typeof window.fbq === "function") {
     const eventID = generateEventId();
     PIXEL_IDS.forEach(() => {
