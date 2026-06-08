@@ -379,7 +379,7 @@ export default function Home() {
                 color: "var(--muted-foreground)",
                 marginBottom: "1.2rem",
               }}>
-                Ein erprobter 11-Schritte-Videokurs für den Alltag. Lerne, was wirklich im Kopf deines Kindes vorgeht, und meistere die Autonomiephase mit nur 5 Minuten Zeitaufwand pro Tag.
+                Ein erprobter 11-Schritte-Videokurs für den Alltag. Lerne, was wirklich im Kopf deines Kindes vorgeht, und meistere die Autonomiephase mit nur 15 Minuten Zeitaufwand pro Tag.
               </p>
             </FadeUp>
             <FadeUp delay={180}>
@@ -461,13 +461,13 @@ export default function Home() {
                     fontSize: "1rem", lineHeight: 1.8,
                     color: "var(--muted-foreground)", marginBottom: "1.8rem",
                   }}>
-                    Ein erprobter 11-Schritte-Videokurs für den Alltag. Lerne, was wirklich im Kopf deines Kindes vorgeht, und meistere die Autonomiephase mit nur 5 Minuten Zeitaufwand pro Tag.
+                    Ein erprobter 11-Schritte-Videokurs für den Alltag. Lerne, was wirklich im Kopf deines Kindes vorgeht, und meistere die Autonomiephase mit nur 15 Minuten Zeitaufwand pro Tag.
                   </p>
                 </FadeUp>
                 <FadeUp delay={240}>
-                  <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap" }}>
-                    <button className="btn-teal-outline" onClick={() => scrollTo("kurs")}>🎁 Zeig mir, wie es geht ↓</button>
-                    <button className="btn-coral" onClick={() => scrollTo("kaufen")}>Jetzt für 99 € sichern (inkl. Boni) ⚓</button>
+                  <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap", alignItems: "center" }}>
+                    <button className="btn-teal-outline" onClick={() => scrollTo("kurs")} style={{ fontSize: "0.88rem", padding: "0.6rem 1.3rem" }}>Zeig mir, wie es geht ↓</button>
+                    <button className="btn-coral" onClick={() => scrollTo("kaufen")} style={{ fontSize: "1rem", padding: "0.75rem 1.8rem", fontWeight: 900, boxShadow: "0 6px 24px rgba(231,76,60,0.35)", transform: "scale(1.04)" }}>Jetzt für 99 € sichern (inkl. Boni)</button>
                   </div>
                 </FadeUp>
               </div>
@@ -1349,18 +1349,7 @@ export default function Home() {
                   <div style={{ fontSize: "0.85rem", color: "var(--muted-foreground)", marginBottom: "0.5rem" }}>
                     Einmalzahlung · Dauerhafter Zugang · Sofort verfügbar
                   </div>
-                  <div style={{
-                    display: "inline-block",
-                    background: "rgba(231,76,60,0.1)",
-                    border: "1px solid rgba(231,76,60,0.3)",
-                    borderRadius: 8,
-                    padding: "0.4rem 0.9rem",
-                    fontSize: "0.8rem",
-                    color: "#c0392b",
-                    fontWeight: 700,
-                  }}>
-                    ⏳ Dieser Einführungspreis ist zeitlich begrenzt – danach kostet der Kurs 149 €.
-                  </div>
+
                 </div>
 
                 {/* Was ist enthalten */}
