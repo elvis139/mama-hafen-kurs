@@ -15,7 +15,7 @@ export function getConsentStatus(): ConsentStatus {
 export function loadTrackingScripts() {
   // Tracking nur auf Live-Domains laden
   const hostname = window.location.hostname;
-  const LIVE_DOMAINS = ["mamahafen.manus.space", "mamahafen-dswbdqtv.manus.space"];
+  const LIVE_DOMAINS = ["mamahafen.manus.space"];
   const isProduction = LIVE_DOMAINS.some(d => hostname === d || hostname.endsWith("." + d));
   if (!isProduction) {
     console.log("[Tracking] Deaktiviert auf Entwicklungs-URL:", hostname);

@@ -16,7 +16,7 @@ function isProductionDomain(): boolean {
   if (typeof window === "undefined") return false;
   const hostname = window.location.hostname;
   // Erlaubte Live-Domains
-  const LIVE_DOMAINS = ["mamahafen.manus.space", "mamahafen-dswbdqtv.manus.space"];
+  const LIVE_DOMAINS = ["mamahafen.manus.space"];
   return LIVE_DOMAINS.some(d => hostname === d || hostname.endsWith("." + d));
 }
 
