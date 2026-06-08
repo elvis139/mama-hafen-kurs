@@ -5,7 +5,7 @@ import { ENV } from "./_core/env";
 import { getDb } from "./db";
 import { notifyOwner } from "./_core/notification";
 import { sendWelcomeEmail } from "./email";
-import { courseAccess } from "../drizzle/schema";
+import { courseAccess, reviewFollowUps } from "../drizzle/schema";
 import { eq } from "drizzle-orm";
 
 let stripeInstance: Stripe | null = null;
@@ -133,6 +133,16 @@ async function handleWebhook(req: Request, res: Response) {
           });
         }
         console.log(`[Stripe] Kurszugang freigeschaltet für: ${normalizedEmail} (Quelle: ${utmSource || "direkt"})`);
+
+        // Review-Follow-up-Tracking: E-Mail für 14-Tage-Erinnerung speichern
+        try {
+          await db.insert(reviewFollowUps).values({
+            email: normalizedEmail,
+            purchasedAt: new Date(),
+          }).onDuplicateKeyUpdate({ set: { purchasedAt: new Date() } });
+        } catch (followUpErr) {
+          console.warn("[Stripe] Review-Follow-up-Tracking fehlgeschlagen:", followUpErr);
+        }
 
         // Willkommens-E-Mail an Käuferin senden
         const courseUrl = `${session.metadata?.origin || "https://mamahafen.manus.space"}/kurs`;

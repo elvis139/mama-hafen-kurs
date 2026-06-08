@@ -36,6 +36,20 @@
       "when": 1779739068018,
       "tag": "0004_cheerful_dreaming_celestial",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1780925244697,
+      "tag": "0005_lively_sunspot",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1780925811516,
+      "tag": "0006_long_falcon",
+      "breakpoints": true
     }
   ]
 }

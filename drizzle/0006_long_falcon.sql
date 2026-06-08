@@ -1,0 +1,1 @@
+ALTER TABLE `reviews` ADD `consentGiven` boolean DEFAULT false NOT NULL;

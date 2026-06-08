@@ -10,6 +10,7 @@ import KursLogin from "./pages/KursLogin";
 import KaufErfolg from "./pages/KaufErfolg";
 import KaufAbbruch from "./pages/KaufAbbruch";
 import Admin from "./pages/Admin";
+import Bewertung from "./pages/Bewertung";
 import CookieBanner from "./components/CookieBanner";
 
 function Router() {
@@ -22,6 +23,7 @@ function Router() {
       <Route path={"/kauf/erfolg"} component={KaufErfolg} />
       <Route path={"/kauf/abbruch"} component={KaufAbbruch} />
       <Route path={"/admin"} component={Admin} />
+      <Route path={"/bewertung"} component={Bewertung} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

@@ -7,6 +7,7 @@ import { registerOAuthRoutes } from "./oauth";
 import { registerStorageProxy } from "./storageProxy";
 import { registerStripeRoutes } from "../stripe";
 import { registerCheckoutMonitorRoute } from "../checkoutMonitor";
+import { registerReviewFollowUpRoute } from "../reviewFollowUp";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
@@ -41,6 +42,7 @@ async function startServer() {
   registerStorageProxy(app);
   registerOAuthRoutes(app);
   registerCheckoutMonitorRoute(app);
+  registerReviewFollowUpRoute(app);
   // tRPC API
   app.use(
     "/api/trpc",

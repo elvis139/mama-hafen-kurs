@@ -792,10 +792,211 @@ function CheckoutMonitorView({ sessionToken }: { sessionToken: string }) {
   );
 }
 
+// ── Bewertungs-Verwaltung ────────────────────────────────────────────────────
+function ReviewsView({ sessionToken }: { sessionToken: string }) {
+  const utils = trpc.useUtils();
+  const [filter, setFilter] = useState<"all" | "pending" | "approved">("pending");
+
+  const { data, isLoading, error } = trpc.review.getAll.useQuery(
+    { sessionToken },
+    { enabled: !!sessionToken, retry: false }
+  );
+
+  const approveMutation = trpc.review.approve.useMutation({
+    onSuccess: () => utils.review.getAll.invalidate(),
+  });
+
+  const rejectMutation = trpc.review.reject.useMutation({
+    onSuccess: () => utils.review.getAll.invalidate(),
+  });
+
+  if (isLoading) {
+    return (
+      <div style={{ textAlign: "center", padding: "3rem", color: "var(--muted-foreground)" }}>
+        <div style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>⏳</div>
+        Bewertungen werden geladen…
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div style={{ textAlign: "center", padding: "3rem", color: "#ef4444" }}>
+        Fehler: {error.message}
+      </div>
+    );
+  }
+
+  const allReviews = data ?? [];
+  const pending = allReviews.filter(r => !r.approved);
+  const approved = allReviews.filter(r => r.approved);
+  const displayed = filter === "all" ? allReviews : filter === "pending" ? pending : approved;
+
+  const starLabel = (n: number) => "★".repeat(n) + "☆".repeat(5 - n);
+
+  return (
+    <div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.2rem", flexWrap: "wrap", gap: "0.75rem" }}>
+        <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "1.3rem", color: "var(--teal)", margin: 0 }}>
+          ⭐ Bewertungen
+        </h2>
+        <div style={{ display: "flex", gap: "0.5rem" }}>
+          {(["pending", "approved", "all"] as const).map(f => (
+            <button
+              key={f}
+              onClick={() => setFilter(f)}
+              style={{
+                background: filter === f ? "var(--teal)" : "white",
+                color: filter === f ? "white" : "var(--muted-foreground)",
+                border: "1.5px solid var(--border)",
+                borderRadius: 50,
+                padding: "0.3rem 0.9rem",
+                fontSize: "0.8rem",
+                fontWeight: 700,
+                cursor: "pointer",
+              }}
+            >
+              {f === "pending" ? `Ausstehend (${pending.length})` : f === "approved" ? `Freigegeben (${approved.length})` : `Alle (${allReviews.length})`}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {displayed.length === 0 ? (
+        <div style={{ background: "white", borderRadius: 16, padding: "3rem", textAlign: "center", boxShadow: "0 4px 18px rgba(0,0,0,0.06)" }}>
+          <div style={{ fontSize: "2rem", marginBottom: "0.75rem" }}>⭐</div>
+          <p style={{ color: "var(--muted-foreground)", fontSize: "0.95rem" }}>Keine Bewertungen in dieser Kategorie.</p>
+        </div>
+      ) : (
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+          {displayed.map((r) => (
+            <div
+              key={r.id}
+              style={{
+                background: "white",
+                borderRadius: 14,
+                boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
+                padding: "1.4rem",
+                borderLeft: `4px solid ${r.approved ? "var(--teal)" : "var(--coral)"}`,
+              }}
+            >
+              {/* Header */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "0.5rem", marginBottom: "0.8rem" }}>
+                <div>
+                  <span style={{ fontWeight: 700, fontSize: "0.9rem", color: "var(--foreground)" }}>
+                    {r.authorName || r.email}
+                  </span>
+                  {r.childAge && (
+                    <span style={{ marginLeft: "0.5rem", color: "var(--muted-foreground)", fontSize: "0.8rem" }}>
+                      · Kind: {r.childAge}
+                    </span>
+                  )}
+                  <div style={{ color: "#e07a5f", fontSize: "1rem", marginTop: "0.2rem" }}>
+                    {starLabel(r.stars)}
+                  </div>
+                </div>
+                <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+                  <span style={{ fontSize: "0.75rem", color: "var(--muted-foreground)" }}>
+                    {r.createdAt ? new Date(r.createdAt).toLocaleDateString("de-DE") : ""}
+                  </span>
+                  <span style={{
+                    background: r.approved ? "#d1fae5" : "#fef3c7",
+                    color: r.approved ? "#065f46" : "#92400e",
+                    fontWeight: 700,
+                    fontSize: "0.72rem",
+                    padding: "0.2rem 0.6rem",
+                    borderRadius: 50,
+                  }}>
+                    {r.approved ? "Freigegeben" : "Ausstehend"}
+                  </span>
+                </div>
+              </div>
+
+              {/* Antworten */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem", marginBottom: "1rem" }}>
+                {r.beforeText && (
+                  <div>
+                    <div style={{ fontSize: "0.72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--muted-foreground)", marginBottom: "0.2rem" }}>Vorher</div>
+                    <p style={{ margin: 0, fontSize: "0.88rem", lineHeight: 1.6, color: "var(--foreground)" }}>{r.beforeText}</p>
+                  </div>
+                )}
+                {r.afterText && (
+                  <div>
+                    <div style={{ fontSize: "0.72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--muted-foreground)", marginBottom: "0.2rem" }}>Nachher</div>
+                    <p style={{ margin: 0, fontSize: "0.88rem", lineHeight: 1.6, color: "var(--foreground)" }}>{r.afterText}</p>
+                  </div>
+                )}
+                {r.helpfulModule && (
+                  <div>
+                    <div style={{ fontSize: "0.72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--muted-foreground)", marginBottom: "0.2rem" }}>Hilfreichstes Modul</div>
+                    <p style={{ margin: 0, fontSize: "0.88rem", lineHeight: 1.6, color: "var(--foreground)" }}>{r.helpfulModule}</p>
+                  </div>
+                )}
+                {r.recommendation && (
+                  <div>
+                    <div style={{ fontSize: "0.72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--muted-foreground)", marginBottom: "0.2rem" }}>Weiterempfehlung</div>
+                    <p style={{ margin: 0, fontSize: "0.88rem", lineHeight: 1.6, color: "var(--foreground)" }}>{r.recommendation}</p>
+                  </div>
+                )}
+                {r.missingText && (
+                  <div style={{ background: "#fef9ec", borderRadius: 8, padding: "0.7rem 0.9rem" }}>
+                    <div style={{ fontSize: "0.72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", color: "#92400e", marginBottom: "0.2rem" }}>Nur für dich: Was hat gefehlt</div>
+                    <p style={{ margin: 0, fontSize: "0.88rem", lineHeight: 1.6, color: "#78350f" }}>{r.missingText}</p>
+                  </div>
+                )}
+              </div>
+
+              {/* Aktionen */}
+              <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+                {!r.approved && (
+                  <button
+                    onClick={() => approveMutation.mutate({ sessionToken, id: r.id })}
+                    disabled={approveMutation.isPending}
+                    style={{
+                      background: "var(--teal)",
+                      color: "white",
+                      border: "none",
+                      borderRadius: 50,
+                      padding: "0.4rem 1.1rem",
+                      fontSize: "0.82rem",
+                      fontWeight: 700,
+                      cursor: "pointer",
+                    }}
+                  >
+                    ✓ Freigeben
+                  </button>
+                )}
+                {r.approved && (
+                  <button
+                    onClick={() => rejectMutation.mutate({ sessionToken, id: r.id })}
+                    disabled={rejectMutation.isPending}
+                    style={{
+                      background: "#fee2e2",
+                      color: "#c53030",
+                      border: "none",
+                      borderRadius: 50,
+                      padding: "0.4rem 1.1rem",
+                      fontSize: "0.82rem",
+                      fontWeight: 700,
+                      cursor: "pointer",
+                    }}
+                  >
+                    Freigabe zurückziehen
+                  </button>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ── Haupt-Komponente ──────────────────────────────────────────────
 export default function Admin() {
   const [, navigate] = useLocation();
-  const [activeTab, setActiveTab] = useState<"dashboard" | "access" | "questions" | "checkoutMonitor">("dashboard");
+  const [activeTab, setActiveTab] = useState<"dashboard" | "access" | "questions" | "checkoutMonitor" | "reviews">("dashboard");
 
   const sessionToken = useMemo(() => {
     if (typeof window !== "undefined") {
@@ -935,6 +1136,7 @@ export default function Admin() {
             { id: "access", label: "🔑 Zugangsverwaltung" },
             { id: "questions", label: "❓ Community-Fragen" },
             { id: "checkoutMonitor", label: "🔧 Checkout-Monitor" },
+            { id: "reviews", label: "⭐ Bewertungen" },
           ] as const).map(tab => (
             <button
               key={tab.id}
@@ -1159,6 +1361,10 @@ export default function Admin() {
 
         {activeTab === "checkoutMonitor" && (
           <CheckoutMonitorView sessionToken={sessionToken} />
+        )}
+
+        {activeTab === "reviews" && (
+          <ReviewsView sessionToken={sessionToken} />
         )}
       </main>
     </div>

@@ -93,3 +93,45 @@ export const checkoutTestLogs = mysqlTable("checkout_test_logs", {
 
 export type CheckoutTestLog = typeof checkoutTestLogs.$inferSelect;
 export type InsertCheckoutTestLog = typeof checkoutTestLogs.$inferInsert;
+
+/**
+ * Bewertungen von Kursteilnehmerinnen.
+ * Öffentliche Felder erscheinen auf der Landingpage (nach Freigabe).
+ * Privates Feld (missingText) ist nur für Darleen sichtbar.
+ */
+export const reviews = mysqlTable("reviews", {
+  id: int("id").autoincrement().primaryKey(),
+  // Öffentliche Felder
+  stars: int("stars").notNull(), // 1-5
+  childAge: varchar("childAge", { length: 32 }), // z.B. "2 Jahre"
+  beforeText: text("beforeText"), // Situation vor dem Kurs
+  afterText: text("afterText"), // Was sich verändert hat
+  helpfulModule: text("helpfulModule"), // Welches Modul/Tipp hat geholfen
+  recommendation: text("recommendation"), // Würde sie weiterempfehlen
+  authorName: varchar("authorName", { length: 128 }), // Vorname + Nachname-Initial
+  // Privates Feld (nur Admin)
+  missingText: text("missingText"), // Was hat gefehlt
+  // Metadaten
+  email: varchar("email", { length: 320 }).notNull(), // E-Mail der Käuferin
+  approved: boolean("approved").default(false).notNull(), // Freigabe durch Admin
+  consentGiven: boolean("consentGiven").default(false).notNull(), // Einwilligung zur Veröffentlichung
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type Review = typeof reviews.$inferSelect;
+export type InsertReview = typeof reviews.$inferInsert;
+
+/**
+ * Tracking für 14-Tage-Follow-up-E-Mails.
+ * Jede Käuferin bekommt nach 14 Tagen eine Bewertungsanfrage.
+ */
+export const reviewFollowUps = mysqlTable("review_follow_ups", {
+  id: int("id").autoincrement().primaryKey(),
+  email: varchar("email", { length: 320 }).notNull().unique(),
+  purchasedAt: timestamp("purchasedAt").defaultNow().notNull(),
+  followUpSentAt: timestamp("followUpSentAt"), // null = noch nicht gesendet
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type ReviewFollowUp = typeof reviewFollowUps.$inferSelect;
+export type InsertReviewFollowUp = typeof reviewFollowUps.$inferInsert;
