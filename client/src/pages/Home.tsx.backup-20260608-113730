@@ -369,8 +369,8 @@ export default function Home() {
                 lineHeight: 1.15, color: "var(--foreground)",
                 marginBottom: "0.9rem",
               }}>
-                Wenn du abends denkst: „So wollte ich heute nicht wieder reagieren“ –{" "}
-                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>dann bist du hier genau richtig.</em>
+                Jeden Tag dasselbe: Diskussionen, Wutanfälle, Schuldgefühle –{" "}
+                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>und abends fragst du dich, ob das wirklich alles sein kann.</em>
               </h1>
             </FadeUp>
             <FadeUp delay={120}>
@@ -379,7 +379,7 @@ export default function Home() {
                 color: "var(--muted-foreground)",
                 marginBottom: "1.2rem",
               }}>
-                Ich zeige dir, was wirklich hinter Wutanfällen und Trotz steckt – damit du beim nächsten Mal ruhiger bleibst, klarer reagierst und dich abends nicht mehr so schlecht fühlst.
+                Nein, das muss nicht so sein. Ich zeige dir, wie du die Trotzphase wirklich verstehst und meisterst – und so endlich wieder Leichtigkeit in euren Alltag bringst.
               </p>
             </FadeUp>
             <FadeUp delay={180}>
@@ -452,8 +452,8 @@ export default function Home() {
                     fontSize: "clamp(2.2rem, 4vw, 3.3rem)",
                     lineHeight: 1.15, marginBottom: "1.2rem",
                   }}>
-                    Du nimmst dir abends vor, morgen ruhiger zu bleiben –{" "}
-                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>und am nächsten Tag passiert es wieder.</em>
+                    Du liebst dein Kind über alles –{" "}
+                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>aber Wutanfälle, Trotz und Machtkämpfe bringen dich täglich an deine Grenzen.</em>
                   </h1>
                 </FadeUp>
                 <FadeUp delay={160}>
@@ -461,7 +461,7 @@ export default function Home() {
                     fontSize: "1rem", lineHeight: 1.8,
                     color: "var(--muted-foreground)", marginBottom: "1.8rem",
                   }}>
-                    Ich zeige dir, was hinter dem Verhalten deines Kindes steckt – und wie du in schwierigen Momenten ruhiger bleibst, klarer reagierst und weniger Schuldgefühle mit in den Abend nimmst.
+                    Nein, das muss nicht so sein. Ich zeige dir, wie du die Autonomiephase wirklich verstehst und meisterst – und so endlich wieder Leichtigkeit in euren Alltag bringst.
                   </p>
                 </FadeUp>
                 <FadeUp delay={240}>
@@ -573,7 +573,7 @@ export default function Home() {
                 fontFamily: "'DM Serif Display', serif",
                 fontSize: "clamp(1.5rem, 4vw, 2rem)",
                 marginTop: "0.5rem", marginBottom: "0.5rem",
-              }}>Was Mamas sagen, die den Kurs schon gemacht haben.</h2>
+              }}>Was Mamas nach dem Kurs sagen.</h2>
               <p style={{ color: "var(--muted-foreground)", fontSize: "0.92rem", lineHeight: 1.7, maxWidth: 520, margin: "0 auto", fontStyle: "italic" }}>
                 Jede Nachricht, die ich bekomme, macht mich so glücklich. Zu wissen, dass ich anderen Mamas helfen kann – genau das ist der Grund, warum ich diesen Kurs gemacht habe.
               </p>
@@ -765,15 +765,15 @@ export default function Home() {
               </FadeUp>
 
               <FadeUp delay={60}>
-              <h2 style={{
-                fontFamily: "'DM Serif Display', serif",
-                fontSize: "clamp(1.5rem, 3.5vw, 2rem)",
-                lineHeight: 1.3,
-                color: "var(--foreground)",
-                marginBottom: "1rem",
-              }}>
-                Ich bin Darleen – und ich war genau da, wo du gerade bist.
-              </h2>
+                <h2 style={{
+                  fontFamily: "'DM Serif Display', serif",
+                  fontSize: "clamp(1.5rem, 3.5vw, 2rem)",
+                  lineHeight: 1.3,
+                  color: "var(--foreground)",
+                  marginBottom: "1rem",
+                }}>
+                  Hallo, ich bin Darleen – und ich kenne diese Momente.
+                </h2>
               </FadeUp>
 
               <FadeUp delay={100}>
@@ -821,7 +821,7 @@ export default function Home() {
                   fontSize: "clamp(1.4rem, 4vw, 2rem)",
                 }}
               >
-                Was sich für dich ändert
+                Was du nach dem Kurs anders machst
               </h2>
             </div>
           </FadeUp>
@@ -829,18 +829,18 @@ export default function Home() {
             {[
               {
                 icon: "🧘",
-                title: "Ruhig bleiben, auch wenn es gerade kippt",
-                text: "Beim nächsten Wutanfall – ob zuhause oder im Supermarkt – weißt du, was du tun kannst. Statt selbst hochzugehen oder hilflos danebenzustehen.",
+                title: "Ruhig bleiben – auch wenn es eskaliert",
+                text: "Beim nächsten Wutanfall im Supermarkt weißt du genau, was zu tun ist, anstatt selbst laut zu werden oder dich hilflos zu fühlen.",
               },
               {
                 icon: "🤝",
-                title: "Grenzen setzen, ohne jedes Mal zu kämpfen",
-                text: "Du sagst Nein – und meinst es auch so. Ohne Schreien, ohne schlechtes Gewissen, ohne die Diskussion, die sich danach noch ewig hinzieht.",
+                title: "Grenzen setzen – ohne Machtkampf",
+                text: "Du sagst Nein – und dein Kind akzeptiert es. Ohne Schreien, ohne schlechtes Gewissen, ohne stundenlange Diskussionen.",
               },
               {
                 icon: "💛",
-                title: "Weniger Schuldgefühle nach schwierigen Tagen",
-                text: "Wenn du verstehst, was hinter dem Verhalten deines Kindes steckt, hört das Gefühl auf, ständig falsch zu reagieren. Du kannst wieder einfach Mama sein.",
+                title: "Wieder Mama sein – nicht Krisenmanagerin",
+                text: "Wenn du verstehst, warum dein Kind so reagiert, hört die Erschöpfung auf. Du genießt wieder gemeinsame Momente – statt sie nur zu überstehen.",
               },
             ].map((p, i) => (
               <FadeUp key={p.title} delay={i * 80}>
@@ -899,7 +899,7 @@ export default function Home() {
               lineHeight: 1.75,
               marginBottom: "1.5rem",
             }}>
-              Du musst nicht jeden Tag nur hoffen, dass es morgen irgendwie besser wird.
+              Bereit, die Trotzphase endlich zu verstehen – und wieder die Mama zu sein, die du sein möchtest?
             </p>
             <button
               className="btn-coral"
@@ -1038,7 +1038,7 @@ export default function Home() {
                   marginTop: "0.4rem",
                 }}
               >
-                11 kurze Lektionen. Direkt umsetzbar.
+                11 Lektionen. Schritt für Schritt.
               </h2>
               <p
                 style={{
@@ -1049,7 +1049,8 @@ export default function Home() {
                   fontSize: "0.95rem",
                 }}
               >
-                Jedes Video ist 5–12 Minuten kurz – für echte Alltagssituationen, nicht für die perfekte Bilderbuchfamilie.
+                Jedes Video ist 5–12 Minuten kurz und sofort im Alltag
+                anwendbar.
               </p>
             </div>
           </FadeUp>
@@ -1227,8 +1228,8 @@ export default function Home() {
                 color: "var(--foreground)",
                 marginBottom: "1rem",
               }}>
-                Kein Abo. Kein Druck.{" "}
-                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>Einmal kaufen, dauerhaft nutzen – auch fürs zweite Kind.</em>
+                Ich hätte mir so einen Kurs gewünscht,{" "}
+                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>als ich mitten in der Trotzphase steckte.</em>
               </h2>
               <p style={{
                 color: "var(--muted-foreground)",
@@ -1237,7 +1238,7 @@ export default function Home() {
                 maxWidth: 520,
                 margin: "0 auto",
               }}>
-                Schau die Lektionen dann an, wenn es in deinen Alltag passt. Morgens, abends, in der Mittagspause – jede Lektion ist 5 bis 12 Minuten kurz.
+                Kurz, ehrlich und direkt mit echten Situationen aus dem Familienalltag. Hier nun als einmaliger Kauf mit dauerhaftem Zugang. Schau die Videos jederzeit und so oft du möchtest.
               </p>
             </div>
           </FadeUp>
@@ -1479,7 +1480,7 @@ export default function Home() {
                   fontSize: "clamp(1.5rem, 4vw, 2rem)",
                 }}
               >
-                Fragen, die ich wirklich oft bekomme.
+                Deine Fragen – meine ehrlichen Antworten.
               </h2>
             </div>
           </FadeUp>
@@ -1520,29 +1521,28 @@ export default function Home() {
               fontWeight: 700,
               marginBottom: "0.8rem",
             }}>Von Mama zu Mama</p>
-              <h2
-                style={{
-                  fontFamily: "'DM Serif Display', serif",
-                  color: "white",
-                  fontSize: "clamp(1.5rem, 4vw, 2.2rem)",
-                  marginBottom: "1.2rem",
-                  lineHeight: 1.3,
-                }}
-              >
-                Du musst nicht weiter jeden Tag nur hoffen, dass es morgen irgendwie besser läuft.
-              </h2>
-              <p style={{
-                color: "rgba(255,255,255,0.85)",
-                fontSize: "1rem",
-                lineHeight: 1.75,
-                marginBottom: "2rem",
-              }}>
-                Wenn du dir mehr Ruhe, mehr Sicherheit und mehr Leichtigkeit im Alltag mit deinem Kind wünschst – dann starte jetzt mit Mama-Hafen.
-                <br/><br/>
-                Nicht perfekt werden. Aber Schritt für Schritt sicherer.
-                <br/><br/>
-                <strong style={{ color: "white" }}>Für dich. Für dein Kind. Für einen Alltag, der sich wieder leichter anfühlt.</strong>
-              </p>
+            <h2
+              style={{
+                fontFamily: "'DM Serif Display', serif",
+                color: "white",
+                fontSize: "clamp(1.5rem, 4vw, 2.2rem)",
+                marginBottom: "1.2rem",
+                lineHeight: 1.3,
+              }}
+            >
+              Ich fühle mich endlich nicht mehr wie eine erschöpfte Managerin, die nur noch versucht, den Tag irgendwie zu überstehen.
+            </h2>
+            <p style={{
+              color: "rgba(255,255,255,0.85)",
+              fontSize: "1rem",
+              lineHeight: 1.75,
+              marginBottom: "2rem",
+            }}>
+              Stattdessen habe ich das Gefühl, wirklich für meine Kinder da zu sein – ohne mich selbst aufgeben zu müssen.
+              Ich kann das Mamasein und die Kindheit meiner Söhne endlich genießen.
+              <br/><br/>
+              <strong style={{ color: "white" }}>Das wünsche ich auch dir.</strong>
+            </p>
             <button
               className="btn-coral"
               onClick={() => scrollTo("kaufen")}
