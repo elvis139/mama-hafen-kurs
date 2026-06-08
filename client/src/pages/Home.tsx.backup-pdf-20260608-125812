@@ -167,27 +167,27 @@ const modules = [
 const faqs = [
   {
     q: "Für welches Alter ist der Kurs geeignet?",
-    a: "Der Kurs ist exakt für Mamas von Kindern zwischen 1,5 und 6 Jahren konzipiert. Genau für die Zeit, die viele von uns als die anstrengendste Phase überhaupt erleben.",
-  },
-  {
-    q: "Muss ich viel Zeit investieren? Mir fehlt oft die Kraft.",
-    a: "Nein – und das war mir extrem wichtig. Ich habe die Videos bewusst kurz gehalten: 5 bis 12 Minuten pro Lektion. Du kannst den Kurs in winzigen Häppchen absolvieren. Keine stundenlangen Monologe, sondern schnelle, umsetzbare Praxis-Tipps.",
-  },
-  {
-    q: "Wie lange habe ich Zugang?",
-    a: "Du kaufst den Kurs einmal und behältst ihn für immer. Auch dann noch, wenn dein zweites Kind in die Trotzphase kommt.",
-  },
-  {
-    q: "Ist der Ansatz zu 'weich'? Ich möchte meinem Kind trotzdem Grenzen setzen.",
-    a: "Das fragen mich viele – und ich verstehe die Sorge absolut. Aber bindungsorientiert bedeutet nicht grenzenlos! Ganz im Gegenteil: Du lernst hier, wie du klare und liebevolle Grenzen setzt. Nur eben ohne Schreien, ohne Strafen und ohne Machtkampf.",
-  },
-  {
-    q: "Funktioniert das wirklich bei meinem Kind? Jedes Kind ist doch anders.",
-    a: "Ich kann dir keine Garantie geben, dass sich euer Leben von heute auf morgen komplett dreht – das wäre unehrlich. Aber: Die Grundprinzipien der Autonomiephase und der Gehirnentwicklung gelten für alle Kinder in diesem Alter. Wenn du verstehst, was wirklich in deinem Kind vorgeht, verändert sich deine Reaktion. Und wenn du dich veränderst, verändert sich dein Kind.",
+    a: "Der Kurs ist für Mamas von Kindern zwischen 1,5 und 6 Jahren gemacht – also genau für die Zeit, die viele als die anstrengendste Phase überhaupt erleben. Ich habe selbst zwei Kinder durch diese Phase begleitet und weiß, wie unterschiedlich das sein kann.",
   },
   {
     q: "Wann erhalte ich Zugang nach dem Kauf?",
-    a: "Sofort! Nach erfolgreicher Zahlung erhältst du direkt Zugang zum Kursbereich – kein Warten, kein Download. Einfach einloggen und loslegen.",
+    a: "Sofort! Nach erfolgreicher Zahlung erhältst du direkt Zugang zum Kursbereich – kein Warten, kein Download. Einfach einloggen und loslegen. Ich weiß, wie wenig Zeit Mamas haben.",
+  },
+  {
+    q: "Wie lange habe ich Zugang?",
+    a: "Du hast dauerhaften Zugang. Schau die Videos jederzeit und so oft du möchtest – auch wenn dein zweites Kind in die Trotzphase kommt. Der Kurs gehört dir.",
+  },
+  {
+    q: "Muss ich viel Zeit investieren?",
+    a: "Nein – und das war mir wirklich wichtig. Ich habe die Videos bewusst kurz gehalten: 5 bis 12 Minuten pro Lektion. Du kannst den Kurs in kleinen Häppchen absolvieren – in der Mittagspause, abends auf der Couch, oder wenn die Kinder schlafen.",
+  },
+  {
+    q: "Ist der Ansatz zu 'weich'? Ich möchte meinem Kind trotzdem Grenzen setzen.",
+    a: "Das fragen mich wirklich viele – und ich verstehe es total. Bindungsorientiert bedeutet nicht grenzenlos. Ganz im Gegenteil: Du lernst, klare und liebevolle Grenzen zu setzen – ohne Schreien, ohne Strafen, ohne Machtkampf. Das ist kein Trick, das ist Entwicklungspsychologie.",
+  },
+  {
+    q: "Funktioniert das auch bei meinem Kind?",
+    a: "Ich kann dir keine Garantie geben, dass sich alles von heute auf morgen verändert – das wäre unehrlich. Aber die Grundprinzipien der Autonomiephase gelten für alle Kinder in diesem Alter. Und wenn du verstehst, was wirklich in deinem Kind vorgeht, verändert sich auch deine Reaktion darauf. Das habe ich selbst erlebt.",
   },
 ];
 
@@ -369,8 +369,8 @@ export default function Home() {
                 lineHeight: 1.15, color: "var(--foreground)",
                 marginBottom: "0.9rem",
               }}>
-                Wie du Wutanfälle in 7 Tagen deutlich reduzierst und endlich wieder entspannt Mama bist –{" "}
-                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>ohne Schreien, ohne Strafen und ohne stundenlange Diskussionen.</em>
+                Wenn du abends denkst: „So wollte ich heute nicht wieder reagieren“ –{" "}
+                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>dann bist du hier genau richtig.</em>
               </h1>
             </FadeUp>
             <FadeUp delay={120}>
@@ -379,7 +379,7 @@ export default function Home() {
                 color: "var(--muted-foreground)",
                 marginBottom: "1.2rem",
               }}>
-                Ein erprobter 11-Schritte-Videokurs für den Alltag. Lerne, was wirklich im Kopf deines Kindes vorgeht, und meistere die Autonomiephase mit nur 5 Minuten Zeitaufwand pro Tag.
+                Ich zeige dir, was wirklich hinter Wutanfällen und Trotz steckt – damit du beim nächsten Mal ruhiger bleibst, klarer reagierst und dich abends nicht mehr so schlecht fühlst.
               </p>
             </FadeUp>
             <FadeUp delay={180}>
@@ -389,14 +389,14 @@ export default function Home() {
                   className="btn-coral"
                   style={{ fontSize: "0.85rem", padding: "0.6rem 1.3rem" }}
                 >
-                  🎁 Zeig mir, wie es geht ↓
+                  Mehr erfahren ↓
                 </button>
                 <button
                   onClick={() => scrollTo("kaufen")}
                   className="btn-teal-outline"
                   style={{ fontSize: "0.85rem", padding: "0.6rem 1.3rem" }}
                 >
-                  Jetzt für 99 € sichern (inkl. Boni) ⚓
+                  Jetzt kaufen ⛳
                 </button>
               </div>
             </FadeUp>
@@ -452,8 +452,8 @@ export default function Home() {
                     fontSize: "clamp(2.2rem, 4vw, 3.3rem)",
                     lineHeight: 1.15, marginBottom: "1.2rem",
                   }}>
-                    Wie du Wutanfälle in 7 Tagen deutlich reduzierst und endlich wieder entspannt Mama bist –{" "}
-                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>ohne Schreien, ohne Strafen und ohne stundenlange Diskussionen.</em>
+                    Du nimmst dir abends vor, morgen ruhiger zu bleiben –{" "}
+                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>und am nächsten Tag passiert es wieder.</em>
                   </h1>
                 </FadeUp>
                 <FadeUp delay={160}>
@@ -461,13 +461,13 @@ export default function Home() {
                     fontSize: "1rem", lineHeight: 1.8,
                     color: "var(--muted-foreground)", marginBottom: "1.8rem",
                   }}>
-                    Ein erprobter 11-Schritte-Videokurs für den Alltag. Lerne, was wirklich im Kopf deines Kindes vorgeht, und meistere die Autonomiephase mit nur 5 Minuten Zeitaufwand pro Tag.
+                    Ich zeige dir, was hinter dem Verhalten deines Kindes steckt – und wie du in schwierigen Momenten ruhiger bleibst, klarer reagierst und weniger Schuldgefühle mit in den Abend nimmst.
                   </p>
                 </FadeUp>
                 <FadeUp delay={240}>
                   <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap" }}>
-                    <button className="btn-teal-outline" onClick={() => scrollTo("kurs")}>🎁 Zeig mir, wie es geht ↓</button>
-                    <button className="btn-coral" onClick={() => scrollTo("kaufen")}>Jetzt für 99 € sichern (inkl. Boni) ⚓</button>
+                    <button className="btn-teal-outline" onClick={() => scrollTo("kurs")}>Mehr erfahren ↓</button>
+                    <button className="btn-coral" onClick={() => scrollTo("kaufen")}>Jetzt kaufen ⚓</button>
                   </div>
                 </FadeUp>
               </div>
@@ -573,7 +573,7 @@ export default function Home() {
                 fontFamily: "'DM Serif Display', serif",
                 fontSize: "clamp(1.5rem, 4vw, 2rem)",
                 marginTop: "0.5rem", marginBottom: "0.5rem",
-              }}>Das sagen Mamas, die den Kurs bereits gemacht haben.</h2>
+              }}>Was Mamas sagen, die den Kurs schon gemacht haben.</h2>
               <p style={{ color: "var(--muted-foreground)", fontSize: "0.92rem", lineHeight: 1.7, maxWidth: 520, margin: "0 auto", fontStyle: "italic" }}>
                 Jede Nachricht, die ich bekomme, macht mich so glücklich. Zu wissen, dass ich anderen Mamas helfen kann – genau das ist der Grund, warum ich diesen Kurs gemacht habe.
               </p>
@@ -821,7 +821,7 @@ export default function Home() {
                   fontSize: "clamp(1.4rem, 4vw, 2rem)",
                 }}
               >
-                Was sich für dich nach dem Kurs verändern wird:
+                Was sich für dich ändert
               </h2>
             </div>
           </FadeUp>
@@ -829,18 +829,18 @@ export default function Home() {
             {[
               {
                 icon: "🧘",
-                title: "Ruhig bleiben – auch wenn es im Supermarkt eskaliert",
-                text: "Beim nächsten Wutanfall weißt du exakt, was zu tun ist. Du bleibst der sichere Hafen für dein Kind, anstatt selbst laut zu werden oder dich hilflos den Blicken anderer ausgesetzt zu fühlen.",
+                title: "Ruhig bleiben, auch wenn es gerade kippt",
+                text: "Beim nächsten Wutanfall – ob zuhause oder im Supermarkt – weißt du, was du tun kannst. Statt selbst hochzugehen oder hilflos danebenzustehen.",
               },
               {
                 icon: "🤝",
-                title: "Klare Grenzen setzen – ganz ohne Machtkampf",
-                text: "Du sagst Nein – und dein Kind akzeptiert es. Ohne Schreien, ohne schlechtes Gewissen und ohne stundenlange Verhandlungen, die euch beide nur Energie kosten.",
+                title: "Grenzen setzen, ohne jedes Mal zu kämpfen",
+                text: "Du sagst Nein – und meinst es auch so. Ohne Schreien, ohne schlechtes Gewissen, ohne die Diskussion, die sich danach noch ewig hinzieht.",
               },
               {
-                icon: "❤️",
-                title: "Wieder Mama sein – nicht Krisenmanagerin",
-                text: "Wenn du verstehst, warum dein Kind so reagiert, verschwindet die ständige Erschöpfung. Du überstehst die gemeinsamen Momente nicht mehr nur, du fängst an, sie wieder aus vollem Herzen zu genießen.",
+                icon: "💛",
+                title: "Weniger Schuldgefühle nach schwierigen Tagen",
+                text: "Wenn du verstehst, was hinter dem Verhalten deines Kindes steckt, hört das Gefühl auf, ständig falsch zu reagieren. Du kannst wieder einfach Mama sein.",
               },
             ].map((p, i) => (
               <FadeUp key={p.title} delay={i * 80}>
@@ -1242,66 +1242,6 @@ export default function Home() {
             </div>
           </FadeUp>
 
-          {/* ── OFFER STACK ── */}
-          <FadeUp delay={60}>
-            <div style={{
-              background: "white",
-              borderRadius: 20,
-              border: "2px solid var(--teal)",
-              maxWidth: 560,
-              margin: "0 auto 2rem",
-              overflow: "hidden",
-              boxShadow: "0 8px 32px rgba(74,163,148,0.12)",
-            }}>
-              <div style={{
-                background: "var(--teal)",
-                padding: "1rem 1.5rem",
-                textAlign: "center",
-              }}>
-                <div style={{ fontFamily: "'DM Serif Display', serif", fontSize: "1.15rem", color: "white", fontWeight: 700 }}>
-                  Das bekommst du im Mama-Hafen Kurs
-                </div>
-                <div style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.85)", marginTop: "0.3rem" }}>
-                  Ich wollte keinen Kurs machen, der dich Stunden kostet. Deshalb: kurze, prägnante Lektionen, die du bequem beim Stillen, in der Bahn oder abends auf dem Sofa schauen kannst.
-                </div>
-              </div>
-              <div style={{ padding: "0.5rem 0" }}>
-                {[
-                  { label: "Kern-Training: Die 11 Video-Module zur Autonomiephase", sub: "Von \"Erste Hilfe bei Wutanfällen\" bis zu \"Grenzen setzen ohne Machtkampf\". Praxisnah und direkt anwendbar.", value: "149 €" },
-                  { label: "Bonus 1: Das \"Zen-Mama\" Praxis-Workbook", sub: "Reflexionsfragen und konkrete Handlungs-Impulse zu jeder Lektion, damit du das Gelernte sofort integrieren kannst.", value: "29 €" },
-                  { label: "Bonus 2: Exklusive Community-Praxisvideos", sub: "Zusätzlich zu den Kernmodulen bespreche ich regelmäßig echte Erziehungsfragen aus der Community. Der Kurs wächst mit dir mit.", value: "99 €" },
-                  { label: "Bonus 3: Dauerhafter Zugang (Lifetime Access)", sub: "Du kaufst den Kurs einmal und behältst ihn für immer. Auch dann noch, wenn dein zweites Kind in die Trotzphase kommt.", value: "unbezahlbar" },
-                ].map((item, i) => (
-                  <div key={i} style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    justifyContent: "space-between",
-                    gap: "1rem",
-                    padding: "0.9rem 1.5rem",
-                    borderBottom: i < 3 ? "1px solid var(--border)" : "none",
-                  }}>
-                    <div style={{ flex: 1 }}>
-                      <div style={{ fontWeight: 700, fontSize: "0.88rem", color: "var(--foreground)", marginBottom: "0.2rem" }}>{item.label}</div>
-                      <div style={{ fontSize: "0.78rem", color: "var(--muted-foreground)", lineHeight: 1.5 }}>{item.sub}</div>
-                    </div>
-                    <div style={{ flexShrink: 0, fontWeight: 800, fontSize: "0.88rem", color: "var(--teal)", whiteSpace: "nowrap" }}>{item.value}</div>
-                  </div>
-                ))}
-                <div style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  padding: "0.9rem 1.5rem",
-                  background: "rgba(74,163,148,0.07)",
-                  borderTop: "2px solid var(--teal)",
-                }}>
-                  <div style={{ fontWeight: 800, fontSize: "0.95rem", color: "var(--foreground)" }}>Gesamtwert des Pakets</div>
-                  <div style={{ fontWeight: 900, fontSize: "1.1rem", color: "var(--teal)" }}>277 €</div>
-                </div>
-              </div>
-            </div>
-          </FadeUp>
-
           {/* Kauf-Karte */}
           <FadeUp delay={100}>
               <div className="waitlist-card" style={{
@@ -1347,22 +1287,10 @@ export default function Home() {
                       color: "var(--muted-foreground)",
                       textDecoration: "line-through",
                       opacity: 0.7,
-                    }}>277 €</span>
+                    }}>149 €</span>
                   </div>
-                  <div style={{ fontSize: "0.85rem", color: "var(--muted-foreground)", marginBottom: "0.5rem" }}>
+                  <div style={{ fontSize: "0.85rem", color: "var(--muted-foreground)" }}>
                     Einmalzahlung · Dauerhafter Zugang · Sofort verfügbar
-                  </div>
-                  <div style={{
-                    display: "inline-block",
-                    background: "rgba(231,76,60,0.1)",
-                    border: "1px solid rgba(231,76,60,0.3)",
-                    borderRadius: 8,
-                    padding: "0.4rem 0.9rem",
-                    fontSize: "0.8rem",
-                    color: "#c0392b",
-                    fontWeight: 700,
-                  }}>
-                    ⏳ Dieser Einführungspreis ist zeitlich begrenzt – danach kostet der Kurs 149 €.
                   </div>
                 </div>
 
@@ -1514,10 +1442,10 @@ export default function Home() {
                       <span style={{ fontSize: "2rem", flexShrink: 0 }}>🛡️</span>
                       <div style={{ textAlign: "left" }}>
                         <div style={{ fontWeight: 700, fontSize: "0.88rem", color: "var(--teal)", marginBottom: "0.2rem" }}>
-                          7-Tage-Geld-zurück-Garantie – ohne Wenn und Aber
+                          7-Tage-Geld-zurück-Garantie
                         </div>
                         <div style={{ fontSize: "0.78rem", color: "var(--muted-foreground)", lineHeight: 1.5 }}>
-                          Ich bin mir so sicher, dass dieser Kurs euren Alltag verändern wird, dass ich dir das komplette Risiko abnehme. Wenn du nach 7 Tagen das Gefühl hast, dass er dir nicht weiterhilft, schreib mir eine kurze E-Mail. Du bekommst dein Geld sofort und zu 100 % zurück. Ohne Fragen. Ohne Wenn und Aber.
+                          Nicht überzeugt? Schreib uns einfach eine Mail – wir erstatten dir umgehend den vollen Betrag.
                         </div>
                       </div>
                     </div>

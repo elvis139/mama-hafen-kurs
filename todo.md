@@ -140,3 +140,16 @@
 - [x] Admin-Bereich /admin (Tab: Bewertungen) mit Freigabe-Funktion
 - [x] 14-Tage-Follow-up-E-Mail (Heartbeat-Scheduler, task_uid: 9KUvDf4aa8ccQZbcBPBDSy)
 - [x] Vitest-Tests für Review-Router (11 Tests, alle grün)
+
+## PDF-Überarbeitung Landingpage (Hormozi / Caples / Sugarman)
+- [ ] Hero: neue Headline mit Dream Outcome + Zeitrahmen
+- [ ] Hero: neue Subheadline und CTA-Texte
+- [ ] Darleen-Story: Text nach PDF-Vorlage anpassen
+- [ ] 3 Versprechen: Texte nach PDF-Vorlage aktualisieren
+- [ ] Testimonials: Reihenfolge ändern (stärkstes zuerst), Fade-in entfernen
+- [ ] Offer Stack: neue Sektion mit Einzelwerten vor dem Preis einbauen
+- [ ] Preis-Sektion: Dringlichkeit / Einführungspreis-Hinweis ergänzen
+- [ ] Garantie: als eigenständiges visuelles Element hervorheben
+- [ ] FAQ: Texte nach PDF-Vorlage aktualisieren
+- [ ] Footer-CTA: Text nach PDF-Vorlage anpassen
+- [ ] Cookie-Banner: nach unten verschieben (nicht als Overlay)
