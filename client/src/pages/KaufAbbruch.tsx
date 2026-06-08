@@ -268,7 +268,14 @@ export default function KaufAbbruch() {
             lineHeight: 1.6,
           }}
         >
-          Probleme? Schreib uns – wir helfen dir gerne weiter.
+          Probleme? Schreib uns an{" "}
+          <a
+            href="mailto:info@darvismedia.de"
+            style={{ color: "var(--teal)", fontWeight: 600 }}
+          >
+            info@darvismedia.de
+          </a>
+          {" "}– wir antworten so schnell wie möglich.
         </p>
       </div>
 
