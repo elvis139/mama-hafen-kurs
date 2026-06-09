@@ -19,13 +19,10 @@ declare global {
  */
 function ensureGtagLoaded(): Promise<void> {
   return new Promise((resolve) => {
-    // Bereits geladen
     if (typeof window.gtag === "function") {
       resolve();
       return;
     }
-
-    // dataLayer + gtag-Funktion initialisieren
     window.dataLayer = window.dataLayer || [];
     window.gtag = function (...args: unknown[]) {
       window.dataLayer!.push(args);
@@ -33,14 +30,64 @@ function ensureGtagLoaded(): Promise<void> {
     window.gtag("js", new Date());
     window.gtag("config", "AW-417491334");
     window.gtag("config", "G-CF7P1QL6EZ");
-
-    // gtag.js Skript laden
     const script = document.createElement("script");
     script.async = true;
     script.src = "https://www.googletagmanager.com/gtag/js?id=AW-417491334";
     script.onload = () => resolve();
-    script.onerror = () => resolve(); // auch bei Fehler weitermachen
+    script.onerror = () => resolve();
     document.head.appendChild(script);
+  });
+}
+
+/**
+ * Lädt das Meta Pixel direkt – ohne auf den Cookie-Banner zu warten.
+ */
+function ensureMetaPixelLoaded(): Promise<void> {
+  return new Promise((resolve) => {
+    if (typeof (window as any).fbq === "function") {
+      resolve();
+      return;
+    }
+    const script = document.createElement("script");
+    script.innerHTML = `
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('set', 'autoConfig', false, '1464149581564441');
+      fbq('init', '1464149581564441');
+    `;
+    document.head.appendChild(script);
+    // Kurz warten damit fbq verfügbar ist
+    setTimeout(() => resolve(), 300);
+  });
+}
+
+/**
+ * Lädt den Pinterest Tag direkt – ohne auf den Cookie-Banner zu warten.
+ */
+function ensurePinterestLoaded(): Promise<void> {
+  return new Promise((resolve) => {
+    if (typeof (window as any).pintrk === "function") {
+      resolve();
+      return;
+    }
+    const script = document.createElement("script");
+    script.innerHTML = `
+      !function(e){if(!window.pintrk){window.pintrk = function () {
+      window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+      n=window.pintrk;n.queue=[],n.version="3.0";var
+      t=document.createElement("script");t.async=!0,t.src=e;var
+      r=document.getElementsByTagName("script")[0];
+      r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+      pintrk('load', '2614439815904');
+    `;
+    document.head.appendChild(script);
+    setTimeout(() => resolve(), 300);
   });
 }
 
@@ -70,38 +117,63 @@ export default function KaufErfolg() {
     // Dedupe: pro Session nur einmal senden
     sessionStorage.setItem(dedupeKey, "1");
 
-    // Google Ads Tag direkt laden (unabhängig vom Cookie-Banner)
-    // und danach Conversion-Events feuern
-    ensureGtagLoaded().then(() => {
+    const amount = verifyData.amount ?? 99;
+    const currency = verifyData.currency?.toUpperCase() ?? "EUR";
+
+    // Alle Tracking-Tags direkt laden und dann Events feuern
+    Promise.all([
+      ensureGtagLoaded(),
+      ensureMetaPixelLoaded(),
+      ensurePinterestLoaded(),
+    ]).then(() => {
+      // Google Analytics: Kauf-Conversion
       if (typeof window.gtag === "function") {
-        // Google Analytics: Kauf-Conversion
         window.gtag("event", "purchase", {
           transaction_id: sessionId,
-          value: verifyData.amount ?? 99,
-          currency: verifyData.currency?.toUpperCase() ?? "EUR",
+          value: amount,
+          currency,
           items: [{
             item_id: "mama-hafen-kurs",
             item_name: "Mama-Hafen Online-Kurs",
-            price: verifyData.amount ?? 99,
+            price: amount,
             quantity: 1,
           }],
         });
-
         // Google Ads: Kauf-Conversion
         window.gtag("event", "conversion", {
           send_to: "AW-417491334/CfI3CK7k_7ccEIbTiccB",
-          value: verifyData.amount ?? 99.0,
-          currency: verifyData.currency?.toUpperCase() ?? "EUR",
+          value: amount,
+          currency,
           transaction_id: sessionId,
         });
       }
+
+      // Meta Pixel: Purchase-Event
+      if (typeof (window as any).fbq === "function") {
+        (window as any).fbq("track", "Purchase", {
+          content_name: "Mama-Hafen Online-Kurs",
+          content_category: "Online-Kurs",
+          currency,
+          value: amount,
+          content_type: "product",
+          content_ids: ["mama-hafen-kurs"],
+          num_items: 1,
+        });
+      }
+
+      // Pinterest: Checkout/Purchase-Event
+      if (typeof (window as any).pintrk === "function") {
+        (window as any).pintrk("track", "Checkout", {
+          value: amount,
+          currency,
+          content_ids: ["mama-hafen-kurs"],
+          content_name: "Mama-Hafen Online-Kurs",
+          content_category: "Online-Kurs",
+          num_items: 1,
+          order_id: sessionId,
+        });
+      }
     });
-
-    // Meta Pixel: Purchase-Event (nur bei verifiziertem Kauf)
-    trackPurchase(verifyData.amount ?? 99);
-
-    // Pinterest: Checkout/Purchase-Event
-    pinterestPurchase(verifyData.amount ?? 99, sessionId);
   }, [verifyData, sessionId]);
 
   return (
