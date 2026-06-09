@@ -396,8 +396,8 @@ export default function Home() {
                 lineHeight: 1.15, color: "var(--foreground)",
                 marginBottom: "0.9rem",
               }}>
-                Wie du Wutanfälle in 7 Tagen deutlich reduzierst und endlich wieder entspannt Mama bist –{" "}
-                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>ohne Schreien, ohne Strafen und ohne stundenlange Diskussionen.</em>
+                Endlich ruhig durch die Trotzphase –{" "}
+                <em style={{ color: "var(--teal)", fontStyle: "italic" }}>ohne Schreien, ohne Strafen.</em>
               </h1>
             </FadeUp>
             <FadeUp delay={120}>
@@ -479,8 +479,8 @@ export default function Home() {
                     fontSize: "clamp(2.2rem, 4vw, 3.3rem)",
                     lineHeight: 1.15, marginBottom: "1.2rem",
                   }}>
-                    Wie du Wutanfälle in 7 Tagen deutlich reduzierst und endlich wieder entspannt Mama bist –{" "}
-                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>ohne Schreien, ohne Strafen und ohne stundenlange Diskussionen.</em>
+                    Endlich ruhig durch die Trotzphase –{" "}
+                    <em style={{ color: "var(--teal)", fontStyle: "italic" }}>ohne Schreien, ohne Strafen.</em>
                   </h1>
                 </FadeUp>
                 <FadeUp delay={160}>
