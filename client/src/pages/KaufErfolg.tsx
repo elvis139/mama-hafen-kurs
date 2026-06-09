@@ -12,6 +12,38 @@ declare global {
   }
 }
 
+/**
+ * Lädt den Google Ads Tag direkt – ohne auf den Cookie-Banner zu warten.
+ * Auf der Erfolgsseite ist der Kauf bereits abgeschlossen, daher ist
+ * das Laden des Conversion-Tags gerechtfertigt.
+ */
+function ensureGtagLoaded(): Promise<void> {
+  return new Promise((resolve) => {
+    // Bereits geladen
+    if (typeof window.gtag === "function") {
+      resolve();
+      return;
+    }
+
+    // dataLayer + gtag-Funktion initialisieren
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function (...args: unknown[]) {
+      window.dataLayer!.push(args);
+    };
+    window.gtag("js", new Date());
+    window.gtag("config", "AW-417491334");
+    window.gtag("config", "G-CF7P1QL6EZ");
+
+    // gtag.js Skript laden
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=AW-417491334";
+    script.onload = () => resolve();
+    script.onerror = () => resolve(); // auch bei Fehler weitermachen
+    document.head.appendChild(script);
+  });
+}
+
 export default function KaufErfolg() {
   const [visible, setVisible] = useState(false);
   const [sessionId] = useState(() => new URLSearchParams(window.location.search).get("session_id") ?? "");
@@ -38,28 +70,32 @@ export default function KaufErfolg() {
     // Dedupe: pro Session nur einmal senden
     sessionStorage.setItem(dedupeKey, "1");
 
-    // Google Analytics: Kauf-Conversion
-    if (typeof window.gtag === "function") {
-      window.gtag("event", "purchase", {
-        transaction_id: sessionId,
-        value: verifyData.amount ?? 99,
-        currency: verifyData.currency?.toUpperCase() ?? "EUR",
-        items: [{
-          item_id: "mama-hafen-kurs",
-          item_name: "Mama-Hafen Online-Kurs",
-          price: verifyData.amount ?? 99,
-          quantity: 1,
-        }],
-      });
+    // Google Ads Tag direkt laden (unabhängig vom Cookie-Banner)
+    // und danach Conversion-Events feuern
+    ensureGtagLoaded().then(() => {
+      if (typeof window.gtag === "function") {
+        // Google Analytics: Kauf-Conversion
+        window.gtag("event", "purchase", {
+          transaction_id: sessionId,
+          value: verifyData.amount ?? 99,
+          currency: verifyData.currency?.toUpperCase() ?? "EUR",
+          items: [{
+            item_id: "mama-hafen-kurs",
+            item_name: "Mama-Hafen Online-Kurs",
+            price: verifyData.amount ?? 99,
+            quantity: 1,
+          }],
+        });
 
-      // Google Ads: Kauf-Conversion
-      window.gtag("event", "conversion", {
-        send_to: "AW-417491334/CfI3CK7k_7ccEIbTiccB",
-        value: verifyData.amount ?? 99.0,
-        currency: verifyData.currency?.toUpperCase() ?? "EUR",
-        transaction_id: sessionId,
-      });
-    }
+        // Google Ads: Kauf-Conversion
+        window.gtag("event", "conversion", {
+          send_to: "AW-417491334/CfI3CK7k_7ccEIbTiccB",
+          value: verifyData.amount ?? 99.0,
+          currency: verifyData.currency?.toUpperCase() ?? "EUR",
+          transaction_id: sessionId,
+        });
+      }
+    });
 
     // Meta Pixel: Purchase-Event (nur bei verifiziertem Kauf)
     trackPurchase(verifyData.amount ?? 99);
