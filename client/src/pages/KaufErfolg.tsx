@@ -54,7 +54,7 @@ export default function KaufErfolg() {
 
       // Google Ads: Kauf-Conversion
       window.gtag("event", "conversion", {
-        send_to: "AW-417491334/B4wLCPu-rLMcElbTiccB",
+        send_to: "AW-417491334/CfI3CK7k_7ccEIbTiccB",
         value: verifyData.amount ?? 99.0,
         currency: verifyData.currency?.toUpperCase() ?? "EUR",
         transaction_id: sessionId,
