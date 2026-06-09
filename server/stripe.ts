@@ -63,6 +63,53 @@ async function handleCreateCheckout(req: Request, res: Response) {
 }
 
 /**
+ * POST /api/stripe/create-embedded-checkout
+ * Body: { email: string, origin: string, utmSource?, utmMedium?, utmCampaign? }
+ * Returns: { clientSecret: string }
+ */
+async function handleCreateEmbeddedCheckout(req: Request, res: Response) {
+  try {
+    const { email, origin, utmSource, utmMedium, utmCampaign } = req.body as {
+      email?: string;
+      origin?: string;
+      utmSource?: string;
+      utmMedium?: string;
+      utmCampaign?: string;
+    };
+    const baseUrl = origin || req.headers.origin || "https://mamahafen.manus.space";
+
+    const stripe = getStripe();
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      mode: "payment",
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ui_mode: "embedded" as any,
+      line_items: [
+        {
+          price: ENV.stripePriceId,
+          quantity: 1,
+        },
+      ],
+      customer_email: email || undefined,
+      allow_promotion_codes: true,
+      metadata: {
+        customer_email: email || "",
+        origin: baseUrl,
+        utm_source: utmSource || "",
+        utm_medium: utmMedium || "",
+        utm_campaign: utmCampaign || "",
+      },
+      return_url: `${baseUrl}/kauf/erfolg?session_id={CHECKOUT_SESSION_ID}`,
+    });
+
+    res.json({ clientSecret: session.client_secret });
+  } catch (err) {
+    console.error("[Stripe] create-embedded-checkout error:", err);
+    res.status(500).json({ error: "Checkout konnte nicht erstellt werden." });
+  }
+}
+
+/**
  * POST /api/stripe/webhook
  * Stripe sends events here – must use raw body for signature verification
  */
@@ -177,4 +224,7 @@ export function registerStripeRoutes(app: Express) {
 
   // Checkout-Session erstellen – braucht eigenes express.json() da es vor dem globalen registriert wird
   app.post("/api/stripe/create-checkout", express.json(), handleCreateCheckout);
+
+  // Embedded Checkout Session erstellen
+  app.post("/api/stripe/create-embedded-checkout", express.json(), handleCreateEmbeddedCheckout);
 }

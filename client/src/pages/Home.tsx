@@ -6,6 +6,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Instagram, Youtube } from "lucide-react";
+import { StripeCheckoutModal } from "@/components/StripeCheckoutModal";
 
 // TikTok SVG Icon (nicht in lucide-react enthalten)
 const TikTokIcon = ({ size = 14, color = "currentColor" }: { size?: number; color?: string }) => (
@@ -196,6 +197,7 @@ export default function Home() {
   const [navScrolled, setNavScrolled] = useState(false);
   const [checkoutLoading, setCheckoutLoading] = useState(false);
   const [checkoutError, setCheckoutError] = useState("");
+  const [checkoutClientSecret, setCheckoutClientSecret] = useState<string | null>(null);
   const [exitPopupVisible, setExitPopupVisible] = useState(false);
   const exitPopupShown = useRef(false);
 
@@ -219,14 +221,14 @@ export default function Home() {
     pinterestLead();
     pinterestInitiateCheckout(99);
     try {
-      const res = await fetch("/api/stripe/create-checkout", {
+      const res = await fetch("/api/stripe/create-embedded-checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, origin: window.location.origin, ...utmParams }),
       });
-      const data = await res.json() as { url?: string; error?: string };
-      if (data.url) {
-        window.open(data.url, "_blank");
+      const data = await res.json() as { clientSecret?: string; error?: string };
+      if (data.clientSecret) {
+        setCheckoutClientSecret(data.clientSecret);
       } else {
         setCheckoutError(data.error || "Fehler beim Checkout. Bitte versuche es erneut.");
       }
@@ -2166,6 +2168,18 @@ export default function Home() {
           .faq-card { padding: 1.2rem 1.5rem !important; border-radius: 20px !important; }
         }
       `}</style>
+
+      {/* ── STRIPE EMBEDDED CHECKOUT MODAL ── */}
+      {checkoutClientSecret && (
+        <StripeCheckoutModal
+          clientSecret={checkoutClientSecret}
+          onClose={() => {
+            setCheckoutClientSecret(null);
+            // Nutzer hat Modal geschlossen ohne zu kaufen → Abbruchseite
+            window.location.href = "/kauf/abbruch";
+          }}
+        />
+      )}
     </div>
   );
 }

@@ -5,7 +5,7 @@ import { checkoutTestLogs } from "../drizzle/schema";
 import { desc, asc } from "drizzle-orm";
 
 const OWNER_EMAIL = "elvis@darvismedia.de";
-const CHECKOUT_URL = "https://mamahafen-dswbdqtv.manus.space/api/stripe/create-checkout";
+const CHECKOUT_URL = "https://mamahafen-dswbdqtv.manus.space/api/stripe/create-embedded-checkout";
 const MAX_LOGS = 10;
 
 /**
@@ -71,9 +71,9 @@ async function handleCheckoutMonitor(req: Request, res: Response) {
 
       clearTimeout(timeout);
       const responseTime = Date.now() - startTime;
-      const data = await response.json() as { url?: string; error?: string };
+      const data = await response.json() as { clientSecret?: string; error?: string };
 
-      if (response.ok && data.url && data.url.startsWith("https://checkout.stripe.com")) {
+      if (response.ok && data.clientSecret && data.clientSecret.length > 10) {
         checkoutOk = true;
         await saveLog("success", `Checkout OK – Antwortzeit: ${responseTime}ms`, undefined, responseTime);
       } else {

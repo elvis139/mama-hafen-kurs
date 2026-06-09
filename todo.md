@@ -165,3 +165,13 @@
 - [ ] /bewertungen – Alle freigegebenen Kundenstimmen
 - [ ] /tipps – Kostenlose Tipps mit Instagram/YouTube-Verweis
 - [ ] Routen in App.tsx registrieren
+
+## Stripe Embedded Checkout (In-Page Modal)
+- [x] Backend: POST /api/stripe/create-embedded-checkout (ui_mode: embedded, gibt clientSecret zurück)
+- [x] Frontend: StripeCheckoutModal.tsx Komponente mit EmbeddedCheckoutProvider
+- [x] Home.tsx: handleKaufen ruft create-embedded-checkout auf, öffnet Modal mit clientSecret
+- [x] Modal: Schließen per X-Button, Backdrop-Klick oder Escape → /kauf/abbruch
+- [x] Erfolg: return_url → /kauf/erfolg?session_id={CHECKOUT_SESSION_ID}
+- [x] checkoutMonitor.ts: auf neue Embedded-Checkout-Route umgestellt
+- [x] TypeScript: 0 Fehler
+- [x] Checkpoint gespeichert
