@@ -83,7 +83,7 @@ async function handleCreateEmbeddedCheckout(req: Request, res: Response) {
       payment_method_types: ["card"],
       mode: "payment",
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ui_mode: "embedded" as any,
+      ui_mode: "embedded_page" as any,
       line_items: [
         {
           price: ENV.stripePriceId,
