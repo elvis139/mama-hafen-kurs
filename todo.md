@@ -157,3 +157,11 @@
 ## PDF-Überarbeitung Nacharbeiten
 - [x] Testimonials: Reihenfolge nach stärkstem Social Proof neu ordnen und Fade-in-Animation entfernen
 - [x] Garantie: als eigenständiges, visuell hervorgehobenes Element außerhalb der Kaufkarte umgesetzt
+
+## Google Sitelinks Unterseiten
+- [ ] /ueber-darleen – Darleens Geschichte und Qualifikationen
+- [ ] /kursinhalt – Die 11 Module im Detail
+- [ ] /faq – Häufige Fragen als eigene Seite
+- [ ] /bewertungen – Alle freigegebenen Kundenstimmen
+- [ ] /tipps – Kostenlose Tipps mit Instagram/YouTube-Verweis
+- [ ] Routen in App.tsx registrieren
