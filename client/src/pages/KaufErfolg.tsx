@@ -13,9 +13,9 @@ declare global {
 }
 
 /**
- * Lädt den Google Ads Tag direkt – ohne auf den Cookie-Banner zu warten.
- * Auf der Erfolgsseite ist der Kauf bereits abgeschlossen, daher ist
- * das Laden des Conversion-Tags gerechtfertigt.
+ * Stellt sicher dass gtag verfügbar ist.
+ * GT-TNFHD82W ist bereits in index.html eingebunden – gtag sollte immer vorhanden sein.
+ * Falls nicht (z.B. Ad-Blocker), wird ein Fallback-Stub erstellt.
  */
 function ensureGtagLoaded(): Promise<void> {
   return new Promise((resolve) => {
@@ -23,19 +23,12 @@ function ensureGtagLoaded(): Promise<void> {
       resolve();
       return;
     }
+    // Fallback: gtag-Stub erstellen falls Skript blockiert wurde
     window.dataLayer = window.dataLayer || [];
     window.gtag = function (...args: unknown[]) {
       window.dataLayer!.push(args);
     };
-    window.gtag("js", new Date());
-    window.gtag("config", "AW-417491334");
-    window.gtag("config", "G-CF7P1QL6EZ");
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = "https://www.googletagmanager.com/gtag/js?id=AW-417491334";
-    script.onload = () => resolve();
-    script.onerror = () => resolve();
-    document.head.appendChild(script);
+    resolve();
   });
 }
 

@@ -62,34 +62,18 @@ export function loadTrackingScripts() {
     document.body.appendChild(noscript);
   }
 
-  // Google Analytics + Google Ads (gemeinsam über gtag.js)
-  if (!(window as any).gtag) {
-    // Haupt-Script (lädt beide Tags)
-    const gaScript = document.createElement("script");
-    gaScript.async = true;
-    gaScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-417491334";
-    document.head.appendChild(gaScript);
-
-    const gaInit = document.createElement("script");
-    gaInit.innerHTML = `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-417491334', { send_page_view: true });
-      gtag('config', 'G-CF7P1QL6EZ', { send_page_view: true });
-      gtag('event', 'page_view', {
-        send_to: 'AW-417491334',
-        page_location: window.location.href,
-        page_title: document.title
-      });
-    `;
-    document.head.appendChild(gaInit);
-  } else {
-    // gtag bereits vorhanden – config + page_view senden
-    (window as any).gtag('config', 'AW-417491334', { send_page_view: true });
-    (window as any).gtag('config', 'G-CF7P1QL6EZ', { send_page_view: true });
+  // Google Analytics + Google Ads laufen jetzt über den einheitlichen Google-Tag GT-TNFHD82W
+  // der direkt in index.html eingebunden ist – kein separates Laden mehr nötig.
+  // Nach Cookie-Zustimmung: Consent-Mode auf granted setzen
+  if ((window as any).gtag) {
+    (window as any).gtag('consent', 'update', {
+      ad_storage: 'granted',
+      analytics_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+    });
     (window as any).gtag('event', 'page_view', {
-      send_to: 'AW-417491334',
+      send_to: ['AW-417491334', 'G-CF7P1QL6EZ'],
       page_location: window.location.href,
       page_title: document.title
     });

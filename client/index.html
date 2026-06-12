@@ -19,10 +19,17 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <!-- Google-Tag (GT-TNFHD82W) – Basis-Container für Google Analytics & Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GT-TNFHD82W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GT-TNFHD82W');
+    </script>
     <!-- Pinterest Domain-Verifizierung -->
     <meta name="p:domain_verify" content="6a18581a45bc84889ac53917ee4df862"/>
-    <!-- Tracking-Skripte werden erst nach Cookie-Zustimmung geladen (CookieBanner.tsx) -->
-    <!-- Google Ads Tag wird dynamisch in CookieBanner.tsx nach Zustimmung geladen -->
+    <!-- Weitere Tracking-Tags (Meta Pixel, Pinterest) werden nach Cookie-Zustimmung geladen (CookieBanner.tsx) -->
     <!-- Preconnect für Hero-Assets (schnelleres Laden) -->
     <link rel="preconnect" href="https://d2xsxph8kpxj0f.cloudfront.net" />
     <link rel="dns-prefetch" href="https://d2xsxph8kpxj0f.cloudfront.net" />
