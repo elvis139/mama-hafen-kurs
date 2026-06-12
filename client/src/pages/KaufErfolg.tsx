@@ -1,179 +1,22 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
-import { trackPurchase } from "@/lib/metaPixel";
-import { pinterestPurchase } from "@/lib/pinterestTag";
 import { trpc } from "@/lib/trpc";
-
-// Google gtag Typen
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-    dataLayer?: unknown[];
-  }
-}
-
-/**
- * Stellt sicher dass gtag verfügbar ist.
- * GT-TNFHD82W ist bereits in index.html eingebunden – gtag sollte immer vorhanden sein.
- * Falls nicht (z.B. Ad-Blocker), wird ein Fallback-Stub erstellt.
- */
-function ensureGtagLoaded(): Promise<void> {
-  return new Promise((resolve) => {
-    if (typeof window.gtag === "function") {
-      resolve();
-      return;
-    }
-    // Fallback: gtag-Stub erstellen falls Skript blockiert wurde
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function (...args: unknown[]) {
-      window.dataLayer!.push(args);
-    };
-    resolve();
-  });
-}
-
-/**
- * Lädt das Meta Pixel direkt – ohne auf den Cookie-Banner zu warten.
- */
-function ensureMetaPixelLoaded(): Promise<void> {
-  return new Promise((resolve) => {
-    if (typeof (window as any).fbq === "function") {
-      resolve();
-      return;
-    }
-    const script = document.createElement("script");
-    script.innerHTML = `
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('set', 'autoConfig', false, '1464149581564441');
-      fbq('init', '1464149581564441');
-    `;
-    document.head.appendChild(script);
-    // Kurz warten damit fbq verfügbar ist
-    setTimeout(() => resolve(), 300);
-  });
-}
-
-/**
- * Lädt den Pinterest Tag direkt – ohne auf den Cookie-Banner zu warten.
- */
-function ensurePinterestLoaded(): Promise<void> {
-  return new Promise((resolve) => {
-    if (typeof (window as any).pintrk === "function") {
-      resolve();
-      return;
-    }
-    const script = document.createElement("script");
-    script.innerHTML = `
-      !function(e){if(!window.pintrk){window.pintrk = function () {
-      window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
-      n=window.pintrk;n.queue=[],n.version="3.0";var
-      t=document.createElement("script");t.async=!0,t.src=e;var
-      r=document.getElementsByTagName("script")[0];
-      r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
-      pintrk('load', '2614439815904');
-    `;
-    document.head.appendChild(script);
-    setTimeout(() => resolve(), 300);
-  });
-}
 
 export default function KaufErfolg() {
   const [visible, setVisible] = useState(false);
   const [sessionId] = useState(() => new URLSearchParams(window.location.search).get("session_id") ?? "");
 
-  // Server-seitige Verifikation: Purchase-Events nur feuern wenn Stripe bestätigt
-  const { data: verifyData } = trpc.payment.verifySession.useQuery(
+  // Server-seitige Verifikation (für spätere Nutzung / Logging)
+  const { data: _verifyData } = trpc.payment.verifySession.useQuery(
     { sessionId },
     { enabled: !!sessionId, retry: false }
   );
-
-  // gtag.js SOFORT beim Laden der Seite einbinden – damit der Tag Assistant
-  // das Skript erkennt, bevor die Conversion-Events gefeuert werden.
-  useEffect(() => {
-    ensureGtagLoaded();
-  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     const t = setTimeout(() => setVisible(true), 80);
     return () => clearTimeout(t);
   }, []);
-
-  // Conversion-Events erst feuern wenn Server paid: true zurückgibt
-  useEffect(() => {
-    if (!verifyData?.paid || !sessionId) return;
-
-    const dedupeKey = `purchase_fired_${sessionId}`;
-    if (sessionStorage.getItem(dedupeKey)) return;
-
-    // Dedupe: pro Session nur einmal senden
-    sessionStorage.setItem(dedupeKey, "1");
-
-    const amount = verifyData.amount ?? 99;
-    const currency = verifyData.currency?.toUpperCase() ?? "EUR";
-
-    // Alle Tracking-Tags direkt laden und dann Events feuern
-    Promise.all([
-      ensureGtagLoaded(),
-      ensureMetaPixelLoaded(),
-      ensurePinterestLoaded(),
-    ]).then(() => {
-      // Google Analytics: Kauf-Conversion
-      if (typeof window.gtag === "function") {
-        window.gtag("event", "purchase", {
-          transaction_id: sessionId,
-          value: amount,
-          currency,
-          items: [{
-            item_id: "mama-hafen-kurs",
-            item_name: "Mama-Hafen Online-Kurs",
-            price: amount,
-            quantity: 1,
-          }],
-        });
-        // Google Ads: Kauf-Conversion
-        window.gtag("event", "conversion", {
-          send_to: "AW-417491334/CfI3CK7k_7ccEIbTiccB",
-          value: amount,
-          currency,
-          transaction_id: sessionId,
-        });
-      }
-
-      // Meta Pixel: Purchase-Event
-      if (typeof (window as any).fbq === "function") {
-        (window as any).fbq("track", "Purchase", {
-          content_name: "Mama-Hafen Online-Kurs",
-          content_category: "Online-Kurs",
-          currency,
-          value: amount,
-          content_type: "product",
-          content_ids: ["mama-hafen-kurs"],
-          num_items: 1,
-        });
-      }
-
-      // Pinterest: Checkout/Purchase-Event
-      if (typeof (window as any).pintrk === "function") {
-        (window as any).pintrk("track", "Checkout", {
-          value: amount,
-          currency,
-          content_ids: ["mama-hafen-kurs"],
-          content_name: "Mama-Hafen Online-Kurs",
-          content_category: "Online-Kurs",
-          num_items: 1,
-          order_id: sessionId,
-        });
-      }
-    });
-  }, [verifyData, sessionId]);
 
   return (
     <div
@@ -448,29 +291,15 @@ export default function KaufErfolg() {
             lineHeight: 1.6,
           }}
         >
-          Fragen? Schreib uns jederzeit.
+          Fragen? Schreib uns an{" "}
+          <a
+            href="mailto:hallo@mama-hafen.de"
+            style={{ color: "var(--teal)", textDecoration: "none" }}
+          >
+            hallo@mama-hafen.de
+          </a>
         </p>
       </div>
-
-      {/* Footer */}
-      <p
-        style={{
-          marginTop: "2rem",
-          fontSize: "0.75rem",
-          color: "var(--muted-foreground)",
-          opacity: 0.55,
-        }}
-      >
-        © Darleen – Mama-Hafen &nbsp;·&nbsp;{" "}
-        <a
-          href="https://www.darvismedia.de"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: "var(--teal)" }}
-        >
-          darvismedia.de
-        </a>
-      </p>
     </div>
   );
 }

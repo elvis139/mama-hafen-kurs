@@ -8,7 +8,6 @@
  */
 
 import { trpc } from "@/lib/trpc";
-import { trackViewContent } from "@/lib/metaPixel";
 import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "wouter";
 
@@ -374,8 +373,7 @@ export default function Kurs() {
   useEffect(() => {
     if (data?.email) {
       setProgress(loadProgress(data.email));
-      // Meta Pixel: Nutzer hat Zugang und sieht den Kurs
-      trackViewContent();
+
     }
   }, [data?.email]);
 

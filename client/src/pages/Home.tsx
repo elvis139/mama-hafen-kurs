@@ -14,8 +14,7 @@ const TikTokIcon = ({ size = 14, color = "currentColor" }: { size?: number; colo
     <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/>
   </svg>
 );
-import { trackInitiateCheckout } from "@/lib/metaPixel";
-import { pinterestInitiateCheckout, pinterestViewContent, pinterestLead } from "@/lib/pinterestTag";
+
 
 const IMG_HERO =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663061854558/DswbdQTvMfJMPVPLtDLMpo/mama-hafen-hero-8D3s4D7uWWZgi4Fzfbffn2.webp";
@@ -215,11 +214,7 @@ export default function Home() {
     e.preventDefault();
     setCheckoutLoading(true);
     setCheckoutError("");
-    // Meta Pixel: Checkout gestartet
-    trackInitiateCheckout(99);
-    // Pinterest: Lead (E-Mail eingegeben) + Checkout gestartet
-    pinterestLead();
-    pinterestInitiateCheckout(99);
+
     try {
       const res = await fetch("/api/stripe/create-embedded-checkout", {
         method: "POST",
@@ -270,22 +265,7 @@ export default function Home() {
     return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, []);
 
-  // Pinterest: ViewContent feuern wenn Kaufsektion sichtbar wird
-  useEffect(() => {
-    const kaufSection = document.getElementById("kaufen");
-    if (!kaufSection) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          pinterestViewContent(99);
-          obs.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-    obs.observe(kaufSection);
-    return () => obs.disconnect();
-  }, []);
+
 
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
