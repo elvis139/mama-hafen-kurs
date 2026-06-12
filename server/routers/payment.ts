@@ -23,10 +23,15 @@ export const paymentRouter = router({
       try {
         const stripe = getStripe();
         const session = await stripe.checkout.sessions.retrieve(input.sessionId);
+        // Bei 100% Rabatt ist payment_status "no_payment_required" – trotzdem als bezahlt werten
+        const isPaid = session.payment_status === "paid" || session.payment_status === "no_payment_required";
+        // Bei 0€ (Gutschein) den Originalpreis aus den Line Items verwenden (Fallback: 99€)
+        const rawAmount = session.amount_total ?? 0;
+        const amount = rawAmount > 0 ? rawAmount / 100 : 99;
         return {
-          paid: session.payment_status === "paid",
-          amount: session.amount_total ? session.amount_total / 100 : null,
-          currency: session.currency ?? null,
+          paid: isPaid,
+          amount,
+          currency: session.currency ?? "eur",
         };
       } catch (err) {
         // Invalid session ID or Stripe error → treat as not paid
