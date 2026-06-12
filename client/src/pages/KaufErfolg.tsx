@@ -101,6 +101,12 @@ export default function KaufErfolg() {
     { enabled: !!sessionId, retry: false }
   );
 
+  // gtag.js SOFORT beim Laden der Seite einbinden – damit der Tag Assistant
+  // das Skript erkennt, bevor die Conversion-Events gefeuert werden.
+  useEffect(() => {
+    ensureGtagLoaded();
+  }, []);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     const t = setTimeout(() => setVisible(true), 80);
