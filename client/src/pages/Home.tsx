@@ -368,7 +368,7 @@ export default function Home() {
       {/* ── SOCIAL PROOF BAR ── */}
       <section style={{ background: "var(--sand)", padding: "1.5rem 0", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
         <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginLeft: "60px" }}>
             <span style={{ color: "#f59e0b", fontSize: "1rem" }}>★★★★★</span>
             <span style={{ fontSize: "0.9rem", fontWeight: 600 }}>
               Die Mamaleen Community mit mehr als{" "}
@@ -385,7 +385,7 @@ export default function Home() {
                 background: "white", border: "1px solid var(--border)",
                 borderRadius: 8, padding: "0.4rem 0.9rem",
                 fontSize: "0.82rem", fontWeight: 600, color: "var(--foreground)",
-                textDecoration: "none",
+                textDecoration: "none", marginRight: "19px",
               }}
             >
               <Instagram size={14} /> Instagram
@@ -397,9 +397,9 @@ export default function Home() {
               style={{
                 display: "flex", alignItems: "center", gap: "0.4rem",
                 background: "white", border: "1px solid var(--border)",
-                borderRadius: 8, padding: "0.4rem 0.9rem",
+                borderRadius: 8, padding: "0.4rem 1.6rem 0.4rem 0.9rem",
                 fontSize: "0.82rem", fontWeight: 600, color: "var(--foreground)",
-                textDecoration: "none",
+                textDecoration: "none", marginRight: "127px",
               }}
             >
               <Youtube size={14} /> YouTube
