@@ -343,22 +343,7 @@ export default function Home() {
                   allowFullScreen
                   title="Mama-Hafen Hero Video"
                 />
-                <div style={{
-                  position: "absolute",
-                  bottom: "1rem",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  background: "rgba(255,255,255,0.92)",
-                  backdropFilter: "blur(8px)",
-                  borderRadius: 50,
-                  padding: "0.4rem 1rem",
-                  fontSize: "0.78rem",
-                  fontWeight: 600,
-                  color: "var(--foreground)",
-                  whiteSpace: "nowrap",
-                }}>
-                  ▶ Schau dir in 90 Sekunden an, wie der Kurs funktioniert
-                </div>
+
               </div>
             </FadeUp>
           </div>
@@ -723,6 +708,31 @@ export default function Home() {
               </div>
             </div>
           </FadeUp>
+
+          {/* Mobile Sticky CTA Bar */}
+          <div className="mobile-sticky-cta" style={{
+            display: "none",
+          }}>
+            <button
+              type="button"
+              onClick={handleKaufen}
+              disabled={checkoutLoading}
+              style={{
+                width: "100%",
+                background: checkoutLoading ? "#aaa" : "var(--coral)",
+                color: "white",
+                border: "none",
+                borderRadius: 12,
+                padding: "1rem",
+                fontFamily: "'DM Sans', sans-serif",
+                fontWeight: 800,
+                fontSize: "1rem",
+                cursor: checkoutLoading ? "not-allowed" : "pointer",
+              }}
+            >
+              {checkoutLoading ? "⏳ Weiterleitung..." : "🎁 Jetzt Kurs kaufen – 99 €"}
+            </button>
+          </div>
 
           {/* Kauf-Formular */}
           <FadeUp delay={120}>

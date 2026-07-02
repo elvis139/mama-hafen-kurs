@@ -182,3 +182,19 @@
   .stagger-4 { transition-delay: 0.4s; }
   .stagger-5 { transition-delay: 0.5s; }
 }
+
+/* ── MOBILE STICKY CTA ─────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .mobile-sticky-cta {
+    display: block !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    padding: 0.75rem 1rem;
+    background: white;
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+  }
+}
