@@ -366,53 +366,44 @@ export default function Home() {
       </section>
 
       {/* ── SOCIAL PROOF BAR ── */}
-      <section style={{ background: "var(--sand)", padding: "2rem 0", borderTop: "2px solid var(--border)", borderBottom: "2px solid var(--border)" }}>
-        <div className="container">
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-            gap: "1.5rem",
-            alignItems: "center",
-            textAlign: "center",
-          }}>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.3rem" }}>
-              <span style={{ color: "#f59e0b", fontSize: "1.3rem", letterSpacing: 2 }}>★★★★★</span>
-              <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "var(--foreground)" }}>120.000+ Eltern</span>
-              <span style={{ fontSize: "0.75rem", color: "var(--muted-foreground)" }}>in der Community</span>
-            </div>
-            <div style={{ width: "1px", height: 40, background: "var(--border)", margin: "0 auto", display: "none" }} className="divider-line" />
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem" }}>
-              <a
-                href="https://www.instagram.com/mamaleen_official/"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: "flex", alignItems: "center", gap: "0.5rem",
-                  background: "white", border: "1.5px solid var(--border)",
-                  borderRadius: 10, padding: "0.55rem 1.2rem",
-                  fontSize: "0.85rem", fontWeight: 700, color: "var(--foreground)",
-                  textDecoration: "none", boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
-                }}
-              >
-                <Instagram size={15} /> Instagram
-              </a>
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem" }}>
-              <a
-                href="https://www.youtube.com/@mamaleen_official"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: "flex", alignItems: "center", gap: "0.5rem",
-                  background: "white", border: "1.5px solid var(--border)",
-                  borderRadius: 10, padding: "0.55rem 1.2rem",
-                  fontSize: "0.85rem", fontWeight: 700, color: "var(--foreground)",
-                  textDecoration: "none", boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
-                }}
-              >
-                <Youtube size={15} /> YouTube
-              </a>
-            </div>
+      <section style={{ background: "var(--sand)", padding: "1.5rem 0", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
+        <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
+            <span style={{ color: "#f59e0b", fontSize: "1rem" }}>★★★★★</span>
+            <span style={{ fontSize: "0.9rem", fontWeight: 600 }}>
+              Die Mamaleen Community mit mehr als{" "}
+              <strong style={{ color: "var(--teal)" }}>120.000+ Eltern</strong>
+            </span>
+          </div>
+          <div style={{ display: "flex", gap: "0.75rem" }}>
+            <a
+              href="https://www.instagram.com/mamaleen_official/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "flex", alignItems: "center", gap: "0.4rem",
+                background: "white", border: "1px solid var(--border)",
+                borderRadius: 8, padding: "0.4rem 0.9rem",
+                fontSize: "0.82rem", fontWeight: 600, color: "var(--foreground)",
+                textDecoration: "none",
+              }}
+            >
+              <Instagram size={14} /> Instagram
+            </a>
+            <a
+              href="https://www.youtube.com/@mamaleen_official"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "flex", alignItems: "center", gap: "0.4rem",
+                background: "white", border: "1px solid var(--border)",
+                borderRadius: 8, padding: "0.4rem 0.9rem",
+                fontSize: "0.82rem", fontWeight: 600, color: "var(--foreground)",
+                textDecoration: "none",
+              }}
+            >
+              <Youtube size={14} /> YouTube
+            </a>
           </div>
         </div>
       </section>
