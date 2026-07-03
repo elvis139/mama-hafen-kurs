@@ -293,8 +293,8 @@ export default function Home() {
                   marginBottom: "1.2rem",
                   fontWeight: 700,
                 }}>
-                  Stell dir einen Morgen vor, an dem niemand schreit.{" "}
-                  <em style={{ color: "var(--teal)", fontStyle: "italic" }}>Auch nicht du.</em>
+                  Stell dir einen Morgen vor, an dem deine Kinder nicht schreien.{" "}
+                  <em style={{ color: "var(--teal)", fontStyle: "italic" }}>Und auch nicht du.</em>
                 </h1>
               </FadeUp>
               <FadeUp delay={160}>
