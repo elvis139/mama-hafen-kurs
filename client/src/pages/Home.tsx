@@ -709,31 +709,6 @@ export default function Home() {
             </div>
           </FadeUp>
 
-          {/* Mobile Sticky CTA Bar */}
-          <div className="mobile-sticky-cta" style={{
-            display: "none",
-          }}>
-            <button
-              type="button"
-              onClick={handleKaufen}
-              disabled={checkoutLoading}
-              style={{
-                width: "100%",
-                background: checkoutLoading ? "#aaa" : "var(--coral)",
-                color: "white",
-                border: "none",
-                borderRadius: 12,
-                padding: "1rem",
-                fontFamily: "'DM Sans', sans-serif",
-                fontWeight: 800,
-                fontSize: "1rem",
-                cursor: checkoutLoading ? "not-allowed" : "pointer",
-              }}
-            >
-              {checkoutLoading ? "⏳ Weiterleitung..." : "🎁 Jetzt Kurs kaufen – 99 €"}
-            </button>
-          </div>
-
           {/* Kauf-Formular */}
           <FadeUp delay={120}>
             <div className="waitlist-card" style={{
