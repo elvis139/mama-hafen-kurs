@@ -313,9 +313,9 @@ export default function Home() {
                   <button
                     className="btn-coral"
                     onClick={() => scrollTo("kaufen")}
-                    style={{ fontSize: "1.05rem", padding: "0.9rem 2rem", fontWeight: 900, alignSelf: "flex-start" }}
+                    style={{ fontSize: "0.88rem", padding: "0.65rem 1.5rem", fontWeight: 700, alignSelf: "flex-start", boxShadow: "0 4px 14px rgba(0,0,0,0.12)" }}
                   >
-                    🎁 Jetzt für 99 € sichern (277 € Wert)
+                    Jetzt für 99 € sichern
                   </button>
                   <div style={{ display: "flex", gap: "1.2rem", flexWrap: "wrap", fontSize: "0.85rem", color: "var(--muted-foreground)" }}>
                     <span>★★★★★ 120.000+ Mamas</span>
