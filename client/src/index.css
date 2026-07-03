@@ -183,3 +183,11 @@
   .stagger-5 { transition-delay: 0.5s; }
 }
 
+
+/* ── TRANSFORMATION ARROW ─────────────────────────────────────────────────── */
+.arrow-mobile { display: none; }
+.arrow-desktop { display: inline; }
+@media (max-width: 768px) {
+  .arrow-mobile { display: inline; }
+  .arrow-desktop { display: none; }
+}

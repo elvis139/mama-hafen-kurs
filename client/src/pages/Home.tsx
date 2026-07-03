@@ -507,8 +507,9 @@ export default function Home() {
             </FadeUp>
 
             {/* Pfeil */}
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", fontSize: "2rem", color: "var(--teal)" }}>
-              →
+            <div className="transformation-arrow" style={{ display: "flex", alignItems: "center", justifyContent: "center", fontSize: "2rem", color: "var(--teal)" }}>
+              <span className="arrow-desktop">→</span>
+              <span className="arrow-mobile">↓</span>
             </div>
 
             {/* In 2 Wochen */}
