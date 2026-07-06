@@ -313,11 +313,11 @@ export default function Home() {
                   <button
                     className="btn-coral"
                     onClick={() => scrollTo("kaufen")}
-                    style={{ fontSize: "0.88rem", padding: "0.65rem 1.5rem", fontWeight: 700, alignSelf: "flex-start", boxShadow: "0 4px 14px rgba(0,0,0,0.12)" }}
+                    style={{ fontSize: "0.88rem", padding: "0.65rem 1.5rem", fontWeight: 700, alignSelf: "flex-start", boxShadow: "0 4px 14px rgba(0,0,0,0.12)", marginLeft: "57px" }}
                   >
                     Jetzt für 99 € sichern
                   </button>
-                  <div style={{ display: "flex", gap: "1.2rem", flexWrap: "wrap", fontSize: "0.85rem", color: "var(--muted-foreground)" }}>
+                  <div style={{ display: "flex", gap: "1.2rem", flexWrap: "wrap", fontSize: "0.85rem", color: "var(--muted-foreground)", paddingTop: "10px" }}>
                     <span>★★★★★ 120.000+ Mamas</span>
                     <span>🛡️ 7-Tage Geld-Zurück Garantie</span>
                     <span>⚡ Sofort-Zugang</span>
