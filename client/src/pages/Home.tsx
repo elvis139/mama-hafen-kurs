@@ -293,8 +293,8 @@ export default function Home() {
                   marginBottom: "1.2rem",
                   fontWeight: 700,
                 }}>
-                  Stell dir einen Morgen vor, an dem deine Kinder nicht schreien.{" "}
-                  <em style={{ color: "var(--teal)", fontStyle: "italic" }}>Und auch nicht du.</em>
+                  Stell dir einen Morgen vor, an dem dein Kind nicht schreit.{" "}
+                  <em style={{ color: "var(--teal)", fontStyle: "italic" }}>Und du auch nicht.</em>
                 </h1>
               </FadeUp>
               <FadeUp delay={160}>
@@ -423,7 +423,7 @@ export default function Home() {
               marginBottom: "1.5rem",
               fontWeight: 700,
             }}>
-              Ich saß abends in der Küche und weinte, weil ich mich als Mutter nicht mehr wiedererkannt habe und mich fragte, ob ich überhaupt fähig wäre, eine gute Mutter zu sein.
+              Ich saß weinend in der Küche – weil ich mich als Mutter nicht mehr erkannte.
             </h2>
           </FadeUp>
 

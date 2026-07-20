@@ -175,3 +175,7 @@
 - [x] checkoutMonitor.ts: auf neue Embedded-Checkout-Route umgestellt
 - [x] TypeScript: 0 Fehler
 - [x] Checkpoint gespeichert
+
+## SEO-Fixes Überschriften
+- [x] H1 auf max. 80 Zeichen gekürzt (78 Zeichen)
+- [x] H2 auf max. 80 Zeichen gekürzt (80 Zeichen)
