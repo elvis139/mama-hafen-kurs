@@ -380,70 +380,44 @@ export default function LandingPageLP() {
               </FadeUp>
             </div>
 
-            {/* Bild-Spalte */}
+            {/* Bild-Spalte – organische Blob-Form wie in der ursprünglichen Version */}
             <FadeUp delay={180} className="hero-video-wrap">
               <div style={{ position: "relative" }}>
-                {/* Dekorativer Rahmen hinter dem Bild */}
+                {/* Blob-Bild */}
                 <div style={{
-                  position: "absolute",
-                  top: "1.2rem", right: "-0.8rem",
-                  bottom: "-0.8rem", left: "0.8rem",
-                  borderRadius: 24,
-                  background: "var(--teal)",
-                  opacity: 0.15,
-                  zIndex: 0,
-                }} />
-                <div style={{
-                  borderRadius: 20,
+                  borderRadius: "55% 45% 50% 50% / 48% 52% 48% 52%",
                   overflow: "hidden",
-                  boxShadow: "0 32px 72px rgba(0,0,0,0.18)",
+                  boxShadow: "0 20px 55px rgba(0,0,0,0.13)",
                   aspectRatio: "4/5",
-                  position: "relative",
-                  zIndex: 1,
                 }}>
                   <img
                     src={IMG_HERO}
                     alt="Mama begleitet ihr Kind liebevoll durch die Trotzphase"
                     style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
                   />
-                  {/* Gradient-Overlay unten */}
-                  <div style={{
-                    position: "absolute", bottom: 0, left: 0, right: 0,
-                    height: "45%",
-                    background: "linear-gradient(to top, rgba(0,0,0,0.62) 0%, transparent 100%)",
-                  }} />
-                  {/* USP-Badge über dem Bild */}
-                  <div style={{
-                    position: "absolute",
-                    bottom: "1.2rem",
-                    left: "1.2rem",
-                    right: "1.2rem",
-                    zIndex: 2,
-                  }}>
-                    <div style={{
-                      background: "rgba(255,255,255,0.95)",
-                      backdropFilter: "blur(12px)",
-                      borderRadius: 14,
-                      padding: "0.9rem 1.1rem",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "0.8rem",
-                      boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
-                    }}>
-                      <div style={{
-                        width: 40, height: 40,
-                        borderRadius: "50%",
-                        background: "linear-gradient(135deg, var(--teal) 0%, #1a8a7a 100%)",
-                        display: "flex", alignItems: "center", justifyContent: "center",
-                        fontSize: "1.1rem", flexShrink: 0,
-                      }}>⚓</div>
-                      <div>
-                        <div style={{ fontWeight: 800, fontSize: "0.88rem", color: "var(--foreground)", lineHeight: 1.3 }}>Weniger Schreien. Mehr Verbindung.</div>
-                        <div style={{ fontSize: "0.73rem", color: "var(--muted-foreground)", marginTop: "0.1rem" }}>11 kurze Video-Lektionen · sofort verfügbar</div>
-                      </div>
-                    </div>
+                </div>
+                {/* Schwebender Badge links unten */}
+                <div style={{
+                  position: "absolute", bottom: "1.5rem", left: "-1rem",
+                  background: "white", borderRadius: 12, padding: "0.7rem 1rem",
+                  boxShadow: "0 6px 24px rgba(0,0,0,0.1)",
+                  display: "flex", alignItems: "center", gap: "0.6rem",
+                }}>
+                  <span style={{ fontSize: "1.3rem" }}>🎦</span>
+                  <div>
+                    <div style={{ fontWeight: 800, fontSize: "0.82rem", color: "var(--foreground)" }}>11 Video-Lektionen</div>
+                    <div style={{ fontSize: "0.7rem", color: "var(--muted-foreground)" }}>+ 5 Bonus-Module</div>
                   </div>
                 </div>
+                {/* Dekorativer Teal-Kreis oben rechts */}
+                <div style={{
+                  position: "absolute", top: "-1rem", right: "-1rem",
+                  width: 64, height: 64,
+                  borderRadius: "50%",
+                  background: "var(--teal)",
+                  opacity: 0.12,
+                  zIndex: -1,
+                }} />
               </div>
             </FadeUp>
           </div>
