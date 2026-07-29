@@ -552,7 +552,9 @@ export default function LandingPageLP() {
               borderRadius: 20,
               overflow: "hidden",
               boxShadow: "0 24px 60px rgba(0,0,0,0.16)",
-              aspectRatio: "5/4",
+              aspectRatio: "9/16",
+              maxWidth: 420,
+              margin: "0 auto",
               background: "#000",
             }}>
               <iframe
