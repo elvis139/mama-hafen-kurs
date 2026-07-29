@@ -552,8 +552,8 @@ export default function LandingPageLP() {
               borderRadius: 20,
               overflow: "hidden",
               boxShadow: "0 24px 60px rgba(0,0,0,0.16)",
-              aspectRatio: "9/16",
-              maxWidth: 420,
+              aspectRatio: "4/5",
+              maxWidth: 560,
               margin: "0 auto",
               background: "#000",
             }}>
