@@ -179,3 +179,9 @@
 ## SEO-Fixes Überschriften
 - [x] H1 auf max. 80 Zeichen gekürzt (78 Zeichen)
 - [x] H2 auf max. 80 Zeichen gekürzt (80 Zeichen)
+
+## Neue Landingpage /lp (Bild statt Video im Hero)
+- [x] LandingPageLP.tsx erstellen – exakte Kopie von Home.tsx
+- [x] Hero: Video durch Hero-Bild (mama-und-kind) ersetzen
+- [x] Video nach der "Über Darleen"-Sektion einfügen
+- [x] Route /lp in App.tsx registrieren

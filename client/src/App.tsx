@@ -17,12 +17,14 @@ import Faq from "./pages/Faq";
 import Bewertungen from "./pages/Bewertungen";
 import Tipps from "./pages/Tipps";
 import CookieBanner from "./components/CookieBanner";
+import LandingPageLP from "./pages/LandingPageLP";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      <Route path={"/lp"} component={LandingPageLP} />
       <Route path={"/kurs"} component={Kurs} />
       <Route path={"/kurs/login"} component={KursLogin} />
       <Route path={"/kauf/erfolg"} component={KaufErfolg} />
