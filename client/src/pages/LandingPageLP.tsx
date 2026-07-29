@@ -570,7 +570,7 @@ export default function LandingPageLP() {
       </section>
 
       {/* ── TRANSFORMATION ── */}
-      <section style={{ background: "var(--sand)", padding: "5rem 0" }}>
+      <section style={{ background: "var(--sand)", padding: "5rem 0", paddingTop: '22px' }}>
         <div className="container">
           <FadeUp>
             <h2 style={{
