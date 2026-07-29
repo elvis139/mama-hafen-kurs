@@ -263,7 +263,23 @@ export default function LandingPageLP() {
       </nav>
 
       {/* ── HERO ── */}
-      <section style={{ paddingTop: "5rem", background: "var(--cream)" }}>
+      <section style={{ paddingTop: "5rem", background: "var(--cream)", position: "relative", overflow: "hidden" }}>
+        {/* Dekorative Hintergrund-Elemente */}
+        <div style={{
+          position: "absolute", top: "6rem", right: "-4rem",
+          width: 320, height: 320,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(42,157,143,0.08) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }} />
+        <div style={{
+          position: "absolute", bottom: "2rem", left: "-3rem",
+          width: 200, height: 200,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(231,111,81,0.07) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }} />
+
         <div className="container">
           <div className="hero-grid">
             {/* Text-Spalte */}
@@ -272,16 +288,17 @@ export default function LandingPageLP() {
                 <span style={{
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: "0.4rem",
-                  background: "var(--teal)",
+                  gap: "0.5rem",
+                  background: "linear-gradient(135deg, var(--teal) 0%, #1a8a7a 100%)",
                   color: "white",
-                  fontSize: "0.75rem",
+                  fontSize: "0.72rem",
                   fontWeight: 700,
-                  letterSpacing: "0.07em",
+                  letterSpacing: "0.08em",
                   textTransform: "uppercase",
-                  padding: "0.35rem 1rem",
+                  padding: "0.4rem 1.1rem",
                   borderRadius: 50,
-                  marginBottom: "1.4rem",
+                  marginBottom: "1.6rem",
+                  boxShadow: "0 4px 12px rgba(42,157,143,0.25)",
                 }}>
                   ⚓ Für Mamas von Kindern 1,5–6 Jahren
                 </span>
@@ -289,77 +306,142 @@ export default function LandingPageLP() {
               <FadeUp delay={80}>
                 <h1 style={{
                   fontFamily: "'DM Serif Display', serif",
-                  fontSize: "clamp(2.2rem, 5vw, 3.4rem)",
-                  lineHeight: 1.12,
+                  fontSize: "clamp(2.2rem, 5vw, 3.5rem)",
+                  lineHeight: 1.1,
                   color: "var(--foreground)",
-                  marginBottom: "1.2rem",
+                  marginBottom: "1.4rem",
                   fontWeight: 700,
                 }}>
                   Stell dir einen Morgen vor, an dem dein Kind nicht schreit.{" "}
-                  <em style={{ color: "var(--teal)", fontStyle: "italic" }}>Und du auch nicht.</em>
+                  <em style={{
+                    color: "var(--teal)",
+                    fontStyle: "italic",
+                    position: "relative",
+                    display: "inline-block",
+                  }}>Und du auch nicht.</em>
                 </h1>
               </FadeUp>
               <FadeUp delay={160}>
                 <p style={{
                   fontSize: "1.05rem",
-                  lineHeight: 1.75,
+                  lineHeight: 1.8,
                   color: "var(--muted-foreground)",
                   marginBottom: "2rem",
-                  maxWidth: 480,
+                  maxWidth: 460,
                 }}>
                   Kein Kampf beim Anziehen. Kein Drama beim Frühstück. Nur dein Kind, das kooperiert – und du, die sich endlich wieder wie eine gute Mama fühlt.
                 </p>
               </FadeUp>
-              <FadeUp delay={240}>
-                <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem", marginBottom: "1.8rem" }}>
+
+              {/* Mini-Checkliste */}
+              <FadeUp delay={200}>
+                <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", marginBottom: "2rem" }}>
+                  {[
+                    "Wutanfälle verstehen & entschärfen",
+                    "Grenzen setzen ohne Machtkampf",
+                    "Wieder Freude am Mamasein spüren",
+                  ].map((item, i) => (
+                    <div key={i} style={{ display: "flex", alignItems: "center", gap: "0.6rem", fontSize: "0.9rem", color: "var(--foreground)" }}>
+                      <span style={{
+                        width: 20, height: 20, borderRadius: "50%",
+                        background: "var(--teal)", color: "white",
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                        fontSize: "0.65rem", fontWeight: 900, flexShrink: 0,
+                      }}>✓</span>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </FadeUp>
+
+              <FadeUp delay={280}>
+                <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                   <button
                     className="btn-coral"
                     onClick={() => scrollTo("kaufen")}
-                    style={{ fontSize: "0.88rem", padding: "0.65rem 1.5rem", fontWeight: 700, alignSelf: "flex-start", boxShadow: "0 4px 14px rgba(0,0,0,0.12)", marginLeft: "57px" }}
+                    style={{
+                      fontSize: "1rem", padding: "0.85rem 2rem",
+                      fontWeight: 800, alignSelf: "flex-start",
+                      boxShadow: "0 6px 20px rgba(231,111,81,0.35)",
+                      borderRadius: 50,
+                      letterSpacing: "0.01em",
+                    }}
                   >
-                    Jetzt für 99 € sichern
+                    Jetzt für 99 € sichern →
                   </button>
-                  <div style={{ display: "flex", gap: "1.2rem", flexWrap: "wrap", fontSize: "0.85rem", color: "var(--muted-foreground)", paddingTop: "10px" }}>
-                    <span>★★★★★ 120.000+ Mamas</span>
-                    <span>🛡️ 7-Tage Geld-Zurück Garantie</span>
+                  <div style={{ display: "flex", gap: "1.2rem", flexWrap: "wrap", fontSize: "0.82rem", color: "var(--muted-foreground)" }}>
+                    <span style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}>
+                      <span style={{ color: "#f59e0b" }}>★★★★★</span> 120.000+ Mamas
+                    </span>
+                    <span>🛡️ 7-Tage Garantie</span>
                     <span>⚡ Sofort-Zugang</span>
                   </div>
                 </div>
               </FadeUp>
             </div>
 
-            {/* Bild-Spalte (statt Video) */}
+            {/* Bild-Spalte */}
             <FadeUp delay={180} className="hero-video-wrap">
-              <div style={{
-                borderRadius: 20,
-                overflow: "hidden",
-                boxShadow: "0 24px 60px rgba(0,0,0,0.16)",
-                aspectRatio: "4/5",
-                position: "relative",
-              }}>
-                <img
-                  src={IMG_HERO}
-                  alt="Mama begleitet ihr Kind liebevoll durch die Trotzphase"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
-                />
-                {/* USP-Badge über dem Bild */}
+              <div style={{ position: "relative" }}>
+                {/* Dekorativer Rahmen hinter dem Bild */}
                 <div style={{
                   position: "absolute",
-                  bottom: "1.2rem",
-                  left: "1.2rem",
-                  right: "1.2rem",
-                  background: "rgba(255,255,255,0.92)",
-                  backdropFilter: "blur(8px)",
-                  borderRadius: 12,
-                  padding: "0.8rem 1rem",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.6rem",
+                  top: "1.2rem", right: "-0.8rem",
+                  bottom: "-0.8rem", left: "0.8rem",
+                  borderRadius: 24,
+                  background: "var(--teal)",
+                  opacity: 0.15,
+                  zIndex: 0,
+                }} />
+                <div style={{
+                  borderRadius: 20,
+                  overflow: "hidden",
+                  boxShadow: "0 32px 72px rgba(0,0,0,0.18)",
+                  aspectRatio: "4/5",
+                  position: "relative",
+                  zIndex: 1,
                 }}>
-                  <span style={{ fontSize: "1.5rem" }}>⚓</span>
-                  <div>
-                    <div style={{ fontWeight: 700, fontSize: "0.85rem", color: "var(--foreground)" }}>Weniger Schreien. Mehr Verbindung.</div>
-                    <div style={{ fontSize: "0.75rem", color: "var(--muted-foreground)" }}>In 11 kurzen Video-Lektionen</div>
+                  <img
+                    src={IMG_HERO}
+                    alt="Mama begleitet ihr Kind liebevoll durch die Trotzphase"
+                    style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
+                  />
+                  {/* Gradient-Overlay unten */}
+                  <div style={{
+                    position: "absolute", bottom: 0, left: 0, right: 0,
+                    height: "45%",
+                    background: "linear-gradient(to top, rgba(0,0,0,0.62) 0%, transparent 100%)",
+                  }} />
+                  {/* USP-Badge über dem Bild */}
+                  <div style={{
+                    position: "absolute",
+                    bottom: "1.2rem",
+                    left: "1.2rem",
+                    right: "1.2rem",
+                    zIndex: 2,
+                  }}>
+                    <div style={{
+                      background: "rgba(255,255,255,0.95)",
+                      backdropFilter: "blur(12px)",
+                      borderRadius: 14,
+                      padding: "0.9rem 1.1rem",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.8rem",
+                      boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
+                    }}>
+                      <div style={{
+                        width: 40, height: 40,
+                        borderRadius: "50%",
+                        background: "linear-gradient(135deg, var(--teal) 0%, #1a8a7a 100%)",
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                        fontSize: "1.1rem", flexShrink: 0,
+                      }}>⚓</div>
+                      <div>
+                        <div style={{ fontWeight: 800, fontSize: "0.88rem", color: "var(--foreground)", lineHeight: 1.3 }}>Weniger Schreien. Mehr Verbindung.</div>
+                        <div style={{ fontSize: "0.73rem", color: "var(--muted-foreground)", marginTop: "0.1rem" }}>11 kurze Video-Lektionen · sofort verfügbar</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
