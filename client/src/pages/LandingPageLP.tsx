@@ -382,7 +382,7 @@ export default function LandingPageLP() {
 
             {/* Bild-Spalte – organische Blob-Form wie in der ursprünglichen Version */}
             <FadeUp delay={180} className="hero-video-wrap">
-              <div style={{ position: "relative" }}>
+              <div style={{ position: "relative", marginRight: '12px', width: '492px' }}>
                 {/* Blob-Bild */}
                 <div style={{
                   borderRadius: "55% 45% 50% 50% / 48% 52% 48% 52%",
