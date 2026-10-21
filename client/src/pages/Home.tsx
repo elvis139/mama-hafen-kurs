@@ -305,7 +305,7 @@ export default function Home() {
                   marginBottom: "2rem",
                   maxWidth: 480,
                 }}>
-                  Kein Kampf beim Anziehen. Kein Drama beim Frühstück. Nur dein Kind, das kooperiert – und du, die sich endlich wieder wie eine gute Mama fühlt.
+                  Entdecke, was wirklich hinter den Wutanfällen deines Kindes steckt und wie du selbst in herausfordernden Momenten ruhig, bestimmt und liebevoll begleiten kannst.
                 </p>
               </FadeUp>
               <FadeUp delay={240}>
