@@ -293,8 +293,8 @@ export default function Home() {
                   marginBottom: "1.2rem",
                   fontWeight: 700,
                 }}>
-                  Weniger Machtkämpfe. Weniger Schimpfen.{" "}
-                  <em style={{ color: "var(--teal)", fontStyle: "italic" }}>Mehr Freude am Familienalltag.</em>
+                  Weniger Machtkämpfe. Weniger Schimpfen.
+                  <em style={{ display: "block", color: "var(--teal)", fontStyle: "italic" }}>Mehr Freude am Familienalltag.</em>
                 </h1>
               </FadeUp>
               <FadeUp delay={160}>
