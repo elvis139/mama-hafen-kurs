@@ -289,12 +289,12 @@ export default function Home() {
                   fontFamily: "'DM Serif Display', serif",
                   fontSize: "clamp(2.2rem, 5vw, 3.4rem)",
                   lineHeight: 1.12,
-                  color: "var(--foreground)",
+                  color: '#2c3030',
                   marginBottom: "1.2rem",
                   fontWeight: 700,
                 }}>
-                  Stell dir einen Morgen vor, an dem dein Kind nicht schreit.{" "}
-                  <em style={{ color: "var(--teal)", fontStyle: "italic" }}>Und du auch nicht.</em>
+                  Weniger Machtkämpfe. Weniger Schimpfen.{" "}
+                  <em style={{ color: "var(--teal)", fontStyle: "italic" }}>Mehr Freude am Familienalltag.</em>
                 </h1>
               </FadeUp>
               <FadeUp delay={160}>
