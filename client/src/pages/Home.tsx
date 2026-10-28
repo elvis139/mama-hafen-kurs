@@ -350,6 +350,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── TESTIMONIALS ── */}
+      <section style={{ background: "var(--sand)", padding: "4rem 0 5rem" }}>
+        <div className="container">
+          <FadeUp>
+            <h2 style={{
+              fontFamily: "'DM Serif Display', serif",
+              fontSize: "clamp(1.8rem, 4vw, 2.4rem)",
+              textAlign: "center",
+              marginBottom: "3rem",
+              color: "var(--foreground)",
+            }}>
+              Das sagen Mamas, die dabei sind
+            </h2>
+          </FadeUp>
+
+          <div className="testimonials-grid">
+            {[
+              { text: '"Die praktischen Beispiele konnte ich direkt anwenden – man weiß sofort, was gemeint ist."', name: "Nina K., Mama eines 3-Jährigen" },
+              { text: '"Seitdem fallen ihr die Entscheidungen leichter. Das hat sich sofort verändert."', name: "Julia W., Mama von drei Kindern" },
+              { text: '"Der Kurs hat mich neu motiviert – neue Perspektiven, super in den Alltag integrierbar."', name: "Melanie S., Mama von zwei Kindern" },
+            ].map((t, i) => (
+              <FadeUp key={i} delay={i * 80}>
+                <div style={{
+                  background: "white",
+                  borderRadius: 16,
+                  padding: "1.8rem",
+                  border: "1px solid var(--border)",
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
+                }}>
+                  <div style={{ color: "#f59e0b", fontSize: "1rem", marginBottom: "0.75rem" }}>★★★★★</div>
+                  <p style={{ fontSize: "0.95rem", lineHeight: 1.75, color: "var(--foreground)", marginBottom: "1rem", fontStyle: "italic" }}>
+                    {t.text}
+                  </p>
+                  <div style={{ fontSize: "0.82rem", color: "var(--muted-foreground)", fontWeight: 600 }}>— {t.name}</div>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── SOCIAL PROOF BAR ── */}
       <section style={{ background: "var(--sand)", padding: "1.5rem 0", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
         <div className="container" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
@@ -873,47 +914,6 @@ export default function Home() {
                   {mod.min} Min.
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── TESTIMONIALS ── */}
-      <section style={{ background: "var(--sand)", padding: "5rem 0" }}>
-        <div className="container">
-          <FadeUp>
-            <h2 style={{
-              fontFamily: "'DM Serif Display', serif",
-              fontSize: "clamp(1.8rem, 4vw, 2.4rem)",
-              textAlign: "center",
-              marginBottom: "3rem",
-              color: "var(--foreground)",
-            }}>
-              Das sagen Mamas, die dabei sind
-            </h2>
-          </FadeUp>
-
-          <div className="testimonials-grid">
-            {[
-              { text: '"Die praktischen Beispiele konnte ich direkt anwenden – man weiß sofort, was gemeint ist."', name: "Nina K., Mama eines 3-Jährigen" },
-              { text: '"Seitdem fallen ihr die Entscheidungen leichter. Das hat sich sofort verändert."', name: "Julia W., Mama von drei Kindern" },
-              { text: '"Der Kurs hat mich neu motiviert – neue Perspektiven, super in den Alltag integrierbar."', name: "Melanie S., Mama von zwei Kindern" },
-            ].map((t, i) => (
-              <FadeUp key={i} delay={i * 80}>
-                <div style={{
-                  background: "white",
-                  borderRadius: 16,
-                  padding: "1.8rem",
-                  border: "1px solid var(--border)",
-                  boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
-                }}>
-                  <div style={{ color: "#f59e0b", fontSize: "1rem", marginBottom: "0.75rem" }}>★★★★★</div>
-                  <p style={{ fontSize: "0.95rem", lineHeight: 1.75, color: "var(--foreground)", marginBottom: "1rem", fontStyle: "italic" }}>
-                    {t.text}
-                  </p>
-                  <div style={{ fontSize: "0.82rem", color: "var(--muted-foreground)", fontWeight: 600 }}>— {t.name}</div>
-                </div>
-              </FadeUp>
             ))}
           </div>
         </div>
